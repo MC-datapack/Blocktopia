@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "blocktopia",
+	"version": "${version}",
+	"name": "Blocktopia",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/blocktopia/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"github.mc_datapck.blocktopia.Blocktopia"
+		],
+		"client": [
+			"github.mc_datapck.blocktopia.BlocktopiaClient"
+		],
+		"fabric-datagen": [
+			"github.mc_datapck.blocktopia.BlocktopiaDataGenerator"
+		]
+	},
+	"mixins": [
+		"blocktopia.mixins.json",
+		{
+			"config": "blocktopia.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
