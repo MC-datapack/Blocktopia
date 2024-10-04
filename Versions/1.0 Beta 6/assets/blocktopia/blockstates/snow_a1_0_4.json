@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "layers=1": {
+      "model": "blocktopia:block/snow_a1_0_4_height2"
+    },
+    "layers=2": {
+      "model": "blocktopia:block/snow_a1_0_4_height4"
+    },
+    "layers=3": {
+      "model": "blocktopia:block/snow_a1_0_4_height6"
+    },
+    "layers=4": {
+      "model": "blocktopia:block/snow_a1_0_4_height8"
+    },
+    "layers=5": {
+      "model": "blocktopia:block/snow_a1_0_4_height10"
+    },
+    "layers=6": {
+      "model": "blocktopia:block/snow_a1_0_4_height12"
+    },
+    "layers=7": {
+      "model": "blocktopia:block/snow_a1_0_4_height14"
+    },
+    "layers=8": {
+      "model": "blocktopia:block/snow_block_a1_0_5"
+    }
+  }
+}

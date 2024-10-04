@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:bricks_a1_0_11"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:bricks"
+  }
+}

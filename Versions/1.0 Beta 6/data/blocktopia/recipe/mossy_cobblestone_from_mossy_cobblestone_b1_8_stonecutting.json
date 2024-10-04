@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:mossy_cobblestone_b1_8"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:mossy_cobblestone"
+  }
+}

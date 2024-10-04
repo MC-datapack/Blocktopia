@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "blocktopia:block/furnace_b1_2_bottom_top",
+    "east": "blocktopia:block/furnace_in20100219_side",
+    "north": "blocktopia:block/lit_furnace_in20100219_front",
+    "particle": "blocktopia:block/lit_furnace_in20100219_front",
+    "south": "blocktopia:block/furnace_in20100219_side",
+    "up": "blocktopia:block/furnace_b1_2_bottom_top",
+    "west": "blocktopia:block/furnace_in20100219_side"
+  }
+}

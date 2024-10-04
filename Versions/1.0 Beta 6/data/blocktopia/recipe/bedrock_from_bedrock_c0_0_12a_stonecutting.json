@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:bedrock_c0_0_12a"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:bedrock"
+  }
+}

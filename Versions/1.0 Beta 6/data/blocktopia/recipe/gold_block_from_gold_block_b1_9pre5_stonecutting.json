@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:gold_block_b1_9pre5"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:gold_block"
+  }
+}

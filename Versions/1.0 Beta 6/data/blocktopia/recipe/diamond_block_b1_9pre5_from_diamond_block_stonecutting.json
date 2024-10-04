@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:diamond_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:diamond_block_b1_9pre5"
+  }
+}

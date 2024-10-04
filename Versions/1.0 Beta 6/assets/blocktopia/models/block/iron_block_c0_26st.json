@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blocktopia:block/iron_block_c0_26st_bottom",
+    "side": "blocktopia:block/iron_block_c0_26st",
+    "top": "blocktopia:block/iron_block_c0_26st_top"
+  }
+}

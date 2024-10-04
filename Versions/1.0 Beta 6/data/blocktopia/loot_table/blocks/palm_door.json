@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:palm_door",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "blocktopia:palm_door",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "blocktopia:blocks/palm_door"
+}

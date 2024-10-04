@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "github.mcdatapack.blocktopia.boat.impl.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"MixinBoatEntity",
+		"MixinEntityPredicate"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

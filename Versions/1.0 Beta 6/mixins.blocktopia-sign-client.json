@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "github.mcdatapack.blocktopia.sign.impl.client.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+	"MixinHangingSignBlockEntityRenderer",
+	"MixinHangingSignEditScreen",
+	"MixinSignBlockEntityRenderer",
+	"MixinSignEditScreen"
+  ],
+  "injectors": {
+	"defaultRequire": 1
+  }
+}

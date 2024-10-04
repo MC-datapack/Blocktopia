@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sponge_1_8": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:sponge_1_8"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sponge_from_sponge_1_8_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sponge_1_8"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sponge_from_sponge_1_8_stonecutting"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:torch_from_torch_in20100124_2_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torch_in20100124_2": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:torch_in20100124_2"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_torch_in20100124_2"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:torch_from_torch_in20100124_2_stonecutting"
+    ]
+  }
+}

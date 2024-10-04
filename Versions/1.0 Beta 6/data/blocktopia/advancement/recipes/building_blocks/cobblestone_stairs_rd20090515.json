@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobblestone_rd20090515": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:cobblestone_rd20090515"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:cobblestone_stairs_rd20090515"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobblestone_rd20090515"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:cobblestone_stairs_rd20090515"
+    ]
+  }
+}

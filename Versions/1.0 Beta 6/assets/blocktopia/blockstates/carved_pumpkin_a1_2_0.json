@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "blocktopia:block/carved_pumpkin_a1_2_0",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "blocktopia:block/carved_pumpkin_a1_2_0"
+    },
+    "facing=south": {
+      "model": "blocktopia:block/carved_pumpkin_a1_2_0",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "blocktopia:block/carved_pumpkin_a1_2_0",
+      "y": 270
+    }
+  }
+}

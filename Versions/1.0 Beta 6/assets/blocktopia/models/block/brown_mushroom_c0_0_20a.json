@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "blocktopia:block/brown_mushroom_c0_0_20a"
+  }
+}

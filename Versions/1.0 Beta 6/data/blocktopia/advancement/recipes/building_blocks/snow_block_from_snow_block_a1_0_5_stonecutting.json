@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_snow_block_a1_0_5": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:snow_block_a1_0_5"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:snow_block_from_snow_block_a1_0_5_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_snow_block_a1_0_5"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:snow_block_from_snow_block_a1_0_5_stonecutting"
+    ]
+  }
+}

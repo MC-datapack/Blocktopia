@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "blocktopia:block/wooden_planks_b1_9pre5",
+    "side": "blocktopia:block/bookshelf_b1_9pre5"
+  }
+}

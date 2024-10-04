@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:carved_pumpkin"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:carved_pumpkin_a1_2_0"
+  }
+}

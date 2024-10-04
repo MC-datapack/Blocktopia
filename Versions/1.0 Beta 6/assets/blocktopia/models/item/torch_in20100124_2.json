@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "blocktopia:block/torch_in20100124_2"
+  }
+}

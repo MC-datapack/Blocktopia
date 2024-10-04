@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blocktopia:block/diamond_block_in20100128_bottom",
+    "side": "blocktopia:block/diamond_block_in20100128",
+    "top": "blocktopia:block/diamond_block_in20100128_top"
+  }
+}

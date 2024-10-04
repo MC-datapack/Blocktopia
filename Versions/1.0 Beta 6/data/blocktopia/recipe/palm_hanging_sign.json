@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "blocktopia:stripped_palm_log"
+    },
+    "B": {
+      "tag": "c:chains"
+    }
+  },
+  "pattern": [
+    "B B",
+    "AAA",
+    "AAA"
+  ],
+  "result": {
+    "count": 6,
+    "id": "blocktopia:palm_hanging_sign"
+  }
+}

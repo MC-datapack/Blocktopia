@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bricks_a1_0_11": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:bricks_a1_0_11"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:bricks_from_bricks_a1_0_11_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bricks_a1_0_11"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:bricks_from_bricks_a1_0_11_stonecutting"
+    ]
+  }
+}

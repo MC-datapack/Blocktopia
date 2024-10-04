@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "blocktopia:block/leaves_c0_0_14a"
+  }
+}

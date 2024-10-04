@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:redstone_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:redstone_ore_1_14"
+  }
+}

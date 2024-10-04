@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "blocktopia:block/wooden_planks_c0_0_14a"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_poppy_1_7": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:poppy_1_7"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:poppy_from_poppy_1_7_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_poppy_1_7"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:poppy_from_poppy_1_7_stonecutting"
+    ]
+  }
+}

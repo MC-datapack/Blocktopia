@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:tnt"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:tnt_c0_28a"
+  }
+}

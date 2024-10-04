@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "enchanted_golden_baked_potato",
+  "ingredient": {
+    "item": "blocktopia:enchanted_golden_potato"
+  },
+  "result": {
+    "id": "blocktopia:enchanted_golden_baked_potato"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:oak_leaves"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:leaves_c0_24st"
+  }
+}

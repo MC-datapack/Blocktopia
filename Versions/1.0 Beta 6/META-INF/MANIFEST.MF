@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Fabric-Jar-Type: sources
+Fabric-Loom-Client-Only-Entries: github/mcdatapack/blocktopia/Blocktopia
+ Client.java;github/mcdatapack/blocktopia/boat/api/BlocktopiaBoatClientH
+ elper.java;github/mcdatapack/blocktopia/boat/impl/BlocktopiaBoatEntityR
+ enderer.java;github/mcdatapack/blocktopia/boat/impl/client/mixin/MixinB
+ oatEntityRenderer.java;github/mcdatapack/blocktopia/screen/SmallChestIn
+ ventoryScreen.java;github/mcdatapack/blocktopia/sign/impl/client/mixin/
+ MixinHangingSignBlockEntityRenderer.java;github/mcdatapack/blocktopia/s
+ ign/impl/client/mixin/MixinHangingSignEditScreen.java;github/mcdatapack
+ /blocktopia/sign/impl/client/mixin/MixinSignBlockEntityRenderer.java;gi
+ thub/mcdatapack/blocktopia/sign/impl/client/mixin/MixinSignEditScreen.j
+ ava;mixins.blocktopia-boat-client.json;mixins.blocktopia-sign-client.js
+ on
+Fabric-Loom-Split-Environment: true
+Fabric-Gradle-Version: 8.10
+Fabric-Loom-Version: 1.7.4
+Fabric-Mixin-Compile-Extensions-Version: 0.6.0
+Fabric-Minecraft-Version: 1.21.1
+Fabric-Tiny-Remapper-Version: 0.10.3
+Fabric-Loader-Version: 0.16.5
+Fabric-Mixin-Version: 0.15.3+mixin.0.8.7
+Fabric-Mixin-Group: net.fabricmc
+Fabric-Mapping-Namespace: intermediary
+

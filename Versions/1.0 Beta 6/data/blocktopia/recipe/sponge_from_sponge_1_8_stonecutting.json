@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:sponge_1_8"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:sponge"
+  }
+}

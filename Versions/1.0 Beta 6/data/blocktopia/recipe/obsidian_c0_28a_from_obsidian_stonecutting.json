@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:obsidian"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:obsidian_c0_28a"
+  }
+}

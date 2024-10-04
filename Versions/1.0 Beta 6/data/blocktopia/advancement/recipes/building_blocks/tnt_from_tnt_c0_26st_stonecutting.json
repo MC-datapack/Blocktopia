@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:tnt_from_tnt_c0_26st_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tnt_c0_26st": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:tnt_c0_26st"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tnt_c0_26st"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:tnt_from_tnt_c0_26st_stonecutting"
+    ]
+  }
+}

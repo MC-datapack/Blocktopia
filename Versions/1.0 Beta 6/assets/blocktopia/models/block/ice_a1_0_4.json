@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "blocktopia:block/ice_a1_0_4"
+  }
+}

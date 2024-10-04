@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:oak_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:wooden_planks_rd20090515"
+  }
+}
