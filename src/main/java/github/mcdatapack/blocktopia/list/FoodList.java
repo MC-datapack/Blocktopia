@@ -128,7 +128,7 @@ public class FoodList {
             return this;
         }
         public Builder eatingTime(float ticks) {
-            this.eatSeconds = ticks*20;
+            this.eatSeconds = ticks/20;
             return this;
         }
         public Builder statusEffect(StatusEffectInstance effect, float chance) {
