@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:wooden_stairs_c0_0_14a"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_planks_c0_0_14a": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:wooden_planks_c0_0_14a"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wooden_planks_c0_0_14a"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:wooden_stairs_c0_0_14a"
+    ]
+  }
+}

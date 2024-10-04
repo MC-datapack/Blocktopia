@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sand_b1_9pre6": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:sand_b1_9pre6"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sand_from_sand_b1_9pre6_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sand_b1_9pre6"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sand_from_sand_b1_9pre6_stonecutting"
+    ]
+  }
+}

@@ -1,44 +1,42 @@
 {
-	"schemaVersion": 1,
-	"id": "blocktopia",
-	"version": "${version}",
-	"name": "Blocktopia",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/blocktopia/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"github.mc_datapck.blocktopia.Blocktopia"
-		],
-		"client": [
-			"github.mc_datapck.blocktopia.BlocktopiaClient"
-		],
-		"fabric-datagen": [
-			"github.mc_datapck.blocktopia.BlocktopiaDataGenerator"
-		]
-	},
-	"mixins": [
-		"blocktopia.mixins.json",
-		{
-			"config": "blocktopia.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": ">=0.16.5",
-		"minecraft": "~1.21.1",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "blocktopia",
+  "version": "${version}",
+  "name": "Blocktopia",
+  "description": "Blocktopia adds many new Blocks.",
+  "authors": [
+    "Timo_11 (MC-Datapack)",
+    "Patrick_Farm"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/blcktopia",
+    "sources": "https://github.com/MC-datapack/Blocktopia",
+    "issues": "https://github.com/MC-datapack/Blocktopia/issues"
+  },
+  "license": "BSD-3-Clause",
+  "icon": "assets/blocktopia/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "github.mcdatapack.blocktopia.Blocktopia"
+    ],
+    "client": [
+      "github.mcdatapack.blocktopia.BlocktopiaClient"
+    ],
+    "fabric-datagen": [
+      "github.mcdatapack.blocktopia.BlocktopiaDataGenerator"
+    ]
+  },
+  "mixins": [
+    "mixins.blocktopia-boat.json",
+    "mixins.blocktopia-boat-client.json",
+    "mixins.blocktopia-sign.json",
+    "mixins.blocktopia-sign-client.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "blocktopia:block/wooden_planks_c0_0_15a",
+    "east": "blocktopia:block/crafting_table_in20100131_side",
+    "north": "blocktopia:block/crafting_table_in20100131_front",
+    "particle": "blocktopia:block/crafting_table_in20100131_front",
+    "south": "blocktopia:block/crafting_table_in20100131_side",
+    "up": "blocktopia:block/crafting_table_in20100131_top",
+    "west": "blocktopia:block/crafting_table_in20100131_front"
+  }
+}

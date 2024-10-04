@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_torch_wall",
+  "textures": {
+    "torch": "blocktopia:block/torch_in20100124_2"
+  }
+}

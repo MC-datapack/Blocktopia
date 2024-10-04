@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:torch_in20100124_2"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:torch"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "blocktopia:block/rose_c0_0_20a"
+  }
+}

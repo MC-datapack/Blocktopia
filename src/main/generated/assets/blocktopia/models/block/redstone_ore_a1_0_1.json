@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "blocktopia:block/redstone_ore_a1_0_1"
+  }
+}

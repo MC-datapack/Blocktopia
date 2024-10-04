@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:snow_a1_0_4"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:snow"
+  }
+}

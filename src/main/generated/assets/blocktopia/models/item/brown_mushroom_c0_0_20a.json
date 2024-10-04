@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "blocktopia:block/brown_mushroom_c0_0_20a"
+  }
+}

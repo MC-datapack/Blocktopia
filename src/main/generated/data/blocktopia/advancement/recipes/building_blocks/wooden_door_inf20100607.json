@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:wooden_door_inf20100607"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_planks_c0_0_15a": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:wooden_planks_c0_0_15a"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wooden_planks_c0_0_15a"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:wooden_door_inf20100607"
+    ]
+  }
+}

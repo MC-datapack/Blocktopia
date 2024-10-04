@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "blocktopia:block/redstone_torch_a1_0_1"
+  }
+}

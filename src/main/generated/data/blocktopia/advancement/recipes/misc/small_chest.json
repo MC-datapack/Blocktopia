@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:wooden_slabs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:wooden_slabs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:small_chest"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:wooden_slabs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:small_chest"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "blocktopia:wooden_planks_c0_0_14a"
+    },
+    "B": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:wooden_fence_c0_0_14a"
+  }
+}

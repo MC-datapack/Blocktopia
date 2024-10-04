@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "blocktopia:log_c0_0_14a"
+    },
+    {
+      "item": "blocktopia:log_c0_0_14a"
+    },
+    {
+      "item": "blocktopia:log_c0_0_14a"
+    }
+  ],
+  "result": {
+    "count": 12,
+    "id": "blocktopia:wooden_planks_b1_9pre5"
+  }
+}

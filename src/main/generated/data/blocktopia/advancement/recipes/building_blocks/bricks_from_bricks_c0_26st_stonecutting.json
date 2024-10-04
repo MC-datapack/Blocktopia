@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bricks_c0_26st": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:bricks_c0_26st"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:bricks_from_bricks_c0_26st_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bricks_c0_26st"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:bricks_from_bricks_c0_26st_stonecutting"
+    ]
+  }
+}

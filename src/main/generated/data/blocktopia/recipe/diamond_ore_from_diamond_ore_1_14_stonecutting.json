@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:diamond_ore_1_14"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:diamond_ore"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:jack_o_lantern_a1_2_0"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:jack_o_lantern"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "blocktopia:block/palm_sapling"
+  }
+}

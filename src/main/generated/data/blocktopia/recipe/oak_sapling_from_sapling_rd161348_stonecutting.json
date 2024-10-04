@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:sapling_rd161348"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_sapling"
+  }
+}

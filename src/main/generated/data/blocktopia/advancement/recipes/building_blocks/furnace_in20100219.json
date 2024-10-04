@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_furnace_in20100219": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:furnace_in20100219"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:furnace_in20100219"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_furnace_in20100219"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:furnace_in20100219"
+    ]
+  }
+}

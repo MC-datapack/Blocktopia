@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_leaves_c0_24st": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:leaves_c0_24st"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:oak_leaves_from_leaves_c0_24st_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_leaves_c0_24st"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:oak_leaves_from_leaves_c0_24st_stonecutting"
+    ]
+  }
+}

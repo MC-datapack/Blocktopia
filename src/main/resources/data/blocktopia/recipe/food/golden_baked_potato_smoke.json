@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "blocktopia:golden_potato"
+  },
+  "result": {
+    "id": "blocktopia:golden_baked_potato"
+  },
+  "experience": 1,
+  "cookingtime": 100
+}

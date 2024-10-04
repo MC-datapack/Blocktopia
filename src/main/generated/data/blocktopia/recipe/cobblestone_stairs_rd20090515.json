@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "blocktopia:cobblestone_rd20090515"
+    }
+  },
+  "pattern": [
+    "A  ",
+    "AA ",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:cobblestone_stairs_rd20090515"
+  }
+}

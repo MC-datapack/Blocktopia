@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oak_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:oak_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sapling_c0_0_13a_from_oak_sapling_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oak_sapling"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sapling_c0_0_13a_from_oak_sapling_stonecutting"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/ladder",
+  "textures": {
+    "layer0": "blocktopia:block/ladder_inf20100607"
+  }
+}

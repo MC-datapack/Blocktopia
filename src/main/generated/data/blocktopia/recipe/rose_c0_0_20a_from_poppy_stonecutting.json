@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:poppy"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:rose_c0_0_20a"
+  }
+}

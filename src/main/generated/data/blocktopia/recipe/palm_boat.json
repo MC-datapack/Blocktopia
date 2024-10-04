@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "blocktopia:palm_planks"
+    }
+  },
+  "pattern": [
+    "A A",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:palm_boat"
+  }
+}

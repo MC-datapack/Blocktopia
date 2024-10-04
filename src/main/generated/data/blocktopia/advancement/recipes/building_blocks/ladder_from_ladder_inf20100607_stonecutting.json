@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ladder_inf20100607": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:ladder_inf20100607"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:ladder_from_ladder_inf20100607_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ladder_inf20100607"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:ladder_from_ladder_inf20100607_stonecutting"
+    ]
+  }
+}

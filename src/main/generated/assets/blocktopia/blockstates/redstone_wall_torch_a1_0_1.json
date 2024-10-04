@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "blocktopia:block/redstone_wall_torch_a1_0_1"
+    },
+    "facing=north": {
+      "model": "blocktopia:block/redstone_wall_torch_a1_0_1",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "blocktopia:block/redstone_wall_torch_a1_0_1",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "blocktopia:block/redstone_wall_torch_a1_0_1",
+      "y": 180
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:redstone_torch_a1_0_1"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:redstone_torch"
+  }
+}

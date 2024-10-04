@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:crafting_table_1_14"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:crafting_table"
+  }
+}

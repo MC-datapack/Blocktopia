@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sponge_c0_0_19a": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:sponge_c0_0_19a"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sponge_from_sponge_c0_0_19a_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sponge_c0_0_19a"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sponge_from_sponge_c0_0_19a_stonecutting"
+    ]
+  }
+}

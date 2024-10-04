@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "blocktopia:block/wooden_planks_c0_0_15a",
+    "side": "blocktopia:block/wooden_planks_c0_0_15a",
+    "top": "blocktopia:block/wooden_planks_c0_0_15a"
+  }
+}

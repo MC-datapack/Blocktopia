@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jack_o_lantern_a1_2_0": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:jack_o_lantern_a1_2_0"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:jack_o_lantern_from_jack_o_lantern_a1_2_0_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jack_o_lantern_a1_2_0"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:jack_o_lantern_from_jack_o_lantern_a1_2_0_stonecutting"
+    ]
+  }
+}

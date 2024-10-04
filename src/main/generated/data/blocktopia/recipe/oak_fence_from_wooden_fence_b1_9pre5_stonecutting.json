@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_fence_b1_9pre5"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_fence"
+  }
+}

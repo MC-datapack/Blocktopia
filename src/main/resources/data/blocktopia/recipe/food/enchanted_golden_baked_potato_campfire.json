@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "blocktopia:enchanted_golden_potato"
+  },
+  "result": {
+    "id": "blocktopia:enchanted_golden_baked_potato"
+  },
+  "cookingtime": 600
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "blocktopia:block/snow_block_a1_0_5"
+  }
+}
