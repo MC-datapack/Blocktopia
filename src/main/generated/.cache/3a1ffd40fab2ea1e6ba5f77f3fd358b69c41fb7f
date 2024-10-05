@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-05T12:01:23.4172645	Blocktopia/Tags for minecraft:block
+// 1.21.1	2024-10-05T18:25:00.3651956	Blocktopia/Tags for minecraft:block
 f9ddeefd6ed7be3ccb093756ce135856d568f8ca data\minecraft\tags\block\enchantment_power_provider.json
 0b70e28fc888c9c98605cd0565840d147988ebc0 data\minecraft\tags\block\fence_gates.json
 87404edc31643eb23be8a359ee17e319d67c7453 data\minecraft\tags\block\standing_signs.json
@@ -11,11 +11,11 @@ e0aae88f4c66b90199801a73a83c36017d4850b9 data\minecraft\tags\block\mineable\shov
 a0c76844a382bcaae4ee312a3df42008c58abc4e data\minecraft\tags\block\needs_diamond_tool.json
 a0a495ddbf449680d239728b8f97aab9ab298463 data\minecraft\tags\block\needs_iron_tool.json
 3f767e01f354b657b5de61c6c88fb22cc328847e data\minecraft\tags\block\wall_hanging_signs.json
-417d28018405bb9b393ec1d267dfa1ae0bf2d091 data\minecraft\tags\block\infiniburn_overworld.json
 6cda186ea6c4d9c2601b113437d0ff61185510af data\blocktopia\tags\block\golden_blocks.json
+417d28018405bb9b393ec1d267dfa1ae0bf2d091 data\minecraft\tags\block\infiniburn_overworld.json
 712aeccef552a9b5f1c837ba29e74b77c57a378f data\minecraft\tags\block\saplings.json
-36e90972d6efaad0d1f401dcd92ec7200f03fc57 data\minecraft\tags\block\needs_stone_tool.json
 08945f4da4a9a520b60a5be04090cd0271441bae data\minecraft\tags\block\mineable\axe.json
+36e90972d6efaad0d1f401dcd92ec7200f03fc57 data\minecraft\tags\block\needs_stone_tool.json
 e7cd3777c9206461192904fa498ded5d7836ca4d data\minecraft\tags\block\wooden_fences.json
 405e5d4b1ff448b853a4ad2301d0086c1454358e data\minecraft\tags\block\logs_that_burn.json
 3836801478c666018bfe34792b4c77104aad8641 data\minecraft\tags\block\wooden_stairs.json
@@ -34,7 +34,7 @@ b3b58e455af782330cf95267f5de62cc4c8d650d data\minecraft\tags\block\wooden_slabs.
 d351609fbc54d86012494bfbc6a51aaf48b38cee data\minecraft\tags\block\ceiling_hanging_signs.json
 03cda8030b5f3ac63bdc97a595cfa799b75bec08 data\blocktopia\tags\block\palm_logs.json
 bfe33951dba2ae939756a143f6ca94a32a1d9e5d data\minecraft\tags\block\wooden_pressure_plates.json
-5a1b4db7e14993d664746a7dcee723c38c825737 data\minecraft\tags\block\soul_fire_base_blocks.json
 78024558ca741f0b019d5b628ecfbf83bbd3c7cd data\blocktopia\tags\block\diamond_blocks.json
+5a1b4db7e14993d664746a7dcee723c38c825737 data\minecraft\tags\block\soul_fire_base_blocks.json
 b8a80bf7bef4bf4bed7b90245d78c41a94b6925f data\minecraft\tags\block\mineable\hoe.json
 b74ce4205a73b7b32a37c06594b59f04cd0fd1c0 data\blocktopia\tags\block\iron_blocks.json
