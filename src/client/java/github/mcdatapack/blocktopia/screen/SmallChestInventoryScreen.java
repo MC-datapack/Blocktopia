@@ -9,13 +9,13 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class SmallChestInventoryScreen extends HandledScreen<SmallChestInventoryScreenHandler> {
-    private static final Identifier TEXTURE = Blocktopia.id("textures/gui/container/example_inventory_block.png");
+    private static final Identifier TEXTURE = Blocktopia.id("textures/gui/container/small_chest_inventory.png");
 
     public SmallChestInventoryScreen(SmallChestInventoryScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         this.backgroundWidth = 176;
         this.backgroundHeight = 184;
-        this.playerInventoryTitleY = this.backgroundHeight - 94;
+        this.playerInventoryTitleY = this.backgroundHeight - 150;
     }
 
     @Override

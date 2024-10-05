@@ -5,7 +5,6 @@ import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import java.util.Optional;
 
-import github.mcdatapack.blocktopia.list.TagList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
@@ -13,7 +12,6 @@ import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Model;
 import net.minecraft.data.client.Models;
-import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -28,7 +26,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PAPER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.GUNPOWDER_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.SMALL_CHEST);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PALM_LEAVES);
         blockStateModelGenerator.registerFlowerPotPlant(BlockInit.PALM_SAPLING, BlockInit.POTTED_PALM_SAPLING, TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(BlockInit.PALM_LOG)

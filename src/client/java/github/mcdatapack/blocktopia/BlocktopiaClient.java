@@ -2,15 +2,20 @@ package github.mcdatapack.blocktopia;
 
 import github.mcdatapack.blocktopia.boat.api.BlocktopiaBoatClientHelper;
 import github.mcdatapack.blocktopia.boat.impl.BlocktopiaBoatEntityRenderer;
+import github.mcdatapack.blocktopia.init.BlockEntityTypeInit;
 import github.mcdatapack.blocktopia.init.BoatInit;
 import github.mcdatapack.blocktopia.init.ScreenHandlerTypeInit;
 import github.mcdatapack.blocktopia.init.blocks.*;
+import github.mcdatapack.blocktopia.models.SmallChestModel;
+import github.mcdatapack.blocktopia.renderer.SmallChestBlockEntityRenderer;
 import github.mcdatapack.blocktopia.screen.SmallChestInventoryScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class BlocktopiaClient implements ClientModInitializer {
 
@@ -29,8 +34,15 @@ public class BlocktopiaClient implements ClientModInitializer {
                 LegacyBlocks.REDSTONE_WALL_TORCH_A1_0_1);
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), LegacyBlocks.ICE_A1_0_4);
 
-
+        //Model Layers
         BlocktopiaBoatClientHelper.registerModelLayers(BoatInit.PALM_BOAT_ID, false);
+        EntityModelLayerRegistry.registerModelLayer(SmallChestModel.LAYER, SmallChestModel::getTexturedModelData);
+
+        //BlockEntityRenderers
+        BlockEntityRendererFactories.register(BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY, SmallChestBlockEntityRenderer::new);
+
+
+
 
         HandledScreens.register(ScreenHandlerTypeInit.SMALL_CHEST_INVENTORY_SCREEN_HANDLER, SmallChestInventoryScreen::new);
 

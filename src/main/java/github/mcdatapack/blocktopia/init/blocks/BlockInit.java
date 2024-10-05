@@ -34,6 +34,7 @@ public class BlockInit {
                 @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
     public static final SmallChestBlock SMALL_CHEST = register("small_chest", new SmallChestBlock(AbstractBlock.Settings.create()
             .strength(2.5F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
+
     public static final Block PALM_LOG = register("palm_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
     public static final Block STRIPPED_PALM_LOG =  register("stripped_palm_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
     public static final PillarBlock PALM_WOOD = register("palm_wood", new PillarBlock(AbstractBlock.Settings.create()

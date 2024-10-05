@@ -24,7 +24,6 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 import static net.minecraft.block.Blocks.*;
 

@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-04T16:29:46.6732982	Blocktopia/Block Loot Tables
+// 1.21.1	2024-10-05T12:01:23.408268	Blocktopia/Block Loot Tables
 bcd73b981044c931c85ded58a2c16df65470a844 data\blocktopia\loot_table\blocks\cobblestone_stairs_rd20090515.json
 a28f4aac9c849da97dc3f182db5d484f66081cac data\blocktopia\loot_table\blocks\wooden_planks_rd20090515.json
 056b99a5fbe8b3f8db16f84b2f2c6dfbcbcbb92a data\blocktopia\loot_table\blocks\rose_cloth.json
@@ -12,8 +12,8 @@ d0192d15955ed94ed9e12a73078595f82bbb53f8 data\blocktopia\loot_table\blocks\log_c
 3e97b076e62a1a99811b4b5a64a1e7f5eac69e05 data\blocktopia\loot_table\blocks\stripped_palm_log.json
 0759fc73cb879a545edb7fefbfd6277516d4ee94 data\blocktopia\loot_table\blocks\gold_block_c0_26st.json
 c8594c0f6c832fd5d5b393d463fdef57b7324115 data\blocktopia\loot_table\blocks\yellow_cloth.json
-cd034dfe49bfc4481d9dfef4187c93721097ef71 data\blocktopia\loot_table\blocks\wooden_stairs_inf20100629.json
 90a588f1626075fb7e231e530caa59fd8c87cdd5 data\blocktopia\loot_table\blocks\soul_sand_a1_2_0.json
+cd034dfe49bfc4481d9dfef4187c93721097ef71 data\blocktopia\loot_table\blocks\wooden_stairs_inf20100629.json
 e58afaae14a3b1ecba67a2e5a0a6879ca6d20c70 data\blocktopia\loot_table\blocks\light_gray_cloth_c0_28a.json
 c23f8b6f5db7cda8c8cb4514df6c2ed4e20ff77e data\blocktopia\loot_table\blocks\gravel_c0_0_14a.json
 c01ad20ac2953b35eb83b1e55b8ade51ee5e4d03 data\blocktopia\loot_table\blocks\wooden_planks_b1_9pre5.json
