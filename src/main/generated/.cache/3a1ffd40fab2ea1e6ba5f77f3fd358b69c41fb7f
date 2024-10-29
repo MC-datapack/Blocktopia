@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-05T18:25:00.3651956	Blocktopia/Tags for minecraft:block
+// 1.21.1	2024-10-29T12:23:31.4192228	Blocktopia/Tags for minecraft:block
 f9ddeefd6ed7be3ccb093756ce135856d568f8ca data\minecraft\tags\block\enchantment_power_provider.json
 0b70e28fc888c9c98605cd0565840d147988ebc0 data\minecraft\tags\block\fence_gates.json
 87404edc31643eb23be8a359ee17e319d67c7453 data\minecraft\tags\block\standing_signs.json
@@ -7,7 +7,7 @@ e5eeea9acf35494765edad0737c4ac913da43477 data\minecraft\tags\block\slabs.json
 acfab29c1acc8e8f13d42892b6b08b50bd196d44 data\minecraft\tags\block\wooden_buttons.json
 f2fb26d265650518780aed23491704b1444a20d9 data\minecraft\tags\block\wooden_trapdoors.json
 8cf914fb9f2c144a93d8bdf48aedfc45b3cdf4fa data\minecraft\tags\block\planks.json
-e0aae88f4c66b90199801a73a83c36017d4850b9 data\minecraft\tags\block\mineable\shovel.json
+874810713beb80cf1858073201d2f73f3e279342 data\minecraft\tags\block\mineable\shovel.json
 a0c76844a382bcaae4ee312a3df42008c58abc4e data\minecraft\tags\block\needs_diamond_tool.json
 a0a495ddbf449680d239728b8f97aab9ab298463 data\minecraft\tags\block\needs_iron_tool.json
 3f767e01f354b657b5de61c6c88fb22cc328847e data\minecraft\tags\block\wall_hanging_signs.json

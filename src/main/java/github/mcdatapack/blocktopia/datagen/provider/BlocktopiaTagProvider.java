@@ -13,8 +13,6 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 
-import org.jetbrains.annotations.Nullable;
-
 public class BlocktopiaTagProvider {
     public static class BlocktopiaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         public BlocktopiaBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
@@ -26,7 +24,7 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(SMALL_CHEST).add(BOOKSHELF_C0_26ST).add(BOOKSHELF_B1_9PRE5).add(CRAFTING_TABLE_IN20100131).add(CRAFTING_TABLE_1_14).add(LADDER_INF20100607).add(LADDER_INF20100618).add(CARVED_PUMPKIN_A1_2_0).add(JACK_O_LANTERN_A1_2_0).setReplace(false);
             getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(PAPER_BLOCK).add(PALM_LEAVES).add(LEAVES_C0_0_14A).add(LEAVES_C0_0_15A).add(LEAVES_C0_24ST).add(SPONGE_C0_0_19A).add(SPONGE_1_8).add(WET_SPONGE_1_8).setReplace(false);
             getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(COBBLESTONE_RD20090515).add(COBBLESTONE_C_0_0_14A).add(COBBLESTONE_B1_7).add(COAL_ORE_C0_0_14A).add(COAL_ORE_1_14).add(IRON_ORE_C0_0_14A).add(IRON_ORE_1_14).add(IRON_ORE_1_14_1).add(GOLD_ORE_C0_0_14A).add(GOLD_ORE_C0_26ST).add(GOLD_ORE_1_14).add(GOLD_BLOCK_C0_0_20A).add(GOLD_BLOCK_C0_26ST).add(GOLD_BLOCK_A1_2_0).add(GOLD_BLOCK_B1_9PRE5).add(STONE_SLAB_C0_26ST).add(IRON_BLOCK_C0_26ST).add(IRON_BLOCK_A1_2_0).add(IRON_BLOCK_B1_9PRE5).add(MOSSY_COBBLESTONE_C0_26ST).add(MOSSY_COBBLESTONE_B1_8).add(BRICKS_C0_26ST).add(BRICKS_A1_0_11).add(OBSIDIAN_C0_28A).add(DIAMOND_ORE_IN20100128).add(DIAMOND_ORE_1_14).add(DIAMOND_BLOCK_IN20100128).add(DIAMOND_BLOCK_A1_2_0).add(DIAMOND_BLOCK_B1_9PRE5).add(FURNACE_IN20100219).add(LIT_FURNACE_IN20100219).add(FURNACE_B1_2).add(LIT_FURNACE_B1_2).add(COBBLESTONE_STAIRS_RD20090515).add(COBBLESTONE_STAIRS_C0_0_14A).add(COBBLESTONE_STAIRS_B1_7).add(REDSTONE_ORE_A1_0_1).add(REDSTONE_ORE_1_14).add(ICE_A1_0_4).add(NETHERRACK_A1_2_0).add(NETHERRACK_B1_9PRE5).add(GLOWSTONE_A1_2_0).add(GLOWSTONE_B1_9PRE5).setReplace(false);
-            getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(GUNPOWDER_BLOCK).add(SAND_C0_0_14A).add(SAND_C0_0_15A).add(SAND_B1_9PRE6).add(GRAVEL_C0_0_14A).add(GRAVEL_C0_0_15A).add(GRAVEL_B1_9PRE5).add(GRAVEL_1_3).add(SNOW_A1_0_4).add(SNOW_BLOCK_A1_0_5).add(CLAY_BLOCK_A1_0_11).add(SOUL_SAND_A1_2_0).setReplace(false);
+            getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(GUNPOWDER_BLOCK).add(FIREWORK_BLOCK).add(SAND_C0_0_14A).add(SAND_C0_0_15A).add(SAND_B1_9PRE6).add(GRAVEL_C0_0_14A).add(GRAVEL_C0_0_15A).add(GRAVEL_B1_9PRE5).add(GRAVEL_1_3).add(SNOW_A1_0_4).add(SNOW_BLOCK_A1_0_5).add(CLAY_BLOCK_A1_0_11).add(SOUL_SAND_A1_2_0).setReplace(false);
             getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(OBSIDIAN_C0_28A).setReplace(false);
             getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(GOLD_ORE_C0_0_14A).add(GOLD_ORE_C0_26ST).add(GOLD_ORE_1_14).add(GOLD_BLOCK_C0_0_20A).add(GOLD_BLOCK_C0_26ST).add(GOLD_BLOCK_A1_2_0).add(GOLD_BLOCK_B1_9PRE5).add(DIAMOND_ORE_IN20100128).add(DIAMOND_ORE_1_14).add(DIAMOND_BLOCK_IN20100128).add(DIAMOND_BLOCK_A1_2_0).add(DIAMOND_BLOCK_B1_9PRE5).add(REDSTONE_ORE_A1_0_1).add(REDSTONE_ORE_1_14).setReplace(false);
             getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(IRON_ORE_C0_0_14A).add(IRON_ORE_1_14).add(IRON_ORE_1_14_1).add(IRON_BLOCK_C0_26ST).add(IRON_BLOCK_A1_2_0).add(IRON_BLOCK_B1_9PRE5).setReplace(false);

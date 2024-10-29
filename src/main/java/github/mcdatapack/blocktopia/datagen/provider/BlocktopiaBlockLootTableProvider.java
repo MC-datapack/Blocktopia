@@ -17,6 +17,7 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
     public void generate() {
         addDrop(PAPER_BLOCK);
         addDrop(GUNPOWDER_BLOCK);
+        addDrop(FIREWORK_BLOCK);
         addDrop(PALM_LOG);
         addDrop(STRIPPED_PALM_LOG);
         addDrop(PALM_WOOD);

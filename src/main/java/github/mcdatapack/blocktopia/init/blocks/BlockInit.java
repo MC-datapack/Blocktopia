@@ -32,6 +32,9 @@ public class BlockInit {
     public static final FallingBlock GUNPOWDER_BLOCK = register("gunpowder_block",
             new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).strength(0.2F, 0.0F)) {
                 @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
+    public static final FallingBlock FIREWORK_BLOCK = register("firework_block",
+            new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).strength(0.4F, 0.0F)) {
+        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
     public static final SmallChestBlock SMALL_CHEST = register("small_chest", new SmallChestBlock(AbstractBlock.Settings.create()
             .strength(2.5F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
 

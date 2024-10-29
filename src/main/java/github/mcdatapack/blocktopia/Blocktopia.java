@@ -33,6 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Blocktopia implements ModInitializer {
+    public static boolean DevMode = false;
     public static final Logger LOGGER = LoggerFactory.getLogger("Blocktopia");
     public static final String MOD_ID = "blocktopia";
     private static final float DIMENSIONS_WIDTH = 1.375F;
@@ -55,7 +56,10 @@ public class Blocktopia implements ModInitializer {
         LegacyBlocks.load();
         BoatInit.load();
         LOGGER.info("Applying Biome Modifications");
-        BiomeModificationInit.load(true, false);
+        if (DevMode) {BiomeModificationInit.load(true, true, 1.2, 1.23, 1.23,
+                true, true, true, true, true);}
+        else {BiomeModificationInit.load(true, false, 0, 0, 0,
+                false, false, false, false, false);}
         LOGGER.info("Loading Block Entities");
         BlockEntityTypeInit.load();
         ScreenHandlerTypeInit.load();
@@ -78,6 +82,7 @@ public class Blocktopia implements ModInitializer {
         Registry.register(Registries.ENTITY_TYPE, BOAT_ID, BOAT);
         Registry.register(Registries.ENTITY_TYPE, CHEST_BOAT_ID, CHEST_BOAT);
         LOGGER.info("Loaded Blocktopia");
+        if (DevMode) {for (int i = 0; i <10; i++)  {LOGGER.error("DevMode is enabled");}}
     }
 
     public static Identifier id(String path) {

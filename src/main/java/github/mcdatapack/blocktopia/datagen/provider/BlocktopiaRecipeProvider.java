@@ -44,6 +44,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .input(DIAMOND_BLOCKS)
                 .criterion(hasItem(DIAMOND), conditionsFromItem(DIAMOND))
                 .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BlockInit.GUNPOWDER_BLOCK)
                 .input('A', GUNPOWDER)
                 .pattern("AAA")
@@ -66,6 +67,25 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .input(BlockInit.PAPER_BLOCK)
                 .criterion(hasItem(PAPER), conditionsFromItem(PAPER))
                 .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BlockInit.FIREWORK_BLOCK)
+                .input('A', FIREWORK_ROCKET)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .criterion(hasItem(FIREWORK_ROCKET), conditionsFromItem(FIREWORK_ROCKET))
+                .offerTo(exporter, "firework_block_1");
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, FIREWORK_ROCKET, 9)
+                .input(BlockInit.FIREWORK_BLOCK)
+                .criterion(hasItem(FIREWORK_ROCKET), conditionsFromItem(FIREWORK_ROCKET))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BlockInit.FIREWORK_BLOCK, 3)
+                .input(BlockInit.PAPER_BLOCK)
+                .input(BlockInit.GUNPOWDER_BLOCK)
+                .criterion(hasItem(FIREWORK_ROCKET), conditionsFromItem(FIREWORK_ROCKET))
+                .offerTo(exporter,"firework_block_2");
+
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BlockInit.SMALL_CHEST)
                 .input('A', ItemTags.WOODEN_SLABS)
                 .pattern("AAA")

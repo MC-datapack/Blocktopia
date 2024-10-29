@@ -48,6 +48,7 @@ public class GravityBlocksGroup {
                 entries.add(Blocks.CHIPPED_ANVIL);
                 entries.add(BlockInit.PAPER_BLOCK);
                 entries.add(BlockInit.GUNPOWDER_BLOCK);
+                entries.add(BlockInit.FIREWORK_BLOCK);
             }).build());
 
 

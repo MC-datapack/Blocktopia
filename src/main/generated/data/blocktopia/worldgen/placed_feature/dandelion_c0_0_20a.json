@@ -1,0 +1,11 @@
+{
+  "feature": "blocktopia:dandelion_c0_0_20a",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:replaceable"
+      }
+    }
+  ]
+}

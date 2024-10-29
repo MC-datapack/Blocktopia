@@ -26,6 +26,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PAPER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.GUNPOWDER_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FIREWORK_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PALM_LEAVES);
         blockStateModelGenerator.registerFlowerPotPlant(BlockInit.PALM_SAPLING, BlockInit.POTTED_PALM_SAPLING, TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(BlockInit.PALM_LOG)
