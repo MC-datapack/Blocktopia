@@ -12,10 +12,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class SpongeBlock_1_8 extends Block {
+public class SpongeBlockClassic extends Block {
     public static final MapCodec<SpongeBlock> CODEC = createCodec(SpongeBlock::new);
-    public static final int ABSORB_RADIUS = 6;
-    public static final int ABSORB_LIMIT = 64;
+    public static final int ABSORB_RADIUS = 60;
+    public static final int ABSORB_LIMIT = 640;
     private static final Direction[] DIRECTIONS = Direction.values();
 
     @Override
@@ -23,7 +23,7 @@ public class SpongeBlock_1_8 extends Block {
         return CODEC;
     }
 
-    public SpongeBlock_1_8(AbstractBlock.Settings settings) {
+    public SpongeBlockClassic(AbstractBlock.Settings settings) {
         super(settings);
     }
 
@@ -42,7 +42,6 @@ public class SpongeBlock_1_8 extends Block {
 
     protected void update(World world, BlockPos pos) {
         if (this.absorbWater(world, pos)) {
-            world.setBlockState(pos, LegacyBlocks.WET_SPONGE_1_8.getDefaultState(), Block.NOTIFY_LISTENERS);
             world.playSound(null, pos, SoundEvents.BLOCK_SPONGE_ABSORB, SoundCategory.BLOCKS, 1.0F, 1.0F);
         }
     }
@@ -57,28 +56,20 @@ public class SpongeBlock_1_8 extends Block {
                 return true;
             } else {
                 BlockState blockState = world.getBlockState(currentPos);
-                FluidState fluidState = world.getFluidState(currentPos);
-                if (!fluidState.isIn(FluidTags.WATER)) {
-                    return false;
-                } else {
-                    if (blockState.getBlock() instanceof FluidDrainable fluidDrainable && !fluidDrainable.tryDrainFluid(null, world, currentPos, blockState).isEmpty()) {
-                        return true;
-                    }
-
-                    if (blockState.getBlock() instanceof FluidBlock) {
-                        world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
-                    } else {
-                        if (!blockState.isOf(Blocks.KELP) && !blockState.isOf(Blocks.KELP_PLANT) && !blockState.isOf(Blocks.SEAGRASS) && !blockState.isOf(Blocks.TALL_SEAGRASS)) {
-                            return false;
-                        }
-
-                        BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(currentPos) : null;
-                        dropStacks(blockState, world, currentPos, blockEntity);
-                        world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
-                    }
-
+                if (blockState.getBlock() instanceof FluidDrainable fluidDrainable && !fluidDrainable.tryDrainFluid(null, world, currentPos, blockState).isEmpty()) {
                     return true;
                 }
+                if (blockState.getBlock() instanceof FluidBlock) {
+                    world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
+                } else {
+                    if (!blockState.isOf(Blocks.KELP) && !blockState.isOf(Blocks.KELP_PLANT) && !blockState.isOf(Blocks.SEAGRASS) && !blockState.isOf(Blocks.TALL_SEAGRASS)) {
+                        return false;
+                    }
+                    BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(currentPos) : null;
+                    dropStacks(blockState, world, currentPos, blockEntity);
+                    world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
+                }
+                return true;
             }
         }) > 1;
     }

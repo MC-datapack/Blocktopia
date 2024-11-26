@@ -3,10 +3,9 @@
   "id": "blocktopia",
   "version": "${version}",
   "name": "Blocktopia",
-  "description": "Blocktopia adds many new Blocks.",
+  "description": "Blocktopia adds many Blocks to minecraft.",
   "authors": [
-    "Timo_11 (MC-Datapack)",
-    "Patrick_Farm"
+    "Timo_11 (MC-Datapack)"
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/blcktopia",
@@ -35,7 +34,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.16.5",
-    "minecraft": "~1.21.1",
+    "minecraft": ">=1.21 <=1.21.1",
     "java": ">=21",
     "fabric-api": "*"
   }

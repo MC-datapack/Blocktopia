@@ -1,0 +1,237 @@
+package github.mcdatapack.blocktopia.init;
+
+import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.init.blocks.BlockInit;
+import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
+
+@SuppressWarnings("unused")
+public class ItemGroupInit {
+    public static final ItemGroup GRAVITY_BLOCKS_GROUP = register("gravity_blocks_group", FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.blocktopia.gravity_blocks"))
+            .icon(BlockInit.PAPER_BLOCK.asItem()::getDefaultStack)
+            .entries((displayContext, entries) -> {
+                entries.add(Blocks.SAND);
+                entries.add(LegacyBlocks.SAND_C0_0_14A);
+                entries.add(LegacyBlocks.SAND_C0_0_15A);
+                entries.add(LegacyBlocks.SAND_B1_9PRE6);
+                entries.add(Blocks.SUSPICIOUS_SAND);
+                entries.add(Blocks.GRAVEL);
+                entries.add(LegacyBlocks.GRAVEL_C0_0_14A);
+                entries.add(LegacyBlocks.GRAVEL_C0_0_15A);
+                entries.add(LegacyBlocks.GRAVEL_B1_9PRE5);
+                entries.add(LegacyBlocks.GRAVEL_1_3);
+                entries.add(Blocks.SUSPICIOUS_GRAVEL);
+                entries.add(Blocks.WHITE_CONCRETE_POWDER);
+                entries.add(Blocks.LIGHT_GRAY_CONCRETE_POWDER);
+                entries.add(Blocks.GRAY_CONCRETE_POWDER);
+                entries.add(Blocks.BLACK_CONCRETE_POWDER);
+                entries.add(Blocks.BROWN_CONCRETE_POWDER);
+                entries.add(Blocks.PURPLE_CONCRETE_POWDER);
+                entries.add(Blocks.MAGENTA_CONCRETE_POWDER);
+                entries.add(Blocks.PINK_CONCRETE_POWDER);
+                entries.add(Blocks.RED_CONCRETE_POWDER);
+                entries.add(Blocks.ORANGE_CONCRETE_POWDER);
+                entries.add(Blocks.YELLOW_CONCRETE_POWDER);
+                entries.add(Blocks.LIME_CONCRETE_POWDER);
+                entries.add(Blocks.GREEN_CONCRETE_POWDER);
+                entries.add(Blocks.CYAN_CONCRETE_POWDER);
+                entries.add(Blocks.LIGHT_BLUE_CONCRETE_POWDER);
+                entries.add(Blocks.BLUE_CONCRETE_POWDER);
+                entries.add(Blocks.ANVIL);
+                entries.add(Blocks.DAMAGED_ANVIL);
+                entries.add(Blocks.CHIPPED_ANVIL);
+                entries.add(BlockInit.PAPER_BLOCK);
+                entries.add(BlockInit.GUNPOWDER_BLOCK);
+                entries.add(BlockInit.FIREWORK_BLOCK);
+            }).build());
+
+        public static final ItemGroup LEGACY_BLOCKS_GROUP = register("legacy_blocks_group", FabricItemGroup.builder()
+                .displayName(Text.translatable("itemGroup.blocktopia.legacy_blocks"))
+                .icon(LegacyBlocks.COBBLESTONE_RD20090515.asItem()::getDefaultStack)
+                .entries((displayContext, entries) -> {
+                    entries.add(LegacyBlocks.COBBLESTONE_RD20090515);
+                    entries.add(LegacyBlocks.COBBLESTONE_C_0_0_14A);
+                    entries.add(LegacyBlocks.COBBLESTONE_B1_7);
+                    entries.add(LegacyBlocks.WOODEN_PLANKS_RD20090515);
+                    entries.add(LegacyBlocks.WOODEN_PLANKS_RD161348);
+                    entries.add(LegacyBlocks.WOODEN_PLANKS_C0_0_14A);
+                    entries.add(LegacyBlocks.WOODEN_PLANKS_C0_0_15A);
+                    entries.add(LegacyBlocks.WOODEN_PLANKS_B1_9PRE5);
+                    entries.add(LegacyBlocks.SAPLING_RD161348);
+                    entries.add(LegacyBlocks.SAPLING_C0_0_13A);
+                    entries.add(LegacyBlocks.SAPLING_C0_24ST);
+                    entries.add(LegacyBlocks.BEDROCK_C0_0_12A);
+                    entries.add(LegacyBlocks.SAND_C0_0_14A);
+                    entries.add(LegacyBlocks.SAND_C0_0_15A);
+                    entries.add(LegacyBlocks.SAND_B1_9PRE6);
+                    entries.add(LegacyBlocks.GRAVEL_C0_0_14A);
+                    entries.add(LegacyBlocks.GRAVEL_C0_0_15A);
+                    entries.add(LegacyBlocks.GRAVEL_B1_9PRE5);
+                    entries.add(LegacyBlocks.GRAVEL_1_3);
+                    entries.add(LegacyBlocks.COAL_ORE_C0_0_14A);
+                    entries.add(LegacyBlocks.COAL_ORE_1_14);
+                    entries.add(LegacyBlocks.IRON_ORE_C0_0_14A);
+                    entries.add(LegacyBlocks.IRON_ORE_1_14);
+                    entries.add(LegacyBlocks.IRON_ORE_1_14_1);
+                    entries.add(LegacyBlocks.GOLD_ORE_C0_0_14A);
+                    entries.add(LegacyBlocks.GOLD_ORE_C0_26ST);
+                    entries.add(LegacyBlocks.GOLD_ORE_1_14);
+                    entries.add(LegacyBlocks.LOG_C0_0_14A);
+                    entries.add(LegacyBlocks.LEAVES_C0_0_14A);
+                    entries.add(LegacyBlocks.LEAVES_C0_0_15A);
+                    entries.add(LegacyBlocks.LEAVES_C0_24ST);
+                    entries.add(LegacyBlocks.SPONGE_C0_0_19A);
+                    entries.add(LegacyBlocks.SPONGE_1_8);
+                    entries.add(LegacyBlocks.WET_SPONGE_1_8);
+                    entries.add(LegacyBlocks.GLASS_C0_0_19A);
+                    entries.add(LegacyBlocks.WHITE_CLOTH);
+                    entries.add(LegacyBlocks.LIGHT_GRAY_CLOTH_C0_0_20A);
+                    entries.add(LegacyBlocks.LIGHT_GRAY_CLOTH_C0_28A);
+                    entries.add(LegacyBlocks.DARK_GRAY_CLOTH_C0_0_20A);
+                    entries.add(LegacyBlocks.DARK_GRAY_CLOTH_C0_28A);
+                    entries.add(LegacyBlocks.RED_CLOTH);
+                    entries.add(LegacyBlocks.ORANGE_CLOTH);
+                    entries.add(LegacyBlocks.YELLOW_CLOTH);
+                    entries.add(LegacyBlocks.CHARTREUSE_CLOTH);
+                    entries.add(LegacyBlocks.SPRING_GREEN_CLOTH);
+                    entries.add(LegacyBlocks.CYAN_CLOTH);
+                    entries.add(LegacyBlocks.CAPRI_CLOTH);
+                    entries.add(LegacyBlocks.ULTRAMARINE_CLOTH);
+                    entries.add(LegacyBlocks.VIOLET_CLOTH);
+                    entries.add(LegacyBlocks.PURPLE_CLOTH);
+                    entries.add(LegacyBlocks.MAGENTA_CLOTH);
+                    entries.add(LegacyBlocks.ROSE_CLOTH);
+                    entries.add(LegacyBlocks.GOLD_BLOCK_C0_0_20A);
+                    entries.add(LegacyBlocks.GOLD_BLOCK_C0_26ST);
+                    entries.add(LegacyBlocks.GOLD_BLOCK_A1_2_0);
+                    entries.add(LegacyBlocks.GOLD_BLOCK_B1_9PRE5);
+                    entries.add(LegacyBlocks.DANDELION_C0_0_20A);
+                    entries.add(LegacyBlocks.ROSE_C0_0_20A);
+                    entries.add(LegacyBlocks.POPPY_1_7);
+                    entries.add(LegacyBlocks.RED_MUSHROOM_C0_0_20A);
+                    entries.add(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A);
+                    entries.add(LegacyBlocks.STONE_SLAB_C0_26ST);
+                    entries.add(LegacyBlocks.IRON_BLOCK_C0_26ST);
+                    entries.add(LegacyBlocks.IRON_BLOCK_A1_2_0);
+                    entries.add(LegacyBlocks.IRON_BLOCK_B1_9PRE5);
+                    entries.add(LegacyBlocks.TNT_C0_26ST);
+                    entries.add(LegacyBlocks.TNT_C0_28A);
+                    entries.add(LegacyBlocks.MOSSY_COBBLESTONE_C0_26ST);
+                    entries.add(LegacyBlocks.MOSSY_COBBLESTONE_B1_8);
+                    entries.add(LegacyBlocks.BRICKS_C0_26ST);
+                    entries.add(LegacyBlocks.BRICKS_A1_0_11);
+                    entries.add(LegacyBlocks.BOOKSHELF_C0_26ST);
+                    entries.add(LegacyBlocks.BOOKSHELF_B1_9PRE5);
+                    entries.add(LegacyBlocks.OBSIDIAN_C0_28A);
+                    entries.add(ItemInit.TORCH_IN20100124_2);
+                    entries.add(LegacyBlocks.DIAMOND_ORE_IN20100128);
+                    entries.add(LegacyBlocks.DIAMOND_ORE_1_14);
+                    entries.add(LegacyBlocks.DIAMOND_BLOCK_IN20100128);
+                    entries.add(LegacyBlocks.DIAMOND_BLOCK_A1_2_0);
+                    entries.add(LegacyBlocks.DIAMOND_BLOCK_B1_9PRE5);
+                    entries.add(LegacyBlocks.CRAFTING_TABLE_IN20100131);
+                    entries.add(LegacyBlocks.CRAFTING_TABLE_1_14);
+                    entries.add(LegacyBlocks.FURNACE_IN20100219);
+                    entries.add(LegacyBlocks.LIT_FURNACE_IN20100219);
+                    entries.add(LegacyBlocks.FURNACE_B1_2);
+                    entries.add(LegacyBlocks.LIT_FURNACE_B1_2);
+                    entries.add(LegacyBlocks.LADDER_INF20100607);
+                    entries.add(LegacyBlocks.LADDER_INF20100618);
+                    entries.add(ItemInit.SIGN_INF20100607);
+                    entries.add(LegacyBlocks.WOODEN_DOOR_INF20100607);
+                    entries.add(LegacyBlocks.WOODEN_STAIRS_RD20090515);
+                    entries.add(LegacyBlocks.WOODEN_STAIRS_RD161348);
+                    entries.add(LegacyBlocks.WOODEN_STAIRS_C0_0_14A);
+                    entries.add(LegacyBlocks.WOODEN_STAIRS_INF20100629);
+                    entries.add(LegacyBlocks.WOODEN_STAIRS_B1_9PRE5);
+                    entries.add(LegacyBlocks.COBBLESTONE_STAIRS_RD20090515);
+                    entries.add(LegacyBlocks.COBBLESTONE_STAIRS_C0_0_14A);
+                    entries.add(LegacyBlocks.COBBLESTONE_STAIRS_B1_7);
+                    entries.add(LegacyBlocks.REDSTONE_ORE_A1_0_1);
+                    entries.add(LegacyBlocks.REDSTONE_ORE_1_14);
+                    entries.add(ItemInit.REDSTONE_TORCH_A1_0_1);
+                    entries.add(LegacyBlocks.SNOW_A1_0_4);
+                    entries.add(LegacyBlocks.ICE_A1_0_4);
+                    entries.add(LegacyBlocks.SNOW_BLOCK_A1_0_5);
+                    entries.add(LegacyBlocks.WOODEN_FENCE_RD20090515);
+                    entries.add(LegacyBlocks.WOODEN_FENCE_RD161348);
+                    entries.add(LegacyBlocks.WOODEN_FENCE_C0_0_14A);
+                    entries.add(LegacyBlocks.WOODEN_FENCE_A1_0_17);
+                    entries.add(LegacyBlocks.WOODEN_FENCE_B1_9PRE5);
+                    entries.add(LegacyBlocks.NETHERRACK_A1_2_0);
+                    entries.add(LegacyBlocks.NETHERRACK_B1_9PRE5);
+                    entries.add(LegacyBlocks.SOUL_SAND_A1_2_0);
+                    entries.add(LegacyBlocks.GLOWSTONE_A1_2_0);
+                    entries.add(LegacyBlocks.GLOWSTONE_B1_9PRE5);
+                    entries.add(LegacyBlocks.CARVED_PUMPKIN_A1_2_0);
+                    entries.add(LegacyBlocks.JACK_O_LANTERN_A1_2_0);
+            }).build());
+
+    public static final ItemGroup NATURAL_BLOCKS_GROUP = register("natural_blocks_group", FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.blocktopia.natural_blocks"))
+            .icon(BlockInit.PALM_LEAVES.asItem()::getDefaultStack)
+            .entries((displayContext, entries) -> {
+                entries.add(BlockInit.PALM_WOOD);
+                entries.add(BlockInit.STRIPPED_PALM_WOOD);
+                entries.add(BlockInit.PALM_LOG);
+                entries.add(BlockInit.STRIPPED_PALM_LOG);
+                entries.add(BlockInit.PALM_LEAVES);
+                entries.add(BlockInit.PALM_SAPLING);
+                entries.add(BlockInit.PALM_PLANKS);
+                entries.add(BlockInit.PALM_STAIRS);
+                entries.add(BlockInit.PALM_SLAB);
+                entries.add(BlockInit.PALM_FENCE);
+                entries.add(BlockInit.PALM_FENCE_GATE);
+                entries.add(BlockInit.PALM_PRESSURE_PLATE);
+                entries.add(BlockInit.PALM_BUTTON);
+                entries.add(BlockInit.PALM_DOOR);
+                entries.add(BlockInit.PALM_TRAPDOOR);
+                entries.add(ItemInit.PALM_SIGN);
+                entries.add(ItemInit.PALM_HANGING_SIGN);
+                entries.add(ItemInit.PALM_BOAT);
+                entries.add(ItemInit.PALM_CHEST_BOAT);
+                entries.add(ItemInit.COCONUT);
+                entries.add(LegacyBlocks.LEAVES_C0_0_14A);
+                entries.add(LegacyBlocks.LEAVES_C0_0_15A);
+                entries.add(LegacyBlocks.LEAVES_C0_24ST);
+                entries.add(LegacyBlocks.LOG_C0_0_14A);
+                entries.add(LegacyBlocks.SAPLING_RD161348);
+                entries.add(LegacyBlocks.SAPLING_C0_0_13A);
+                entries.add(LegacyBlocks.SAPLING_C0_24ST);
+                entries.add(LegacyBlocks.ROSE_C0_0_20A);
+                entries.add(LegacyBlocks.POPPY_1_7);
+                entries.add(LegacyBlocks.DANDELION_C0_0_20A);
+                entries.add(LegacyBlocks.RED_MUSHROOM_C0_0_20A);
+                entries.add(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A);
+            }).build());
+
+    public static final ItemGroup OTHER_ITEMS_GROUP = register("other_items_group", FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.blocktopia.other_items"))
+            .icon(BlockInit.SMALL_CHEST.asItem()::getDefaultStack)
+            .entries((displayContext, entries) -> {
+                entries.add(BlockInit.SMALL_CHEST);
+                entries.add(ItemInit.COCONUT);
+                entries.add(ItemInit.GOLDEN_COCONUT);
+                entries.add(ItemInit.ENCHANTED_GOLDEN_COCONUT);
+                entries.add(ItemInit.ENCHANTED_GOLDEN_CARROT);
+                entries.add(ItemInit.GOLDEN_POTATO);
+                entries.add(ItemInit.ENCHANTED_GOLDEN_POTATO);
+                entries.add(ItemInit.GOLDEN_BAKED_POTATO);
+                entries.add(ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO);
+                entries.add(ItemInit.GIANT_SPAWN_EGG);
+                entries.add(ItemInit.ILLUSIONER_SPAWN_EGG);
+            }).build());
+
+
+    public static <T extends ItemGroup> T register(String name, T itemGroup) {
+        return Registry.register(Registries.ITEM_GROUP, Blocktopia.id(name), itemGroup);
+    }
+
+    public static void load() {}
+}

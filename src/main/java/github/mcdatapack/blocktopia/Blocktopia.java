@@ -12,14 +12,12 @@ import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.ScreenHandlerTypeInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
-import github.mcdatapack.blocktopia.init.itemgroups.GravityBlocksGroup;
-import github.mcdatapack.blocktopia.init.itemgroups.LegacyBlocksGroup;
-import github.mcdatapack.blocktopia.init.itemgroups.NaturalBlocksGroup;
-import github.mcdatapack.blocktopia.init.itemgroups.OtherItemsGroup;
+import github.mcdatapack.blocktopia.init.ItemGroupInit;
 import github.mcdatapack.blocktopia.init.worldgen.BiomeModificationInit;
 import github.mcdatapack.blocktopia.util.CustomTrades;
 import github.mcdatapack.blocktopia.villager.CustomVillager;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.minecraft.entity.EntityType;
@@ -29,21 +27,12 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import org.lwjgl.glfw.GLFWErrorCallback;
-import org.lwjgl.opengl.GL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.swing.*;
-
-import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.glfw.GLFW.glfwSwapInterval;
-import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Blocktopia implements ModInitializer {
     public static boolean DevMode = false;
     public static final Logger LOGGER = LoggerFactory.getLogger("Blocktopia");
-    public static final String MOD_ID = "blocktopia";
     private static final float DIMENSIONS_WIDTH = 1.375F;
     private static final float DIMENSIONS_HEIGHT = 0.5625F;
     private static final Registry<BlocktopiaBoatType> registryInstance = BlocktopiaBoatTypeRegistry.INSTANCE;
@@ -72,18 +61,12 @@ public class Blocktopia implements ModInitializer {
         BlockEntityTypeInit.load();
         ScreenHandlerTypeInit.load();
         LOGGER.debug("Loading Creative Tabs");
-        GravityBlocksGroup.load();
-        LegacyBlocksGroup.load();
-        NaturalBlocksGroup.load();
-        OtherItemsGroup.load();
+        ItemGroupInit.load();
         LOGGER.debug("Loading Custom Villagers");
         CustomVillager.load();
         CustomTrades.load(12);
         LOGGER.debug("Event handling");
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register((entries) -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register((entries) -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register((entries) -> entries.addAfter(Items.FROG_SPAWN_EGG, ItemInit.GIANT_SPAWN_EGG));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register((entries) -> entries.addBefore(Items.HUSK_SPAWN_EGG, ItemInit.ILLUSIONER_SPAWN_EGG));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(Blocktopia::modifyEntries);
         ItemStorage.SIDED.registerForBlockEntity(SmallChestBlockEntity::getInventoryProvider, BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY);
         LOGGER.debug("Loading Blocktopia Special Boats");
         BlocktopiaBoatTrackedData.register();
@@ -91,6 +74,13 @@ public class Blocktopia implements ModInitializer {
         Registry.register(Registries.ENTITY_TYPE, CHEST_BOAT_ID, CHEST_BOAT);
         LOGGER.info("Loaded Blocktopia");
         if (DevMode) {for (int i = 0; i <10; i++)  {LOGGER.error("DevMode is enabled");}}
+    }
+
+    private static void modifyEntries(FabricItemGroupEntries entries) {
+        entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);
+        entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);
+        entries.addAfter(Items.FROG_SPAWN_EGG, ItemInit.GIANT_SPAWN_EGG);
+        entries.addBefore(Items.HUSK_SPAWN_EGG, ItemInit.ILLUSIONER_SPAWN_EGG);
     }
 
     public static Identifier id(String path) {

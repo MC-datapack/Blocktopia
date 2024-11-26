@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.init.blocks;
 
 import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.SpongeBlockClassic;
 import github.mcdatapack.blocktopia.block.SpongeBlock_1_8;
 import github.mcdatapack.blocktopia.block.WetSpongeBlock_1_8;
 import github.mcdatapack.blocktopia.init.ItemInit;
@@ -13,10 +14,8 @@ import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaWallSignBlock;
 import java.util.Optional;
 
 import net.minecraft.block.*;
-import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.entity.ai.goal.BreakDoorGoal;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -24,14 +23,12 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 import static net.minecraft.block.AbstractBlock.Settings.*;
 import static net.minecraft.block.Blocks.*;
-import static net.minecraft.util.DyeColor.RED;
 
 public class LegacyBlocks {
     public static final Block COBBLESTONE_RD20090515 = register("cobblestone_rd20090515", copy(COBBLESTONE));
@@ -81,7 +78,7 @@ public class LegacyBlocks {
     public static final Block GOLD_ORE_C0_0_14A = register("gold_ore_c0_0_14a", copy(GOLD_ORE));
     public static final Block GOLD_ORE_C0_26ST = register("gold_ore_c0_26st", copy(GOLD_ORE));
     public static final Block GOLD_ORE_1_14 = register("gold_ore_1_14", copy(GOLD_ORE));
-    public static final SpongeBlock SPONGE_C0_0_19A = register("sponge_c0_0_19a", new SpongeBlock(copy(SPONGE)));
+    public static final SpongeBlockClassic SPONGE_C0_0_19A = register("sponge_c0_0_19a", new SpongeBlockClassic(copy(SPONGE)));
     public static final SpongeBlock_1_8 SPONGE_1_8 = register("sponge_1_8", new SpongeBlock_1_8(copy(SPONGE)));
     public static final WetSpongeBlock_1_8 WET_SPONGE_1_8 = register("wet_sponge_1_8", new WetSpongeBlock_1_8(copy(WET_SPONGE)));
     public static final TransparentBlock GLASS_C0_0_19A = register("glass_c0_0_19a", new TransparentBlock(copy(GLASS)));

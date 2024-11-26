@@ -1,15 +1,10 @@
 package github.mcdatapack.blocktopia.init.worldgen;
 
-import github.mcdatapack.blocktopia.Blocktopia;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 
-import java.util.Optional;
-
-
-//float Information: 0 = nothing; 1 = first; 2 = second; 3 = third...; 1.2 = first + second; 1.23 = first + second + third...;
 
 public class BiomeModificationInit {
     public static void load(boolean Palm_Tree,
