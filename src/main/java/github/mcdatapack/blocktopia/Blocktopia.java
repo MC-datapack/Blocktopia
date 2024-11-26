@@ -29,8 +29,16 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.opengl.GL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.swing.*;
+
+import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.glfwSwapInterval;
+import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Blocktopia implements ModInitializer {
     public static boolean DevMode = false;
@@ -50,34 +58,34 @@ public class Blocktopia implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
-        LOGGER.info("Loading Items, Blocks and Entities");
+        LOGGER.debug("Loading Items, Blocks and Entities");
         ItemInit.load();
         BlockInit.load();
         LegacyBlocks.load();
         BoatInit.load();
-        LOGGER.info("Applying Biome Modifications");
+        LOGGER.debug("Applying Biome Modifications");
         if (DevMode) {BiomeModificationInit.load(true, true, 1.2, 1.23, 1.23,
                 true, true, true, true, true);}
         else {BiomeModificationInit.load(true, false, 0, 0, 0,
                 false, false, false, false, false);}
-        LOGGER.info("Loading Block Entities");
+        LOGGER.debug("Loading Block Entities");
         BlockEntityTypeInit.load();
         ScreenHandlerTypeInit.load();
-        LOGGER.info("Loading Creative Tabs");
+        LOGGER.debug("Loading Creative Tabs");
         GravityBlocksGroup.load();
         LegacyBlocksGroup.load();
         NaturalBlocksGroup.load();
         OtherItemsGroup.load();
-        LOGGER.info("Loading Custom Villagers");
+        LOGGER.debug("Loading Custom Villagers");
         CustomVillager.load();
-        CustomTrades.load();
-        LOGGER.info("Event handling");
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register((entries) -> {entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);});
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register((entries) -> {entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);});
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register((entries) -> {entries.addAfter(Items.FROG_SPAWN_EGG, ItemInit.GIANT_SPAWN_EGG);});
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register((entries) -> {entries.addBefore(Items.HUSK_SPAWN_EGG, ItemInit.ILLUSIONER_SPAWN_EGG);});
+        CustomTrades.load(12);
+        LOGGER.debug("Event handling");
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register((entries) -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register((entries) -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register((entries) -> entries.addAfter(Items.FROG_SPAWN_EGG, ItemInit.GIANT_SPAWN_EGG));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register((entries) -> entries.addBefore(Items.HUSK_SPAWN_EGG, ItemInit.ILLUSIONER_SPAWN_EGG));
         ItemStorage.SIDED.registerForBlockEntity(SmallChestBlockEntity::getInventoryProvider, BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY);
-        LOGGER.info("Loading Blocktopia Special Boats");
+        LOGGER.debug("Loading Blocktopia Special Boats");
         BlocktopiaBoatTrackedData.register();
         Registry.register(Registries.ENTITY_TYPE, BOAT_ID, BOAT);
         Registry.register(Registries.ENTITY_TYPE, CHEST_BOAT_ID, CHEST_BOAT);

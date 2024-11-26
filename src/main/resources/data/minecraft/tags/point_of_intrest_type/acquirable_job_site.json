@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "blocktopia:legacy"
+    "blocktopia:legacy",
+    "blocktopia:beekeeper"
   ]
 }

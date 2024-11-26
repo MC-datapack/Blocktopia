@@ -28,8 +28,8 @@ public class SmallChestBlockEntityRenderer implements BlockEntityRenderer<SmallC
         Random random = ThreadLocalRandom.current();
         for (int index = 0; index < 36; index++) {
             TRANSFORMATIONS.add(new ItemTransformation(
-                    (random.nextDouble() - 0.5d) * 0.4375D,
-                    (random.nextDouble() - 0.5d) * 0.4375D,
+                    (random.nextDouble() - 0.5) * 0.4375,
+                    (random.nextDouble() - 0.5) * 0.4375,
                     random.nextInt(360))
             );
         }
@@ -70,19 +70,19 @@ public class SmallChestBlockEntityRenderer implements BlockEntityRenderer<SmallC
 
 
 
-        if(entity.lidAngle > 0.1D) {
+        if(entity.lidAngle > 0.1) {
             SimpleInventory inventory = entity.getInventory();
             World world = entity.getWorld();
 
-            for (int index = 0; index < inventory.getHeldStacks().size(); index++) {
-                ItemStack stack = inventory.getStack(index);
+            for (int i = 0; i < inventory.getHeldStacks().size(); i++) {
+                ItemStack stack = inventory.getStack(i);
                 if(stack.isEmpty()) continue;
 
-                ItemTransformation transformation = TRANSFORMATIONS.get(index);
+                ItemTransformation transformation = TRANSFORMATIONS.get(i);
 
                 matrices.push();
-                matrices.translate(transformation.x(), 0.5D, transformation.z());
-                matrices.scale(0.325f, 0.325f, 0.325f);
+                matrices.translate(transformation.x(), 0.5, transformation.z());
+                matrices.scale(0.325F, 0.325F, 0.325F);
                 matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(transformation.rotation()));
 
                 this.context.getItemRenderer().renderItem(stack, ModelTransformationMode.FIXED,

@@ -1,14 +1,9 @@
 package github.mcdatapack.blocktopia;
 
 import github.mcdatapack.blocktopia.datagen.generator.BlocktopiaWorldGenerator;
-import github.mcdatapack.blocktopia.datagen.provider.BlocktopiaBlockLootTableProvider;
-import github.mcdatapack.blocktopia.datagen.provider.BlocktopiaModelProvider;
-import github.mcdatapack.blocktopia.datagen.provider.BlocktopiaRecipeProvider;
-import github.mcdatapack.blocktopia.datagen.provider.BlocktopiaTagProvider;
-import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
-import github.mcdatapack.blocktopia.init.worldgen.PlacedFeatureInit;
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import github.mcdatapack.blocktopia.datagen.provider.*;
+import github.mcdatapack.blocktopia.init.worldgen.*;
+import net.fabricmc.fabric.api.datagen.v1.*;
 
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;

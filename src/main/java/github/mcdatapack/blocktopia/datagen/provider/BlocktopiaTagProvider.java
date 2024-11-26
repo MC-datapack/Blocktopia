@@ -5,13 +5,22 @@ import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 import github.mcdatapack.blocktopia.list.TagList;
 import java.util.concurrent.CompletableFuture;
+
+import github.mcdatapack.blocktopia.villager.CustomVillager;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.DataOutput;
+import net.minecraft.data.server.tag.TagProvider;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.PointOfInterestTypeTags;
+import net.minecraft.registry.tag.TagBuilder;
+import net.minecraft.world.poi.PointOfInterestType;
 
 public class BlocktopiaTagProvider {
     public static class BlocktopiaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
