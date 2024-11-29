@@ -91,6 +91,33 @@ public class FoodList {
             .alwaysEdible()
             .eatingTime(1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 0), 1.0F).build();
+    public static final FoodComponent CHERRY_SETTINGS = new Builder()
+            .nutrition(6)
+            .saturationModifier(0.5F)
+            .alwaysEdible()
+            .snack()
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TickSecondConverter(25), 1), 1.0F)
+            .build();
+    public static final FoodComponent GOLDEN_CHERRY_SETTINGS = new Builder()
+            .nutrition(8)
+            .saturationModifier(1)
+            .alwaysEdible()
+            .eatingTime(14)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TickMinuteConverter(2), 2), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, TickMinuteConverter(6), 1), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, TickMinuteConverter(6), 0), 1.0F)
+            .build();
+    public static final FoodComponent ENCHANTED_GOLDEN_CHERRY_SETTINGS = new Builder()
+            .nutrition(10)
+            .saturationModifier(1)
+            .alwaysEdible()
+            .eatingTime(12)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TickMinuteConverter(4), 3), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, TickMinuteConverter(8), 2), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, TickMinuteConverter(8), 1), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, TickMinuteConverter(8), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, TickMinuteConverter(8), 0), 1.0F)
+            .build();
 
 
 

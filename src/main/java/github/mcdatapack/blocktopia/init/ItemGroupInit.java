@@ -197,18 +197,21 @@ public class ItemGroupInit {
                 entries.add(ItemInit.PALM_BOAT);
                 entries.add(ItemInit.PALM_CHEST_BOAT);
                 entries.add(ItemInit.COCONUT);
-                entries.add(LegacyBlocks.LEAVES_C0_0_14A);
-                entries.add(LegacyBlocks.LEAVES_C0_0_15A);
-                entries.add(LegacyBlocks.LEAVES_C0_24ST);
-                entries.add(LegacyBlocks.LOG_C0_0_14A);
-                entries.add(LegacyBlocks.SAPLING_RD161348);
-                entries.add(LegacyBlocks.SAPLING_C0_0_13A);
-                entries.add(LegacyBlocks.SAPLING_C0_24ST);
-                entries.add(LegacyBlocks.ROSE_C0_0_20A);
-                entries.add(LegacyBlocks.POPPY_1_7);
-                entries.add(LegacyBlocks.DANDELION_C0_0_20A);
-                entries.add(LegacyBlocks.RED_MUSHROOM_C0_0_20A);
-                entries.add(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A);
+                entries.add(ItemInit.CHERRY);
+                if (Blocktopia.DevMode) {
+                    entries.add(LegacyBlocks.LEAVES_C0_0_14A);
+                    entries.add(LegacyBlocks.LEAVES_C0_0_15A);
+                    entries.add(LegacyBlocks.LEAVES_C0_24ST);
+                    entries.add(LegacyBlocks.LOG_C0_0_14A);
+                    entries.add(LegacyBlocks.SAPLING_RD161348);
+                    entries.add(LegacyBlocks.SAPLING_C0_0_13A);
+                    entries.add(LegacyBlocks.SAPLING_C0_24ST);
+                    entries.add(LegacyBlocks.ROSE_C0_0_20A);
+                    entries.add(LegacyBlocks.POPPY_1_7);
+                    entries.add(LegacyBlocks.DANDELION_C0_0_20A);
+                    entries.add(LegacyBlocks.RED_MUSHROOM_C0_0_20A);
+                    entries.add(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A);
+                }
             }).build());
 
     public static final ItemGroup OTHER_ITEMS_GROUP = register("other_items_group", FabricItemGroup.builder()
@@ -219,6 +222,9 @@ public class ItemGroupInit {
                 entries.add(ItemInit.COCONUT);
                 entries.add(ItemInit.GOLDEN_COCONUT);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_COCONUT);
+                entries.add(ItemInit.CHERRY);
+                entries.add(ItemInit.GOLDEN_CHERRY);
+                entries.add(ItemInit.ENCHANTED_GOLDEN_CHERRY);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_CARROT);
                 entries.add(ItemInit.GOLDEN_POTATO);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_POTATO);

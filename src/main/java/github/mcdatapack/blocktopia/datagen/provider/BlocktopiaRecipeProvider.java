@@ -149,6 +149,22 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AAA")
                 .criterion(hasItem(POTATO), conditionsFromItem(POTATO))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.GOLDEN_CHERRY)
+                .input('A', GOLD_INGOT)
+                .input('B', ItemInit.CHERRY)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.ENCHANTED_GOLDEN_CHERRY)
+                .input('A', GOLD_BLOCK)
+                .input('B', ItemInit.GOLDEN_CHERRY)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
+                .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.GOLDEN_POTATO)
                 .input('A', GOLD_NUGGET)
                 .input('B', POTATO)

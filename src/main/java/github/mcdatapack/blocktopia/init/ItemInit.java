@@ -24,6 +24,19 @@ public class ItemInit {
     public static final Item ENCHANTED_GOLDEN_POTATO = register("enchanted_golden_potato", new Item(new Item.Settings().food(FoodList.ENCHANTED_GOLDEN_POTATO_SETTINGS).component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true).rarity(Rarity.EPIC)));
     public static final Item GOLDEN_BAKED_POTATO = register("golden_baked_potato", new Item(new Item.Settings().food(FoodList.GOLDEN_BAKED_POTATO_SETTINGS).rarity(Rarity.RARE)));
     public static final Item ENCHANTED_GOLDEN_BAKED_POTATO = register("enchanted_golden_baked_potato", new Item(new Item.Settings().food(FoodList.ENCHANTED_GOLDEN_BAKED_POTATO_SETTINGS).component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true).rarity(Rarity.EPIC)));
+    public static final Item CHERRY = register("cherry", new Item(new Item.Settings()
+            .food(FoodList.CHERRY_SETTINGS)
+            .rarity(Rarity.UNCOMMON)
+    ));
+    public static final Item GOLDEN_CHERRY = register("golden_cherry", new Item(new Item.Settings()
+            .food(FoodList.GOLDEN_CHERRY_SETTINGS)
+            .rarity(Rarity.RARE)
+    ));
+    public static final Item ENCHANTED_GOLDEN_CHERRY = register("enchanted_golden_cherry", new Item(new Item.Settings()
+            .food(FoodList.ENCHANTED_GOLDEN_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+    ));
     public static final SignItem PALM_SIGN = register("palm_sign", new SignItem(new Item.Settings().maxCount(16), BlockInit.PALM_SIGN, BlockInit.PALM_WALL_SIGN));
     public static final HangingSignItem PALM_HANGING_SIGN = register("palm_hanging_sign", new HangingSignItem(BlockInit.PALM_HANGING_SIGN, BlockInit.PALM_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
     public static final Item PALM_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_BOAT_ID, BoatInit.PALM_BOAT_KEY, false);
