@@ -1,11 +1,10 @@
 package github.mcdatapack.blocktopia.block;
 
 import com.mojang.serialization.MapCodec;
-import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
+import github.mcdatapack.blocktopia.list.TagList;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.fluid.FluidState;
-import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -56,20 +55,27 @@ public class SpongeBlockClassic extends Block {
                 return true;
             } else {
                 BlockState blockState = world.getBlockState(currentPos);
-                if (blockState.getBlock() instanceof FluidDrainable fluidDrainable && !fluidDrainable.tryDrainFluid(null, world, currentPos, blockState).isEmpty()) {
+                FluidState fluidState = world.getFluidState(currentPos);
+                if (!fluidState.isIn(TagList.Fluids.CLASSIC_SPONGE_ABSORB)) {
+                    return false;
+                } else {
+                    if (blockState.getBlock() instanceof FluidDrainable fluidDrainable && !fluidDrainable.tryDrainFluid(null, world, currentPos, blockState).isEmpty()) {
+                        return true;
+                    }
+
+                    if (blockState.getBlock() instanceof FluidBlock) {
+                        world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
+                    } else {
+                        if (!blockState.isIn(TagList.Blocks.CLASSIC_SPONGE_REPLACEABLE)) {
+                            return false;
+                        }
+
+                        BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(currentPos) : null;
+                        dropStacks(blockState, world, currentPos, blockEntity);
+                        world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
+                    }
                     return true;
                 }
-                if (blockState.getBlock() instanceof FluidBlock) {
-                    world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
-                } else {
-                    if (!blockState.isOf(Blocks.KELP) && !blockState.isOf(Blocks.KELP_PLANT) && !blockState.isOf(Blocks.SEAGRASS) && !blockState.isOf(Blocks.TALL_SEAGRASS)) {
-                        return false;
-                    }
-                    BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(currentPos) : null;
-                    dropStacks(blockState, world, currentPos, blockEntity);
-                    world.setBlockState(currentPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
-                }
-                return true;
             }
         }) > 1;
     }

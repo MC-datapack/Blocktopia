@@ -16,6 +16,7 @@ public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(BlocktopiaBlockLootTableProvider::new);
         pack.addProvider(BlocktopiaTagProvider.BlocktopiaBlockTagProvider::new);
         pack.addProvider(BlocktopiaTagProvider.BlocktopiaItemTagProvider::new);
+        pack.addProvider(BlocktopiaTagProvider.BlocktopiaFluidTagProvider::new);
         pack.addProvider(BlocktopiaRecipeProvider::new);
         pack.addProvider(BlocktopiaWorldGenerator::new);
     }

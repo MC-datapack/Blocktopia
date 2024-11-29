@@ -3,24 +3,19 @@ package github.mcdatapack.blocktopia.datagen.provider;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
+import static net.minecraft.block.Blocks.*;
+
 import github.mcdatapack.blocktopia.list.TagList;
 import java.util.concurrent.CompletableFuture;
 
-import github.mcdatapack.blocktopia.villager.CustomVillager;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.DataOutput;
-import net.minecraft.data.server.tag.TagProvider;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Items;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.PointOfInterestTypeTags;
-import net.minecraft.registry.tag.TagBuilder;
-import net.minecraft.world.poi.PointOfInterestType;
 
 public class BlocktopiaTagProvider {
     public static class BlocktopiaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
@@ -69,6 +64,7 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.WOOL).add(WHITE_CLOTH).add(LIGHT_GRAY_CLOTH_C0_0_20A).add(LIGHT_GRAY_CLOTH_C0_28A).add(DARK_GRAY_CLOTH_C0_0_20A).add(DARK_GRAY_CLOTH_C0_28A).add(RED_CLOTH).add(ORANGE_CLOTH).add(YELLOW_CLOTH).add(CHARTREUSE_CLOTH).add(SPRING_GREEN_CLOTH).add(CYAN_CLOTH).add(CAPRI_CLOTH).add(ULTRAMARINE_CLOTH).add(VIOLET_CLOTH).add(PURPLE_CLOTH).add(MAGENTA_CLOTH).add(ROSE_CLOTH).setReplace(false);
             getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER).add(BOOKSHELF_C0_26ST).add(BOOKSHELF_B1_9PRE5).setReplace(false);
             getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(LADDER_INF20100607).add(LADDER_INF20100618).setReplace(false);
+            getOrCreateTagBuilder(TagList.Blocks.CLASSIC_SPONGE_REPLACEABLE).add(KELP, KELP_PLANT, SEAGRASS, TALL_SEAGRASS);
         }
     }
 
@@ -106,6 +102,18 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(PALM_STAIRS.asItem()).add(WOODEN_STAIRS_RD20090515.asItem()).add(WOODEN_STAIRS_RD161348.asItem()).add(WOODEN_STAIRS_C0_0_14A.asItem()).add(WOODEN_STAIRS_INF20100629.asItem()).add(WOODEN_STAIRS_B1_9PRE5.asItem()).setReplace(false);
             getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(PALM_TRAPDOOR.asItem()).setReplace(false);
             getOrCreateTagBuilder(ItemTags.WOOL).add(WHITE_CLOTH.asItem()).add(LIGHT_GRAY_CLOTH_C0_0_20A.asItem()).add(LIGHT_GRAY_CLOTH_C0_28A.asItem()).add(DARK_GRAY_CLOTH_C0_0_20A.asItem()).add(DARK_GRAY_CLOTH_C0_28A.asItem()).add(RED_CLOTH.asItem()).add(ORANGE_CLOTH.asItem()).add(YELLOW_CLOTH.asItem()).add(CHARTREUSE_CLOTH.asItem()).add(SPRING_GREEN_CLOTH.asItem()).add(CYAN_CLOTH.asItem()).add(CAPRI_CLOTH.asItem()).add(ULTRAMARINE_CLOTH.asItem()).add(VIOLET_CLOTH.asItem()).add(PURPLE_CLOTH.asItem()).add(MAGENTA_CLOTH.asItem()).add(ROSE_CLOTH.asItem()).setReplace(false);
+        }
+    }
+
+    public static class BlocktopiaFluidTagProvider extends FabricTagProvider.FluidTagProvider {
+        public BlocktopiaFluidTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
+            super(output, completableFuture);
+        }
+
+        @Override
+        protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+            getOrCreateTagBuilder(TagList.Fluids.CLASSIC_SPONGE_ABSORB)
+                    .add(Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA);
         }
     }
 }

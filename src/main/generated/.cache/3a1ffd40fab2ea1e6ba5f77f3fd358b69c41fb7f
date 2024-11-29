@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-29T18:12:51.2773286	Blocktopia/Tags for minecraft:block
+// 1.21.1	2024-11-29T21:05:34.1976569	Blocktopia/Tags for minecraft:block
 f9ddeefd6ed7be3ccb093756ce135856d568f8ca data\minecraft\tags\block\enchantment_power_provider.json
 0b70e28fc888c9c98605cd0565840d147988ebc0 data\minecraft\tags\block\fence_gates.json
 87404edc31643eb23be8a359ee17e319d67c7453 data\minecraft\tags\block\standing_signs.json
@@ -14,6 +14,7 @@ a0a495ddbf449680d239728b8f97aab9ab298463 data\minecraft\tags\block\needs_iron_to
 6cda186ea6c4d9c2601b113437d0ff61185510af data\blocktopia\tags\block\golden_blocks.json
 417d28018405bb9b393ec1d267dfa1ae0bf2d091 data\minecraft\tags\block\infiniburn_overworld.json
 712aeccef552a9b5f1c837ba29e74b77c57a378f data\minecraft\tags\block\saplings.json
+4c0d52b1123dd3df794bd9fb8c7f501c6ff500f8 data\blocktopia\tags\block\classic_sponge_replaceable.json
 08945f4da4a9a520b60a5be04090cd0271441bae data\minecraft\tags\block\mineable\axe.json
 36e90972d6efaad0d1f401dcd92ec7200f03fc57 data\minecraft\tags\block\needs_stone_tool.json
 e7cd3777c9206461192904fa498ded5d7836ca4d data\minecraft\tags\block\wooden_fences.json
