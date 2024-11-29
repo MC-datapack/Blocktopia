@@ -18,7 +18,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"tutorialmod" {
+		"blocktopia" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
