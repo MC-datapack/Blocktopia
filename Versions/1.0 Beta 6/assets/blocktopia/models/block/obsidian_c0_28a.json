@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "blocktopia:block/obsidian_c0_28a"
-  }
-}

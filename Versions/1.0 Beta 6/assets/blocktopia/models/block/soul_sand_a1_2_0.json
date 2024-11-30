@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "blocktopia:block/soul_sand_a1_2_0"
-  }
-}

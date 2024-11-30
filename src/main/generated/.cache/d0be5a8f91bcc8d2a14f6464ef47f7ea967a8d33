@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-29T21:05:34.1911525	Blocktopia/Block Loot Tables
+// 1.21.1	2024-11-30T17:13:59.6235885	Blocktopia/Block Loot Tables
 bcd73b981044c931c85ded58a2c16df65470a844 data\blocktopia\loot_table\blocks\cobblestone_stairs_rd20090515.json
 a28f4aac9c849da97dc3f182db5d484f66081cac data\blocktopia\loot_table\blocks\wooden_planks_rd20090515.json
 056b99a5fbe8b3f8db16f84b2f2c6dfbcbcbb92a data\blocktopia\loot_table\blocks\rose_cloth.json
@@ -89,6 +89,7 @@ d8f80dd1e16d639fa0dd3eb7d9f56456c1982a6c data\blocktopia\loot_table\blocks\redst
 e07e09ff19c3df21085d3921fa685a0939c2bf2e data\blocktopia\loot_table\blocks\wooden_stairs_b1_9pre5.json
 d3b4a0397ba44845135569153c443554b523ffc4 data\blocktopia\loot_table\blocks\diamond_block_b1_9pre5.json
 13c2955272bce850c65abc23369c4813b8fc12a3 data\blocktopia\loot_table\blocks\mossy_cobblestone_b1_8.json
+cea926251f0de8dd2537b991876254673eeb16c7 data\blocktopia\loot_table\blocks\configurable_repeater.json
 63222eb75e262d83a6546e4e46e50c1db591abb5 data\blocktopia\loot_table\blocks\withe_cloth.json
 b7a989cb9d4ee553e151106aa2e5f817005a3c87 data\blocktopia\loot_table\blocks\bookshelf_b1_9pre5.json
 544d42f9f937b8605af4498685ff51edfc835e39 data\blocktopia\loot_table\blocks\wooden_fence_a1_0_17.json

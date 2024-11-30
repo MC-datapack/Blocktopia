@@ -149,5 +149,6 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(GLOWSTONE_B1_9PRE5);
         addDrop(CARVED_PUMPKIN_A1_2_0);
         addDrop(JACK_O_LANTERN_A1_2_0);
+        addDrop(CONFIGURABLE_REPEATER);
     }
 }

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "blocktopia:block/wooden_planks_rd161348",
-    "side": "blocktopia:block/wooden_planks_rd161348",
-    "top": "blocktopia:block/wooden_planks_rd161348"
-  }
-}

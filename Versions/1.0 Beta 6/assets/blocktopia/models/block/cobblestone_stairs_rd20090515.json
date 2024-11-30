@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "blocktopia:block/cobblestone_rd20090515",
-    "side": "blocktopia:block/cobblestone_rd20090515",
-    "top": "blocktopia:block/cobblestone_rd20090515"
-  }
-}

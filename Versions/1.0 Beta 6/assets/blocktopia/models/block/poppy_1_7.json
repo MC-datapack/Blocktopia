@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "blocktopia:block/poppy_1_7"
-  }
-}

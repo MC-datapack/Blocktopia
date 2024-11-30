@@ -33,6 +33,15 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CONFIGURABLE_REPEATER, 1)
+                .input('A', REPEATER)
+                .input('B', DIAMOND)
+                .input('C', GOLDEN_BLOCKS)
+                .pattern("BBB")
+                .pattern("CAC")
+                .pattern("BBB")
+                .criterion(hasItem(REPEATER), conditionsFromItem(REPEATER))
+                .offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, GOLD_INGOT, 9)
                 .input(GOLDEN_BLOCKS)
                 .criterion(hasItem(GOLD_INGOT), conditionsFromItem(GOLD_INGOT))
