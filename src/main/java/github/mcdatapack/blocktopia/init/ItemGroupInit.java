@@ -226,6 +226,8 @@ public class ItemGroupInit {
                 entries.add(ItemInit.CHERRY);
                 entries.add(ItemInit.GOLDEN_CHERRY);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_CHERRY);
+                entries.add(ItemInit.DIAMOND_CHERRY);
+                entries.add(ItemInit.ENCHANTED_DIAMOND_CHERRY);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_CARROT);
                 entries.add(ItemInit.GOLDEN_POTATO);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_POTATO);

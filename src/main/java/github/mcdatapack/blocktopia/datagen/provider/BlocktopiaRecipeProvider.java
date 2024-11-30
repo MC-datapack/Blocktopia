@@ -158,6 +158,18 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AAA")
                 .criterion(hasItem(POTATO), conditionsFromItem(POTATO))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.GOLDEN_POTATO)
+                .input('A', GOLD_NUGGET)
+                .input('B', POTATO)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(POTATO), conditionsFromItem(POTATO))
+                .offerTo(exporter);
+        List<ItemConvertible> golden_potato = List.of(ItemInit.GOLDEN_POTATO);
+        List<ItemConvertible> enchanted_golden_potato = List.of(ItemInit.ENCHANTED_GOLDEN_POTATO);
+        RecipeProvider.offerSmelting(exporter, golden_potato, RecipeCategory.FOOD, ItemInit.GOLDEN_BAKED_POTATO, 1.0F, 200, "golden_baked_potato");
+        RecipeProvider.offerSmelting(exporter, enchanted_golden_potato, RecipeCategory.FOOD, ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO, 1.0F, 200, "enchanted_golden_baked_potato");
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.GOLDEN_CHERRY)
                 .input('A', GOLD_INGOT)
                 .input('B', ItemInit.CHERRY)
@@ -174,18 +186,23 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AAA")
                 .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.GOLDEN_POTATO)
-                .input('A', GOLD_NUGGET)
-                .input('B', POTATO)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.DIAMOND_CHERRY)
+                .input('A', DIAMOND)
+                .input('B', ItemInit.ENCHANTED_GOLDEN_CHERRY)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")
-                .criterion(hasItem(POTATO), conditionsFromItem(POTATO))
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
                 .offerTo(exporter);
-        List<ItemConvertible> golden_potato = List.of(ItemInit.GOLDEN_POTATO);
-        List<ItemConvertible> enchanted_golden_potato = List.of(ItemInit.ENCHANTED_GOLDEN_POTATO);
-        RecipeProvider.offerSmelting(exporter, golden_potato, RecipeCategory.FOOD, ItemInit.GOLDEN_BAKED_POTATO, 1.0F, 200, "golden_baked_potato");
-        RecipeProvider.offerSmelting(exporter, enchanted_golden_potato, RecipeCategory.FOOD, ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO, 1.0F, 200, "enchanted_golden_baked_potato");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.ENCHANTED_DIAMOND_CHERRY)
+                .input('A', DIAMOND_BLOCKS)
+                .input('B', ItemInit.DIAMOND_CHERRY)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
+                .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.PALM_PLANKS, 4)
                 .input(PALM_LOGS)
                 .criterion(hasTag(PALM_LOGS), conditionsFromTag(PALM_LOGS))

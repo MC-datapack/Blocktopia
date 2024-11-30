@@ -118,18 +118,39 @@ public class FoodList {
             .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, TickMinuteConverter(8), 0), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, TickMinuteConverter(8), 0), 1.0F)
             .build();
+    public static final FoodComponent DIAMOND_CHERRY_SETTINGS = new Builder()
+            .nutrition(12)
+            .saturationModifier(1)
+            .alwaysEdible()
+            .eatingTime(10)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TickMinuteConverter(5), 4), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, TickMinuteConverter(5), 3), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, TickMinuteConverter(10), 3), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, TickMinuteConverter(10), 2), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, TickMinuteConverter(10), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, TickMinuteConverter(10), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.LUCK, TickHourConverter(1), 9), 1.0F)
+            .build();
+    public static final FoodComponent ENCHANTED_DIAMOND_CHERRY_SETTINGS = new Builder()
+            .nutrition(16)
+            .saturationModifier(1)
+            .alwaysEdible()
+            .eatingTime(8)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TickMinuteConverter(10), 8), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, TickMinuteConverter(10), 5), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, TickMinuteConverter(20), 5), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, TickMinuteConverter(20), 4), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, TickMinuteConverter(20), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, TickMinuteConverter(20), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.LUCK, TickHourConverter(1.5), 9), 0.775F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, TickHourConverter(1.5), 4), 1.0F)
+            .build();
 
 
 
-    public static int TickSecondConverter(int seconds) {
-        return seconds * 20;
-    }
-    public static int TickMinuteConverter(int minutes) {
-        return minutes * 20 * 60;
-    }
-    public static int TickHourConverter(int hours) {
-        return hours * 20 * 60 * 60;
-    }
+    public static int TickSecondConverter(int seconds) {return seconds * 20;}
+    public static int TickMinuteConverter(int minutes) {return minutes * 20 * 60;}
+    public static int TickHourConverter(double hours) {return (int) (hours * 20 * 60 * 60);}
 
     public static class Builder {
         private int nutrition;

@@ -37,6 +37,15 @@ public class ItemInit {
             .rarity(Rarity.EPIC)
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
     ));
+    public static final Item DIAMOND_CHERRY = register("diamond_cherry", new Item(new Item.Settings()
+            .food(FoodList.DIAMOND_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+    ));
+    public static final Item ENCHANTED_DIAMOND_CHERRY = register("enchanted_diamond_cherry", new Item(new Item.Settings()
+            .food(FoodList.ENCHANTED_DIAMOND_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+    ));
     public static final SignItem PALM_SIGN = register("palm_sign", new SignItem(new Item.Settings().maxCount(16), BlockInit.PALM_SIGN, BlockInit.PALM_WALL_SIGN));
     public static final HangingSignItem PALM_HANGING_SIGN = register("palm_hanging_sign", new HangingSignItem(BlockInit.PALM_HANGING_SIGN, BlockInit.PALM_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
     public static final Item PALM_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_BOAT_ID, BoatInit.PALM_BOAT_KEY, false);
