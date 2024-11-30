@@ -219,6 +219,7 @@ public class ItemGroupInit {
             .icon(BlockInit.SMALL_CHEST.asItem()::getDefaultStack)
             .entries((displayContext, entries) -> {
                 entries.add(BlockInit.SMALL_CHEST);
+                entries.add(BlockInit.CONFIGURABLE_REPEATER);
                 entries.add(ItemInit.COCONUT);
                 entries.add(ItemInit.GOLDEN_COCONUT);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_COCONUT);

@@ -1,23 +1,28 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
+import com.google.gson.JsonElement;
+import github.mcdatapack.blocktopia.block.ConfigurableRepeaterBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.TintType;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Model;
-import net.minecraft.data.client.Models;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
 public class BlocktopiaModelProvider extends FabricModelProvider {
-
     public BlocktopiaModelProvider(FabricDataOutput output) {
         super(output);
     }

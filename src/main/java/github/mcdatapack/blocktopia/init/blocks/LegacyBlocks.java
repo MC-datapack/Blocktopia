@@ -231,8 +231,8 @@ public class LegacyBlocks {
     public static final SlabBlock SANDSTONE_SLAB_B1_2 = register("sandstone_slab_b1_2", new SlabBlock(copy(SANDSTONE_SLAB)));
     public static final SlabBlock SANDSTONE_SLAB_1_2_4 = register("sandstone_slab_1_2_4", new SlabBlock(copy(SANDSTONE_SLAB)));
     public static final Block SMOOTH_STONE_B1_3 = register("smooth_stone_b1_3", copy(SMOOTH_STONE));
-    public static final RepeaterBlock REPEATER_B1_3 = register("repeater_b1_3", new RepeaterBlock(copy(REPEATER))); //Locked from 1.4.2
-    public static final RepeaterBlock REPEATER_1_4_2 = register("repeater_1_4_2", new RepeaterBlock(copy(REPEATER)));
+    public static final ConfigurableRepeaterBlock REPEATER_B1_3 = register("repeater_b1_3", new ConfigurableRepeaterBlock(copy(REPEATER))); //Locked from 1.4.2
+    public static final ConfigurableRepeaterBlock REPEATER_1_4_2 = register("repeater_1_4_2", new ConfigurableRepeaterBlock(copy(REPEATER)));
     */
 
 
