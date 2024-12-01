@@ -21,7 +21,7 @@ import net.minecraft.world.WorldView;
 public class ConfigurableRepeaterBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<ConfigurableRepeaterBlock> CODEC = createCodec(ConfigurableRepeaterBlock::new);
     public static final BooleanProperty LOCKED = Properties.LOCKED;
-    public static final IntProperty DELAY = IntProperty.of("delay", 1, 1024);
+    public static final IntProperty DELAY = IntProperty.of("delay", 1, 256);
 
     @Override
     public MapCodec<ConfigurableRepeaterBlock> getCodec() {

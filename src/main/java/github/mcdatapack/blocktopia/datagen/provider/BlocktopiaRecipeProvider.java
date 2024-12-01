@@ -33,7 +33,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CONFIGURABLE_REPEATER, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CONFIGURABLE_REPEATER_TICK, 1)
                 .input('A', REPEATER)
                 .input('B', DIAMOND)
                 .input('C', GOLDEN_BLOCKS)
@@ -41,6 +41,16 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("CAC")
                 .pattern("BBB")
                 .criterion(hasItem(REPEATER), conditionsFromItem(REPEATER))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CONFIGURABLE_REPEATER_SECOND, 1)
+                .input(CLOCK)
+                .input(BlockInit.CONFIGURABLE_REPEATER_TICK)
+                .criterion(hasItem(BlockInit.CONFIGURABLE_REPEATER_TICK), conditionsFromItem(BlockInit.CONFIGURABLE_REPEATER_TICK))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CONFIGURABLE_REPEATER_MINUTE, 1)
+                .input(CLOCK)
+                .input(BlockInit.CONFIGURABLE_REPEATER_SECOND)
+                .criterion(hasItem(BlockInit.CONFIGURABLE_REPEATER_SECOND), conditionsFromItem(BlockInit.CONFIGURABLE_REPEATER_SECOND))
                 .offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, GOLD_INGOT, 9)
                 .input(GOLDEN_BLOCKS)

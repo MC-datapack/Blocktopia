@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_configurable_repeater_second": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:configurable_repeater_second"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:configurable_repeater_minute"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_configurable_repeater_second"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:configurable_repeater_minute"
+    ]
+  }
+}

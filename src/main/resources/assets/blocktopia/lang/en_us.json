@@ -23,7 +23,9 @@
   "item.blocktopia.golden_baked_potato": "Golden Baked Potato",
   "item.blocktopia.enchanted_golden_baked_potato": "Enchanted Golden Baked Potato",
 
-  "block.blocktopia.configurable_repeater": "Configurable Repeater",
+  "block.blocktopia.configurable_repeater_tick": "Configurable Repeater (Tick)",
+  "block.blocktopia.configurable_repeater_second": "Configurable Repeater (Second)",
+  "block.blocktopia.configurable_repeater_minute": "Configurable Repeater (Minute)",
   "block.blocktopia.palm_log": "Palm Log",
   "block.blocktopia.stripped_palm_log": "Stripped Palm Log",
   "block.blocktopia.palm_wood": "Palm Wood",

@@ -247,8 +247,8 @@ public class LegacyBlocks {
     public static <T extends Block> T register(String name, T block) {
         return register(name, block, new Item.Settings());
     }
-    public static <T extends Block> T register(String name, AbstractBlock.Settings settings) {
-        return (T) register(name, new Block(settings), new Item.Settings());
+    public static Block register(String name, AbstractBlock.Settings settings) {
+        return register(name, new Block(settings), new Item.Settings());
     }
     public static Block createLogBlock(MapColor topMapColor, MapColor sideMapColor) {
         return new PillarBlock(
