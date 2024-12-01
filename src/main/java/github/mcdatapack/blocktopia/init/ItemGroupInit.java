@@ -237,6 +237,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO);
                 entries.add(ItemInit.GIANT_SPAWN_EGG);
                 entries.add(ItemInit.ILLUSIONER_SPAWN_EGG);
+                entries.add(ItemInit.RABBIT_TRINKET);
             }).build());
 
 

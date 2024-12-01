@@ -1,13 +1,17 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
 import github.mcdatapack.blocktopia.init.ItemInit;
+
+import static github.mcdatapack.blocktopia.init.ItemInit.RABBIT_TRINKET;
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 import static net.minecraft.block.Blocks.*;
+import static net.minecraft.item.Items.*;
 
 import github.mcdatapack.blocktopia.list.TagList;
 import java.util.concurrent.CompletableFuture;
 
+import github.mcdatapack.blocktopia.list.TrinketTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
@@ -64,7 +68,7 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.WOOL).add(WHITE_CLOTH).add(LIGHT_GRAY_CLOTH_C0_0_20A).add(LIGHT_GRAY_CLOTH_C0_28A).add(DARK_GRAY_CLOTH_C0_0_20A).add(DARK_GRAY_CLOTH_C0_28A).add(RED_CLOTH).add(ORANGE_CLOTH).add(YELLOW_CLOTH).add(CHARTREUSE_CLOTH).add(SPRING_GREEN_CLOTH).add(CYAN_CLOTH).add(CAPRI_CLOTH).add(ULTRAMARINE_CLOTH).add(VIOLET_CLOTH).add(PURPLE_CLOTH).add(MAGENTA_CLOTH).add(ROSE_CLOTH).setReplace(false);
             getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER).add(BOOKSHELF_C0_26ST).add(BOOKSHELF_B1_9PRE5).setReplace(false);
             getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(LADDER_INF20100607).add(LADDER_INF20100618).setReplace(false);
-            getOrCreateTagBuilder(TagList.Blocks.CLASSIC_SPONGE_REPLACEABLE).add(KELP, KELP_PLANT, SEAGRASS, TALL_SEAGRASS);
+            getOrCreateTagBuilder(TagList.Blocks.CLASSIC_SPONGE_REPLACEABLE).add(Blocks.KELP, KELP_PLANT, Blocks.SEAGRASS, TALL_SEAGRASS);
         }
     }
 
@@ -102,6 +106,9 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(PALM_STAIRS.asItem()).add(WOODEN_STAIRS_RD20090515.asItem()).add(WOODEN_STAIRS_RD161348.asItem()).add(WOODEN_STAIRS_C0_0_14A.asItem()).add(WOODEN_STAIRS_INF20100629.asItem()).add(WOODEN_STAIRS_B1_9PRE5.asItem()).setReplace(false);
             getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(PALM_TRAPDOOR.asItem()).setReplace(false);
             getOrCreateTagBuilder(ItemTags.WOOL).add(WHITE_CLOTH.asItem()).add(LIGHT_GRAY_CLOTH_C0_0_20A.asItem()).add(LIGHT_GRAY_CLOTH_C0_28A.asItem()).add(DARK_GRAY_CLOTH_C0_0_20A.asItem()).add(DARK_GRAY_CLOTH_C0_28A.asItem()).add(RED_CLOTH.asItem()).add(ORANGE_CLOTH.asItem()).add(YELLOW_CLOTH.asItem()).add(CHARTREUSE_CLOTH.asItem()).add(SPRING_GREEN_CLOTH.asItem()).add(CYAN_CLOTH.asItem()).add(CAPRI_CLOTH.asItem()).add(ULTRAMARINE_CLOTH.asItem()).add(VIOLET_CLOTH.asItem()).add(PURPLE_CLOTH.asItem()).add(MAGENTA_CLOTH.asItem()).add(ROSE_CLOTH.asItem()).setReplace(false);
+
+            getOrCreateTagBuilder(TrinketTags.RABBIT_SLOT)
+                    .add(RABBIT, COOKED_RABBIT, RABBIT_HIDE, RABBIT_FOOT, RABBIT_TRINKET);
         }
     }
 

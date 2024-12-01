@@ -5,6 +5,9 @@
   "itemGroup.blocktopia.food": "§2§lBlocktopia: §fEssen",
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fAndere Blöcke und Items",
 
+  "item.blocktopia.rabbit_trinket": "Kaninchen Schmuckstück",
+  "trinket.slot.rabbit": "Kaninchen Slot",
+
   "item.minecraft.giant_spawn_egg": "Riesen-Spawn-Egg",
   "item.minecraft.illusioner_spawn_egg": "Illusuiner-Spawn-Egg",
 

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:rabbit_foot"
+    },
+    "B": {
+      "item": "minecraft:rabbit_hide"
+    },
+    "C": {
+      "item": "minecraft:cooked_rabbit"
+    }
+  },
+  "pattern": [
+    "BCB",
+    "CAC",
+    "BCB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:rabbit_trinket"
+  }
+}

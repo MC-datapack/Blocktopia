@@ -87,7 +87,11 @@ public class Blocktopia implements ModInitializer {
         return Identifier.of("blocktopia", path);
     }
 
+    public static Identifier idTrinket(String path) {
+        return Identifier.of("trinkets", path);
+    }
+
     public static Identifier idMinecraft(String path) {
-        return Identifier.of("minecraft", path);
+        return Identifier.ofVanilla(path);
     }
 }
