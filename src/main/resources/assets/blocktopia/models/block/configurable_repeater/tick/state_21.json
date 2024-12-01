@@ -1,9 +1,0 @@
-{
-  "parent": "blocktopia:block/configurable_repeater_temp",
-  "textures": {
-    "top": "blocktopia:block/configurable_repeater/tick/state_21",
-    "particle": "blocktopia:block/configurable_repeater/tick/state_21",
-    "torch": "minecraft:block/redstone_torch_off",
-    "slab": "minecraft:block/smooth_stone"
-  }
-}

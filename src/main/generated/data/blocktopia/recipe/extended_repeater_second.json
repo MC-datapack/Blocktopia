@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:clock"
+    },
+    {
+      "item": "blocktopia:extended_repeater_tick"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:extended_repeater_second"
+  }
+}

@@ -2,9 +2,9 @@ package github.mcdatapack.blocktopia.init.blocks;
 
 import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.block.ConfigurableRepeaterBlock;
-import github.mcdatapack.blocktopia.block.ConfigurableRepeaterBlockMinute;
-import github.mcdatapack.blocktopia.block.ConfigurableRepeaterBlockSecond;
+import github.mcdatapack.blocktopia.block.ExtendedRepeaterBlock;
+import github.mcdatapack.blocktopia.block.ExtendedRepeaterBlockMinute;
+import github.mcdatapack.blocktopia.block.ExtendedRepeaterBlockSecond;
 import github.mcdatapack.blocktopia.block.SmallChestBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
@@ -40,14 +40,14 @@ public class BlockInit {
         @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
     public static final SmallChestBlock SMALL_CHEST = register("small_chest", new SmallChestBlock(AbstractBlock.Settings.create()
             .strength(2.5F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
-    public static final ConfigurableRepeaterBlock CONFIGURABLE_REPEATER_TICK = register("configurable_repeater_tick",
-            new ConfigurableRepeaterBlock(AbstractBlock.Settings.create()
+    public static final ExtendedRepeaterBlock EXTENDED_REPEATER_TICK = register("extended_repeater_tick",
+            new ExtendedRepeaterBlock(AbstractBlock.Settings.create()
             .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
-    public static final ConfigurableRepeaterBlockSecond CONFIGURABLE_REPEATER_SECOND = register("configurable_repeater_second",
-            new ConfigurableRepeaterBlockSecond(AbstractBlock.Settings.create()
+    public static final ExtendedRepeaterBlockSecond EXTENDED_REPEATER_SECOND = register("extended_repeater_second",
+            new ExtendedRepeaterBlockSecond(AbstractBlock.Settings.create()
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
-    public static final ConfigurableRepeaterBlockMinute CONFIGURABLE_REPEATER_MINUTE = register("configurable_repeater_minute",
-            new ConfigurableRepeaterBlockMinute(AbstractBlock.Settings.create()
+    public static final ExtendedRepeaterBlockMinute EXTENDED_REPEATER_MINUTE = register("extended_repeater_minute",
+            new ExtendedRepeaterBlockMinute(AbstractBlock.Settings.create()
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
 
     public static final Block PALM_LOG = register("palm_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));

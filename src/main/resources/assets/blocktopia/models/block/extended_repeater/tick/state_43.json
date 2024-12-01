@@ -1,0 +1,9 @@
+{
+  "parent": "blocktopia:block/extended_repeater_temp",
+  "textures": {
+    "top": "blocktopia:block/extended_repeater/tick/state_43",
+    "particle": "blocktopia:block/extended_repeater/tick/state_43",
+    "torch": "minecraft:block/redstone_torch_off",
+    "slab": "minecraft:block/smooth_stone"
+  }
+}
