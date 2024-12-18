@@ -4,6 +4,7 @@ import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.boat.api.item.BlocktopiaBoatItemHelper;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
+import github.mcdatapack.blocktopia.item.FishTrinket;
 import github.mcdatapack.blocktopia.item.RabbitTrinket;
 import github.mcdatapack.blocktopia.list.FoodList;
 import net.minecraft.component.DataComponentTypes;
@@ -57,6 +58,7 @@ public class ItemInit {
     public static final SpawnEggItem GIANT_SPAWN_EGG = registerAsVanilla("giant_spawn_egg", new SpawnEggItem(EntityType.GIANT, 44993, 7969900, new Item.Settings().rarity(Rarity.EPIC)));
     public static final SpawnEggItem ILLUSIONER_SPAWN_EGG = registerAsVanilla("illusioner_spawn_egg", new SpawnEggItem(EntityType.ILLUSIONER, 44543, 4500, new Item.Settings().rarity(Rarity.EPIC)));
     public static final RabbitTrinket RABBIT_TRINKET = register("rabbit_trinket", new RabbitTrinket(new Item.Settings()));
+    public static final FishTrinket FISH_TRINKET = register("fish_trinket", new FishTrinket(new Item.Settings()));
 
     public static <T extends Item> T register(String name, T Item) {
         return Registry.register(Registries.ITEM, Blocktopia.id(name), Item);

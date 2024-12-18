@@ -42,6 +42,15 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("BCB")
                 .criterion(hasItem(RABBIT_FOOT), conditionsFromItem(RABBIT_FOOT))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ItemInit.FISH_TRINKET, 1)
+                .input('A', PUFFERFISH)
+                .input('B', SALMON)
+                .input('C', COD)
+                .pattern("BCB")
+                .pattern("CAC")
+                .pattern("BCB")
+                .criterion(hasItem(PUFFERFISH), conditionsFromItem(PUFFERFISH))
+                .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.EXTENDED_REPEATER_TICK, 1)
                 .input('A', REPEATER)
                 .input('B', DIAMOND)

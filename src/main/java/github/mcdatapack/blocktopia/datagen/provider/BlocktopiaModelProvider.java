@@ -207,6 +207,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.DIAMOND_CHERRY, Models.GENERATED);
         itemModelGenerator.register(ItemInit.ENCHANTED_DIAMOND_CHERRY, ItemInit.DIAMOND_CHERRY,Models.GENERATED);
         itemModelGenerator.register(ItemInit.RABBIT_TRINKET, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.FISH_TRINKET, Models.GENERATED);
     }
 
     public static final Model TEMPLATE_SPAWN_EGG = item("template_spawn_egg");

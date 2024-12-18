@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.datagen.provider;
 
 import github.mcdatapack.blocktopia.init.ItemInit;
 
+import static github.mcdatapack.blocktopia.init.ItemInit.FISH_TRINKET;
 import static github.mcdatapack.blocktopia.init.ItemInit.RABBIT_TRINKET;
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
@@ -109,6 +110,8 @@ public class BlocktopiaTagProvider {
 
             getOrCreateTagBuilder(TrinketTags.RABBIT_SLOT)
                     .add(RABBIT, COOKED_RABBIT, RABBIT_HIDE, RABBIT_FOOT, RABBIT_TRINKET);
+            getOrCreateTagBuilder(TrinketTags.FISH_SLOT)
+                    .add(FISH_TRINKET, COD, SALMON, TROPICAL_FISH, PUFFERFISH, COD_BUCKET, SALMON_BUCKET, TROPICAL_FISH_BUCKET, PUFFERFISH_BUCKET, COOKED_COD, COOKED_SALMON);
         }
     }
 

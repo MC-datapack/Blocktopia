@@ -23,7 +23,6 @@ public class PlacedFeatureInit {
     public static final RegistryKey<PlacedFeature> PALM_TREE_KEY = registerKey("palm_tree");
 
     //Legacy
-
     public static final RegistryKey<PlacedFeature> COAL_ORE_C0_0_14A_KEY = registerKey("coal_ore_c0_0_14a");
     public static final RegistryKey<PlacedFeature> COAL_ORE_1_14_KEY = registerKey("coal_ore_1_14");
     public static final RegistryKey<PlacedFeature> IRON_ORE_C0_0_14A_KEY = registerKey("iron_ore_c0_0_14a");
@@ -32,7 +31,6 @@ public class PlacedFeatureInit {
     public static final RegistryKey<PlacedFeature> GOLD_ORE_C0_0_14A_KEY = registerKey("gold_ore_c0_0_14a");
     public static final RegistryKey<PlacedFeature> GOLD_ORE_C0_26ST_KEY = registerKey("gold_ore_c0_26st");
     public static final RegistryKey<PlacedFeature> GOLD_ORE_1_14_KEY = registerKey("gold_ore_1_14");
-    public static final RegistryKey<PlacedFeature> TREE_C0_24ST_KEY = registerKey("tree_c0_24st");
     public static final RegistryKey<PlacedFeature> DANDELION_C0_0_20A_KEY = registerKey("dandelion_c0_0_20a");
     public static final RegistryKey<PlacedFeature> DANDELION_C0_0_20A_PATCH_KEY = registerKey("dandelion_c0_0_20a_patch");
     public static final RegistryKey<PlacedFeature> ROSE_C0_0_20A_KEY = registerKey("rose_c0_0_20a");
@@ -44,6 +42,10 @@ public class PlacedFeatureInit {
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_C0_0_20A_KEY = registerKey("red_mushroom_c0_0_20a");
     public static final RegistryKey<PlacedFeature> RED_MUSHROOM_C0_0_20A_PATCH_KEY = registerKey("red_mushroom_c0_0_20a_patch");
 
+    public static final RegistryKey<PlacedFeature> TREE_C0_24ST_KEY = registerKey("tree_c0_24st");
+    public static final RegistryKey<PlacedFeature> BIRCH_B1_5_KEY = registerKey("birch_b1_5");
+    public static final RegistryKey<PlacedFeature> SPRUCE_B1_5_KEY = registerKey("spruce_b1_5");
+
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context, PALM_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.PALM_TREE_KEY),
@@ -52,6 +54,12 @@ public class PlacedFeatureInit {
         register(context, TREE_C0_24ST_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.TREE_C0_24ST_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), LegacyBlocks.SAPLING_C0_24ST));
+        /*register(context, BIRCH_B1_5_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BIRCH_B1_5_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), LegacyBlocks.BIRCH_SAPLING_B1_5));
+       register(context, SPRUCE_B1_5_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.SPRUCE_B1_5_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), LegacyBlocks.SPRUCE_SAPLING_B1_5));*/
 
         register(context, COAL_ORE_C0_0_14A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.COAL_ORE_C0_0_14A_KEY),
                 Modifiers.modifiersCount(30, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(192))));

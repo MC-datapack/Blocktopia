@@ -9,6 +9,8 @@ import net.minecraft.world.gen.GenerationStep;
 public class BiomeModificationInit {
     public static void load(boolean Palm_Tree,
                             boolean Tree_c0_24st,
+                            boolean Brich_b1_5,
+                            boolean Spruce_b1_5,
                             double Legacy_Coal_Ores,
                             double Legacy_Iron_Ores,
                             double Legacy_Gold_Ores,
@@ -30,6 +32,18 @@ public class BiomeModificationInit {
                     GenerationStep.Feature.VEGETAL_DECORATION,
                     PlacedFeatureInit.TREE_C0_24ST_KEY);
         }
+        /*if (Brich_b1_5) {
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    PlacedFeatureInit.BIRCH_B1_5_KEY);
+        }
+        if (Spruce_b1_5) {
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.TAIGA, BiomeKeys.SNOWY_TAIGA),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    PlacedFeatureInit.SPRUCE_B1_5_KEY);
+        }*/
 
 
         if (Legacy_Coal_Ores == 1 || Legacy_Coal_Ores == 1.2) {

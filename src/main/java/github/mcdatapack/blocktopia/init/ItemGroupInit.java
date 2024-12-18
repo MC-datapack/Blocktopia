@@ -238,6 +238,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.GIANT_SPAWN_EGG);
                 entries.add(ItemInit.ILLUSIONER_SPAWN_EGG);
                 entries.add(ItemInit.RABBIT_TRINKET);
+                entries.add(ItemInit.FISH_TRINKET);
             }).build());
 
 

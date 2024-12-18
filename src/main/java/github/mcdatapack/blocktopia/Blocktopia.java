@@ -53,9 +53,9 @@ public class Blocktopia implements ModInitializer {
         LegacyBlocks.load();
         BoatInit.load();
         LOGGER.debug("Applying Biome Modifications");
-        if (DevMode) {BiomeModificationInit.load(true, true, 1.2, 1.23, 1.23,
+        if (DevMode) {BiomeModificationInit.load(true, true, true, true, 1.2, 1.23, 1.23,
                 true, true, true, true, true);}
-        else {BiomeModificationInit.load(true, false, 0, 0, 0,
+        else {BiomeModificationInit.load(true, false, false, false, 0, 0, 0,
                 false, false, false, false, false);}
         LOGGER.debug("Loading Block Entities");
         BlockEntityTypeInit.load();

@@ -1,4 +1,4 @@
-// 1.21.1	2024-12-01T19:19:39.4450237	Blocktopia/Tags for minecraft:item
+// 1.21.1	2024-12-05T16:33:07.9958926	Blocktopia/Tags for minecraft:item
 8cf914fb9f2c144a93d8bdf48aedfc45b3cdf4fa data\minecraft\tags\item\planks.json
 4c45e0374f38a20cc66c4c346a9664760b25fbf3 data\trinkets\tags\item\feet\rabbit.json
 6cda186ea6c4d9c2601b113437d0ff61185510af data\blocktopia\tags\item\golden_blocks.json
@@ -17,6 +17,7 @@ b3b58e455af782330cf95267f5de62cc4c8d650d data\minecraft\tags\item\wooden_slabs.j
 e5eeea9acf35494765edad0737c4ac913da43477 data\minecraft\tags\item\slabs.json
 b74ce4205a73b7b32a37c06594b59f04cd0fd1c0 data\blocktopia\tags\item\iron_blocks.json
 78024558ca741f0b019d5b628ecfbf83bbd3c7cd data\blocktopia\tags\item\diamond_blocks.json
+f84acd2cb3fc1c70c88583315e0e484d741545bb data\trinkets\tags\item\head\fish.json
 7d651838781864bd6831444bd84a9848a24c78a8 data\minecraft\tags\item\boats.json
 acfab29c1acc8e8f13d42892b6b08b50bd196d44 data\minecraft\tags\item\wooden_buttons.json
 bef856df4c364498ba5962f739623130bafece4e data\minecraft\tags\item\fences.json

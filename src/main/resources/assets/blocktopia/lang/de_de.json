@@ -6,7 +6,9 @@
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fAndere Blöcke und Items",
 
   "item.blocktopia.rabbit_trinket": "Kaninchen Schmuckstück",
-  "trinket.slot.rabbit": "Kaninchen Slot",
+  "trinkets.slot.feet.rabbit": "Kaninchen Slot",
+  "item.blocktopia.fish_trinket": "Fisch Schmuckstück",
+  "trinkets.slot.head.fish": "Fisch Slot",
 
   "item.minecraft.giant_spawn_egg": "Riesen-Spawn-Egg",
   "item.minecraft.illusioner_spawn_egg": "Illusuiner-Spawn-Egg",

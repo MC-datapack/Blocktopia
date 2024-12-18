@@ -13,10 +13,12 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
@@ -35,7 +37,6 @@ public class ConfiguredFeatureInit {
     public static final RegistryKey<ConfiguredFeature<?, ?>> GOLD_ORE_C0_0_14A_KEY = registerKey("gold_ore_c0_0_14a");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GOLD_ORE_C0_26ST_KEY = registerKey("gold_ore_c0_26st");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GOLD_ORE_1_14_KEY = registerKey("gold_ore_1_14");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TREE_C0_24ST_KEY = registerKey("tree_c0_24st");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DANDELION_C0_0_20A_KEY = registerKey("dandelion_c0_0_20a");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DANDELION_C0_0_20A_PATCH_KEY = registerKey("dandelion_c0_0_20a_patch");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ROSE_C0_0_20A_KEY = registerKey("rose_c0_0_20a");
@@ -46,6 +47,10 @@ public class ConfiguredFeatureInit {
     public static final RegistryKey<ConfiguredFeature<?, ?>> BROWN_MUSHROOM_C0_0_20A_PATCH_KEY = registerKey("brown_mushroom_c0_0_20a_patch");
     public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_C0_0_20A_KEY = registerKey("red_mushroom_c0_0_20a");
     public static final RegistryKey<ConfiguredFeature<?, ?>> RED_MUSHROOM_C0_0_20A_PATCH_KEY = registerKey("red_mushroom_c0_0_20a_patch");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TREE_C0_24ST_KEY = registerKey("tree_c0_24st");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BIRCH_B1_5_KEY = registerKey("birch_b1_5");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SPRUCE_B1_5_KEY = registerKey("spruce_b1_5");
 
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
@@ -99,6 +104,20 @@ public class ConfiguredFeatureInit {
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1)
         ).build());
+        /*register(context, BIRCH_B1_5_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(BIRCH_LOG_B1_2),
+                new StraightTrunkPlacer(5,2,0),
+                SimpleBlockStateProvider.of(BIRCH_LEAVES_B1_2),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(1, 0, 1)
+        ).build());
+        register(context, SPRUCE_B1_5_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(SPRUCE_LOG_B1_2),
+                new StraightTrunkPlacer(5,2,1),
+                SimpleBlockStateProvider.of(SPRUCE_LEAVES_B1_2),
+                new SpruceFoliagePlacer(UniformIntProvider.create(2, 3), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 2)),
+                new TwoLayersFeatureSize(2, 0, 2)
+        ).build());*/
 
         List<OreFeatureConfig.Target> overworldTargetsCoal_C0_0_14A = List.of(
                 OreFeatureConfig.createTarget(overworldOreReplaceables, COAL_ORE_C0_0_14A.getDefaultState()));

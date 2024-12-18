@@ -3,6 +3,7 @@
 	"player"
   ],
   "slots": [
-	"feet/rabbit"
+	"feet/rabbit",
+	"head/fish"
   ]
 }
