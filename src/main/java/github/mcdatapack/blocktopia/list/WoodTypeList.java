@@ -13,6 +13,13 @@ public class WoodTypeList {
             SoundEvents.BLOCK_FENCE_GATE_CLOSE,
             SoundEvents.BLOCK_FENCE_GATE_OPEN
     );
+    public static final WoodType BANANA = new WoodType(Blocktopia.id("banana").toString(),
+            BlockSetTypeList.BANANA,
+            BlockSoundGroup.WOOD,
+            BlockSoundGroup.HANGING_SIGN,
+            SoundEvents.BLOCK_FENCE_GATE_CLOSE,
+            SoundEvents.BLOCK_FENCE_GATE_OPEN
+    );
     public static final WoodType WOOD_C0_0_15A = new WoodType(Blocktopia.id("wooden_c0_0_15a").toString(),
             BlockSetTypeList.WOODEN_C0_0_15A,
             BlockSoundGroup.WOOD,

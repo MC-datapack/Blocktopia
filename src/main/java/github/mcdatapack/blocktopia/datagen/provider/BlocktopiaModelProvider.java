@@ -29,7 +29,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .log(BlockInit.PALM_LOG).wood(BlockInit.PALM_WOOD);
         blockStateModelGenerator.registerLog(BlockInit.STRIPPED_PALM_LOG)
                 .log(BlockInit.STRIPPED_PALM_LOG).wood(BlockInit.STRIPPED_PALM_WOOD);
-        var palmFamaly = new BlockFamily.Builder(BlockInit.PALM_PLANKS)
+        var palmFamily = new BlockFamily.Builder(BlockInit.PALM_PLANKS)
                 .button(BlockInit.PALM_BUTTON)
                 .fence(BlockInit.PALM_FENCE)
                 .fenceGate(BlockInit.PALM_FENCE_GATE)
@@ -42,9 +42,33 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .group("wooden")
                 .unlockCriterionName("has_planks")
                 .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(palmFamaly.getBaseBlock())
-                .family(palmFamaly);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(palmFamily.getBaseBlock())
+                .family(palmFamily);
         blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_PALM_LOG, BlockInit.PALM_HANGING_SIGN, BlockInit.PALM_WALL_HANGING_SIGN);
+
+
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.BANANA_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.BANANA_SAPLING, BlockInit.POTTED_BANANA_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(BlockInit.BANANA_LOG)
+                .log(BlockInit.BANANA_LOG).wood(BlockInit.BANANA_WOOD);
+        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_BANANA_LOG)
+                .log(BlockInit.STRIPPED_BANANA_LOG).wood(BlockInit.STRIPPED_BANANA_WOOD);
+        var bananaFamily = new BlockFamily.Builder(BlockInit.BANANA_PLANKS)
+                .button(BlockInit.BANANA_BUTTON)
+                .fence(BlockInit.BANANA_FENCE)
+                .fenceGate(BlockInit.BANANA_FENCE_GATE)
+                .pressurePlate(BlockInit.BANANA_PRESSURE_PLATE)
+                .sign(BlockInit.BANANA_SIGN, BlockInit.BANANA_WALL_SIGN)
+                .slab(BlockInit.BANANA_SLAB)
+                .stairs(BlockInit.BANANA_STAIRS)
+                .door(BlockInit.BANANA_DOOR)
+                .trapdoor(BlockInit.BANANA_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        blockStateModelGenerator.registerCubeAllModelTexturePool(bananaFamily.getBaseBlock())
+                .family(bananaFamily);
+        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_BANANA_LOG, BlockInit.BANANA_HANGING_SIGN, BlockInit.BANANA_WALL_HANGING_SIGN);
 
 
 
@@ -199,6 +223,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO, ItemInit.GOLDEN_BAKED_POTATO, Models.GENERATED);
         itemModelGenerator.register(ItemInit.PALM_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.PALM_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.BANANA_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.BANANA_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.GIANT_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.ILLUSIONER_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.CHERRY, Models.GENERATED);
@@ -208,6 +234,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.ENCHANTED_DIAMOND_CHERRY, ItemInit.DIAMOND_CHERRY,Models.GENERATED);
         itemModelGenerator.register(ItemInit.RABBIT_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.FISH_TRINKET, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
     }
 
     public static final Model TEMPLATE_SPAWN_EGG = item("template_spawn_egg");

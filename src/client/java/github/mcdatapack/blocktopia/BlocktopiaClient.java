@@ -4,15 +4,20 @@ import github.mcdatapack.blocktopia.boat.api.BlocktopiaBoatClientHelper;
 import github.mcdatapack.blocktopia.boat.impl.BlocktopiaBoatEntityRenderer;
 import github.mcdatapack.blocktopia.init.BlockEntityTypeInit;
 import github.mcdatapack.blocktopia.init.BoatInit;
+import github.mcdatapack.blocktopia.init.EntityInit;
 import github.mcdatapack.blocktopia.init.ScreenHandlerTypeInit;
 import github.mcdatapack.blocktopia.init.blocks.*;
 import github.mcdatapack.blocktopia.models.SmallChestModel;
+import github.mcdatapack.blocktopia.renderer.ModelLayerInit;
+import github.mcdatapack.blocktopia.renderer.MonkeyModel;
+import github.mcdatapack.blocktopia.renderer.MonkeyRenderer;
 import github.mcdatapack.blocktopia.renderer.SmallChestBlockEntityRenderer;
 import github.mcdatapack.blocktopia.screen.SmallChestInventoryScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -22,8 +27,8 @@ public class BlocktopiaClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), BlockInit.PALM_DOOR, BlockInit.PALM_SAPLING,
-                BlockInit.POTTED_PALM_SAPLING, BlockInit.PALM_LEAVES, BlockInit.PALM_TRAPDOOR, LegacyBlocks.SAPLING_RD161348,
-                LegacyBlocks.POTTED_SAPLING_RD161348, LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A,
+                BlockInit.POTTED_PALM_SAPLING, BlockInit.PALM_LEAVES, BlockInit.PALM_TRAPDOOR, BlockInit.BANANA_SAPLING, BlockInit.POTTED_BANANA_SAPLING,
+                BlockInit.BANANA_LEAVES,LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A,
                 LegacyBlocks.SAPLING_C0_24ST, LegacyBlocks.POTTED_SAPLING_C0_24ST, LegacyBlocks.DANDELION_C0_0_20A,
                 LegacyBlocks.POTTED_DANDELIONS_C0_0_20A, LegacyBlocks.ROSE_C0_0_20A, LegacyBlocks.POTTED_ROSE_C0_0_20A,
                 LegacyBlocks.RED_MUSHROOM_C0_0_20A, LegacyBlocks.POTTED_RED_MUSHROOM_C0_0_20A, LegacyBlocks.BROWN_MUSHROOM_C0_0_20A,
@@ -36,21 +41,24 @@ public class BlocktopiaClient implements ClientModInitializer {
 
         //Model Layers
         BlocktopiaBoatClientHelper.registerModelLayers(BoatInit.PALM_BOAT_ID, false);
+        BlocktopiaBoatClientHelper.registerModelLayers(BoatInit.BANANA_BOAT_ID, false);
+
         EntityModelLayerRegistry.registerModelLayer(SmallChestModel.LAYER, SmallChestModel::getTexturedModelData);
+
+        EntityModelLayerRegistry.registerModelLayer(ModelLayerInit.MONKEY, MonkeyModel::getTexturedModelData);
 
         //BlockEntityRenderers
         BlockEntityRendererFactories.register(BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY, SmallChestBlockEntityRenderer::new);
+
+        //Entity Renderers
+        EntityRendererRegistry.register(EntityInit.MONKEY, MonkeyRenderer::new);
 
 
 
 
         HandledScreens.register(ScreenHandlerTypeInit.SMALL_CHEST_INVENTORY_SCREEN_HANDLER, SmallChestInventoryScreen::new);
 
-        EntityRendererRegistry.register(Blocktopia.BOAT, (context) -> {
-            return new BlocktopiaBoatEntityRenderer(context, false);
-        });
-        EntityRendererRegistry.register(Blocktopia.CHEST_BOAT, (context) -> {
-            return new BlocktopiaBoatEntityRenderer(context, true);
-        });
+        EntityRendererRegistry.register(Blocktopia.BOAT, (context) -> new BlocktopiaBoatEntityRenderer(context, false));
+        EntityRendererRegistry.register(Blocktopia.CHEST_BOAT, (context) -> new BlocktopiaBoatEntityRenderer(context, true));
     }
 }

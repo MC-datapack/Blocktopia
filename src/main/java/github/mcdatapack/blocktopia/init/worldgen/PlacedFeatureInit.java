@@ -21,6 +21,7 @@ import java.util.Map;
 
 public class PlacedFeatureInit {
     public static final RegistryKey<PlacedFeature> PALM_TREE_KEY = registerKey("palm_tree");
+    public static final RegistryKey<PlacedFeature> BANANA_TREE_KEY = registerKey("banana_tree");
 
     //Legacy
     public static final RegistryKey<PlacedFeature> COAL_ORE_C0_0_14A_KEY = registerKey("coal_ore_c0_0_14a");
@@ -51,6 +52,11 @@ public class PlacedFeatureInit {
         register(context, PALM_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.PALM_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), BlockInit.PALM_SAPLING));
+        register(context, BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BANANA_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(128, 0.1F, 128), BlockInit.BANANA_SAPLING)
+        );
+
         register(context, TREE_C0_24ST_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.TREE_C0_24ST_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), LegacyBlocks.SAPLING_C0_24ST));

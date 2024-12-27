@@ -24,7 +24,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 import static net.minecraft.block.AbstractBlock.Settings.*;
@@ -162,7 +161,7 @@ public class LegacyBlocks {
     public static final RedstoneOreBlock REDSTONE_ORE_A1_0_1 = register("redstone_ore_a1_0_1", new RedstoneOreBlock(copy(REDSTONE_ORE)));
     public static final RedstoneOreBlock REDSTONE_ORE_1_14 = register("redstone_ore_1_14", new RedstoneOreBlock(copy(REDSTONE_ORE)));
     public static final RedstoneTorchBlock REDSTONE_TORCH_A1_0_1 = registerWithoutItem("redstone_torch_a1_0_1", new RedstoneTorchBlock(copy(REDSTONE_TORCH)));
-    public static final WallRedstoneTorchBlock REDSTONE_WALL_TORCH_A1_0_1 = registerWithoutItem("redstone_wall_torch_a1_0_1", new WallRedstoneTorchBlock(copy(REDSTONE_WALL_TORCH)));
+    public static final WallRedstoneTorchBlock REDSTONE_WALL_TORCH_A1_0_1 = registerWithoutItem("redstone_wall_torch_a1_0_1", new WallRedstoneTorchBlock(copy(REDSTONE_WALL_TORCH).dropsLike(REDSTONE_TORCH_A1_0_1)));
     public static final SnowBlock SNOW_A1_0_4 = register("snow_a1_0_4", new SnowBlock(copy(SNOW)));
     public static final Block ICE_A1_0_4 = registerC("ice_a1_0_4", ICE);
     public static final Block SNOW_BLOCK_A1_0_5 = registerC("snow_block_a1_0_5", SNOW_BLOCK);
@@ -222,10 +221,10 @@ public class LegacyBlocks {
     public static final Block SANDSTONE_1_2_4 = registerC("sandstone_1_2_4", SANDSTONE);
     public static final Block BIRCH_LOG_B1_2 = register("brich_log_b1_2", createLogBlock(MapColor.PALE_YELLOW, MapColor.OFF_WHITE));
     public static final Block BIRCH_LOG_1_7 = register("birch_log_1_7", createLogBlock(MapColor.PALE_YELLOW, MapColor.OFF_WHITE));
-    public static final LeavesBlock BIRCH_LEAVES_B1_2 = register("birch_leaves_b1_2", new LeavesBlock(copy(BIRCH_LEAVES)));
+    public static final ExtendedLeavesBlock BIRCH_LEAVES_B1_2 = register("birch_leaves_b1_2", new ExtendedLeavesBlock(copy(BIRCH_LEAVES)));
     public static final Block SPRUCE_LOG_B1_2 = register("spuce_log_b1_2", createLogBlock(MapColor.SPRUCE_BROWN, MapColor.BROWN));
     public static final Block SPRUCE_LOG_1_7 = register("spruce_log_1_7", createLogBlock(MapColor.SPRUCE_BROWN, MapColor.BROWN));
-    public static final LeavesBlock SPRUCE_LEAVES_B1_2 = register("spruce_leaves_b1_2", new LeavesBlock(copy(SPRUCE_LEAVES)));
+    public static final ExtendedLeavesBlock SPRUCE_LEAVES_B1_2 = register("spruce_leaves_b1_2", new ExtendedLeavesBlock(copy(SPRUCE_LEAVES)));
     public static final SlabBlock COBBLESTONE_SLAB_RD20090515 = register("cobblestone_slab_rd20090515", new SlabBlock(copy(COBBLESTONE_SLAB)));
     public static final SlabBlock COBBLESTONE_SLAB_B1_3 = register("cobblestone_slab_b1_3", new SlabBlock(copy(COBBLESTONE_SLAB)));
     public static final SlabBlock COBBLESTONE_SLAB_B1_7 = register("cobblestone_slab_b1_7", new SlabBlock(copy(COBBLESTONE_SLAB)));

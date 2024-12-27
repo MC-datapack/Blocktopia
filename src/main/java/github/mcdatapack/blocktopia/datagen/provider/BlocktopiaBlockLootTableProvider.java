@@ -1,8 +1,11 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
 import java.util.concurrent.CompletableFuture;
+
+import github.mcdatapack.blocktopia.init.ItemInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.data.server.loottable.LootTableGenerator;
 import net.minecraft.registry.RegistryWrapper;
 
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
@@ -18,6 +21,7 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(PAPER_BLOCK);
         addDrop(GUNPOWDER_BLOCK);
         addDrop(FIREWORK_BLOCK);
+
         addDrop(PALM_LOG);
         addDrop(STRIPPED_PALM_LOG);
         addDrop(PALM_WOOD);
@@ -35,6 +39,25 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(PALM_WALL_SIGN, PALM_SIGN);
         addDrop(PALM_HANGING_SIGN);
         addDrop(PALM_WALL_HANGING_SIGN, PALM_HANGING_SIGN);
+
+        addDrop(BANANA_LOG);
+        addDrop(STRIPPED_BANANA_LOG);
+        addDrop(BANANA_WOOD);
+        addDrop(STRIPPED_BANANA_WOOD);
+        addDrop(BANANA_SAPLING);
+        addPottedPlantDrops(POTTED_BANANA_SAPLING);
+        addDrop(BANANA_PLANKS);
+        addDrop(BANANA_FENCE);
+        addDrop(BANANA_FENCE_GATE);
+        addDrop(BANANA_STAIRS);
+        addDrop(BANANA_PRESSURE_PLATE);
+        addDrop(BANANA_BUTTON);
+        addDrop(BANANA_TRAPDOOR);
+        addDrop(BANANA_SIGN);
+        addDrop(BANANA_WALL_SIGN, BANANA_SIGN);
+        addDrop(BANANA_HANGING_SIGN);
+        addDrop(BANANA_WALL_HANGING_SIGN, BANANA_HANGING_SIGN);
+
         addDrop(COBBLESTONE_RD20090515);
         addDrop(COBBLESTONE_C_0_0_14A);
         addDrop(COBBLESTONE_B1_7);
@@ -133,8 +156,8 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(WALL_SIGN_INF20100607);
         addDrop(TORCH_IN20100124_2);
         addDrop(WALL_TORCH_IN20100124_2);
-        addDrop(REDSTONE_TORCH_A1_0_1);
-        addDrop(REDSTONE_WALL_TORCH_A1_0_1);
+        addDrop(REDSTONE_TORCH_A1_0_1, ItemInit.REDSTONE_TORCH_A1_0_1);
+        addDrop(REDSTONE_WALL_TORCH_A1_0_1, ItemInit.REDSTONE_TORCH_A1_0_1);
         addDropWithSilkTouch(ICE_A1_0_4);
         addDrop(CLAY_BLOCK_A1_0_11);
         addDrop(WOODEN_FENCE_RD20090515);

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "blocktopia:block/banana_pressure_plate"
+    },
+    "powered=true": {
+      "model": "blocktopia:block/banana_pressure_plate_down"
+    }
+  }
+}

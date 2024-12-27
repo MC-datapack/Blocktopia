@@ -3,6 +3,7 @@ package github.mcdatapack.blocktopia.init.worldgen;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.biome.OverworldBiomeCreator;
 import net.minecraft.world.gen.GenerationStep;
 
 
@@ -149,6 +150,5 @@ public class BiomeModificationInit {
                     PlacedFeatureInit.RED_MUSHROOM_C0_0_20A_PATCH_KEY
             );
         }
-
     }
 }

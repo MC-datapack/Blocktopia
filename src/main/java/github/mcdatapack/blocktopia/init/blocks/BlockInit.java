@@ -2,10 +2,7 @@ package github.mcdatapack.blocktopia.init.blocks;
 
 import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.block.ExtendedRepeaterBlock;
-import github.mcdatapack.blocktopia.block.ExtendedRepeaterBlockMinute;
-import github.mcdatapack.blocktopia.block.ExtendedRepeaterBlockSecond;
-import github.mcdatapack.blocktopia.block.SmallChestBlock;
+import github.mcdatapack.blocktopia.block.*;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
 import github.mcdatapack.blocktopia.list.BlockSetTypeList;
@@ -56,7 +53,7 @@ public class BlockInit {
             .mapColor(MapColor.BROWN).strength(2.0F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
     public static final PillarBlock STRIPPED_PALM_WOOD = register("stripped_palm_wood", new PillarBlock(AbstractBlock.Settings.create()
             .mapColor(MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0F).instrument(NoteBlockInstrument.BASS).burnable()));
-    public static final LeavesBlock PALM_LEAVES = register("palm_leaves", new LeavesBlock(AbstractBlock.Settings.create()
+    public static final ExtendedLeavesBlock PALM_LEAVES = register("palm_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
     public static final SaplingBlock PALM_SAPLING = register("palm_sapling", new SaplingBlock(new SaplingGenerator(Blocktopia.id("palm").toString(),
@@ -92,6 +89,51 @@ public class BlockInit {
     public static final BlocktopiaHangingSignBlock PALM_HANGING_SIGN = registerWithoutItem("palm_hanging_sign", new BlocktopiaHangingSignBlock(PALM_HANGING_SIGN_TEXTURE, PALM_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
             .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
     public static final BlocktopiaWallHangingSignBlock PALM_WALL_HANGING_SIGN = registerWithoutItem("palm_wall_hanging_sign", new BlocktopiaWallHangingSignBlock(PALM_HANGING_SIGN_TEXTURE, PALM_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
+
+
+    public static final Block BANANA_LOG = register("banana_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
+    public static final Block STRIPPED_BANANA_LOG =  register("stripped_banana_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
+    public static final PillarBlock BANANA_WOOD = register("banana_wood", new PillarBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).strength(2.0F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
+    public static final PillarBlock STRIPPED_BANANA_WOOD = register("stripped_banana_wood", new PillarBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0F).instrument(NoteBlockInstrument.BASS).burnable()));
+    public static final ExtendedLeavesBlock BANANA_LEAVES = register("banana_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
+            .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
+            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
+    public static final SaplingBlock BANANA_SAPLING = register("banana_sapling", new SaplingBlock(new SaplingGenerator(Blocktopia.id("banana").toString(),
+            0.1F, Optional.of(ConfiguredFeatureInit.BANANA_TREE_KEY), Optional.empty(), Optional.empty(),
+            Optional.empty(), Optional.empty(), Optional.empty()), AbstractBlock.Settings.create()
+            .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
+            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never).noCollision()));
+    public static final Block POTTED_BANANA_SAPLING = registerWithoutItem("potted_banana_sapling", Blocks.createFlowerPotBlock(BANANA_SAPLING));
+    public static final Block BANANA_PLANKS = register("banana_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    public static final DoorBlock BANANA_DOOR = register("banana_door", new DoorBlock(BlockSetTypeList.BANANA, AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().burnable().sounds(BlockSoundGroup.WOOD)));
+    public static final FenceBlock BANANA_FENCE = register("banana_fence", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceGateBlock BANANA_FENCE_GATE = register("banana_fence_gate", new FenceGateBlock(WoodTypeList.BANANA, AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final StairsBlock BANANA_STAIRS = register("banana_stairs", new StairsBlock(BANANA_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
+    public static final SlabBlock BANANA_SLAB = register("banana_slab", new SlabBlock(AbstractBlock.Settings.create()
+            .instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final PressurePlateBlock BANANA_PRESSURE_PLATE = register("banana_pressure_plate", new PressurePlateBlock(BlockSetTypeList.BANANA, AbstractBlock.Settings.create()
+            .solid().mapColor(MapColor.BROWN).noCollision().strength(0.5F).burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block BANANA_BUTTON = register("banana_button", Blocks.createWoodenButtonBlock(BlockSetTypeList.BANANA));
+    public static final TrapdoorBlock BANANA_TRAPDOOR = register("banana_trapdoor", new TrapdoorBlock(BlockSetTypeList.BANANA, AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().allowsSpawning(Blocks::never).burnable()));
+
+    private static final Identifier BANANA_SIGN_TEXTURE = Blocktopia.id("entity/signs/banana");
+    private static final Identifier BANANA_HANGING_SIGN_TEXTURE = Blocktopia.id("entity/signs/hanging/banana");
+    private static final Identifier BANANA_HANGING_SIGN_GUI_TEXTURE = Blocktopia.id("textures/gui/hanging_signs/banana");
+
+    public static final BlocktopiaSignBlock BANANA_SIGN = registerWithoutItem("banana_sign", new BlocktopiaSignBlock(BANANA_SIGN_TEXTURE, AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
+    public static final BlocktopiaWallSignBlock BANANA_WALL_SIGN = registerWithoutItem("banana_wall_sign", new BlocktopiaWallSignBlock(BANANA_SIGN_TEXTURE, AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
+    public static final BlocktopiaHangingSignBlock BANANA_HANGING_SIGN = registerWithoutItem("banana_hanging_sign", new BlocktopiaHangingSignBlock(BANANA_HANGING_SIGN_TEXTURE, BANANA_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
+    public static final BlocktopiaWallHangingSignBlock BANANA_WALL_HANGING_SIGN = registerWithoutItem("banana_wall_hanging_sign", new BlocktopiaWallHangingSignBlock(BANANA_HANGING_SIGN_TEXTURE, BANANA_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
             .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
 
 

@@ -25,5 +25,6 @@ public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
     public void buildRegistry(RegistryBuilder registryBuilder) {
         registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ConfiguredFeatureInit::bootstrap);
         registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, PlacedFeatureInit::bootstrap);
+        registryBuilder.addRegistry(RegistryKeys.BIOME, BiomeInit::bootstrap);
     }
 }

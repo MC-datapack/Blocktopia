@@ -4,11 +4,8 @@ import github.mcdatapack.blocktopia.Blocktopia;
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
-import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
-import net.minecraft.registry.Registerable;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import github.mcdatapack.blocktopia.block.ExtendedLeavesBlock;
+import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
@@ -16,11 +13,11 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.foliage.SpruceFoliagePlacer;
+import net.minecraft.world.gen.foliage.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.treedecorator.CocoaBeansTreeDecorator;
+import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
@@ -28,6 +25,7 @@ import java.util.List;
 
 public class ConfiguredFeatureInit {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM_TREE_KEY = registerKey("palm_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BANANA_TREE_KEY = registerKey("banana_tree");
     //Legacy
     public static final RegistryKey<ConfiguredFeature<?, ?>> COAL_ORE_C0_0_14A_KEY = registerKey("coal_ore_c0_0_14a");
     public static final RegistryKey<ConfiguredFeature<?, ?>> COAL_ORE_1_14_KEY = registerKey("coal_ore_1_14");
@@ -64,6 +62,18 @@ public class ConfiguredFeatureInit {
                 new AcaciaFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0)),
                 new TwoLayersFeatureSize(4, 1, 4)
         ).build());
+        register(context, BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(BANANA_LOG),
+                new ExtremeTrunkPlacer(32, 24, 24),
+                SimpleBlockStateProvider.of(BANANA_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
+                new TwoLayersFeatureSize(32, 4, 15))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.8F),
+                        new LeavesTreeDecorator(BANANA_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                .build());
+
 
         register(context, DANDELION_C0_0_20A_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
                 BlockStateProvider.of(DANDELION_C0_0_20A)

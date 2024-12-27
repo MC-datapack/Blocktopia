@@ -6,19 +6,17 @@ import github.mcdatapack.blocktopia.boat.api.BlocktopiaBoatTypeRegistry;
 import github.mcdatapack.blocktopia.boat.impl.BlocktopiaBoatTrackedData;
 import github.mcdatapack.blocktopia.boat.impl.entity.BlocktopiaBoatEntity;
 import github.mcdatapack.blocktopia.boat.impl.entity.BlocktopiaChestBoatEntity;
-import github.mcdatapack.blocktopia.init.BlockEntityTypeInit;
-import github.mcdatapack.blocktopia.init.BoatInit;
-import github.mcdatapack.blocktopia.init.ItemInit;
-import github.mcdatapack.blocktopia.init.ScreenHandlerTypeInit;
+import github.mcdatapack.blocktopia.entity.MonkeyEntity;
+import github.mcdatapack.blocktopia.init.*;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
-import github.mcdatapack.blocktopia.init.ItemGroupInit;
-import github.mcdatapack.blocktopia.init.worldgen.BiomeModificationInit;
+import github.mcdatapack.blocktopia.init.worldgen.*;
 import github.mcdatapack.blocktopia.util.CustomTrades;
 import github.mcdatapack.blocktopia.villager.CustomVillager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -29,8 +27,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import terrablender.api.RegionType;
+import terrablender.api.Regions;
+import terrablender.api.TerraBlenderApi;
 
-public class Blocktopia implements ModInitializer {
+public class Blocktopia implements ModInitializer, TerraBlenderApi {
     public static boolean DevMode = false;
     public static final Logger LOGGER = LoggerFactory.getLogger("Blocktopia");
     private static final float DIMENSIONS_WIDTH = 1.375F;
@@ -47,6 +48,9 @@ public class Blocktopia implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
+        TrunkPlacerTypeInit.load();
+        FoliagePlacerTypeInit.load();
+        TreeDecoratorTypeInit.load();
         LOGGER.debug("Loading Items, Blocks and Entities");
         ItemInit.load();
         BlockInit.load();
@@ -57,9 +61,13 @@ public class Blocktopia implements ModInitializer {
                 true, true, true, true, true);}
         else {BiomeModificationInit.load(true, false, false, false, 0, 0, 0,
                 false, false, false, false, false);}
+        BiomeInit.load();
         LOGGER.debug("Loading Block Entities");
         BlockEntityTypeInit.load();
         ScreenHandlerTypeInit.load();
+        LOGGER.debug("Loading Entities");
+        EntityInit.load();
+        FabricDefaultAttributeRegistry.register(EntityInit.MONKEY, MonkeyEntity.createMonkeyAttributes());
         LOGGER.debug("Loading Creative Tabs");
         ItemGroupInit.load();
         LOGGER.debug("Loading Custom Villagers");
@@ -76,6 +84,11 @@ public class Blocktopia implements ModInitializer {
         if (DevMode) {for (int i = 0; i <10; i++)  {LOGGER.error("DevMode is enabled");}}
     }
 
+    @Override
+    public void onTerraBlenderInitialized() {
+        Regions.register(new OverworldRegion(id("overworld"), RegionType.OVERWORLD, 2));
+    }
+
     private static void modifyEntries(FabricItemGroupEntries entries) {
         entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);
         entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);
@@ -89,9 +102,5 @@ public class Blocktopia implements ModInitializer {
 
     public static Identifier idTrinket(String path) {
         return Identifier.of("trinkets", path);
-    }
-
-    public static Identifier idMinecraft(String path) {
-        return Identifier.ofVanilla(path);
     }
 }

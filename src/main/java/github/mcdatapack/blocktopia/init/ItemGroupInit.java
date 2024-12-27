@@ -197,6 +197,25 @@ public class ItemGroupInit {
                 entries.add(ItemInit.PALM_BOAT);
                 entries.add(ItemInit.PALM_CHEST_BOAT);
                 entries.add(ItemInit.COCONUT);
+                entries.add(BlockInit.BANANA_WOOD);
+                entries.add(BlockInit.STRIPPED_BANANA_WOOD);
+                entries.add(BlockInit.BANANA_LOG);
+                entries.add(BlockInit.STRIPPED_BANANA_LOG);
+                entries.add(BlockInit.BANANA_LEAVES);
+                entries.add(BlockInit.BANANA_SAPLING);
+                entries.add(BlockInit.BANANA_PLANKS);
+                entries.add(BlockInit.BANANA_STAIRS);
+                entries.add(BlockInit.BANANA_SLAB);
+                entries.add(BlockInit.BANANA_FENCE);
+                entries.add(BlockInit.BANANA_FENCE_GATE);
+                entries.add(BlockInit.BANANA_PRESSURE_PLATE);
+                entries.add(BlockInit.BANANA_BUTTON);
+                entries.add(BlockInit.BANANA_DOOR);
+                entries.add(BlockInit.BANANA_TRAPDOOR);
+                entries.add(ItemInit.BANANA_SIGN);
+                entries.add(ItemInit.BANANA_HANGING_SIGN);
+                entries.add(ItemInit.BANANA_BOAT);
+                entries.add(ItemInit.BANANA_CHEST_BOAT);
                 entries.add(ItemInit.CHERRY);
                 if (Blocktopia.DevMode) {
                     entries.add(LegacyBlocks.LEAVES_C0_0_14A);
@@ -237,6 +256,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO);
                 entries.add(ItemInit.GIANT_SPAWN_EGG);
                 entries.add(ItemInit.ILLUSIONER_SPAWN_EGG);
+                entries.add(ItemInit.MONKEY_SPAWN_EGG);
                 entries.add(ItemInit.RABBIT_TRINKET);
                 entries.add(ItemInit.FISH_TRINKET);
             }).build());

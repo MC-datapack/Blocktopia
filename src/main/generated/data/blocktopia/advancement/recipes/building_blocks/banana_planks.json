@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blocktopia:banana_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#blocktopia:banana_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:banana_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blocktopia:banana_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:banana_planks"
+    ]
+  }
+}

@@ -24,6 +24,9 @@
     ],
     "fabric-datagen": [
       "github.mcdatapack.blocktopia.BlocktopiaDataGenerator"
+    ],
+    "terrablender": [
+      "github.mcdatapack.blocktopia.Blocktopia"
     ]
   },
   "mixins": [
@@ -37,6 +40,7 @@
     "minecraft": ">=1.21 <=1.21.1",
     "java": ">=21",
     "fabric-api": "*",
-    "trinkets": "~3.10.0"
+    "trinkets": ">=3.10.0",
+    "terrablender": ">=4.0.0.0"
   }
 }

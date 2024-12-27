@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "textures": {
+    "bottom": "blocktopia:block/banana_door_bottom",
+    "top": "blocktopia:block/banana_door_top"
+  }
+}

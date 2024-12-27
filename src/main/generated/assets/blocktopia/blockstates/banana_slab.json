@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/banana_slab"
+    },
+    "type=double": {
+      "model": "blocktopia:block/banana_planks"
+    },
+    "type=top": {
+      "model": "blocktopia:block/banana_slab_top"
+    }
+  }
+}

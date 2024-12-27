@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:banana_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "blocktopia:banana_planks"
+  }
+}
