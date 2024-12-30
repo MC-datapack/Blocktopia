@@ -19,7 +19,7 @@ public class NeedToDo {
     public static final Task RAIN_FOREST_TRANSLATION = new Task(0, TaskStatus.IN_PROGRESS);
     public static final Task BANANA = new Task(0, TaskStatus.NOT_STARTED);
     public static final Task GLOW_BERRY_TREE_DECORATOR = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task RAIN_FOREST_STRUCTURES = new Task(0, TaskStatus.IN_PROGRESS);
+    public static final Task RAIN_FOREST_STRUCTURES = new Task(1, TaskStatus.IN_PROGRESS);
 
     public enum TaskStatus {
         NOT_STARTED,
@@ -53,8 +53,6 @@ public class NeedToDo {
         Logger logger = LoggerFactory.getLogger("TODO");
         Map<TaskStatus, List<String>> taskMap = countTasks();
 
-        taskMap.forEach((status, tasks) -> {
-            logger.info("{}: {} ({})", status, tasks.size(), String.join(", \n                              ", tasks));
-        });
+        taskMap.forEach((status, tasks) -> logger.info("{}: {} ({})", status, tasks.size(), String.join(", \n                              ", tasks)));
     }
 }
