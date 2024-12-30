@@ -216,21 +216,10 @@ public class ItemGroupInit {
                 entries.add(ItemInit.BANANA_HANGING_SIGN);
                 entries.add(ItemInit.BANANA_BOAT);
                 entries.add(ItemInit.BANANA_CHEST_BOAT);
+                entries.add(BlockInit.FLOWERING_CHERRY_SAPLING);
+                entries.add(BlockInit.FLOWERING_CHERRY_LEAVES);
                 entries.add(ItemInit.CHERRY);
-                if (Blocktopia.DevMode) {
-                    entries.add(LegacyBlocks.LEAVES_C0_0_14A);
-                    entries.add(LegacyBlocks.LEAVES_C0_0_15A);
-                    entries.add(LegacyBlocks.LEAVES_C0_24ST);
-                    entries.add(LegacyBlocks.LOG_C0_0_14A);
-                    entries.add(LegacyBlocks.SAPLING_RD161348);
-                    entries.add(LegacyBlocks.SAPLING_C0_0_13A);
-                    entries.add(LegacyBlocks.SAPLING_C0_24ST);
-                    entries.add(LegacyBlocks.ROSE_C0_0_20A);
-                    entries.add(LegacyBlocks.POPPY_1_7);
-                    entries.add(LegacyBlocks.DANDELION_C0_0_20A);
-                    entries.add(LegacyBlocks.RED_MUSHROOM_C0_0_20A);
-                    entries.add(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A);
-                }
+                entries.add(BlockInit.GLOW_FLOWER);
             }).build());
 
     public static final ItemGroup OTHER_ITEMS_GROUP = register("other_items_group", FabricItemGroup.builder()

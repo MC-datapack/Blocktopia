@@ -48,14 +48,14 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
-        TrunkPlacerTypeInit.load();
-        FoliagePlacerTypeInit.load();
-        TreeDecoratorTypeInit.load();
         LOGGER.debug("Loading Items, Blocks and Entities");
         ItemInit.load();
         BlockInit.load();
         LegacyBlocks.load();
         BoatInit.load();
+        TrunkPlacerTypeInit.load();
+        FoliagePlacerTypeInit.load();
+        TreeDecoratorTypeInit.load();
         LOGGER.debug("Applying Biome Modifications");
         if (DevMode) {BiomeModificationInit.load(true, true, true, true, 1.2, 1.23, 1.23,
                 true, true, true, true, true);}
@@ -74,7 +74,10 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         CustomVillager.load();
         CustomTrades.load(12);
         LOGGER.debug("Event handling");
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(Blocktopia::modifyEntries);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST.asItem()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST.asItem()));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addAfter(Items.FROG_SPAWN_EGG, ItemInit.GIANT_SPAWN_EGG));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addBefore(Items.HUSK_SPAWN_EGG, ItemInit.ILLUSIONER_SPAWN_EGG));
         ItemStorage.SIDED.registerForBlockEntity(SmallChestBlockEntity::getInventoryProvider, BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY);
         LOGGER.debug("Loading Blocktopia Special Boats");
         BlocktopiaBoatTrackedData.register();
@@ -87,13 +90,6 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
     @Override
     public void onTerraBlenderInitialized() {
         Regions.register(new OverworldRegion(id("overworld"), RegionType.OVERWORLD, 2));
-    }
-
-    private static void modifyEntries(FabricItemGroupEntries entries) {
-        entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);
-        entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST);
-        entries.addAfter(Items.FROG_SPAWN_EGG, ItemInit.GIANT_SPAWN_EGG);
-        entries.addBefore(Items.HUSK_SPAWN_EGG, ItemInit.ILLUSIONER_SPAWN_EGG);
     }
 
     public static Identifier id(String path) {

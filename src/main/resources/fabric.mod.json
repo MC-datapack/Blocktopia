@@ -5,7 +5,8 @@
   "name": "Blocktopia",
   "description": "Blocktopia adds many Blocks to minecraft.",
   "authors": [
-    "Timo_11 (MC-Datapack)"
+    "Timo_11 (MC-Datapack)",
+    "Patrick_Farm"
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/blcktopia",
@@ -42,5 +43,8 @@
     "fabric-api": "*",
     "trinkets": ">=3.10.0",
     "terrablender": ">=4.0.0.0"
+  },
+  "suggests": {
+    "more_tools_and_armor": ">=6.6"
   }
 }

@@ -38,7 +38,7 @@ public class BlocktopiaTagProvider {
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(SMALL_CHEST).add(BOOKSHELF_C0_26ST).add(BOOKSHELF_B1_9PRE5).add(CRAFTING_TABLE_IN20100131).add(CRAFTING_TABLE_1_14).add(LADDER_INF20100607).add(LADDER_INF20100618).add(CARVED_PUMPKIN_A1_2_0).add(JACK_O_LANTERN_A1_2_0);
-            getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(PAPER_BLOCK).add(PALM_LEAVES).add(LEAVES_C0_0_14A).add(LEAVES_C0_0_15A).add(LEAVES_C0_24ST).add(SPONGE_C0_0_19A).add(SPONGE_1_8).add(WET_SPONGE_1_8);
+            getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(PAPER_BLOCK).add(PALM_LEAVES, BANANA_LEAVES, FLOWERING_CHERRY_LEAVES).add(LEAVES_C0_0_14A).add(LEAVES_C0_0_15A).add(LEAVES_C0_24ST).add(SPONGE_C0_0_19A).add(SPONGE_1_8).add(WET_SPONGE_1_8);
             getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(COBBLESTONE_RD20090515).add(COBBLESTONE_C_0_0_14A).add(COBBLESTONE_B1_7).add(COAL_ORE_C0_0_14A).add(COAL_ORE_1_14).add(IRON_ORE_C0_0_14A).add(IRON_ORE_1_14).add(IRON_ORE_1_14_1).add(GOLD_ORE_C0_0_14A).add(GOLD_ORE_C0_26ST).add(GOLD_ORE_1_14).add(GOLD_BLOCK_C0_0_20A).add(GOLD_BLOCK_C0_26ST).add(GOLD_BLOCK_A1_2_0).add(GOLD_BLOCK_B1_9PRE5).add(STONE_SLAB_C0_26ST).add(IRON_BLOCK_C0_26ST).add(IRON_BLOCK_A1_2_0).add(IRON_BLOCK_B1_9PRE5).add(MOSSY_COBBLESTONE_C0_26ST).add(MOSSY_COBBLESTONE_B1_8).add(BRICKS_C0_26ST).add(BRICKS_A1_0_11).add(OBSIDIAN_C0_28A).add(DIAMOND_ORE_IN20100128).add(DIAMOND_ORE_1_14).add(DIAMOND_BLOCK_IN20100128).add(DIAMOND_BLOCK_A1_2_0).add(DIAMOND_BLOCK_B1_9PRE5).add(FURNACE_IN20100219).add(LIT_FURNACE_IN20100219).add(FURNACE_B1_2).add(LIT_FURNACE_B1_2).add(COBBLESTONE_STAIRS_RD20090515).add(COBBLESTONE_STAIRS_C0_0_14A).add(COBBLESTONE_STAIRS_B1_7).add(REDSTONE_ORE_A1_0_1).add(REDSTONE_ORE_1_14).add(ICE_A1_0_4).add(NETHERRACK_A1_2_0).add(NETHERRACK_B1_9PRE5).add(GLOWSTONE_A1_2_0).add(GLOWSTONE_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(GUNPOWDER_BLOCK).add(FIREWORK_BLOCK).add(SAND_C0_0_14A).add(SAND_C0_0_15A).add(SAND_B1_9PRE6).add(GRAVEL_C0_0_14A).add(GRAVEL_C0_0_15A).add(GRAVEL_B1_9PRE5).add(GRAVEL_1_3).add(SNOW_A1_0_4).add(SNOW_BLOCK_A1_0_5).add(CLAY_BLOCK_A1_0_11).add(SOUL_SAND_A1_2_0);
             getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(OBSIDIAN_C0_28A);
@@ -57,10 +57,10 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE).add(BEDROCK_C0_0_12A);
             getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(PALM_FENCE_GATE, BANANA_FENCE_GATE);
             getOrCreateTagBuilder(BlockTags.INFINIBURN_END).add(BEDROCK_C0_0_12A);
-            getOrCreateTagBuilder(BlockTags.LEAVES).add(PALM_LEAVES, BANANA_LEAVES).add(LEAVES_C0_0_14A).add(LEAVES_C0_0_15A).add(LEAVES_C0_24ST);
+            getOrCreateTagBuilder(BlockTags.LEAVES).add(PALM_LEAVES, BANANA_LEAVES, FLOWERING_CHERRY_LEAVES).add(LEAVES_C0_0_14A).add(LEAVES_C0_0_15A).add(LEAVES_C0_24ST);
             getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN).addTag(TagList.Blocks.PALM_LOGS).addTag(TagList.Blocks.BANANA_LOGS).add(LOG_C0_0_14A);
             getOrCreateTagBuilder(BlockTags.PLANKS).add(PALM_PLANKS, BANANA_PLANKS).add(WOODEN_PLANKS_RD20090515).add(WOODEN_PLANKS_RD161348).add(WOODEN_PLANKS_C0_0_14A).add(WOODEN_PLANKS_C0_0_15A).add(WOODEN_PLANKS_B1_9PRE5);
-            getOrCreateTagBuilder(BlockTags.SAPLINGS).add(PALM_SAPLING, BANANA_SAPLING).add(SAPLING_RD161348).add(SAPLING_C0_0_13A).add(SAPLING_C0_24ST);
+            getOrCreateTagBuilder(BlockTags.SAPLINGS).add(PALM_SAPLING, BANANA_SAPLING, FLOWERING_CHERRY_SAPLING).add(SAPLING_RD161348).add(SAPLING_C0_0_13A).add(SAPLING_C0_24ST);
             getOrCreateTagBuilder(BlockTags.SLABS).add(STONE_SLAB_C0_26ST);
             getOrCreateTagBuilder(BlockTags.STAIRS).add(COBBLESTONE_STAIRS_RD20090515).add(COBBLESTONE_STAIRS_C0_0_14A).add(COBBLESTONE_STAIRS_B1_7);
             getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(PALM_SIGN, BANANA_SIGN).add(SIGN_INF20100607);
@@ -101,10 +101,10 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(ItemTags.BOATS).add(ItemInit.PALM_BOAT, BANANA_BOAT);
             getOrCreateTagBuilder(ItemTags.CHEST_BOATS).add(ItemInit.PALM_CHEST_BOAT, BANANA_CHEST_BOAT);
             getOrCreateTagBuilder(ItemTags.HANGING_SIGNS).add(ItemInit.PALM_HANGING_SIGN, ItemInit.BANANA_HANGING_SIGN);
-            getOrCreateTagBuilder(ItemTags.LEAVES).add(PALM_LEAVES.asItem()).add(LEAVES_C0_0_14A.asItem()).add(LEAVES_C0_0_15A.asItem()).add(LEAVES_C0_24ST.asItem());
+            getOrCreateTagBuilder(ItemTags.LEAVES).add(PALM_LEAVES.asItem(), BANANA_LEAVES.asItem(), FLOWERING_CHERRY_LEAVES.asItem()).add(LEAVES_C0_0_14A.asItem()).add(LEAVES_C0_0_15A.asItem()).add(LEAVES_C0_24ST.asItem());
             getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN).addTag(TagList.Items.PALM_LOGS).addTag(TagList.Items.BANANA_LOGS).add(LOG_C0_0_14A.asItem());
             getOrCreateTagBuilder(ItemTags.PLANKS).add(PALM_PLANKS.asItem(), BANANA_PLANKS.asItem()).add(WOODEN_PLANKS_RD20090515.asItem()).add(WOODEN_PLANKS_RD161348.asItem()).add(WOODEN_PLANKS_C0_0_14A.asItem()).add(WOODEN_PLANKS_C0_0_15A.asItem()).add(WOODEN_PLANKS_B1_9PRE5.asItem());
-            getOrCreateTagBuilder(ItemTags.SAPLINGS).add(PALM_SAPLING.asItem(), BANANA_SAPLING.asItem()).add(SAPLING_RD161348.asItem()).add(SAPLING_C0_0_13A.asItem()).add(SAPLING_C0_24ST.asItem());
+            getOrCreateTagBuilder(ItemTags.SAPLINGS).add(PALM_SAPLING.asItem(), BANANA_SAPLING.asItem(), FLOWERING_CHERRY_SAPLING.asItem()).add(SAPLING_RD161348.asItem()).add(SAPLING_C0_0_13A.asItem()).add(SAPLING_C0_24ST.asItem());
             getOrCreateTagBuilder(ItemTags.SIGNS).add(ItemInit.PALM_SIGN, ItemInit.BANANA_SIGN).add(ItemInit.SIGN_INF20100607);
             getOrCreateTagBuilder(ItemTags.SLABS).add(STONE_SLAB_C0_26ST.asItem());
             getOrCreateTagBuilder(ItemTags.STAIRS).add(COBBLESTONE_STAIRS_RD20090515.asItem()).add(COBBLESTONE_STAIRS_C0_0_14A.asItem()).add(COBBLESTONE_STAIRS_B1_7.asItem());

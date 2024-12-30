@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": "blocktopia:glow_flower",
+    "tries": 32,
+    "xz_spread": 10,
+    "y_spread": 5
+  }
+}

@@ -5,6 +5,11 @@
   "itemGroup.blocktopia.food": "§2§lBlocktopia: §fEssen",
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fAndere Blöcke und Items",
 
+  "biome.blocktopia.rain_forest": "Regenwald",
+  "block.blocktopia.glow_flower": "Leucht-Blume",
+  "block.blocktopia.flowering_cherry_sapling": "Blühender Kirschsetzling",
+  "block.blocktopia.flowering_cherry_leaves": "Blühender Kirschblätter",
+
   "item.blocktopia.rabbit_trinket": "Kaninchen Schmuckstück",
   "trinkets.slot.feet.rabbit": "Kaninchen Slot",
   "item.blocktopia.fish_trinket": "Fisch Schmuckstück",

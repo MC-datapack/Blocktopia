@@ -55,11 +55,15 @@
       "minecraft:spring_water"
     ],
     [
+      "blocktopia:glow_flower_patch",
       "minecraft:flower_flower_forest",
       "minecraft:patch_sugar_cane",
       "minecraft:vines",
-      "minecraft:jungle_tree",
-      "blocktopia:banana_tree"
+      "blocktopia:banana_tree",
+      "blocktopia:flowering_cherry",
+      "blocktopia:mega_jungle_tree",
+      "blocktopia:jungle_tree",
+      "blocktopia:palm_tree"
     ]
   ],
   "has_precipitation": true,
@@ -70,9 +74,9 @@
     "creature": [
       {
         "type": "blocktopia:monkey",
-        "maxCount": 3,
-        "minCount": 2,
-        "weight": 4
+        "maxCount": 8,
+        "minCount": 4,
+        "weight": 100
       }
     ],
     "misc": [],

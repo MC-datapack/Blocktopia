@@ -3,6 +3,8 @@ package github.mcdatapack.blocktopia.init.worldgen;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
+import github.mcdatapack.blocktopia.list.TagList;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
@@ -10,10 +12,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.PlacedFeatures;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
@@ -22,7 +21,12 @@ import java.util.Map;
 public class PlacedFeatureInit {
     public static final RegistryKey<PlacedFeature> PALM_TREE_KEY = registerKey("palm_tree");
     public static final RegistryKey<PlacedFeature> BANANA_TREE_KEY = registerKey("banana_tree");
-
+    public static final RegistryKey<PlacedFeature> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry");
+    public static final RegistryKey<PlacedFeature> GLOW_FLOWER_KEY = registerKey("glow_flower");
+    public static final RegistryKey<PlacedFeature> GLOW_FLOWER_PATCH_KEY = registerKey("glow_flower_patch");
+    //Of Vanilla
+    public static final RegistryKey<PlacedFeature> MEGA_JUNGLE_TREE = registerKey("mega_jungle_tree");
+    public static final RegistryKey<PlacedFeature> JUNGLE_TREE = registerKey("jungle_tree");
     //Legacy
     public static final RegistryKey<PlacedFeature> COAL_ORE_C0_0_14A_KEY = registerKey("coal_ore_c0_0_14a");
     public static final RegistryKey<PlacedFeature> COAL_ORE_1_14_KEY = registerKey("coal_ore_1_14");
@@ -51,11 +55,30 @@ public class PlacedFeatureInit {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context, PALM_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.PALM_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), BlockInit.PALM_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(32, 0.1F, 16), BlockInit.PALM_SAPLING));
         register(context, BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(128, 0.1F, 128), BlockInit.BANANA_SAPLING)
         );
+        register(context, GLOW_FLOWER_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GLOW_FLOWER_KEY),
+                List.of(BlockFilterPlacementModifier.of(BlockPredicate.replaceable())));
+        register(context, GLOW_FLOWER_PATCH_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GLOW_FLOWER_PATCH_KEY),
+                List.of(RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+
+        register(context, FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(96, 0.1F, 128), BlockInit.FLOWERING_CHERRY_SAPLING)
+        );
+
+
+        register(context, MEGA_JUNGLE_TREE, registryLookup.getOrThrow(TreeConfiguredFeatures.MEGA_JUNGLE_TREE),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 16), Blocks.JUNGLE_SAPLING
+                ));
+        register(context, JUNGLE_TREE, registryLookup.getOrThrow(TreeConfiguredFeatures.JUNGLE_TREE),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 16), Blocks.JUNGLE_SAPLING
+                ));
 
         register(context, TREE_C0_24ST_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.TREE_C0_24ST_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(

@@ -28,7 +28,10 @@ public class BlocktopiaClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), BlockInit.PALM_DOOR, BlockInit.PALM_SAPLING,
                 BlockInit.POTTED_PALM_SAPLING, BlockInit.PALM_LEAVES, BlockInit.PALM_TRAPDOOR, BlockInit.BANANA_SAPLING, BlockInit.POTTED_BANANA_SAPLING,
-                BlockInit.BANANA_LEAVES,LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A,
+                BlockInit.BANANA_LEAVES, BlockInit.FLOWERING_CHERRY_LEAVES, BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING,
+                BlockInit.GLOW_FLOWER, BlockInit.POTTED_GLOW_FLOWER,
+
+                LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A,
                 LegacyBlocks.SAPLING_C0_24ST, LegacyBlocks.POTTED_SAPLING_C0_24ST, LegacyBlocks.DANDELION_C0_0_20A,
                 LegacyBlocks.POTTED_DANDELIONS_C0_0_20A, LegacyBlocks.ROSE_C0_0_20A, LegacyBlocks.POTTED_ROSE_C0_0_20A,
                 LegacyBlocks.RED_MUSHROOM_C0_0_20A, LegacyBlocks.POTTED_RED_MUSHROOM_C0_0_20A, LegacyBlocks.BROWN_MUSHROOM_C0_0_20A,

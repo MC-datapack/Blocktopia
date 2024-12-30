@@ -4,6 +4,8 @@ import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+
+import github.mcdatapack.blocktopia.list.TagList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -633,6 +635,18 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .input(ConventionalItemTags.WOODEN_CHESTS)
                 .criterion(hasItem(BlockInit.PALM_PLANKS), conditionsFromItem(BlockInit.PALM_PLANKS))
                 .criterion(hasItem(CHEST), conditionsFromItem(CHEST)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.PALM_WOOD)
+                .input('A', BlockInit.PALM_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(PALM_LOGS), conditionsFromTag(PALM_LOGS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.STRIPPED_PALM_WOOD)
+                .input('A', BlockInit.STRIPPED_PALM_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(PALM_LOGS), conditionsFromTag(PALM_LOGS))
+                .offerTo(exporter);
         var palmFamily = new BlockFamily.Builder(BlockInit.PALM_PLANKS)
                 .button(BlockInit.PALM_BUTTON)
                 .fence(BlockInit.PALM_FENCE)
@@ -736,6 +750,18 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .input(ConventionalItemTags.WOODEN_CHESTS)
                 .criterion(hasItem(BlockInit.BANANA_PLANKS), conditionsFromItem(BlockInit.BANANA_PLANKS))
                 .criterion(hasItem(CHEST), conditionsFromItem(CHEST)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.BANANA_WOOD)
+                .input('A', BlockInit.BANANA_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(BANANA_LOGS), conditionsFromTag(BANANA_LOGS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.STRIPPED_BANANA_WOOD)
+                .input('A', BlockInit.STRIPPED_BANANA_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(BANANA_LOGS), conditionsFromTag(BANANA_LOGS))
+                .offerTo(exporter);
         var bananaFamily = new BlockFamily.Builder(BlockInit.BANANA_PLANKS)
                 .button(BlockInit.BANANA_BUTTON)
                 .fence(BlockInit.BANANA_FENCE)

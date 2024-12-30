@@ -5,6 +5,8 @@ import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
 import github.mcdatapack.blocktopia.block.ExtendedLeavesBlock;
+import github.mcdatapack.blocktopia.list.TagList;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
@@ -26,6 +28,9 @@ import java.util.List;
 public class ConfiguredFeatureInit {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM_TREE_KEY = registerKey("palm_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BANANA_TREE_KEY = registerKey("banana_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GLOW_FLOWER_KEY = registerKey("glow_flower");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GLOW_FLOWER_PATCH_KEY = registerKey("glow_flower_patch");
     //Legacy
     public static final RegistryKey<ConfiguredFeature<?, ?>> COAL_ORE_C0_0_14A_KEY = registerKey("coal_ore_c0_0_14a");
     public static final RegistryKey<ConfiguredFeature<?, ?>> COAL_ORE_1_14_KEY = registerKey("coal_ore_1_14");
@@ -73,6 +78,21 @@ public class ConfiguredFeatureInit {
                         new LeavesVineTreeDecorator(0.8F),
                         new LeavesTreeDecorator(BANANA_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
                 .build());
+        register(context, FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),
+                new ExtremeTrunkPlacer(24, 20, 20),
+                SimpleBlockStateProvider.of(FLOWERING_CHERRY_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(3, 7), ConstantIntProvider.create(0), 14),
+                new TwoLayersFeatureSize(24, 4, 12))
+                .decorators(List.of(
+                        new LeavesTreeDecorator(FLOWERING_CHERRY_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                .build());
+        register(context, GLOW_FLOWER_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
+                BlockStateProvider.of(GLOW_FLOWER)
+        ));
+        register(context, GLOW_FLOWER_PATCH_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(
+                32, 10, 5, registryLookup.getOrThrow(PlacedFeatureInit.GLOW_FLOWER_KEY)
+        ));
 
 
         register(context, DANDELION_C0_0_20A_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(

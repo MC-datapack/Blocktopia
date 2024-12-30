@@ -1,6 +1,5 @@
 package github.mcdatapack.blocktopia.init.blocks;
 
-import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.*;
 import github.mcdatapack.blocktopia.init.ItemInit;
@@ -18,23 +17,24 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 public class BlockInit {
-    public static final FallingBlock PAPER_BLOCK = register("paper_block",
-            new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).strength(0.2F, 0.0F)) {
-                @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock GUNPOWDER_BLOCK = register("gunpowder_block",
-            new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).strength(0.2F, 0.0F)) {
-                @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock FIREWORK_BLOCK = register("firework_block",
-            new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).strength(0.4F, 0.0F)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
+    public static final ColoredFallingBlock PAPER_BLOCK = register("paper_block",
+            new ColoredFallingBlock(new ColorCode(16777215), AbstractBlock.Settings.copy(Blocks.SAND).strength(0.2F, 0.0F)));
+    public static final ColoredFallingBlock GUNPOWDER_BLOCK = register("gunpowder_block",
+            new ColoredFallingBlock(new ColorCode(4276545), AbstractBlock.Settings.copy(Blocks.SAND).strength(0.2F, 0.0F)));
+    public static final ColoredFallingBlock FIREWORK_BLOCK = register("firework_block",
+            new ColoredFallingBlock(new ColorCode(16728385), AbstractBlock.Settings.copy(Blocks.SAND).strength(0.4F, 0.0F)));
     public static final SmallChestBlock SMALL_CHEST = register("small_chest", new SmallChestBlock(AbstractBlock.Settings.create()
             .strength(2.5F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
     public static final ExtendedRepeaterBlock EXTENDED_REPEATER_TICK = register("extended_repeater_tick",
@@ -47,12 +47,29 @@ public class BlockInit {
             new ExtendedRepeaterBlockMinute(AbstractBlock.Settings.create()
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
 
-    public static final Block PALM_LOG = register("palm_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
+    public static final ExtendedLeavesBlock FLOWERING_CHERRY_LEAVES = register("flowering_cherry_leaves", new ExtendedLeavesBlock(
+            AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES)));
+    public static final SaplingBlock FLOWERING_CHERRY_SAPLING = register("flowering_cherry_sapling", new SaplingBlock(
+            new SaplingGenerator("flowering_cherry", 0.1F,
+                    Optional.of(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY), Optional.empty(),
+                    Optional.of(TreeConfiguredFeatures.CHERRY), Optional.empty(),
+                    Optional.of(TreeConfiguredFeatures.CHERRY_BEES_005), Optional.empty()), AbstractBlock.Settings.copy(Blocks.CHERRY_SAPLING)));
+    public static final Block POTTED_FLOWERING_CHERRY_SAPLING = register("potted_flowering_cherry_sapling", Blocks.createFlowerPotBlock(FLOWERING_CHERRY_SAPLING));
+
+    public static final FlowerBlock GLOW_FLOWER = register("glow_flower", new FlowerBlock(StatusEffects.GLOWING, 60.5F, AbstractBlock.Settings.create()
+            .noCollision()
+            .breakInstantly()
+            .sounds(BlockSoundGroup.GRASS)
+            .offset(AbstractBlock.OffsetType.XZ)
+            .pistonBehavior(PistonBehavior.DESTROY)
+            .luminance((state) -> 15)));
+    public static final Block POTTED_GLOW_FLOWER = registerWithoutItem("potted_glow_flower", Blocks.createFlowerPotBlock(GLOW_FLOWER));
+
+
     public static final Block STRIPPED_PALM_LOG =  register("stripped_palm_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
-    public static final PillarBlock PALM_WOOD = register("palm_wood", new PillarBlock(AbstractBlock.Settings.create()
-            .mapColor(MapColor.BROWN).strength(2.0F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
-    public static final PillarBlock STRIPPED_PALM_WOOD = register("stripped_palm_wood", new PillarBlock(AbstractBlock.Settings.create()
-            .mapColor(MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0F).instrument(NoteBlockInstrument.BASS).burnable()));
+    public static final Block PALM_LOG = register("palm_log", createStrippableLogBlock(MapColor.BROWN, MapColor.BROWN, STRIPPED_PALM_LOG));
+    public static final Block STRIPPED_PALM_WOOD = register("stripped_palm_wood", createWoodBlock(MapColor.BROWN));
+    public static final Block PALM_WOOD = register("palm_wood", createStrippableWoodBlock(MapColor.BROWN, STRIPPED_PALM_WOOD));
     public static final ExtendedLeavesBlock PALM_LEAVES = register("palm_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
@@ -92,12 +109,10 @@ public class BlockInit {
             .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
 
 
-    public static final Block BANANA_LOG = register("banana_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
     public static final Block STRIPPED_BANANA_LOG =  register("stripped_banana_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
-    public static final PillarBlock BANANA_WOOD = register("banana_wood", new PillarBlock(AbstractBlock.Settings.create()
-            .mapColor(MapColor.BROWN).strength(2.0F).sounds(BlockSoundGroup.WOOD).instrument(NoteBlockInstrument.BASS).burnable()));
-    public static final PillarBlock STRIPPED_BANANA_WOOD = register("stripped_banana_wood", new PillarBlock(AbstractBlock.Settings.create()
-            .mapColor(MapColor.BROWN).sounds(BlockSoundGroup.WOOD).strength(2.0F).instrument(NoteBlockInstrument.BASS).burnable()));
+    public static final Block BANANA_LOG = register("banana_log", createStrippableLogBlock(MapColor.BROWN, MapColor.BROWN, STRIPPED_BANANA_LOG));
+    public static final Block STRIPPED_BANANA_WOOD = register("stripped_banana_wood", createWoodBlock(MapColor.BROWN));
+    public static final Block BANANA_WOOD = register("banana_wood", createStrippableWoodBlock(MapColor.BROWN, STRIPPED_BANANA_WOOD));
     public static final ExtendedLeavesBlock BANANA_LEAVES = register("banana_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
@@ -150,5 +165,39 @@ public class BlockInit {
     public static <T extends Block> T register(String name, T block) {
         return register(name, block, new Item.Settings());
     }
+
+    public static Block createStrippableLogBlock(MapColor topMapColor, MapColor sideMapColor, Block stripped) {
+        return new StrippableLogBlock(
+                stripped, AbstractBlock.Settings.create()
+                        .mapColor(state -> state.get(PillarBlock.AXIS) == Direction.Axis.Y ? topMapColor : sideMapColor)
+                        .instrument(NoteBlockInstrument.BASS)
+                        .strength(2.0F)
+                        .sounds(BlockSoundGroup.WOOD)
+                        .burnable()
+        );
+    }
+
+    public static Block createWoodBlock(MapColor color) {
+        return new PillarBlock(
+                AbstractBlock.Settings.create()
+                .mapColor(color)
+                .instrument(NoteBlockInstrument.BASS)
+                .strength(2.0F)
+                .sounds(BlockSoundGroup.WOOD)
+                .burnable()
+        );
+    }
+
+    public static Block createStrippableWoodBlock(MapColor color, Block stripped) {
+        return new StrippableLogBlock(
+                stripped, AbstractBlock.Settings.create()
+                .mapColor(color)
+                .instrument(NoteBlockInstrument.BASS)
+                .strength(2.0F)
+                .sounds(BlockSoundGroup.WOOD)
+                .burnable()
+        );
+    }
+
     public static void load() {}
 }

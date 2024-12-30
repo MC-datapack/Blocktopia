@@ -6,6 +6,11 @@
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fOther Blocks and Items",
   "description.blocktopia.datapacks.blocktopia_worldgen": "Custom Biomes of Blocktopia (Experimental)",
 
+  "biome.blocktopia.rain_forest": "Rain Forest",
+  "block.blocktopia.glow_flower": "Glow-Flower",
+  "block.blocktopia.flowering_cherry_sapling": "Flowering Cherry Sapling",
+  "block.blocktopia.flowering_cherry_leaves": "Flowering Cherry Leaves",
+
   "item.blocktopia.rabbit_trinket": "Rabbit Trinket",
   "trinkets.slot.feet.rabbit": "Rabbit Slot",
   "item.blocktopia.fish_trinket": "Fish Trinket",

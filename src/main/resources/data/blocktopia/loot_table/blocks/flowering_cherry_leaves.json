@@ -37,14 +37,14 @@
 				  ]
 				}
 			  ],
-			  "name": "minecraft:cherry_leaves"
+			  "name": "blocktopia:flowering_cherry_leaves"
 			},
 			{
 			  "type": "minecraft:group",
 			  "children": [
 				{
 				  "type": "minecraft:item",
-				  "name": "minecraft:cherry_sapling"
+				  "name": "blocktopia:flowering_cherry_sapling"
 				},
 				{
 				  "type": "minecraft:item",

@@ -70,6 +70,11 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .family(bananaFamily);
         blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_BANANA_LOG, BlockInit.BANANA_HANGING_SIGN, BlockInit.BANANA_WALL_HANGING_SIGN);
 
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FLOWERING_CHERRY_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING, TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.GLOW_FLOWER, BlockInit.POTTED_GLOW_FLOWER, TintType.NOT_TINTED);
+
 
 
         blockStateModelGenerator.registerLog(LegacyBlocks.LOG_C0_0_14A)

@@ -49,15 +49,20 @@ public class CustomBiomes {
                 .feature(GenerationStep.Feature.UNDERGROUND_ORES, registryEntryLookup.getOrThrow(OrePlacedFeatures.ORE_LAPIS_BURIED))
                 .feature(GenerationStep.Feature.UNDERGROUND_ORES, registryEntryLookup.getOrThrow(UndergroundPlacedFeatures.UNDERWATER_MAGMA))
                 .feature(GenerationStep.Feature.FLUID_SPRINGS, registryEntryLookup.getOrThrow(MiscPlacedFeatures.SPRING_WATER))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GLOW_FLOWER_PATCH_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.FLOWER_FLOWER_FOREST))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.PATCH_SUGAR_CANE))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.VINES))
 
-                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(TreePlacedFeatures.JUNGLE_TREE))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.BANANA_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.FLOWERING_CHERRY_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.MEGA_JUNGLE_TREE))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.JUNGLE_TREE))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.PALM_TREE_KEY))
                 .build();
+
         SpawnSettings spawnSettings = new SpawnSettings.Builder()
-                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityInit.MONKEY, 4, 2, 3))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityInit.MONKEY, 100, 4, 8))
                 .spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(EntityType.GLOW_SQUID, 10, 4, 6))
                 .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SPIDER, 5, 4, 4))
                 .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 5, 4, 4))
