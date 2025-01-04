@@ -1,0 +1,119 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:leaves",
+      "required": false
+    },
+    {
+      "id": "#minecraft:logs",
+      "required": false
+    },
+    {
+      "id": "#minecraft:flowers",
+      "required": false
+    },
+    {
+      "id": "#minecraft:anvil",
+      "required": false
+    },
+    {
+      "id": "#minecraft:all_hanging_signs",
+      "required": false
+    },
+    {
+      "id": "#minecraft:all_signs",
+      "required": false
+    },
+    {
+      "id": "#minecraft:banners",
+      "required": false
+    },
+    {
+      "id": "#minecraft:beds",
+      "required": false
+    },
+    {
+      "id": "#minecraft:climbable",
+      "required": false
+    },
+    {
+      "id": "#minecraft:buttons",
+      "required": false
+    },
+    {
+      "id": "#minecraft:doors",
+      "required": false
+    },
+    {
+      "id": "#minecraft:trapdoors",
+      "required": false
+    },
+    {
+      "id": "#minecraft:fence_gates",
+      "required": false
+    },
+    {
+      "id": "#minecraft:fences",
+      "required": false
+    },
+    {
+      "id": "#minecraft:walls",
+      "required": false
+    },
+    {
+      "id": "#minecraft:coral_plants",
+      "required": false
+    },
+    {
+      "id": "#minecraft:wall_corals",
+      "required": false
+    },
+    {
+      "id": "#minecraft:candles",
+      "required": false
+    },
+    {
+      "id": "#minecraft:candle_cakes",
+      "required": false
+    },
+    {
+      "id": "#minecraft:campfires",
+      "required": false
+    },
+    {
+      "id": "#minecraft:cauldrons",
+      "required": false
+    },
+    {
+      "id": "#minecraft:fire",
+      "required": false
+    },
+    {
+      "id": "#minecraft:flower_pots",
+      "required": false
+    },
+    {
+      "id": "#minecraft:ice",
+      "required": false
+    },
+    {
+      "id": "#minecraft:air",
+      "required": false
+    },
+    {
+      "id": "#minecraft:saplings",
+      "required": false
+    },
+    {
+      "id": "#more_tools_and_armor:needs_netherite_tool",
+      "required": false
+    },
+    {
+      "id": "#more_tools_and_armor:needs_deepslate_emerald_tool",
+      "required": false
+    },
+    "minecraft:bedrock",
+    "minecraft:reinforced_deepslate",
+    "minecraft:cake"
+  ]
+}

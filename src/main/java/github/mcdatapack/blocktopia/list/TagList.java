@@ -9,9 +9,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 
 public class TagList {
-    public TagList() {
-    }
-
     public static class Blocks {
         public static final TagKey<Block> LEGACY_BLOCKS = TagKey.of(RegistryKeys.BLOCK, Blocktopia.id("legacy_blocks"));
         public static final TagKey<Block> PALM_LOGS = TagKey.of(RegistryKeys.BLOCK, Blocktopia.id("palm_logs"));
@@ -20,6 +17,7 @@ public class TagList {
         public static final TagKey<Block> IRON_BLOCKS = TagKey.of(RegistryKeys.BLOCK, Blocktopia.id("iron_blocks"));
         public static final TagKey<Block> DIAMOND_BLOCKS = TagKey.of(RegistryKeys.BLOCK, Blocktopia.id("diamond_blocks"));
         public static final TagKey<Block> LEGACY_COBBLESTONE = TagKey.of(RegistryKeys.BLOCK, Blocktopia.id("legacy_cobblestone"));
+        public static final TagKey<Block> FLOOR_EXTENDED_SAPLING_UNALLOWED_FLOOR = TagKey.of(RegistryKeys.BLOCK, Blocktopia.id("floor_extended_sapling_unallowed_floor"));
 
         public static final TagKey<Block> CLASSIC_SPONGE_REPLACEABLE = TagKey.of(RegistryKeys.BLOCK, Blocktopia.id("classic_sponge_replaceable"));
     }

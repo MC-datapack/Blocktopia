@@ -22,12 +22,14 @@ import java.util.concurrent.CompletableFuture;
 import github.mcdatapack.blocktopia.list.TrinketTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
 public class BlocktopiaTagProvider {
     public static class BlocktopiaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
@@ -77,7 +79,38 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.WOOL).add(WHITE_CLOTH).add(LIGHT_GRAY_CLOTH_C0_0_20A).add(LIGHT_GRAY_CLOTH_C0_28A).add(DARK_GRAY_CLOTH_C0_0_20A).add(DARK_GRAY_CLOTH_C0_28A).add(RED_CLOTH).add(ORANGE_CLOTH).add(YELLOW_CLOTH).add(CHARTREUSE_CLOTH).add(SPRING_GREEN_CLOTH).add(CYAN_CLOTH).add(CAPRI_CLOTH).add(ULTRAMARINE_CLOTH).add(VIOLET_CLOTH).add(PURPLE_CLOTH).add(MAGENTA_CLOTH).add(ROSE_CLOTH);
             getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER).add(BOOKSHELF_C0_26ST).add(BOOKSHELF_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(LADDER_INF20100607).add(LADDER_INF20100618);
+            getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS).add(GLOW_FLOWER);
             getOrCreateTagBuilder(TagList.Blocks.CLASSIC_SPONGE_REPLACEABLE).add(Blocks.KELP, KELP_PLANT, Blocks.SEAGRASS, TALL_SEAGRASS);
+            getOrCreateTagBuilder(TagList.Blocks.FLOOR_EXTENDED_SAPLING_UNALLOWED_FLOOR)
+                    .addOptionalTag(BlockTags.LEAVES)
+                    .addOptionalTag(BlockTags.LOGS)
+                    .addOptionalTag(BlockTags.FLOWERS)
+                    .addOptionalTag(BlockTags.ANVIL)
+                    .addOptionalTag(BlockTags.ALL_HANGING_SIGNS)
+                    .addOptionalTag(BlockTags.ALL_SIGNS)
+                    .addOptionalTag(BlockTags.BANNERS)
+                    .addOptionalTag(BlockTags.BEDS)
+                    .addOptionalTag(BlockTags.CLIMBABLE)
+                    .addOptionalTag(BlockTags.BUTTONS)
+                    .addOptionalTag(BlockTags.DOORS)
+                    .addOptionalTag(BlockTags.TRAPDOORS)
+                    .addOptionalTag(BlockTags.FENCE_GATES)
+                    .addOptionalTag(BlockTags.FENCES)
+                    .addOptionalTag(BlockTags.WALLS)
+                    .addOptionalTag(BlockTags.CORAL_PLANTS)
+                    .addOptionalTag(BlockTags.WALL_CORALS)
+                    .addOptionalTag(BlockTags.CANDLES)
+                    .addOptionalTag(BlockTags.CANDLE_CAKES)
+                    .addOptionalTag(BlockTags.CAMPFIRES)
+                    .addOptionalTag(BlockTags.CAULDRONS)
+                    .addOptionalTag(BlockTags.FIRE)
+                    .addOptionalTag(BlockTags.FLOWER_POTS)
+                    .addOptionalTag(BlockTags.ICE)
+                    .addOptionalTag(BlockTags.AIR)
+                    .addOptionalTag(BlockTags.SAPLINGS)
+                    .addOptionalTag(Identifier.of("more_tools_and_armor", "needs_netherite_tool"))
+                    .addOptionalTag(Identifier.of("more_tools_and_armor", "needs_deepslate_emerald_tool"))
+                    .add(Blocks.BEDROCK, Blocks.REINFORCED_DEEPSLATE, Blocks.CAKE);
         }
     }
 
