@@ -189,7 +189,7 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(EXTENDED_REPEATER_MINUTE);
 
         addDrop(XP_TRAP);
-        this.addDrop(SANDY_DIRT, block -> this.drops(block, Blocks.DIRT));
+        addDrop(SANDY_DIRT, block -> drops(block, Blocks.DIRT));
 
         addDrop(BlockInit.OAK_CHAIR);
         addDrop(BlockInit.SPRUCE_CHAIR);

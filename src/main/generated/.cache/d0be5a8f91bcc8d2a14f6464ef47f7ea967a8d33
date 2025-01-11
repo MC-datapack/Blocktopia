@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-11T16:34:13.948852	Blocktopia/Block Loot Tables
+// 1.21	2025-01-11T20:56:02.0813839	Blocktopia/Block Loot Tables
 bcd73b981044c931c85ded58a2c16df65470a844 data\blocktopia\loot_table\blocks\cobblestone_stairs_rd20090515.json
 a28f4aac9c849da97dc3f182db5d484f66081cac data\blocktopia\loot_table\blocks\wooden_planks_rd20090515.json
 285d4f1c2fb26b8b4d59589d0dee2de77b57e289 data\blocktopia\loot_table\blocks\banana_fence.json
@@ -142,7 +142,7 @@ b28c06b2c38d020432c7e73e5766d945dc3c6705 data\blocktopia\loot_table\blocks\obsid
 a2537b61e31adc50fcb0cc2c8b5aa2950bf2afdc data\blocktopia\loot_table\blocks\banana_wall_sign.json
 8b4f83a284ee581933c4b54c6102c8cd11c1a2c9 data\blocktopia\loot_table\blocks\gold_ore_1_14.json
 6cf1ead23b867ea45e0d2cef56e9a814c16833d7 data\blocktopia\loot_table\blocks\tnt_c0_26st.json
-b6dc615d23bf39f4c043f8e1cdb635c0be9cb708 data\blocktopia\loot_table\blocks\sandy_dirt.json
+a07bd3568edab96d79109d97f37bf92704127ff9 data\blocktopia\loot_table\blocks\sandy_dirt.json
 7b20eeb7913f97ab9f279df01ce050bc13ef45bb data\blocktopia\loot_table\blocks\stripped_banana_log.json
 315585d7c3c4e546b4674fd586a59d8df0cde7d3 data\blocktopia\loot_table\blocks\palm_wall_hanging_sign.json
 2d41e294405962cafe467d682bb55b51e46256ca data\blocktopia\loot_table\blocks\ladder_inf20100607.json

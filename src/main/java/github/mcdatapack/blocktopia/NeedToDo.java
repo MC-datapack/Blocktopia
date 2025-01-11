@@ -19,6 +19,7 @@ public class NeedToDo {
     public static final Task RAIN_FOREST_TRANSLATION = new Task(3.0, 0, TaskStatus.DONE);
     public static final Task BANANA = new Task(3.0, 0, TaskStatus.DONE);
     public static final Task RAIN_FOREST_STRUCTURES = new Task(3.0, 1, TaskStatus.DONE);
+    public static final Task LEGACY_FURNACE_ROTATION = new Task(3.0, 0, TaskStatus.NOT_STARTED);
 
     public enum TaskStatus {
         NOT_STARTED,
