@@ -2,10 +2,16 @@ package github.mcdatapack.blocktopia.datagen.provider;
 
 import java.util.concurrent.CompletableFuture;
 
+import github.mcdatapack.blocktopia.block.BananaCropBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
+import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.loottable.LootTableGenerator;
+import net.minecraft.item.Item;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
@@ -181,5 +187,25 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(EXTENDED_REPEATER_TICK);
         addDrop(EXTENDED_REPEATER_SECOND);
         addDrop(EXTENDED_REPEATER_MINUTE);
+
+        addDrop(XP_TRAP);
+        this.addDrop(SANDY_DIRT, block -> this.drops(block, Blocks.DIRT));
+
+        addDrop(BlockInit.OAK_CHAIR);
+        addDrop(BlockInit.SPRUCE_CHAIR);
+        addDrop(BlockInit.BIRCH_CHAIR);
+        addDrop(BlockInit.JUNGLE_CHAIR);
+        addDrop(BlockInit.ACACIA_CHAIR);
+        addDrop(BlockInit.DARK_OAK_CHAIR);
+        addDrop(BlockInit.CRIMSON_CHAIR);
+        addDrop(BlockInit.WARPED_CHAIR);
+        addDrop(BlockInit.MANGROVE_CHAIR);
+        addDrop(BlockInit.CHERRY_CHAIR);
+        addDrop(BlockInit.PALM_CHAIR);
+        addDrop(BlockInit.BANANA_CHAIR);
+
+        BlockStatePropertyLootCondition.Builder builder = new  BlockStatePropertyLootCondition.Builder(BANANA_CROP).properties(StatePredicate.Builder.create()
+                .exactMatch(BananaCropBlock.AGE, 5));
+        addDrop(BANANA_CROP, cropDrops(BANANA_CROP, ItemInit.BANANA, ItemInit.BANANA_SEEDS, builder));
     }
 }

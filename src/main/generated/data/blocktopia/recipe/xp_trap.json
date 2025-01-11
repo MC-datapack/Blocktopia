@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:experience_bottle"
+    },
+    "B": {
+      "tag": "minecraft:trapdoors"
+    },
+    "C": {
+      "item": "blocktopia:enchanted_diamond_cherry"
+    },
+    "D": {
+      "item": "minecraft:obsidian"
+    },
+    "E": {
+      "item": "blocktopia:banana"
+    }
+  },
+  "pattern": [
+    "DAB",
+    "CEC",
+    "BAD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:xp_trap"
+  }
+}

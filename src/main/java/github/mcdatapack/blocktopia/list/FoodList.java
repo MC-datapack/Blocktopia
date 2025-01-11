@@ -2,6 +2,8 @@ package github.mcdatapack.blocktopia.list;
 
 import com.google.common.collect.ImmutableList;
 import java.util.Optional;
+
+import github.mcdatapack.blocktopia.init.StatusEffectInit;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -144,6 +146,13 @@ public class FoodList {
             .statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, TickMinuteConverter(20), 0), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.LUCK, TickHourConverter(1.5), 9), 0.775F)
             .statusEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, TickHourConverter(1.5), 4), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffectInit.XP_BOOST, TickMinuteConverter(2), 0), 1.0F)
+            .build();
+    public static final FoodComponent BANANA = new Builder()
+            .nutrition(5)
+            .saturationModifier(0.5F)
+            .alwaysEdible()
+            .eatingTime(64)
             .build();
 
 
@@ -184,7 +193,7 @@ public class FoodList {
             return this;
         }
 
-        public Builder usingConvertsTo(ItemConvertible item) {
+        public Builder convertsTo(ItemConvertible item) {
             this.usingConvertsTo = Optional.of(new ItemStack(item));
             return this;
         }

@@ -8,25 +8,24 @@ import java.util.*;
 
 @SuppressWarnings("unused")
 public class NeedToDo {
-    public static final Task TEXTURES_OF_BANANA_WOOD = new Task(1, TaskStatus.NOT_STARTED);
-    public static final Task STRIPPING_OF_LOGS = new Task(0, TaskStatus.DONE);
-    public static final Task NETHERITE_CHERRIES = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task DIAMOND_AND_NETHERITE_COCONUTS = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task MONKEY_WALK_ANIMATION_FIX = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task MONKEY_HEAD_LOOKAROUND_FIX = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task BETTER_TALE_ANIMATIONS = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task JUNGLE_TREE_IN_RAIN_FOREST_FIX = new Task(0, TaskStatus.DONE);
-    public static final Task RAIN_FOREST_TRANSLATION = new Task(0, TaskStatus.IN_PROGRESS);
-    public static final Task BANANA = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task GLOW_BERRY_TREE_DECORATOR = new Task(0, TaskStatus.NOT_STARTED);
-    public static final Task RAIN_FOREST_STRUCTURES = new Task(1, TaskStatus.IN_PROGRESS);
+    public static final Task TEXTURES_OF_BANANA_WOOD = new Task(3.0, 1, TaskStatus.DONE);
+    public static final Task STRIPPING_OF_LOGS = new Task(3.0, 0, TaskStatus.DONE);
+    public static final Task NETHERITE_CHERRIES = new Task(3.0, 0, TaskStatus.NOT_STARTED);
+    public static final Task DIAMOND_AND_NETHERITE_COCONUTS = new Task(3.0, 0, TaskStatus.NOT_STARTED);
+    public static final Task MONKEY_WALK_ANIMATION_FIX = new Task(3.0, 0, TaskStatus.NOT_STARTED);
+    public static final Task MONKEY_HEAD_LOOKAROUND_FIX = new Task(3.0, 0, TaskStatus.NOT_STARTED);
+    public static final Task BETTER_TALE_ANIMATIONS = new Task(3.0, 0, TaskStatus.NOT_STARTED);
+    public static final Task JUNGLE_TREE_IN_RAIN_FOREST_FIX = new Task(3.0, 0, TaskStatus.DONE);
+    public static final Task RAIN_FOREST_TRANSLATION = new Task(3.0, 0, TaskStatus.DONE);
+    public static final Task BANANA = new Task(3.0, 0, TaskStatus.DONE);
+    public static final Task RAIN_FOREST_STRUCTURES = new Task(3.0, 1, TaskStatus.DONE);
 
     public enum TaskStatus {
         NOT_STARTED,
         IN_PROGRESS,
         DONE
     }
-    public record Task(int author, TaskStatus status) {}
+    public record Task(double version, int author, TaskStatus status) {}
 
     public static Map<TaskStatus, List<String>> countTasks() {
         Field[] fields = Arrays.stream(NeedToDo.class.getDeclaredFields())

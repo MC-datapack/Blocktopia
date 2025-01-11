@@ -15,7 +15,9 @@ import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.TORCH_IN2010
 import static net.minecraft.block.Blocks.*;
 import static net.minecraft.item.Items.*;
 
+import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
+import github.mcdatapack.blocktopia.init.worldgen.BiomeInit;
 import github.mcdatapack.blocktopia.list.TagList;
 import java.util.concurrent.CompletableFuture;
 
@@ -24,12 +26,18 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.tag.TagProvider;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagBuilder;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.Biome;
 
 public class BlocktopiaTagProvider {
     public static class BlocktopiaBlockTagProvider extends FabricTagProvider.BlockTagProvider {
@@ -39,7 +47,7 @@ public class BlocktopiaTagProvider {
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-            getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(SMALL_CHEST).add(BOOKSHELF_C0_26ST).add(BOOKSHELF_B1_9PRE5).add(CRAFTING_TABLE_IN20100131).add(CRAFTING_TABLE_1_14).add(LADDER_INF20100607).add(LADDER_INF20100618).add(CARVED_PUMPKIN_A1_2_0).add(JACK_O_LANTERN_A1_2_0);
+            getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).addTag(TagList.Blocks.CHAIRS).add(SMALL_CHEST).add(BOOKSHELF_C0_26ST).add(BOOKSHELF_B1_9PRE5).add(CRAFTING_TABLE_IN20100131).add(CRAFTING_TABLE_1_14).add(LADDER_INF20100607).add(LADDER_INF20100618).add(CARVED_PUMPKIN_A1_2_0).add(JACK_O_LANTERN_A1_2_0);
             getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(PAPER_BLOCK).add(PALM_LEAVES, BANANA_LEAVES, FLOWERING_CHERRY_LEAVES).add(LEAVES_C0_0_14A).add(LEAVES_C0_0_15A).add(LEAVES_C0_24ST).add(SPONGE_C0_0_19A).add(SPONGE_1_8).add(WET_SPONGE_1_8);
             getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(COBBLESTONE_RD20090515).add(COBBLESTONE_C_0_0_14A).add(COBBLESTONE_B1_7).add(COAL_ORE_C0_0_14A).add(COAL_ORE_1_14).add(IRON_ORE_C0_0_14A).add(IRON_ORE_1_14).add(IRON_ORE_1_14_1).add(GOLD_ORE_C0_0_14A).add(GOLD_ORE_C0_26ST).add(GOLD_ORE_1_14).add(GOLD_BLOCK_C0_0_20A).add(GOLD_BLOCK_C0_26ST).add(GOLD_BLOCK_A1_2_0).add(GOLD_BLOCK_B1_9PRE5).add(STONE_SLAB_C0_26ST).add(IRON_BLOCK_C0_26ST).add(IRON_BLOCK_A1_2_0).add(IRON_BLOCK_B1_9PRE5).add(MOSSY_COBBLESTONE_C0_26ST).add(MOSSY_COBBLESTONE_B1_8).add(BRICKS_C0_26ST).add(BRICKS_A1_0_11).add(OBSIDIAN_C0_28A).add(DIAMOND_ORE_IN20100128).add(DIAMOND_ORE_1_14).add(DIAMOND_BLOCK_IN20100128).add(DIAMOND_BLOCK_A1_2_0).add(DIAMOND_BLOCK_B1_9PRE5).add(FURNACE_IN20100219).add(LIT_FURNACE_IN20100219).add(FURNACE_B1_2).add(LIT_FURNACE_B1_2).add(COBBLESTONE_STAIRS_RD20090515).add(COBBLESTONE_STAIRS_C0_0_14A).add(COBBLESTONE_STAIRS_B1_7).add(REDSTONE_ORE_A1_0_1).add(REDSTONE_ORE_1_14).add(ICE_A1_0_4).add(NETHERRACK_A1_2_0).add(NETHERRACK_B1_9PRE5).add(GLOWSTONE_A1_2_0).add(GLOWSTONE_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(GUNPOWDER_BLOCK).add(FIREWORK_BLOCK).add(SAND_C0_0_14A).add(SAND_C0_0_15A).add(SAND_B1_9PRE6).add(GRAVEL_C0_0_14A).add(GRAVEL_C0_0_15A).add(GRAVEL_B1_9PRE5).add(GRAVEL_1_3).add(SNOW_A1_0_4).add(SNOW_BLOCK_A1_0_5).add(CLAY_BLOCK_A1_0_11).add(SOUL_SAND_A1_2_0);
@@ -111,6 +119,19 @@ public class BlocktopiaTagProvider {
                     .addOptionalTag(Identifier.of("more_tools_and_armor", "needs_netherite_tool"))
                     .addOptionalTag(Identifier.of("more_tools_and_armor", "needs_deepslate_emerald_tool"))
                     .add(Blocks.BEDROCK, Blocks.REINFORCED_DEEPSLATE, Blocks.CAKE);
+            getOrCreateTagBuilder(TagList.Blocks.CHAIRS)
+                    .add(BlockInit.OAK_CHAIR)
+                    .add(BlockInit.SPRUCE_CHAIR)
+                    .add(BlockInit.BIRCH_CHAIR)
+                    .add(BlockInit.JUNGLE_CHAIR)
+                    .add(BlockInit.ACACIA_CHAIR)
+                    .add(BlockInit.DARK_OAK_CHAIR)
+                    .add(BlockInit.CRIMSON_CHAIR)
+                    .add(BlockInit.WARPED_CHAIR)
+                    .add(BlockInit.MANGROVE_CHAIR)
+                    .add(BlockInit.CHERRY_CHAIR)
+                    .add(BlockInit.PALM_CHAIR)
+                    .add(BlockInit.BANANA_CHAIR);
         }
     }
 
@@ -149,7 +170,21 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(PALM_STAIRS.asItem(), BANANA_STAIRS.asItem()).add(WOODEN_STAIRS_RD20090515.asItem()).add(WOODEN_STAIRS_RD161348.asItem()).add(WOODEN_STAIRS_C0_0_14A.asItem()).add(WOODEN_STAIRS_INF20100629.asItem()).add(WOODEN_STAIRS_B1_9PRE5.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(PALM_TRAPDOOR.asItem(), BANANA_TRAPDOOR.asItem());
             getOrCreateTagBuilder(ItemTags.WOOL).add(WHITE_CLOTH.asItem()).add(LIGHT_GRAY_CLOTH_C0_0_20A.asItem()).add(LIGHT_GRAY_CLOTH_C0_28A.asItem()).add(DARK_GRAY_CLOTH_C0_0_20A.asItem()).add(DARK_GRAY_CLOTH_C0_28A.asItem()).add(RED_CLOTH.asItem()).add(ORANGE_CLOTH.asItem()).add(YELLOW_CLOTH.asItem()).add(CHARTREUSE_CLOTH.asItem()).add(SPRING_GREEN_CLOTH.asItem()).add(CYAN_CLOTH.asItem()).add(CAPRI_CLOTH.asItem()).add(ULTRAMARINE_CLOTH.asItem()).add(VIOLET_CLOTH.asItem()).add(PURPLE_CLOTH.asItem()).add(MAGENTA_CLOTH.asItem()).add(ROSE_CLOTH.asItem());
-            getOrCreateTagBuilder(TagList.Items.MONKEY_BREEDING_ITEMS).add(COCONUT, COOKIE, Items.CAKE);
+            getOrCreateTagBuilder(TagList.Items.MONKEY_BREEDING_ITEMS).add(COCONUT, BANANA);
+
+            getOrCreateTagBuilder(TagList.Items.CHAIRS)
+                    .add(BlockInit.OAK_CHAIR.asItem())
+                    .add(BlockInit.SPRUCE_CHAIR.asItem())
+                    .add(BlockInit.BIRCH_CHAIR.asItem())
+                    .add(BlockInit.JUNGLE_CHAIR.asItem())
+                    .add(BlockInit.ACACIA_CHAIR.asItem())
+                    .add(BlockInit.DARK_OAK_CHAIR.asItem())
+                    .add(BlockInit.CRIMSON_CHAIR.asItem())
+                    .add(BlockInit.WARPED_CHAIR.asItem())
+                    .add(BlockInit.MANGROVE_CHAIR.asItem())
+                    .add(BlockInit.CHERRY_CHAIR.asItem())
+                    .add(BlockInit.PALM_CHAIR.asItem())
+                    .add(BlockInit.BANANA_CHAIR.asItem());
 
 
             getOrCreateTagBuilder(TrinketTags.RABBIT_SLOT)
@@ -168,6 +203,18 @@ public class BlocktopiaTagProvider {
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
             getOrCreateTagBuilder(TagList.Fluids.CLASSIC_SPONGE_ABSORB)
                     .add(Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA);
+        }
+    }
+
+    public static class BlocktopiaBiomeTagProvider extends FabricTagProvider<Biome> {
+        public BlocktopiaBiomeTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+            super(output, RegistryKeys.BIOME, registriesFuture);
+        }
+
+        @Override
+        protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+            getOrCreateTagBuilder(TagList.Biomes.HAS_BANANA_TREE_HOUSE)
+                    .add(BiomeInit.RAIN_FOREST_KEY);
         }
     }
 }

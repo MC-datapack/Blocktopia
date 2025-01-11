@@ -5,6 +5,7 @@ import github.mcdatapack.blocktopia.block.*;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
 import github.mcdatapack.blocktopia.list.BlockSetTypeList;
+import github.mcdatapack.blocktopia.list.TagList;
 import github.mcdatapack.blocktopia.list.WoodTypeList;
 import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaHangingSignBlock;
 import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaSignBlock;
@@ -56,6 +57,8 @@ public class BlockInit {
                     Optional.of(TreeConfiguredFeatures.CHERRY_BEES_005), Optional.empty()), AbstractBlock.Settings.copy(Blocks.CHERRY_SAPLING)));
     public static final Block POTTED_FLOWERING_CHERRY_SAPLING = register("potted_flowering_cherry_sapling", Blocks.createFlowerPotBlock(FLOWERING_CHERRY_SAPLING));
 
+    public static final Block SANDY_DIRT = register("sandy_dirt", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
+
     public static final FlowerBlock GLOW_FLOWER = register("glow_flower", new FlowerBlock(StatusEffects.GLOWING, 60.5F, AbstractBlock.Settings.create()
             .noCollision()
             .breakInstantly()
@@ -63,7 +66,13 @@ public class BlockInit {
             .offset(AbstractBlock.OffsetType.XZ)
             .pistonBehavior(PistonBehavior.DESTROY)
             .luminance((state) -> 15)));
-    public static final Block POTTED_GLOW_FLOWER = registerWithoutItem("potted_glow_flower", Blocks.createFlowerPotBlock(GLOW_FLOWER));
+    public static final Block POTTED_GLOW_FLOWER = registerWithoutItem("potted_glow_flower", createGlowingFlowerPotBlock(15, GLOW_FLOWER));
+
+    public static final BananaCropBlock BANANA_CROP = registerWithoutItem("banana_crop", new BananaCropBlock(AbstractBlock.Settings.create()
+            .breakInstantly()
+            .noCollision()
+            .pistonBehavior(PistonBehavior.DESTROY)
+            .sounds(BlockSoundGroup.GRASS)));
 
 
     public static final Block STRIPPED_PALM_LOG =  register("stripped_palm_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
@@ -152,6 +161,22 @@ public class BlockInit {
             .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
 
 
+    public static final ChairBlock OAK_CHAIR = register("oak_chair", new ChairBlock(Blocks.OAK_PLANKS, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    public static final ChairBlock SPRUCE_CHAIR = register("spruce_chair", new ChairBlock(Blocks.SPRUCE_PLANKS, AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS)));
+    public static final ChairBlock BIRCH_CHAIR = register("birch_chair", new ChairBlock(Blocks.BIRCH_PLANKS, AbstractBlock.Settings.copy(Blocks.BIRCH_PLANKS)));
+    public static final ChairBlock JUNGLE_CHAIR = register("jungle_chair", new ChairBlock(Blocks.JUNGLE_PLANKS, AbstractBlock.Settings.copy(Blocks.JUNGLE_PLANKS)));
+    public static final ChairBlock ACACIA_CHAIR = register("acacia_chair", new ChairBlock(Blocks.ACACIA_PLANKS, AbstractBlock.Settings.copy(Blocks.ACACIA_PLANKS)));
+    public static final ChairBlock DARK_OAK_CHAIR = register("dark_oak_chair", new ChairBlock(Blocks.DARK_OAK_PLANKS, AbstractBlock.Settings.copy(Blocks.DARK_OAK_PLANKS)));
+    public static final ChairBlock CRIMSON_CHAIR = register("crimson_chair", new ChairBlock(Blocks.CRIMSON_PLANKS, AbstractBlock.Settings.copy(Blocks.CRIMSON_PLANKS)));
+    public static final ChairBlock WARPED_CHAIR = register("warped_chair", new ChairBlock(Blocks.WARPED_PLANKS, AbstractBlock.Settings.copy(Blocks.WARPED_PLANKS)));
+    public static final ChairBlock MANGROVE_CHAIR = register("mangrove_chair", new ChairBlock(Blocks.MANGROVE_PLANKS, AbstractBlock.Settings.copy(Blocks.MANGROVE_PLANKS)));
+    public static final ChairBlock CHERRY_CHAIR = register("cherry_chair", new ChairBlock(Blocks.CHERRY_PLANKS, AbstractBlock.Settings.copy(Blocks.CHERRY_PLANKS)));
+    public static final ChairBlock PALM_CHAIR = register("palm_chair", new ChairBlock(PALM_PLANKS, AbstractBlock.Settings.copy(PALM_PLANKS)));
+    public static final ChairBlock BANANA_CHAIR = register("banana_chair", new ChairBlock(BANANA_PLANKS, AbstractBlock.Settings.copy(BANANA_PLANKS)));
+
+    public static final XPTrapBlock XP_TRAP = register("xp_trap", new XPTrapBlock(AbstractBlock.Settings.copy(Blocks.OBSIDIAN)));
+
+
     public static <T extends Block> T registerWithoutItem(String name, T block) {
         return Registry.register(Registries.BLOCK, Blocktopia.id(name), block);
     }
@@ -197,6 +222,11 @@ public class BlockInit {
                 .sounds(BlockSoundGroup.WOOD)
                 .burnable()
         );
+    }
+
+    public static Block createGlowingFlowerPotBlock(int luminance,Block flower) {
+        return new FlowerPotBlock(flower, AbstractBlock.Settings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+                .luminance((state) -> luminance));
     }
 
     public static void load() {}

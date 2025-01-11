@@ -1,0 +1,6 @@
+{
+  "parent": "blocktopia:block/chair",
+  "textures": {
+    "texture": "minecraft:block/warped_planks"
+  }
+}

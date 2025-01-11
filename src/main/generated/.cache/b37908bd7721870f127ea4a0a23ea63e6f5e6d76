@@ -1,4 +1,5 @@
-// 1.21.1	2025-01-04T13:40:04.1921096	Blocktopia/Tags for minecraft:item
+// 1.21.1	2025-01-11T16:34:13.9528526	Blocktopia/Tags for minecraft:item
+ec1939305ef899fc17335658be813fbf44682947 data\blocktopia\tags\item\chairs.json
 df7ef3e456dea2d633da5841adba173236bff07d data\minecraft\tags\item\planks.json
 4c45e0374f38a20cc66c4c346a9664760b25fbf3 data\trinkets\tags\item\feet\rabbit.json
 6cda186ea6c4d9c2601b113437d0ff61185510af data\blocktopia\tags\item\golden_blocks.json
@@ -29,4 +30,4 @@ a16c25976639c80a8c779f3e3dfd0cdf6ea4797d data\blocktopia\tags\item\legacy_blocks
 0bcae26c1e101bf1dce9d63dbebc9c0819305799 data\minecraft\tags\item\hanging_signs.json
 d38f1ec5ef714de734a513c8bef71cdbd8e2e0d8 data\minecraft\tags\item\logs_that_burn.json
 eeae5554632ff7e80d31793c55b4db4e3f3eceea data\minecraft\tags\item\wooden_pressure_plates.json
-e545c6706dd0ea996984e64d1852888ff511232a data\blocktopia\tags\item\monkey_breeding_items.json
+227dec52bb82541c2be7660e577a0f12dd47a3e3 data\blocktopia\tags\item\monkey_breeding_items.json

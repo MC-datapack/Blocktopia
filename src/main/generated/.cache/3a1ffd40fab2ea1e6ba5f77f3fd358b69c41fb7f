@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-04T13:40:04.1961545	Blocktopia/Tags for minecraft:block
+// 1.21.1	2025-01-11T16:34:13.9578522	Blocktopia/Tags for minecraft:block
 f9ddeefd6ed7be3ccb093756ce135856d568f8ca data\minecraft\tags\block\enchantment_power_provider.json
 1be7c3c458dfdfdf7c3a74981d8d961e52209295 data\minecraft\tags\block\fence_gates.json
 7eb21ecd2a13148f709d14f845f1ec12856b22e4 data\blocktopia\tags\block\floor_extended_sapling_unallowed_floor.json
@@ -18,7 +18,7 @@ f6d629385c3672e5a6e1830b60109f46c93d04dd data\minecraft\tags\block\wall_hanging_
 417d28018405bb9b393ec1d267dfa1ae0bf2d091 data\minecraft\tags\block\infiniburn_overworld.json
 3cc6f59159212f5fb1aaa63913840fd4ddc31b3b data\minecraft\tags\block\saplings.json
 4c0d52b1123dd3df794bd9fb8c7f501c6ff500f8 data\blocktopia\tags\block\classic_sponge_replaceable.json
-08945f4da4a9a520b60a5be04090cd0271441bae data\minecraft\tags\block\mineable\axe.json
+3651112e7a8343c9231e63b742d69ab32d6d3a73 data\minecraft\tags\block\mineable\axe.json
 36e90972d6efaad0d1f401dcd92ec7200f03fc57 data\minecraft\tags\block\needs_stone_tool.json
 63c6a8eb23c7bac55533fa5d82c641cf6f45fa9c data\minecraft\tags\block\wooden_fences.json
 d38f1ec5ef714de734a513c8bef71cdbd8e2e0d8 data\minecraft\tags\block\logs_that_burn.json
@@ -27,6 +27,7 @@ ba11376c25c7f27a6593c3dd7ab75a1de392c8c9 data\minecraft\tags\block\wooden_stairs
 67495b5ffbbd9d8397996375c4c225457445ac4f data\minecraft\tags\block\climbable.json
 a76d3da697badca4dad8522a234e668d34da0e3f data\minecraft\tags\block\mineable\pickaxe.json
 ed0ce9da3297a8dff6532ade51853c5317ce674a data\minecraft\tags\block\dragon_immune.json
+ec1939305ef899fc17335658be813fbf44682947 data\blocktopia\tags\block\chairs.json
 3d4cfb94c41b2cbd62e13cb072982998dcee49d8 data\minecraft\tags\block\wool.json
 609771c2dd3788f24687be841fd7428d3b085b45 data\blocktopia\tags\block\legacy_cobblestone.json
 2c98ea7100272b6d1d02de8e4a1e41c4e1ff430c data\minecraft\tags\block\stairs.json

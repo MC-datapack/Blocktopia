@@ -11,7 +11,7 @@
       "minecraft:cave_extra_underground"
     ]
   },
-  "downfall": 1.2,
+  "downfall": 2.0,
   "effects": {
     "fog_color": 12638463,
     "sky_color": 7843327,
@@ -56,14 +56,13 @@
     ],
     [
       "blocktopia:glow_flower_patch",
-      "minecraft:flower_flower_forest",
       "minecraft:patch_sugar_cane",
       "minecraft:vines",
       "blocktopia:banana_tree",
       "blocktopia:flowering_cherry",
+      "blocktopia:palm_tree",
       "blocktopia:mega_jungle_tree",
-      "blocktopia:jungle_tree",
-      "blocktopia:palm_tree"
+      "blocktopia:jungle_tree"
     ]
   ],
   "has_precipitation": true,

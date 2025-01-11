@@ -8,10 +8,7 @@ import github.mcdatapack.blocktopia.init.EntityInit;
 import github.mcdatapack.blocktopia.init.ScreenHandlerTypeInit;
 import github.mcdatapack.blocktopia.init.blocks.*;
 import github.mcdatapack.blocktopia.models.SmallChestModel;
-import github.mcdatapack.blocktopia.renderer.ModelLayerInit;
-import github.mcdatapack.blocktopia.renderer.MonkeyModel;
-import github.mcdatapack.blocktopia.renderer.MonkeyRenderer;
-import github.mcdatapack.blocktopia.renderer.SmallChestBlockEntityRenderer;
+import github.mcdatapack.blocktopia.renderer.*;
 import github.mcdatapack.blocktopia.screen.SmallChestInventoryScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -29,7 +26,7 @@ public class BlocktopiaClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), BlockInit.PALM_DOOR, BlockInit.PALM_SAPLING,
                 BlockInit.POTTED_PALM_SAPLING, BlockInit.PALM_LEAVES, BlockInit.PALM_TRAPDOOR, BlockInit.BANANA_SAPLING, BlockInit.POTTED_BANANA_SAPLING,
                 BlockInit.BANANA_LEAVES, BlockInit.FLOWERING_CHERRY_LEAVES, BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING,
-                BlockInit.GLOW_FLOWER, BlockInit.POTTED_GLOW_FLOWER,
+                BlockInit.GLOW_FLOWER, BlockInit.POTTED_GLOW_FLOWER, BlockInit.BANANA_DOOR, BlockInit.BANANA_TRAPDOOR, BlockInit.BANANA_CROP,
 
                 LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A,
                 LegacyBlocks.SAPLING_C0_24ST, LegacyBlocks.POTTED_SAPLING_C0_24ST, LegacyBlocks.DANDELION_C0_0_20A,
@@ -56,7 +53,7 @@ public class BlocktopiaClient implements ClientModInitializer {
         //Entity Renderers
         EntityRendererRegistry.register(EntityInit.MONKEY, MonkeyRenderer::new);
 
-
+        EntityRendererRegistry.register(EntityInit.CHAIR, ChairRenderer::new);
 
 
         HandledScreens.register(ScreenHandlerTypeInit.SMALL_CHEST_INVENTORY_SCREEN_HANDLER, SmallChestInventoryScreen::new);

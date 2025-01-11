@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
+import github.mcdatapack.blocktopia.block.ChairBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import java.util.List;
@@ -9,6 +10,7 @@ import github.mcdatapack.blocktopia.list.TagList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
@@ -21,6 +23,7 @@ import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 import static github.mcdatapack.blocktopia.list.TagList.Items.*;
 import static net.minecraft.item.Items.*;
 
+import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
@@ -33,8 +36,43 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         super(output, registriesFuture);
     }
 
+    private void chairRecipe(ChairBlock block, RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, block)
+                .input('A', block.plank)
+                .pattern("A  ")
+                .pattern("AAA")
+                .pattern("A A")
+                .criterion(hasItem(block.plank), conditionsFromItem(block.plank))
+                .offerTo(exporter);
+    }
+
     @Override
     public void generate(RecipeExporter exporter) {
+        chairRecipe(BlockInit.OAK_CHAIR, exporter);
+        chairRecipe(BlockInit.SPRUCE_CHAIR, exporter);
+        chairRecipe(BlockInit.BIRCH_CHAIR, exporter);
+        chairRecipe(BlockInit.JUNGLE_CHAIR, exporter);
+        chairRecipe(BlockInit.ACACIA_CHAIR, exporter);
+        chairRecipe(BlockInit.DARK_OAK_CHAIR, exporter);
+        chairRecipe(BlockInit.CRIMSON_CHAIR, exporter);
+        chairRecipe(BlockInit.WARPED_CHAIR, exporter);
+        chairRecipe(BlockInit.MANGROVE_CHAIR, exporter);
+        chairRecipe(BlockInit.CHERRY_CHAIR, exporter);
+        chairRecipe(BlockInit.PALM_CHAIR, exporter);
+        chairRecipe(BlockInit.BANANA_CHAIR, exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.XP_TRAP)
+                .input('A', EXPERIENCE_BOTTLE)
+                .input('B', ItemTags.TRAPDOORS)
+                .input('C', ItemInit.ENCHANTED_DIAMOND_CHERRY)
+                .input('D', OBSIDIAN)
+                .input('E', ItemInit.BANANA)
+                .pattern("DAB")
+                .pattern("CEC")
+                .pattern("BAD")
+                .criterion(hasItem(ItemInit.ENCHANTED_DIAMOND_CHERRY), conditionsFromItem(ItemInit.ENCHANTED_DIAMOND_CHERRY))
+                .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ItemInit.RABBIT_TRINKET, 1)
                 .input('A', RABBIT_FOOT)
                 .input('B', RABBIT_HIDE)

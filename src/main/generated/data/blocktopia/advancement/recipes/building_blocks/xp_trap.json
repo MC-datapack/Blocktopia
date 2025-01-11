@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_enchanted_diamond_cherry": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:enchanted_diamond_cherry"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:xp_trap"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_enchanted_diamond_cherry"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:xp_trap"
+    ]
+  }
+}

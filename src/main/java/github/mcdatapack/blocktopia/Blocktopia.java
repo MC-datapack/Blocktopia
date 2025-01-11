@@ -14,7 +14,6 @@ import github.mcdatapack.blocktopia.init.worldgen.*;
 import github.mcdatapack.blocktopia.util.CustomTrades;
 import github.mcdatapack.blocktopia.villager.CustomVillager;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
@@ -29,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import terrablender.api.RegionType;
 import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
 
 public class Blocktopia implements ModInitializer, TerraBlenderApi {
@@ -57,10 +57,10 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         FoliagePlacerTypeInit.load();
         TreeDecoratorTypeInit.load();
         LOGGER.debug("Applying Biome Modifications");
-        if (DevMode) {BiomeModificationInit.load(true, true, true, true, 1.2, 1.23, 1.23,
-                true, true, true, true, true);}
-        else {BiomeModificationInit.load(true, false, false, false, 0, 0, 0,
-                false, false, false, false, false);}
+        if (DevMode) BiomeModificationInit.load(true, true, true, true, 1.2, 1.23, 1.23,
+                true, true, true, true, true);
+        else BiomeModificationInit.load(true, false, false, false, 0, 0, 0,
+                false, false, false, false, false);
         BiomeInit.load();
         LOGGER.debug("Loading Block Entities");
         BlockEntityTypeInit.load();
@@ -78,18 +78,22 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST.asItem()));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addAfter(Items.FROG_SPAWN_EGG, ItemInit.GIANT_SPAWN_EGG));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addBefore(Items.HUSK_SPAWN_EGG, ItemInit.ILLUSIONER_SPAWN_EGG));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addBefore(Items.MOOSHROOM_SPAWN_EGG, ItemInit.MONKEY_SPAWN_EGG));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.addAfter(Items.MYCELIUM, BlockInit.SANDY_DIRT));
         ItemStorage.SIDED.registerForBlockEntity(SmallChestBlockEntity::getInventoryProvider, BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY);
         LOGGER.debug("Loading Blocktopia Special Boats");
         BlocktopiaBoatTrackedData.register();
         Registry.register(Registries.ENTITY_TYPE, BOAT_ID, BOAT);
         Registry.register(Registries.ENTITY_TYPE, CHEST_BOAT_ID, CHEST_BOAT);
         LOGGER.info("Loaded Blocktopia");
-        if (DevMode) {for (int i = 0; i <10; i++)  {LOGGER.error("DevMode is enabled");}}
+        if (DevMode) for (int i = 0; i <10; i++)  LOGGER.error("DevMode is enabled");
     }
 
     @Override
     public void onTerraBlenderInitialized() {
-        Regions.register(new OverworldRegion(id("overworld"), RegionType.OVERWORLD, 2));
+        Regions.register(new BlocktopiaOverworldRegion(id("overworld"), RegionType.OVERWORLD, 20));
+
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, "blocktopia", BlocktopiaSurfaceRules.makeRules());
     }
 
     public static Identifier id(String path) {

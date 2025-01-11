@@ -1,19 +1,40 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.BananaCropBlock;
+import github.mcdatapack.blocktopia.block.ChairBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
-import java.util.Optional;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.BiFunction;
+
+import github.mcdatapack.blocktopia.list.TagList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Items;
+import net.minecraft.registry.*;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
+
+import static net.minecraft.data.client.TexturedModel.makeFactory;
 
 public class BlocktopiaModelProvider extends FabricModelProvider {
+
     public BlocktopiaModelProvider(FabricDataOutput output) {
         super(output);
     }
@@ -214,6 +235,34 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.SOUL_SAND_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GLOWSTONE_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GLOWSTONE_B1_9PRE5);
+
+        Identifier topTexture = Identifier.ofVanilla("block/sand");
+        Identifier sideTexture = Blocktopia.id("block/sandy_dirt");
+        Identifier bottomTexture = Identifier.ofVanilla("block/dirt");
+
+        TextureMap textures = new TextureMap()
+                .put(TextureKey.TOP, topTexture)
+                .put(TextureKey.SIDE, sideTexture)
+                .put(TextureKey.BOTTOM, bottomTexture);
+
+        blockStateModelGenerator.registerSingleton(BlockInit.SANDY_DIRT, textures, Models.CUBE_BOTTOM_TOP);
+
+        blockStateModelGenerator.registerCrop(BlockInit.BANANA_CROP, BananaCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.XP_TRAP);
+
+        registerChair(BlockInit.OAK_CHAIR);
+        registerChair(BlockInit.SPRUCE_CHAIR);
+        registerChair(BlockInit.BIRCH_CHAIR);
+        registerChair(BlockInit.JUNGLE_CHAIR);
+        registerChair(BlockInit.ACACIA_CHAIR);
+        registerChair(BlockInit.DARK_OAK_CHAIR);
+        registerChair(BlockInit.CRIMSON_CHAIR);
+        registerChair(BlockInit.WARPED_CHAIR);
+        registerChair(BlockInit.MANGROVE_CHAIR);
+        registerChair(BlockInit.CHERRY_CHAIR);
+        registerChair(BlockInit.PALM_CHAIR);
+        registerChair(BlockInit.BANANA_CHAIR);
     }
 
     @Override
@@ -240,10 +289,96 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.RABBIT_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.FISH_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
+        itemModelGenerator.register(ItemInit.BANANA, Models.GENERATED);
     }
 
     public static final Model TEMPLATE_SPAWN_EGG = item("template_spawn_egg");
     private static Model item(String parent) {
-        return new Model(Optional.of(Identifier.of("item/" + parent)), Optional.empty());
+        return new Model(Optional.of(Identifier.ofVanilla("item/" + parent)), Optional.empty());
+    }
+
+    public void registerChair(ChairBlock block) {
+        ChairBlockJsonGenerator.generateJsonFiles(block);
+    }
+
+    public static class ChairBlockJsonGenerator {
+
+        private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+
+        public static void generateJsonFiles(ChairBlock... blocks) {
+            for (ChairBlock block : blocks) {
+                Identifier blockId = Registries.BLOCK.getId(block);
+                String blockName = blockId.getPath();
+                System.out.println("Generating JSON for block: " + blockName);
+                generateBlockStateJson(blockName);
+                generateBlockModelJson(blockName, Registries.BLOCK.getId(block.plank).toString());
+                generateItemModelJson(blockName);
+            }
+        }
+
+        private static void generateBlockStateJson(String blockName) {
+            BlockStateJson blockStateJson = new BlockStateJson();
+            blockStateJson.variants.put("facing=north", new ModelVariant("blocktopia:block/" + blockName));
+            blockStateJson.variants.put("facing=south", new ModelVariant("blocktopia:block/" + blockName, 180));
+            blockStateJson.variants.put("facing=west", new ModelVariant("blocktopia:block/" + blockName, 270));
+            blockStateJson.variants.put("facing=east", new ModelVariant("blocktopia:block/" + blockName, 90));
+
+            writeJsonToFile("M:/Mods/Blocktopia/src/main/resources/assets/blocktopia/blockstates/" + blockName + ".json", blockStateJson);
+        }
+
+        private static void generateBlockModelJson(String blockName, String plankName) {
+            plankName = plankName.split(":")[0] + ":block/" + plankName.split(":")[1];
+            BlockModelJson blockModelJson = new BlockModelJson("blocktopia:block/chair", plankName);
+
+            writeJsonToFile("M:/Mods/Blocktopia/src/main/resources/assets/blocktopia/models/block/" + blockName + ".json", blockModelJson);
+        }
+
+        private static void generateItemModelJson(String blockName) {
+            ItemModelJson itemModelJson = new ItemModelJson("blocktopia:block/" + blockName);
+
+            writeJsonToFile("M:/Mods/Blocktopia/src/main/resources/assets/blocktopia/models/item/" + blockName + ".json", itemModelJson);
+        }
+
+        private static void writeJsonToFile(String filePath, Object jsonObject) {
+            try {
+                File file = new File(filePath);
+                if (!file.getParentFile().exists()) {
+                    file.getParentFile().mkdirs();
+                }
+                try (FileWriter writer = new FileWriter(file)) {
+                    GSON.toJson(jsonObject, writer);
+                }
+            } catch (IOException ignored) {}
+        }
+
+        private static class BlockStateJson {
+            private final Map<String, ModelVariant> variants = new HashMap<>();
+        }
+
+        private static class ModelVariant {
+            private final String model;
+            private final int y;
+
+            public ModelVariant(String model) {
+                this(model, 0);
+            }
+
+            public ModelVariant(String model, int y) {
+                this.model = model;
+                this.y = y;
+            }
+        }
+
+        private static class BlockModelJson {
+            private final String parent;
+            private final Map<String, String> textures = new HashMap<>();
+
+            public BlockModelJson(String parent, String texture) {
+                this.parent = parent;
+                this.textures.put("texture", texture);
+            }
+        }
+
+        private record ItemModelJson(String parent) {}
     }
 }

@@ -55,7 +55,7 @@ public class PlacedFeatureInit {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context, PALM_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.PALM_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(32, 0.1F, 16), BlockInit.PALM_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(12, 0.1F, 6), BlockInit.PALM_SAPLING));
         register(context, BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(128, 0.1F, 128), BlockInit.BANANA_SAPLING)
@@ -73,11 +73,11 @@ public class PlacedFeatureInit {
 
         register(context, MEGA_JUNGLE_TREE, registryLookup.getOrThrow(TreeConfiguredFeatures.MEGA_JUNGLE_TREE),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 16), Blocks.JUNGLE_SAPLING
+                        PlacedFeatures.createCountExtraModifier(32, 0.1F, 16), Blocks.JUNGLE_SAPLING
                 ));
         register(context, JUNGLE_TREE, registryLookup.getOrThrow(TreeConfiguredFeatures.JUNGLE_TREE),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 16), Blocks.JUNGLE_SAPLING
+                        PlacedFeatures.createCountExtraModifier(32, 0.1F, 16), Blocks.JUNGLE_SAPLING
                 ));
 
         register(context, TREE_C0_24ST_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.TREE_C0_24ST_KEY),

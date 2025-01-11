@@ -45,7 +45,6 @@ repositories {
 		url = 'https://maven.minecraftforge.net/'
 	}
 	mavenCentral()
-	mavenLocal()
 }
 
 dependencies {

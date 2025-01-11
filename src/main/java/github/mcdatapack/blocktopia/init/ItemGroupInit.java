@@ -177,6 +177,7 @@ public class ItemGroupInit {
             .displayName(Text.translatable("itemGroup.blocktopia.natural_blocks"))
             .icon(BlockInit.PALM_LEAVES.asItem()::getDefaultStack)
             .entries((displayContext, entries) -> {
+                entries.add(BlockInit.SANDY_DIRT);
                 entries.add(BlockInit.PALM_WOOD);
                 entries.add(BlockInit.STRIPPED_PALM_WOOD);
                 entries.add(BlockInit.PALM_LOG);
@@ -192,8 +193,8 @@ public class ItemGroupInit {
                 entries.add(BlockInit.PALM_BUTTON);
                 entries.add(BlockInit.PALM_DOOR);
                 entries.add(BlockInit.PALM_TRAPDOOR);
-                entries.add(ItemInit.PALM_SIGN);
-                entries.add(ItemInit.PALM_HANGING_SIGN);
+                entries.add(BlockInit.PALM_SIGN);
+                entries.add(BlockInit.PALM_HANGING_SIGN);
                 entries.add(ItemInit.PALM_BOAT);
                 entries.add(ItemInit.PALM_CHEST_BOAT);
                 entries.add(ItemInit.COCONUT);
@@ -220,12 +221,26 @@ public class ItemGroupInit {
                 entries.add(BlockInit.FLOWERING_CHERRY_LEAVES);
                 entries.add(ItemInit.CHERRY);
                 entries.add(BlockInit.GLOW_FLOWER);
+                entries.add(ItemInit.BANANA_SEEDS);
+                entries.add(ItemInit.BANANA);
             }).build());
 
     public static final ItemGroup OTHER_ITEMS_GROUP = register("other_items_group", FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.blocktopia.other_items"))
             .icon(BlockInit.SMALL_CHEST.asItem()::getDefaultStack)
             .entries((displayContext, entries) -> {
+                entries.add(BlockInit.OAK_CHAIR);
+                entries.add(BlockInit.SPRUCE_CHAIR);
+                entries.add(BlockInit.BIRCH_CHAIR);
+                entries.add(BlockInit.JUNGLE_CHAIR);
+                entries.add(BlockInit.ACACIA_CHAIR);
+                entries.add(BlockInit.DARK_OAK_CHAIR);
+                entries.add(BlockInit.CRIMSON_CHAIR);
+                entries.add(BlockInit.WARPED_CHAIR);
+                entries.add(BlockInit.MANGROVE_CHAIR);
+                entries.add(BlockInit.CHERRY_CHAIR);
+                entries.add(BlockInit.PALM_CHAIR);
+                entries.add(BlockInit.BANANA_CHAIR);
                 entries.add(BlockInit.SMALL_CHEST);
                 entries.add(BlockInit.EXTENDED_REPEATER_TICK);
                 entries.add(BlockInit.EXTENDED_REPEATER_SECOND);
@@ -246,6 +261,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.GIANT_SPAWN_EGG);
                 entries.add(ItemInit.ILLUSIONER_SPAWN_EGG);
                 entries.add(ItemInit.MONKEY_SPAWN_EGG);
+                entries.add(BlockInit.XP_TRAP);
                 entries.add(ItemInit.RABBIT_TRINKET);
                 entries.add(ItemInit.FISH_TRINKET);
             }).build());

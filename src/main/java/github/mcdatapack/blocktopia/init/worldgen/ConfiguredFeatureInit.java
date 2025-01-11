@@ -72,7 +72,7 @@ public class ConfiguredFeatureInit {
                 new ExtremeTrunkPlacer(32, 24, 24),
                 SimpleBlockStateProvider.of(BANANA_LEAVES),
                 new BlobFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
-                new TwoLayersFeatureSize(32, 4, 15))
+                new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
                         new LeavesVineTreeDecorator(0.8F),
@@ -83,7 +83,7 @@ public class ConfiguredFeatureInit {
                 new ExtremeTrunkPlacer(24, 20, 20),
                 SimpleBlockStateProvider.of(FLOWERING_CHERRY_LEAVES),
                 new BlobFoliagePlacer(UniformIntProvider.create(3, 7), ConstantIntProvider.create(0), 14),
-                new TwoLayersFeatureSize(24, 4, 12))
+                new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new LeavesTreeDecorator(FLOWERING_CHERRY_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
                 .build());

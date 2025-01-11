@@ -65,6 +65,8 @@ public class ItemInit {
 
     public static final RabbitTrinket RABBIT_TRINKET = register("rabbit_trinket", new RabbitTrinket(new Item.Settings()));
     public static final FishTrinket FISH_TRINKET = register("fish_trinket", new FishTrinket(new Item.Settings()));
+    public static final Item BANANA_SEEDS = register("banana_seeds", new AliasedBlockItem(BlockInit.BANANA_CROP, new Item.Settings()));
+    public static final Item BANANA = register("banana", new Item(new Item.Settings().food(FoodList.BANANA)));
 
     public static <T extends Item> T register(String name, T Item) {
         return Registry.register(Registries.ITEM, Blocktopia.id(name), Item);
