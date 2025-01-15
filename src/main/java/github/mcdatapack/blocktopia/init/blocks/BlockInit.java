@@ -16,6 +16,7 @@ import java.util.Optional;
 import net.minecraft.block.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.cauldron.CauldronBehavior;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
@@ -27,6 +28,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 public class BlockInit {
@@ -175,6 +177,10 @@ public class BlockInit {
     public static final ChairBlock BANANA_CHAIR = register("banana_chair", new ChairBlock(BANANA_PLANKS, AbstractBlock.Settings.copy(BANANA_PLANKS)));
 
     public static final XPTrapBlock XP_TRAP = register("xp_trap", new XPTrapBlock(AbstractBlock.Settings.copy(Blocks.OBSIDIAN)));
+
+
+    public static final LeveledCauldronBlock TROPICAL_WATER_CAULDRON = BlockInit.registerWithoutItem("tropical_water_cauldron",
+            new LeveledCauldronBlock(Biome.Precipitation.RAIN, CauldronBehavior.WATER_CAULDRON_BEHAVIOR, AbstractBlock.Settings.copy(Blocks.CAULDRON)));
 
 
     public static <T extends Block> T registerWithoutItem(String name, T block) {

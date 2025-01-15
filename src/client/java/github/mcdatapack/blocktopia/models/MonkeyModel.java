@@ -1,4 +1,4 @@
-package github.mcdatapack.blocktopia.renderer;
+package github.mcdatapack.blocktopia.models;
 
 import github.mcdatapack.blocktopia.entity.MonkeyEntity;
 import github.mcdatapack.blocktopia.renderer.animations.MonkeyAnimations;

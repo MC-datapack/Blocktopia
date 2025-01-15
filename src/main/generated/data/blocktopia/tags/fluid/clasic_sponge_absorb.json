@@ -3,6 +3,8 @@
     "minecraft:water",
     "minecraft:flowing_water",
     "minecraft:lava",
-    "minecraft:flowing_lava"
+    "minecraft:flowing_lava",
+    "blocktopia:tropical_water",
+    "blocktopia:flowing_tropical_water"
   ]
 }

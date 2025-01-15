@@ -2,15 +2,20 @@ package github.mcdatapack.blocktopia.init.blocks;
 
 import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.ExtendedLeavesBlock;
 import github.mcdatapack.blocktopia.block.SpongeBlockClassic;
 import github.mcdatapack.blocktopia.block.SpongeBlock_1_8;
 import github.mcdatapack.blocktopia.block.WetSpongeBlock_1_8;
 import github.mcdatapack.blocktopia.init.ItemInit;
+import github.mcdatapack.blocktopia.init.StatusEffectInit;
 import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
 import github.mcdatapack.blocktopia.list.BlockSetTypeList;
 import github.mcdatapack.blocktopia.list.FoodList;
 import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaSignBlock;
 import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaWallSignBlock;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import net.minecraft.block.*;
@@ -110,9 +115,9 @@ public class LegacyBlocks {
     public static final Block POTTED_ROSE_C0_0_20A = registerWithoutItem("potted_rose_c0_0_20a", createFlowerPotBlock(ROSE_C0_0_20A));
     public static final FlowerBlock POPPY_1_7 = register("poppy_1_7", new FlowerBlock(StatusEffects.NIGHT_VISION, 5.0F, copy(POPPY)));
     public static final Block POTTED_POPPY_1_7 = registerWithoutItem("potted_poppy_1_7", createFlowerPotBlock(POPPY_1_7));
-    public static final MushroomBlock BROWN_MUSHROOM_C0_0_20A = register("brown_mushroom_c0_0_20a", new MushroomBlock(copy(BROWN_MUSHROOM)), new Item.Settings().food(FoodList.BROWN_MUSHROOM_C0_0_20A_SETTINGS));
+    public static final MushroomPlantBlock BROWN_MUSHROOM_C0_0_20A = register("brown_mushroom_c0_0_20a", new MushroomPlantBlock(ConfiguredFeatureInit.BROWN_MUSHROOM_C0_0_20A_KEY, copy(BROWN_MUSHROOM)), new Item.Settings().food(FoodList.BROWN_MUSHROOM_C0_0_20A_SETTINGS));
     public static final Block POTTED_BROWN_MUSHROOM_C0_0_20A = registerWithoutItem("potted_brown_mushroom_c0_0_20a", createFlowerPotBlock(BROWN_MUSHROOM_C0_0_20A));
-    public static final MushroomBlock RED_MUSHROOM_C0_0_20A = register("red_mushroom_c0_0_20a", new MushroomBlock(copy(RED_MUSHROOM)), new Item.Settings().food(FoodList.RED_MUSHROOM_C0_0_20A_SETTINGS));
+    public static final MushroomPlantBlock RED_MUSHROOM_C0_0_20A = register("red_mushroom_c0_0_20a", new MushroomPlantBlock(ConfiguredFeatureInit.RED_MUSHROOM_C0_0_20A_KEY, copy(RED_MUSHROOM)), new Item.Settings().food(FoodList.RED_MUSHROOM_C0_0_20A_SETTINGS));
     public static final Block POTTED_RED_MUSHROOM_C0_0_20A = registerWithoutItem("potted_red_mushroom_c0_0_20a", createFlowerPotBlock(RED_MUSHROOM_C0_0_20A));
     public static final SlabBlock STONE_SLAB_C0_26ST = register("stone_slab_c0_26st", new SlabBlock(copy(SMOOTH_STONE_SLAB)));
     public static final Block IRON_BLOCK_C0_26ST = registerC("iron_block_c0_26st", IRON_BLOCK);
@@ -242,8 +247,20 @@ public class LegacyBlocks {
     public static final SaplingBlock SPRUCE_SAPLING_B1_5 = register("spruce_sapling_b1_5", new SaplingBlock(new SaplingGenerator(Blocktopia.id("spruce_b1_5").toString(),
             0.1F, Optional.empty(), Optional.empty(), Optional.of(ConfiguredFeatureInit.SPRUCE_B1_5_KEY),
             Optional.empty(), Optional.empty(), Optional.empty()), copy(SPRUCE_SAPLING)));
-    public static final TrapdoorBlock TRAPDOOR_B1_5 = register("trapdoor_b1_5", new TrapdoorBlock(BlockSetTypeList.WOODEN_C0_0_15A, copy(OAK_TRAPDOOR)));*/
-
+    public static final RailBlock RAIL_INF20100618 = register("rail_inf20100618", new RailBlock(copy(RAIL)));
+    public static final PoweredRailBlock POWERED_RAIL_B1_5 = register("powered_rail_b1_5", new PoweredRailBlock(copy(POWERED_RAIL)));
+    public static final DetectorRailBlock DETECTOR_RAIL_B1_5 = register("detector_rail_b1_5", new DetectorRailBlock(copy(DETECTOR_RAIL)));
+    public static final CobwebBlock COBWEB_B1_5 = register("cobweb_b1_5", new CobwebBlock(copy(COBWEB)));
+    public static final DeadBushBlock DEAD_BUSH_B1_6 = register("dead_bush_b1_6", new DeadBushBlock(copy(DEAD_BUSH)));
+    public static final FlowerBlock SHRUB_B1_6 = register("shrub_b1_6", new FlowerBlock(StatusEffectInit.XP_REMOVER, 4, copy(DEAD_BUSH)));
+    public static final ShortPlantBlock SHORT_GRASS_B1_6 = register("short_grass_b1_6", new ShortPlantBlock(copy(SHORT_GRASS)));
+    public static final ShortPlantBlock FERN_B1_6 = register("fern_b1_6", new ShortPlantBlock(copy(FERN)));
+    public static final TrapdoorBlock TRAPDOOR_B1_6 = register("trapdoor_b1_6", new TrapdoorBlock(BlockSetTypeList.WOODEN_C0_0_15A, copy(OAK_TRAPDOOR)));
+    public static final Block STONE_BRICKS_B1_8 = registerC("stone_bricks_b1_8", STONE_BRICKS);
+    public static final Block CRACKED_STONE_BRICKS_B1_8 = registerC("cracked_stone_bricks_b1_8", CRACKED_STONE_BRICKS);
+    public static final Block MOSSY_STONE_BRICKS_B1_8 = registerC("mossy_stone_bricks_b1_8", MOSSY_STONE_BRICKS);
+    public static final SlabBlock BRICK_SLAB_C0_26ST = register("brick_slab_c0_26st", new SlabBlock(copy(BRICK_SLAB)));
+    public static final SlabBlock BRICK_SLAB_A1_0_11 = register("brick_slab_a1_0_11", new SlabBlock(copy(BRICK_SLAB)));*/
 
 
     public static <T extends Block> T registerWithoutItem(String name, T block) {
@@ -258,7 +275,7 @@ public class LegacyBlocks {
         return register(name, block, new Item.Settings());
     }
     public static Block registerC(String name, Block copy) {
-        return register(name, new Block(AbstractBlock.Settings.copy(copy)), new Item.Settings());
+        return register(name, new Block(AbstractBlock.Settings.copy(copy)));
     }
 
     public static void load() {}

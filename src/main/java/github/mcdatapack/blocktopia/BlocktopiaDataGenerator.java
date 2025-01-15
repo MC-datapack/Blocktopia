@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia;
 
+import github.mcdatapack.blocktopia.datagen.generator.BlocktopiaEnchantmentGenerator;
 import github.mcdatapack.blocktopia.datagen.generator.BlocktopiaWorldGenerator;
 import github.mcdatapack.blocktopia.datagen.provider.*;
 import github.mcdatapack.blocktopia.init.worldgen.*;
@@ -41,8 +42,11 @@ public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(BlocktopiaTagProvider.BlocktopiaItemTagProvider::new);
         pack.addProvider(BlocktopiaTagProvider.BlocktopiaFluidTagProvider::new);
         pack.addProvider(BlocktopiaTagProvider.BlocktopiaBiomeTagProvider::new);
+        pack.addProvider(BlocktopiaTagProvider.BlocktopiaPOITagProvider::new);
+        pack.addProvider(BlocktopiaTagProvider.BlocktopiaEntityTagProvider::new);
         pack.addProvider(BlocktopiaRecipeProvider::new);
         pack.addProvider(BlocktopiaWorldGenerator::new);
+        pack.addProvider(BlocktopiaEnchantmentGenerator::new);
     }
 
     @Override

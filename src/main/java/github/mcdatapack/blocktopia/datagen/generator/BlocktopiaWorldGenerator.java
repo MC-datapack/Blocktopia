@@ -23,6 +23,6 @@ public class BlocktopiaWorldGenerator extends FabricDynamicRegistryProvider {
 
     @Override
     public String getName() {
-        return "World Generator";
+        return "Blocktopia - World Generator";
     }
 }

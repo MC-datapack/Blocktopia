@@ -68,6 +68,8 @@ public class ItemInit {
     public static final Item BANANA_SEEDS = register("banana_seeds", new AliasedBlockItem(BlockInit.BANANA_CROP, new Item.Settings()));
     public static final Item BANANA = register("banana", new Item(new Item.Settings().food(FoodList.BANANA)));
 
+    public static final BucketItem TROPICAL_WATER_BUCKET = register("tropical_water_bucket", new BucketItem(FluidInit.TROPICAL_WATER, new Item.Settings().maxCount(1)));
+
     public static <T extends Item> T register(String name, T Item) {
         return Registry.register(Registries.ITEM, Blocktopia.id(name), Item);
     }

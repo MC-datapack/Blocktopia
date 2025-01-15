@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.BananaCropBlock;
 import github.mcdatapack.blocktopia.block.ChairBlock;
+import github.mcdatapack.blocktopia.init.FluidInit;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
@@ -290,6 +291,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.FISH_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.BANANA, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.TROPICAL_WATER_BUCKET, Models.GENERATED);
     }
 
     public static final Model TEMPLATE_SPAWN_EGG = item("template_spawn_egg");

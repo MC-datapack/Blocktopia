@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.entity;
 
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.init.EntityInit;
 import github.mcdatapack.blocktopia.list.TagList;
 import net.minecraft.block.Blocks;
@@ -78,7 +79,6 @@ public class MonkeyEntity extends AnimalEntity {
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 15));
         this.goalSelector.add(6, new LookAroundGoal(this));
     }
-
 
 
     @Override
@@ -212,6 +212,9 @@ public class MonkeyEntity extends AnimalEntity {
         }
 
         public static Variants getBreedVariant(MonkeyEntity obj1, MonkeyEntity obj2) {
+            if (BlocktopiaConfig.getConfig().randomMonkeyVariant) {
+                Util.getRandom(Variants.values(), obj1.random);
+            }
             Variants variant1 = obj1.getVariant();
             Variants variant2 = obj2.getVariant();
 

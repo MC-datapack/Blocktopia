@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.models;
 
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;

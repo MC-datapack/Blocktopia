@@ -1,6 +1,9 @@
 package github.mcdatapack.blocktopia.renderer;
 
+import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.entity.MonkeyEntity;
+import github.mcdatapack.blocktopia.models.MonkeyModel;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
@@ -11,6 +14,7 @@ import java.util.Map;
 
 public class MonkeyRenderer extends MobEntityRenderer<MonkeyEntity, MonkeyModel<MonkeyEntity>> {
     private static final Map<MonkeyEntity.Variants, Identifier> TEXTURE = MonkeyEntity.Variants.textures();
+    private static final Identifier DEBUG_TEXTURE = Blocktopia.id("textures/entity/monkey/debug.png");
 
     public MonkeyRenderer(EntityRendererFactory.Context context) {
         super(context, new MonkeyModel<>(context.getPart(ModelLayerInit.MONKEY)), 0.6F);
@@ -18,7 +22,7 @@ public class MonkeyRenderer extends MobEntityRenderer<MonkeyEntity, MonkeyModel<
 
     @Override
     public Identifier getTexture(MonkeyEntity entity) {
-        return TEXTURE.get(entity.getVariant());
+        return BlocktopiaConfig.getConfig().debugMonkeyTexture ? DEBUG_TEXTURE : TEXTURE.get(entity.getVariant());
     }
 
     @Override

@@ -1,0 +1,36 @@
+{
+  "anvil_cost": 7,
+  "description": {
+    "translate": "enchantment.blocktopia.thundering_smite"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "blocktopia:lightning_effect",
+          "level": {
+            "type": "minecraft:linear",
+            "base": 1.0,
+            "per_level_above_first": 2.0
+          }
+        },
+        "enchanted": "attacker"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 2,
+    "per_level_above_first": 6
+  },
+  "max_level": 10,
+  "min_cost": {
+    "base": 2,
+    "per_level_above_first": 4
+  },
+  "slots": [
+    "hand"
+  ],
+  "supported_items": "#minecraft:enchantable/sword",
+  "weight": 8
+}

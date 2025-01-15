@@ -3,6 +3,9 @@
   "itemGroup.blocktopia.legacy_blocks": "§2§lBlocktopia: §fAlte Blöcke",
   "itemGroup.blocktopia.natural_blocks": "§2§lBlocktopia: §fNatürliche Blöcke",
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fAndere Blöcke und Items",
+  "itemGroup.blocktopia.all_items": "§2§lBlocktopia: §fSuche und alle Elemente",
+
+  "enchantment.blocktopia.thundering_smite": "Donner Bann",
 
   "effect.blocktopia.xp_boost": "XP Boost",
   "effect.blocktopia.xp_remover": "XP Entferner",
@@ -43,6 +46,7 @@
   "container.blocktopia.small_chest": "Kleine Truhe",
   "block.blocktopia.small_chest": "Kleine Truhe",
   "entity.minecraft.villager.legacy": "Alt",
+  "entity.minecraft.villager.beekeeper": "Imker",
 
   "block.blocktopia.paper_block": "Papierblock",
   "block.blocktopia.gunpowder_block": "Schwarzpulverblock",

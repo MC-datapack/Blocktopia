@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.init.worldgen;
 
 import com.mojang.datafixers.util.Pair;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
@@ -23,23 +24,27 @@ public class BlocktopiaOverworldRegion extends Region {
         VanillaParameterOverlayBuilder builder = new VanillaParameterOverlayBuilder();
 
 
-        new ParameterUtils.ParameterPointListBuilder()
-                .temperature(ParameterUtils.Temperature.span(ParameterUtils.Temperature.NEUTRAL, ParameterUtils.Temperature.HOT))
-                .humidity(ParameterUtils.Humidity.span(ParameterUtils.Humidity.WET, ParameterUtils.Humidity.HUMID))
-                .continentalness(ParameterUtils.Continentalness.MUSHROOM_FIELDS)
-                .erosion(ParameterUtils.Erosion.span(ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_6))
-                .depth(ParameterUtils.Depth.SURFACE)
-                .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING)
-                .build().forEach(point -> builder.add(point, BiomeInit.PALM_ISLAND_KEY));
+        if (BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures.biomes.palm_island) {
+            new ParameterUtils.ParameterPointListBuilder()
+                    .temperature(ParameterUtils.Temperature.span(ParameterUtils.Temperature.NEUTRAL, ParameterUtils.Temperature.HOT))
+                    .humidity(ParameterUtils.Humidity.span(ParameterUtils.Humidity.WET, ParameterUtils.Humidity.HUMID))
+                    .continentalness(ParameterUtils.Continentalness.MUSHROOM_FIELDS)
+                    .erosion(ParameterUtils.Erosion.span(ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_6))
+                    .depth(ParameterUtils.Depth.SURFACE)
+                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING)
+                    .build().forEach(point -> builder.add(point, BiomeInit.PALM_ISLAND_KEY));
+        }
 
-        new ParameterUtils.ParameterPointListBuilder()
-                .temperature(ParameterUtils.Temperature.HOT)
-                .humidity(ParameterUtils.Humidity.span(ParameterUtils.Humidity.WET, ParameterUtils.Humidity.HUMID))
-                .continentalness(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND, ParameterUtils.Continentalness.INLAND)
-                .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
-                .depth(ParameterUtils.Depth.SURFACE)
-                .weirdness(ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING)
-                .build().forEach(point -> builder.add(point, BiomeInit.RAIN_FOREST_KEY));
+        if (BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures.biomes.rain_forest) {
+            new ParameterUtils.ParameterPointListBuilder()
+                    .temperature(ParameterUtils.Temperature.HOT)
+                    .humidity(ParameterUtils.Humidity.span(ParameterUtils.Humidity.WET, ParameterUtils.Humidity.HUMID))
+                    .continentalness(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND, ParameterUtils.Continentalness.INLAND)
+                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
+                    .depth(ParameterUtils.Depth.SURFACE)
+                    .weirdness(ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING)
+                    .build().forEach(point -> builder.add(point, BiomeInit.RAIN_FOREST_KEY));
+        }
 
         builder.build().forEach(mapper);
     }

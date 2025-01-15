@@ -28,6 +28,9 @@
     ],
     "terrablender": [
       "github.mcdatapack.blocktopia.Blocktopia"
+    ],
+    "modmenu": [
+      "github.mcdatapack.blocktopia.config.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -38,11 +41,13 @@
   ],
   "depends": {
     "fabricloader": ">=0.16.5",
-    "minecraft": ">=1.21 <=1.21.1",
+    "minecraft": ">=1.21.2 <=1.21.3",
     "java": ">=21",
     "fabric-api": "*",
     "trinkets": ">=3.10.0",
-    "terrablender": ">=4.0.0.0"
+    "terrablender": ">=4.0.0.0",
+    "cloth-config": ">=15.0.127",
+    "modmenu": ">=11.0.0"
   },
   "suggests": {
     "more_tools_and_armor": ">=6.6"

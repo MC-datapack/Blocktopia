@@ -13,9 +13,7 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public final class BlocktopiaBoatClientHelper {
-    private BlocktopiaBoatClientHelper() {
-        return;
-    }
+    private BlocktopiaBoatClientHelper() {}
     private static Identifier getLayerId(Identifier boatId, boolean raft, boolean chest) {
         String prefix = raft ? (chest ? "chest_raft/" : "raft/") : (chest ? "chest_boat/" : "boat/");
         return boatId.withPrefixedPath(prefix);
