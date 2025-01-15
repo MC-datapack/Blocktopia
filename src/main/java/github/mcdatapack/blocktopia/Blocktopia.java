@@ -65,8 +65,6 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         LOGGER.debug("Loading Entities");
         EntityInit.load();
         FabricDefaultAttributeRegistry.register(EntityInit.MONKEY, MonkeyEntity.createMonkeyAttributes());
-        LOGGER.debug("Loading Creative Tabs");
-        ItemGroupInit.load();
         if (BlocktopiaConfig.getConfig().villagerConfig.blocktopiaVillagers) {
             LOGGER.debug("Loading Custom Villagers");
             VillagerInit.load();
@@ -86,6 +84,8 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         BlocktopiaBoatTrackedData.register();
         Registry.register(Registries.ENTITY_TYPE, BOAT_ID, BOAT);
         Registry.register(Registries.ENTITY_TYPE, CHEST_BOAT_ID, CHEST_BOAT);
+        LOGGER.debug("Loading Creative Tabs");
+        ItemGroupInit.load();
         LOGGER.info("Loaded Blocktopia");
     }
 

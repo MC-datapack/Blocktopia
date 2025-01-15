@@ -6,6 +6,7 @@ import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -261,8 +262,8 @@ public class ItemGroupInit {
                 entries.add(BlockInit.PALM_BUTTON);
                 entries.add(BlockInit.PALM_DOOR);
                 entries.add(BlockInit.PALM_TRAPDOOR);
-                entries.add(BlockInit.PALM_SIGN);
-                entries.add(BlockInit.PALM_HANGING_SIGN);
+                //entries.add(BlockInit.PALM_SIGN);
+                //entries.add(BlockInit.PALM_HANGING_SIGN);
                 entries.add(ItemInit.PALM_BOAT);
                 entries.add(ItemInit.PALM_CHEST_BOAT);
                 entries.add(ItemInit.COCONUT);
@@ -281,15 +282,15 @@ public class ItemGroupInit {
                 entries.add(BlockInit.BANANA_BUTTON);
                 entries.add(BlockInit.BANANA_DOOR);
                 entries.add(BlockInit.BANANA_TRAPDOOR);
-                entries.add(ItemInit.BANANA_SIGN);
-                entries.add(ItemInit.BANANA_HANGING_SIGN);
+                //entries.add(ItemInit.BANANA_SIGN);
+                //entries.add(ItemInit.BANANA_HANGING_SIGN);
                 entries.add(ItemInit.BANANA_BOAT);
                 entries.add(ItemInit.BANANA_CHEST_BOAT);
                 entries.add(BlockInit.FLOWERING_CHERRY_SAPLING);
                 entries.add(BlockInit.FLOWERING_CHERRY_LEAVES);
                 entries.add(ItemInit.CHERRY);
                 entries.add(BlockInit.GLOW_FLOWER);
-                entries.add(ItemInit.BANANA_SEEDS);
+                //entries.add(BlockInit.BANANA_CROP);
                 entries.add(ItemInit.BANANA);
             }).build());
 
