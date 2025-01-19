@@ -7,12 +7,7 @@ import github.mcdatapack.blocktopia.init.ItemInit;
 import static github.mcdatapack.blocktopia.init.ItemInit.*;
 import static github.mcdatapack.blocktopia.init.ItemInit.REDSTONE_TORCH_A1_0_1;
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
-import static github.mcdatapack.blocktopia.init.blocks.BlockInit.BANANA_HANGING_SIGN;
-import static github.mcdatapack.blocktopia.init.blocks.BlockInit.BANANA_SIGN;
-import static github.mcdatapack.blocktopia.init.blocks.BlockInit.PALM_HANGING_SIGN;
-import static github.mcdatapack.blocktopia.init.blocks.BlockInit.PALM_SIGN;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
-import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.SIGN_INF20100607;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.TORCH_IN20100124_2;
 import static net.minecraft.block.Blocks.*;
 import static net.minecraft.item.Items.*;
@@ -79,7 +74,7 @@ public class BlocktopiaTagProvider {
                             IRON_BLOCK_C0_26ST, IRON_BLOCK_A1_2_0, IRON_BLOCK_B1_9PRE5, TNT_C0_26ST, TNT_C0_28A, MOSSY_COBBLESTONE_C0_26ST, MOSSY_COBBLESTONE_B1_8, BRICKS_C0_26ST, BRICKS_A1_0_11,
                             BOOKSHELF_C0_26ST, BOOKSHELF_B1_9PRE5, OBSIDIAN_C0_28A, TORCH_IN20100124_2, WALL_TORCH_IN20100124_2, DIAMOND_ORE_IN20100128, DIAMOND_ORE_1_14, DIAMOND_BLOCK_IN20100128,
                             DIAMOND_BLOCK_A1_2_0, DIAMOND_BLOCK_B1_9PRE5, CRAFTING_TABLE_IN20100131, CRAFTING_TABLE_1_14, FURNACE_IN20100219, LIT_FURNACE_IN20100219, FURNACE_B1_2, LIT_FURNACE_B1_2,
-                            LADDER_INF20100607, LADDER_INF20100618, SIGN_INF20100607, WALL_SIGN_INF20100607, WOODEN_DOOR_INF20100607, WOODEN_STAIRS_RD20090515, WOODEN_STAIRS_RD161348,
+                            LADDER_INF20100607, LADDER_INF20100618, WOODEN_DOOR_INF20100607, WOODEN_STAIRS_RD20090515, WOODEN_STAIRS_RD161348,
                             WOODEN_STAIRS_C0_0_14A, WOODEN_STAIRS_INF20100629, WOODEN_STAIRS_B1_9PRE5, COBBLESTONE_STAIRS_RD20090515, COBBLESTONE_STAIRS_C0_0_14A, COBBLESTONE_STAIRS_B1_7,
                             REDSTONE_ORE_A1_0_1, REDSTONE_ORE_1_14, LegacyBlocks.REDSTONE_TORCH_A1_0_1, REDSTONE_WALL_TORCH_A1_0_1, SNOW_A1_0_4, ICE_A1_0_4, SNOW_BLOCK_A1_0_5, CLAY_BLOCK_A1_0_11,
                             WOODEN_FENCE_RD20090515, WOODEN_FENCE_RD161348, WOODEN_FENCE_C0_0_14A, WOODEN_FENCE_A1_0_17, WOODEN_FENCE_B1_9PRE5, NETHERRACK_A1_2_0,
@@ -100,8 +95,6 @@ public class BlocktopiaTagProvider {
                     .add(NETHERRACK_A1_2_0, NETHERRACK_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.SOUL_FIRE_BASE_BLOCKS)
                     .add(SOUL_SAND_A1_2_0);
-            getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
-                    .add(PALM_HANGING_SIGN, BANANA_HANGING_SIGN);
             getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
                     .add(BEDROCK_C0_0_12A);
             getOrCreateTagBuilder(BlockTags.FENCE_GATES)
@@ -121,12 +114,6 @@ public class BlocktopiaTagProvider {
                     .add(STONE_SLAB_C0_26ST);
             getOrCreateTagBuilder(BlockTags.STAIRS)
                     .add(COBBLESTONE_STAIRS_RD20090515, COBBLESTONE_STAIRS_C0_0_14A, COBBLESTONE_STAIRS_B1_7);
-            getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
-                    .add(PALM_SIGN, BANANA_SIGN, SIGN_INF20100607);
-            getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
-                    .add(PALM_WALL_HANGING_SIGN, BANANA_WALL_HANGING_SIGN);
-            getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
-                    .add(PALM_WALL_SIGN, BANANA_WALL_SIGN, WALL_SIGN_INF20100607);
             getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE)
                     .add(BEDROCK_C0_0_12A);
             getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
@@ -227,7 +214,7 @@ public class BlocktopiaTagProvider {
                             BRICKS_A1_0_11.asItem(), BOOKSHELF_C0_26ST.asItem(), BOOKSHELF_B1_9PRE5.asItem(), OBSIDIAN_C0_28A.asItem(), ItemInit.TORCH_IN20100124_2, DIAMOND_ORE_IN20100128.asItem(),
                             DIAMOND_ORE_1_14.asItem(), DIAMOND_BLOCK_IN20100128.asItem(), DIAMOND_BLOCK_A1_2_0.asItem(), DIAMOND_BLOCK_B1_9PRE5.asItem(), CRAFTING_TABLE_IN20100131.asItem(),
                             CRAFTING_TABLE_1_14.asItem(), FURNACE_IN20100219.asItem(), LIT_FURNACE_IN20100219.asItem(), FURNACE_B1_2.asItem(), LIT_FURNACE_B1_2.asItem(), LADDER_INF20100607.asItem(),
-                            LADDER_INF20100618.asItem(), ItemInit.SIGN_INF20100607, WOODEN_DOOR_INF20100607.asItem(), WOODEN_STAIRS_RD20090515.asItem(), WOODEN_STAIRS_RD161348.asItem(),
+                            LADDER_INF20100618.asItem(), WOODEN_DOOR_INF20100607.asItem(), WOODEN_STAIRS_RD20090515.asItem(), WOODEN_STAIRS_RD161348.asItem(),
                             WOODEN_STAIRS_C0_0_14A.asItem(), WOODEN_STAIRS_INF20100629.asItem(), WOODEN_STAIRS_B1_9PRE5.asItem(), COBBLESTONE_STAIRS_RD20090515.asItem(),
                             COBBLESTONE_STAIRS_C0_0_14A.asItem(), COBBLESTONE_B1_7.asItem(), REDSTONE_ORE_A1_0_1.asItem(), REDSTONE_ORE_1_14.asItem(), REDSTONE_TORCH_A1_0_1.asItem(),
                             REDSTONE_WALL_TORCH_A1_0_1.asItem(), SNOW_A1_0_4.asItem(), ICE_A1_0_4.asItem(), SNOW_BLOCK_A1_0_5.asItem(), CLAY_BLOCK_A1_0_11.asItem(), WOODEN_FENCE_RD20090515.asItem(),
@@ -252,8 +239,6 @@ public class BlocktopiaTagProvider {
                     .add(ItemInit.PALM_BOAT, BANANA_BOAT);
             getOrCreateTagBuilder(ItemTags.CHEST_BOATS)
                     .add(ItemInit.PALM_CHEST_BOAT, BANANA_CHEST_BOAT);
-            getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
-                    .add(ItemInit.PALM_HANGING_SIGN, ItemInit.BANANA_HANGING_SIGN);
             getOrCreateTagBuilder(ItemTags.LEAVES)
                     .add(PALM_LEAVES.asItem(), BANANA_LEAVES.asItem(), FLOWERING_CHERRY_LEAVES.asItem(), LEAVES_C0_0_14A.asItem(), LEAVES_C0_0_15A.asItem(), LEAVES_C0_24ST.asItem());
             getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
@@ -264,8 +249,6 @@ public class BlocktopiaTagProvider {
                             WOODEN_PLANKS_C0_0_15A.asItem(), WOODEN_PLANKS_B1_9PRE5.asItem());
             getOrCreateTagBuilder(ItemTags.SAPLINGS)
                     .add( PALM_SAPLING.asItem(), BANANA_SAPLING.asItem(), FLOWERING_CHERRY_SAPLING.asItem(), SAPLING_RD161348.asItem(), SAPLING_C0_0_13A.asItem(), SAPLING_C0_24ST.asItem());
-            getOrCreateTagBuilder(ItemTags.SIGNS)
-                    .add( ItemInit.PALM_SIGN, ItemInit.BANANA_SIGN, ItemInit.SIGN_INF20100607);
             getOrCreateTagBuilder(ItemTags.SLABS)
                     .add( STONE_SLAB_C0_26ST.asItem());
             getOrCreateTagBuilder(ItemTags.STAIRS)
@@ -348,7 +331,7 @@ public class BlocktopiaTagProvider {
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
             getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
-                    .add(VillagerInit.LEGACY_POI, VillagerInit.BEEKEEPER_POI);
+                    .add(VillagerInit.LEGACY_POI, VillagerInit.BEEKEEPER_POI, VillagerInit.MINER_POI);
         }
     }
 

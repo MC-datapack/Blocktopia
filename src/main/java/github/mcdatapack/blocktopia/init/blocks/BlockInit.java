@@ -2,15 +2,11 @@ package github.mcdatapack.blocktopia.init.blocks;
 
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.*;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
 import github.mcdatapack.blocktopia.list.BlockSetTypeList;
-import github.mcdatapack.blocktopia.list.TagList;
 import github.mcdatapack.blocktopia.list.WoodTypeList;
-import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaHangingSignBlock;
-import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaSignBlock;
-import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaWallHangingSignBlock;
-import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaWallSignBlock;
 import java.util.Optional;
 
 import net.minecraft.block.*;
@@ -26,7 +22,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.ColorCode;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
@@ -51,7 +46,7 @@ public class BlockInit {
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
 
     public static final ExtendedLeavesBlock FLOWERING_CHERRY_LEAVES = register("flowering_cherry_leaves", new ExtendedLeavesBlock(
-            AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES)));
+            AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES).luminance(state -> BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves)));
     public static final FloorExtendedSaplingBlock FLOWERING_CHERRY_SAPLING = register("flowering_cherry_sapling", new FloorExtendedSaplingBlock(
             new SaplingGenerator("flowering_cherry", 0.1F,
                     Optional.of(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY), Optional.empty(),
@@ -69,12 +64,6 @@ public class BlockInit {
             .pistonBehavior(PistonBehavior.DESTROY)
             .luminance((state) -> 15)));
     public static final Block POTTED_GLOW_FLOWER = registerWithoutItem("potted_glow_flower", createGlowingFlowerPotBlock(15, GLOW_FLOWER));
-
-    public static final BananaCropBlock BANANA_CROP = registerWithoutItem("banana_crop", new BananaCropBlock(AbstractBlock.Settings.create()
-            .breakInstantly()
-            .noCollision()
-            .pistonBehavior(PistonBehavior.DESTROY)
-            .sounds(BlockSoundGroup.GRASS)));
 
 
     public static final Block STRIPPED_PALM_LOG =  register("stripped_palm_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
@@ -106,27 +95,14 @@ public class BlockInit {
     public static final TrapdoorBlock PALM_TRAPDOOR = register("palm_trapdoor", new TrapdoorBlock(BlockSetTypeList.PALM, AbstractBlock.Settings.create()
             .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().allowsSpawning(Blocks::never).burnable()));
 
-    private static final Identifier PALM_SIGN_TEXTURE = Blocktopia.id("entity/signs/palm");
-    private static final Identifier PALM_HANGING_SIGN_TEXTURE = Blocktopia.id("entity/signs/hanging/palm");
-    private static final Identifier PALM_HANGING_SIGN_GUI_TEXTURE = Blocktopia.id("textures/gui/hanging_signs/palm");
-
-    public static final BlocktopiaSignBlock PALM_SIGN = registerWithoutItem("palm_sign", new BlocktopiaSignBlock(PALM_SIGN_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-    public static final BlocktopiaWallSignBlock PALM_WALL_SIGN = registerWithoutItem("palm_wall_sign", new BlocktopiaWallSignBlock(PALM_SIGN_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-    public static final BlocktopiaHangingSignBlock PALM_HANGING_SIGN = registerWithoutItem("palm_hanging_sign", new BlocktopiaHangingSignBlock(PALM_HANGING_SIGN_TEXTURE, PALM_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-    public static final BlocktopiaWallHangingSignBlock PALM_WALL_HANGING_SIGN = registerWithoutItem("palm_wall_hanging_sign", new BlocktopiaWallHangingSignBlock(PALM_HANGING_SIGN_TEXTURE, PALM_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-
-
     public static final Block STRIPPED_BANANA_LOG =  register("stripped_banana_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
     public static final Block BANANA_LOG = register("banana_log", createStrippableLogBlock(MapColor.BROWN, MapColor.BROWN, STRIPPED_BANANA_LOG));
     public static final Block STRIPPED_BANANA_WOOD = register("stripped_banana_wood", createWoodBlock(MapColor.BROWN));
     public static final Block BANANA_WOOD = register("banana_wood", createStrippableWoodBlock(MapColor.BROWN, STRIPPED_BANANA_WOOD));
     public static final ExtendedLeavesBlock BANANA_LEAVES = register("banana_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
-            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
+            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
+            .luminance(state -> BlocktopiaConfig.getConfig().glowingBananaLeaves)));
     public static final FloorExtendedSaplingBlock BANANA_SAPLING = register("banana_sapling", new FloorExtendedSaplingBlock(new SaplingGenerator(Blocktopia.id("banana").toString(),
             0.1F, Optional.of(ConfiguredFeatureInit.BANANA_TREE_KEY), Optional.empty(), Optional.empty(),
             Optional.empty(), Optional.empty(), Optional.empty()), AbstractBlock.Settings.create()
@@ -148,20 +124,6 @@ public class BlockInit {
     public static final Block BANANA_BUTTON = register("banana_button", Blocks.createWoodenButtonBlock(BlockSetTypeList.BANANA));
     public static final TrapdoorBlock BANANA_TRAPDOOR = register("banana_trapdoor", new TrapdoorBlock(BlockSetTypeList.BANANA, AbstractBlock.Settings.create()
             .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().allowsSpawning(Blocks::never).burnable()));
-
-    private static final Identifier BANANA_SIGN_TEXTURE = Blocktopia.id("entity/signs/banana");
-    private static final Identifier BANANA_HANGING_SIGN_TEXTURE = Blocktopia.id("entity/signs/hanging/banana");
-    private static final Identifier BANANA_HANGING_SIGN_GUI_TEXTURE = Blocktopia.id("textures/gui/hanging_signs/banana");
-
-    public static final BlocktopiaSignBlock BANANA_SIGN = registerWithoutItem("banana_sign", new BlocktopiaSignBlock(BANANA_SIGN_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-    public static final BlocktopiaWallSignBlock BANANA_WALL_SIGN = registerWithoutItem("banana_wall_sign", new BlocktopiaWallSignBlock(BANANA_SIGN_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-    public static final BlocktopiaHangingSignBlock BANANA_HANGING_SIGN = registerWithoutItem("banana_hanging_sign", new BlocktopiaHangingSignBlock(BANANA_HANGING_SIGN_TEXTURE, BANANA_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-    public static final BlocktopiaWallHangingSignBlock BANANA_WALL_HANGING_SIGN = registerWithoutItem("banana_wall_hanging_sign", new BlocktopiaWallHangingSignBlock(BANANA_HANGING_SIGN_TEXTURE, BANANA_HANGING_SIGN_GUI_TEXTURE, AbstractBlock.Settings.create()
-            .solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-
 
     public static final ChairBlock OAK_CHAIR = register("oak_chair", new ChairBlock(Blocks.OAK_PLANKS, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
     public static final ChairBlock SPRUCE_CHAIR = register("spruce_chair", new ChairBlock(Blocks.SPRUCE_PLANKS, AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS)));

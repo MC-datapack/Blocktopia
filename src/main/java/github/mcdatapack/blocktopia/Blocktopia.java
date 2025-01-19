@@ -16,6 +16,7 @@ import github.mcdatapack.blocktopia.init.VillagerInit;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -37,11 +38,11 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
     private static final float DIMENSIONS_HEIGHT = 0.5625F;
     private static final Identifier BOAT_ID = Identifier.of(id("boat").toString());
     public static final EntityType<BlocktopiaBoatEntity> BOAT
-            = EntityType.Builder.<BlocktopiaBoatEntity>create(BlocktopiaBoatEntity::new, SpawnGroup.MISC).dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build();
+            = EntityType.Builder.<BlocktopiaBoatEntity>create(BlocktopiaBoatEntity::new, SpawnGroup.MISC).dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build(BOAT_ID.toString());
     private static final Identifier CHEST_BOAT_ID = Identifier.of(id("chest_boat").toString());
     public static final EntityType<BlocktopiaChestBoatEntity> CHEST_BOAT
             = EntityType.Builder.<BlocktopiaChestBoatEntity>create(BlocktopiaChestBoatEntity::new, SpawnGroup.MISC)
-            .dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build();
+            .dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build(CHEST_BOAT_ID.toString());
 
     @Override
     public void onInitialize() {
@@ -69,7 +70,7 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
             LOGGER.debug("Loading Custom Villagers");
             VillagerInit.load();
         }
-        CustomTrades.load(12);
+        CustomTrades.load(BlocktopiaConfig.getConfig().villagerConfig.maxUses);
         EnchantmentInit.load();
         LOGGER.debug("Event handling");
         LootHandler.registerListeners();
@@ -80,6 +81,8 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> entries.addBefore(Items.MOOSHROOM_SPAWN_EGG, ItemInit.MONKEY_SPAWN_EGG));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> entries.addAfter(Items.MYCELIUM, BlockInit.SANDY_DIRT));
         ItemStorage.SIDED.registerForBlockEntity(SmallChestBlockEntity::getInventoryProvider, BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY);
+        CompostingChanceRegistry.INSTANCE.add(ItemInit.BANANA, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(ItemInit.CHERRY, 1.0F);
         LOGGER.debug("Loading Blocktopia Special Boats");
         BlocktopiaBoatTrackedData.register();
         Registry.register(Registries.ENTITY_TYPE, BOAT_ID, BOAT);
@@ -87,6 +90,15 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         LOGGER.debug("Loading Creative Tabs");
         ItemGroupInit.load();
         LOGGER.info("Loaded Blocktopia");
+    }
+
+    public static boolean isMoreToolsAndArmorInstalled() {
+        try {
+            Class.forName("github.mcdatapack.more_tools_and_armor.MoreToolsAndArmor");
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+        return true;
     }
 
     @Override

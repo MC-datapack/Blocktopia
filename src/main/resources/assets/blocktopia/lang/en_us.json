@@ -49,6 +49,7 @@
   "block.blocktopia.small_chest": "Small Chest",
   "entity.minecraft.villager.legacy": "Legacy",
   "entity.minecraft.villager.beekeeper": "Beekeeper",
+  "entity.minecraft.villager.miner": "Miner",
 
   "block.blocktopia.paper_block": "Paper Block",
   "block.blocktopia.gunpowder_block": "Gunpowder Block",
@@ -324,5 +325,13 @@
   "text.autoconfig.blocktopia.option.villagerConfig.legacyVillagerWorkstation": "Workstation of the Legacy Profession",
   "text.autoconfig.blocktopia.option.villagerConfig.beekeeperVillagerWorkstation": "Workstation of the Beekeeper Profession",
   "text.autoconfig.blocktopia.option.debugMonkeyTexture": "Debug Monkey Texture",
-  "text.autoconfig.blocktopia.option.randomMonkeyVariant": "Breeding Monkeys spawns a random Variant"
+  "text.autoconfig.blocktopia.option.randomMonkeyVariant": "Breeding Monkeys spawns a random Variant",
+  "text.autoconfig.blocktopia.option.villagerConfig.maxUses": "Max Uses of all custom Trades before needing to restock",
+  "text.autoconfig.blocktopia.option.villagerConfig.minerVillagerWorkstation": "Workstation of the Mining Profession",
+  "text.autoconfig.blocktopia.option.villagerConfig.opTrades": "Overpowered Trades",
+  "text.autoconfig.blocktopia.option.glowingFloweringCherryLeaves": "Light Level of Flowering Cherry Leaves",
+  "text.autoconfig.blocktopia.option.glowingBananaLeaves": "Light Level of Banana Leaves",
+  "text.autoconfig.blocktopia.option.smallChestConfig": "Small Chest Configuration",
+  "text.autoconfig.blocktopia.option.smallChestConfig.renderItems": "Render the Items of the Small Chest as Item Entities",
+  "text.autoconfig.blocktopia.option.smallChestConfig.closingSpeed": "Opening/Closing speed of the Small Chest"
 }

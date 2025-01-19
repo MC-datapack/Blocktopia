@@ -497,16 +497,6 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ItemInit.TORCH_IN20100124_2, TORCH);
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, TORCH, ItemInit.TORCH_IN20100124_2);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ItemInit.SIGN_INF20100607, OAK_SIGN);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_SIGN, ItemInit.SIGN_INF20100607);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ItemInit.SIGN_INF20100607)
-                .input('A', WOODEN_PLANKS_C0_0_15A)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern(" B ")
-                .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
-                .offerTo(exporter);
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_DOOR_INF20100607, OAK_DOOR);
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_DOOR, WOODEN_DOOR_INF20100607);
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_DOOR_INF20100607)
@@ -646,22 +636,6 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AA")
                 .criterion(hasItem(BlockInit.PALM_PLANKS), conditionsFromItem(BlockInit.PALM_PLANKS))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BlockInit.PALM_SIGN, 3)
-                .input('A', BlockInit.PALM_PLANKS)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern(" B ")
-                .criterion(hasItem(BlockInit.PALM_PLANKS), conditionsFromItem(BlockInit.PALM_PLANKS))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BlockInit.PALM_HANGING_SIGN, 6)
-                .input('A', BlockInit.STRIPPED_PALM_LOG)
-                .input('B', ConventionalItemTags.CHAINS)
-                .pattern("B B")
-                .pattern("AAA")
-                .pattern("AAA")
-                .criterion(hasItem(BlockInit.PALM_PLANKS), conditionsFromItem(BlockInit.PALM_PLANKS))
-                .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.PALM_BOAT)
                 .input('A', BlockInit.PALM_PLANKS)
                 .pattern("A A")
@@ -690,7 +664,6 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .fence(BlockInit.PALM_FENCE)
                 .fenceGate(BlockInit.PALM_FENCE_GATE)
                 .pressurePlate(BlockInit.PALM_PRESSURE_PLATE)
-                .sign(BlockInit.PALM_SIGN, BlockInit.PALM_WALL_SIGN)
                 .slab(BlockInit.PALM_SLAB)
                 .stairs(BlockInit.PALM_STAIRS)
                 .door(BlockInit.PALM_DOOR)
@@ -761,22 +734,6 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AA")
                 .criterion(hasItem(BlockInit.BANANA_PLANKS), conditionsFromItem(BlockInit.BANANA_PLANKS))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BlockInit.BANANA_SIGN, 3)
-                .input('A', BlockInit.BANANA_PLANKS)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("AAA")
-                .pattern("AAA")
-                .pattern(" B ")
-                .criterion(hasItem(BlockInit.BANANA_PLANKS), conditionsFromItem(BlockInit.BANANA_PLANKS))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BlockInit.BANANA_HANGING_SIGN, 6)
-                .input('A', BlockInit.STRIPPED_BANANA_LOG)
-                .input('B', ConventionalItemTags.CHAINS)
-                .pattern("B B")
-                .pattern("AAA")
-                .pattern("AAA")
-                .criterion(hasItem(BlockInit.BANANA_PLANKS), conditionsFromItem(BlockInit.BANANA_PLANKS))
-                .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.BANANA_BOAT)
                 .input('A', BlockInit.BANANA_PLANKS)
                 .pattern("A A")
@@ -805,7 +762,6 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .fence(BlockInit.BANANA_FENCE)
                 .fenceGate(BlockInit.BANANA_FENCE_GATE)
                 .pressurePlate(BlockInit.BANANA_PRESSURE_PLATE)
-                .sign(BlockInit.BANANA_SIGN, BlockInit.BANANA_WALL_SIGN)
                 .slab(BlockInit.BANANA_SLAB)
                 .stairs(BlockInit.BANANA_STAIRS)
                 .door(BlockInit.BANANA_DOOR)

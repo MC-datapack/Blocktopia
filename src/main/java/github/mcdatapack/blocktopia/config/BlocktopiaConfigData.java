@@ -34,8 +34,31 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.Category("server")
     public boolean randomMonkeyVariant = false;
 
+    @ConfigEntry.Gui.RequiresRestart
+    @ConfigEntry.Category("server")
+    @Comment("Turn it down to 0 to disable it")
+    @ConfigEntry.BoundedDiscrete(max = 15)
+    public int glowingFloweringCherryLeaves = 8;
+
+    @ConfigEntry.Gui.RequiresRestart
+    @ConfigEntry.Category("server")
+    @Comment("Turn it down to 0 to disable it")
+    @ConfigEntry.BoundedDiscrete(max = 15)
+    public int glowingBananaLeaves = 2;
+
+    @ConfigEntry.Gui.CollapsibleObject
     @ConfigEntry.Category("client")
-    public boolean debugMonkeyTexture = false;
+    public SmallChestConfig smallChestConfig = new SmallChestConfig();
+
+    public static class SmallChestConfig {
+        @ConfigEntry.Gui.TransitiveObject
+        public boolean renderItems = true;
+
+        @ConfigEntry.Gui.TransitiveObject
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 1000)
+        @Comment("The higher the value the longer it takes to fully open and close")
+        public int closingSpeed = 12;
+    }
 
     public static class WorldgenConfig {
         @ConfigEntry.Gui.CollapsibleObject
@@ -209,10 +232,23 @@ public class BlocktopiaConfigData implements ConfigData {
         public boolean blocktopiaVillagers = true;
 
         @ConfigEntry.Gui.RequiresRestart
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 100000)
+        public int maxUses = 12;
+
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("Change the Workstation of the Legacy Villager Profession (requires the id of the block: <namespace>:<block id>)")
         public String legacyVillagerWorkstation = "blocktopia:crafting_table_in20100131";
 
+        @ConfigEntry.Gui.RequiresRestart
         @Comment("Change the Workstation of the Beekeeper Villager Profession (requires the id of the block: <namespace>:<block id>)")
         public String beekeeperVillagerWorkstation = "minecraft:honey_block";
+
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("Change the Workstation of the Miner Villager Profession (requires the id of the block: <namespace>:<block id>)")
+        public String minerVillagerWorkstation = "minecraft:stone";
+
+        @ConfigEntry.Gui.RequiresRestart
+        @Comment("Only works with More Tools and Armor")
+        public boolean opTrades = false;
     }
 }

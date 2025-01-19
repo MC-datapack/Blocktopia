@@ -31,7 +31,7 @@ public class BlocktopiaBoatItem extends Item {
     private final RegistryKey<BlocktopiaBoatType> boatKey;
     private final boolean chest;
 
-    public BlocktopiaBoatItem(RegistryKey<BlocktopiaBoatType> boatKey, boolean chest, Item.Settings settings) {
+    public BlocktopiaBoatItem(RegistryKey<BlocktopiaBoatType> boatKey, boolean chest, Settings settings) {
         super(settings);
 
         this.boatKey = boatKey;

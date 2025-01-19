@@ -1,4 +1,4 @@
-// 1.21.1	2025-01-14T07:57:14.0217367	Blocktopia/Tags for minecraft:item
+// 1.21.1	2025-01-19T16:02:36.9444363	Blocktopia/Tags for minecraft:item
 ec1939305ef899fc17335658be813fbf44682947 data\blocktopia\tags\item\chairs.json
 df7ef3e456dea2d633da5841adba173236bff07d data\minecraft\tags\item\planks.json
 4c45e0374f38a20cc66c4c346a9664760b25fbf3 data\trinkets\tags\item\feet\rabbit.json
@@ -11,7 +11,6 @@ d5b7e621de388bd3fc1cb2c57aedc0f9ff47757b data\minecraft\tags\item\chest_boats.js
 3d4cfb94c41b2cbd62e13cb072982998dcee49d8 data\minecraft\tags\item\wool.json
 d765ce436bf99d3e4077663ec34c222a22266275 data\minecraft\tags\item\enchantable\vanishing.json
 03cda8030b5f3ac63bdc97a595cfa799b75bec08 data\blocktopia\tags\item\palm_logs.json
-4cb3aba4226e00e96b8c822068ec889f767a75f6 data\minecraft\tags\item\signs.json
 ad3c3835d367809411e04ec0c6a765eab3b7f648 data\minecraft\tags\item\wooden_trapdoors.json
 9e7b4fbc13b405f4292ee7e1817d7a5bfe544809 data\minecraft\tags\item\wooden_slabs.json
 3cc6f59159212f5fb1aaa63913840fd4ddc31b3b data\minecraft\tags\item\saplings.json
@@ -26,8 +25,7 @@ c6e1c6c90e0f1da8473a275b4fa48542412b67ca data\minecraft\tags\item\boats.json
 d765ce436bf99d3e4077663ec34c222a22266275 data\minecraft\tags\item\enchantable\equippable.json
 7b9d593e9ccd38928317f1b65c4d2226909284cd data\minecraft\tags\item\wooden_fences.json
 ba11376c25c7f27a6593c3dd7ab75a1de392c8c9 data\minecraft\tags\item\wooden_stairs.json
-a16c25976639c80a8c779f3e3dfd0cdf6ea4797d data\blocktopia\tags\item\legacy_blocks.json
-0bcae26c1e101bf1dce9d63dbebc9c0819305799 data\minecraft\tags\item\hanging_signs.json
+8c8553625f1ff159fcb2eb6471e1f1d90dfb4810 data\blocktopia\tags\item\legacy_blocks.json
 d38f1ec5ef714de734a513c8bef71cdbd8e2e0d8 data\minecraft\tags\item\logs_that_burn.json
 eeae5554632ff7e80d31793c55b4db4e3f3eceea data\minecraft\tags\item\wooden_pressure_plates.json
 227dec52bb82541c2be7660e577a0f12dd47a3e3 data\blocktopia\tags\item\monkey_breeding_items.json

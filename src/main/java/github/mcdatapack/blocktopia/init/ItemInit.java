@@ -47,16 +47,11 @@ public class ItemInit {
             .rarity(Rarity.EPIC)
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
     ));
-    public static final SignItem PALM_SIGN = register("palm_sign", new SignItem(new Item.Settings().maxCount(16), BlockInit.PALM_SIGN, BlockInit.PALM_WALL_SIGN));
-    public static final HangingSignItem PALM_HANGING_SIGN = register("palm_hanging_sign", new HangingSignItem(BlockInit.PALM_HANGING_SIGN, BlockInit.PALM_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
     public static final Item PALM_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_BOAT_ID, BoatInit.PALM_BOAT_KEY, false);
     public static final Item PALM_CHEST_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_CHEST_BOAT_ID, BoatInit.PALM_BOAT_KEY, true);
-    public static final SignItem BANANA_SIGN = register("banana_sign", new SignItem(new Item.Settings().maxCount(16), BlockInit.BANANA_SIGN, BlockInit.BANANA_WALL_SIGN));
-    public static final HangingSignItem BANANA_HANGING_SIGN = register("banana_hanging_sign", new HangingSignItem(BlockInit.BANANA_HANGING_SIGN, BlockInit.BANANA_WALL_HANGING_SIGN, new Item.Settings().maxCount(16)));
     public static final Item BANANA_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.BANANA_BOAT_ID, BoatInit.BANANA_BOAT_KEY, false);
     public static final Item BANANA_CHEST_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.BANANA_CHEST_BOAT_ID, BoatInit.BANANA_BOAT_KEY, true);
     public static final Item TORCH_IN20100124_2 = register("torch_in20100124_2", new VerticallyAttachableBlockItem(LegacyBlocks.TORCH_IN20100124_2, LegacyBlocks.WALL_TORCH_IN20100124_2, new Item.Settings(), Direction.DOWN));
-    public static final SignItem SIGN_INF20100607 = register("sign_inf20100607", new SignItem(new Item.Settings().maxCount(16), LegacyBlocks.SIGN_INF20100607, LegacyBlocks.WALL_SIGN_INF20100607));
     public static final Item REDSTONE_TORCH_A1_0_1 = register("redstone_torch_a1_0_1", new VerticallyAttachableBlockItem(LegacyBlocks.REDSTONE_TORCH_A1_0_1, LegacyBlocks.REDSTONE_WALL_TORCH_A1_0_1, new Item.Settings(), Direction.DOWN));
 
     public static final SpawnEggItem GIANT_SPAWN_EGG = registerAsVanilla("giant_spawn_egg", new SpawnEggItem(EntityType.GIANT, 44993, 7969900, new Item.Settings().rarity(Rarity.EPIC)));
@@ -65,7 +60,6 @@ public class ItemInit {
 
     public static final RabbitTrinket RABBIT_TRINKET = register("rabbit_trinket", new RabbitTrinket(new Item.Settings()));
     public static final FishTrinket FISH_TRINKET = register("fish_trinket", new FishTrinket(new Item.Settings()));
-    public static final Item BANANA_SEEDS = register("banana_seeds", new AliasedBlockItem(BlockInit.BANANA_CROP, new Item.Settings()));
     public static final Item BANANA = register("banana", new Item(new Item.Settings().food(FoodList.BANANA)));
 
     public static final BucketItem TROPICAL_WATER_BUCKET = register("tropical_water_bucket", new BucketItem(FluidInit.TROPICAL_WATER, new Item.Settings().maxCount(1)));

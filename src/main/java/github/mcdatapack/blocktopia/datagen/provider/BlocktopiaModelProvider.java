@@ -3,9 +3,7 @@ package github.mcdatapack.blocktopia.datagen.provider;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.block.BananaCropBlock;
 import github.mcdatapack.blocktopia.block.ChairBlock;
-import github.mcdatapack.blocktopia.init.FluidInit;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
@@ -56,7 +54,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .fence(BlockInit.PALM_FENCE)
                 .fenceGate(BlockInit.PALM_FENCE_GATE)
                 .pressurePlate(BlockInit.PALM_PRESSURE_PLATE)
-                .sign(BlockInit.PALM_SIGN, BlockInit.PALM_WALL_SIGN)
                 .slab(BlockInit.PALM_SLAB)
                 .stairs(BlockInit.PALM_STAIRS)
                 .door(BlockInit.PALM_DOOR)
@@ -66,7 +63,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .build();
         blockStateModelGenerator.registerCubeAllModelTexturePool(palmFamily.getBaseBlock())
                 .family(palmFamily);
-        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_PALM_LOG, BlockInit.PALM_HANGING_SIGN, BlockInit.PALM_WALL_HANGING_SIGN);
 
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.BANANA_LEAVES);
@@ -80,7 +76,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .fence(BlockInit.BANANA_FENCE)
                 .fenceGate(BlockInit.BANANA_FENCE_GATE)
                 .pressurePlate(BlockInit.BANANA_PRESSURE_PLATE)
-                .sign(BlockInit.BANANA_SIGN, BlockInit.BANANA_WALL_SIGN)
                 .slab(BlockInit.BANANA_SLAB)
                 .stairs(BlockInit.BANANA_STAIRS)
                 .door(BlockInit.BANANA_DOOR)
@@ -90,7 +85,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .build();
         blockStateModelGenerator.registerCubeAllModelTexturePool(bananaFamily.getBaseBlock())
                 .family(bananaFamily);
-        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_BANANA_LOG, BlockInit.BANANA_HANGING_SIGN, BlockInit.BANANA_WALL_HANGING_SIGN);
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FLOWERING_CHERRY_LEAVES);
         blockStateModelGenerator.registerFlowerPotPlant(BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING, TintType.NOT_TINTED);
@@ -190,7 +184,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         var legacy_c0_0_15a = new BlockFamily.Builder(LegacyBlocks.WOODEN_PLANKS_C0_0_15A)
                 .stairs(LegacyBlocks.WOODEN_STAIRS_INF20100629)
                 .door(LegacyBlocks.WOODEN_DOOR_INF20100607)
-                .sign(LegacyBlocks.SIGN_INF20100607, LegacyBlocks.WALL_SIGN_INF20100607)
                 .fence(LegacyBlocks.WOODEN_FENCE_A1_0_17)
                 .group("wooden")
                 .unlockCriterionName("has_planks").build();
@@ -247,8 +240,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .put(TextureKey.BOTTOM, bottomTexture);
 
         blockStateModelGenerator.registerSingleton(BlockInit.SANDY_DIRT, textures, Models.CUBE_BOTTOM_TOP);
-
-        blockStateModelGenerator.registerCrop(BlockInit.BANANA_CROP, BananaCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.XP_TRAP);
 

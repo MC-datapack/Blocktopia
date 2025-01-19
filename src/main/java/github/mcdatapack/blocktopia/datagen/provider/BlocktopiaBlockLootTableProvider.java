@@ -2,16 +2,11 @@ package github.mcdatapack.blocktopia.datagen.provider;
 
 import java.util.concurrent.CompletableFuture;
 
-import github.mcdatapack.blocktopia.block.BananaCropBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.loottable.LootTableGenerator;
-import net.minecraft.item.Item;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
-import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
@@ -47,10 +42,6 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(PALM_PRESSURE_PLATE);
         addDrop(PALM_BUTTON);
         addDrop(PALM_TRAPDOOR);
-        addDrop(PALM_SIGN);
-        addDrop(PALM_WALL_SIGN, PALM_SIGN);
-        addDrop(PALM_HANGING_SIGN);
-        addDrop(PALM_WALL_HANGING_SIGN, PALM_HANGING_SIGN);
 
         addDrop(BANANA_LOG);
         addDrop(STRIPPED_BANANA_LOG);
@@ -65,10 +56,6 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(BANANA_PRESSURE_PLATE);
         addDrop(BANANA_BUTTON);
         addDrop(BANANA_TRAPDOOR);
-        addDrop(BANANA_SIGN);
-        addDrop(BANANA_WALL_SIGN, BANANA_SIGN);
-        addDrop(BANANA_HANGING_SIGN);
-        addDrop(BANANA_WALL_HANGING_SIGN, BANANA_HANGING_SIGN);
 
         addDrop(COBBLESTONE_RD20090515);
         addDrop(COBBLESTONE_C_0_0_14A);
@@ -164,8 +151,6 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(COBBLESTONE_STAIRS_RD20090515);
         addDrop(COBBLESTONE_STAIRS_C0_0_14A);
         addDrop(COBBLESTONE_STAIRS_B1_7);
-        addDrop(SIGN_INF20100607);
-        addDrop(WALL_SIGN_INF20100607);
         addDrop(TORCH_IN20100124_2);
         addDrop(WALL_TORCH_IN20100124_2);
         addDrop(REDSTONE_TORCH_A1_0_1, ItemInit.REDSTONE_TORCH_A1_0_1);
@@ -203,9 +188,5 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(BlockInit.CHERRY_CHAIR);
         addDrop(BlockInit.PALM_CHAIR);
         addDrop(BlockInit.BANANA_CHAIR);
-
-        BlockStatePropertyLootCondition.Builder builder = new  BlockStatePropertyLootCondition.Builder(BANANA_CROP).properties(StatePredicate.Builder.create()
-                .exactMatch(BananaCropBlock.AGE, 5));
-        addDrop(BANANA_CROP, cropDrops(BANANA_CROP, ItemInit.BANANA, ItemInit.BANANA_SEEDS, builder));
     }
 }

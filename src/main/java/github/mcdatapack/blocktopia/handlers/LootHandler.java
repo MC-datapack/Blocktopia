@@ -37,12 +37,10 @@ public class LootHandler {
     }
 
     public static void addLootPool(LootTable.Builder builder, ItemConvertible item, LootNumberProvider count, float chance) {
-        LootPool pool = LootPool.builder()
+        builder.pool(LootPool.builder()
                 .rolls(count)
                 .with(ItemEntry.builder(item))
-                .conditionally(RandomChanceLootCondition.builder(chance))
-                .build();
-        builder.pool(pool);
+                .conditionally(RandomChanceLootCondition.builder(chance)));
     }
 
     public record LootTableItem(ItemConvertible item, LootNumberProvider count, float chance) {

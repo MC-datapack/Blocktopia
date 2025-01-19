@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.renderer;
 
 import github.mcdatapack.blocktopia.block.SmallChestBlock;
 import github.mcdatapack.blocktopia.block.entity.SmallChestBlockEntity;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.models.SmallChestModel;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.RenderLayer;
@@ -53,10 +54,10 @@ public class SmallChestBlockEntityRenderer implements BlockEntityRenderer<SmallC
         float lidAngle = entity.getLidAngle();
         double maxAngle = Math.toRadians(110);
         if (numPlayersOpen > 0 && lidAngle < maxAngle) {
-            lid.pitch = MathHelper.lerp(tickDelta/12, lidAngle, (float) maxAngle);
+            lid.pitch = MathHelper.lerp(tickDelta/BlocktopiaConfig.getConfig().smallChestConfig.closingSpeed, lidAngle, (float) maxAngle);
         }
         else if (numPlayersOpen == 0 && lidAngle > defaultAngle) {
-            lid.pitch = MathHelper.lerp(tickDelta/12, lidAngle, defaultAngle);
+            lid.pitch = MathHelper.lerp(tickDelta/BlocktopiaConfig.getConfig().smallChestConfig.closingSpeed, lidAngle, defaultAngle);
         }
         entity.lidAngle = lid.pitch;
 
@@ -69,28 +70,29 @@ public class SmallChestBlockEntityRenderer implements BlockEntityRenderer<SmallC
 
 
 
+        if (BlocktopiaConfig.getConfig().smallChestConfig.renderItems) {
+            if (entity.lidAngle > 0.1) {
+                SimpleInventory inventory = entity.getInventory();
+                World world = entity.getWorld();
 
-        if(entity.lidAngle > 0.1) {
-            SimpleInventory inventory = entity.getInventory();
-            World world = entity.getWorld();
+                for (int i = 0; i < inventory.getHeldStacks().size(); i++) {
+                    ItemStack stack = inventory.getStack(i);
+                    if (stack.isEmpty()) continue;
 
-            for (int i = 0; i < inventory.getHeldStacks().size(); i++) {
-                ItemStack stack = inventory.getStack(i);
-                if(stack.isEmpty()) continue;
+                    ItemTransformation transformation = TRANSFORMATIONS.get(i);
 
-                ItemTransformation transformation = TRANSFORMATIONS.get(i);
+                    matrices.push();
+                    matrices.translate(transformation.x(), 0.5, transformation.z());
+                    matrices.scale(0.325F, 0.325F, 0.325F);
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(transformation.rotation()));
 
-                matrices.push();
-                matrices.translate(transformation.x(), 0.5, transformation.z());
-                matrices.scale(0.325F, 0.325F, 0.325F);
-                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(transformation.rotation()));
+                    this.context.getItemRenderer().renderItem(stack, ModelTransformationMode.FIXED,
+                            light, overlay,
+                            matrices, vertexConsumers,
+                            world, 0);
 
-                this.context.getItemRenderer().renderItem(stack, ModelTransformationMode.FIXED,
-                        light, overlay,
-                        matrices, vertexConsumers,
-                        world, 0);
-
-                matrices.pop();
+                    matrices.pop();
+                }
             }
         }
 

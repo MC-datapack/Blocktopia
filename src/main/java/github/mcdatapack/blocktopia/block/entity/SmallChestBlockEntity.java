@@ -23,7 +23,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import org.jetbrains.annotations.Nullable;public class SmallChestBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPosPayload> {
+import org.jetbrains.annotations.Nullable;
+
+public class SmallChestBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPosPayload> {
     public static final Text TITLE = Text.translatable("container.blocktopia.small_chest");
     private final SimpleInventory inventory = new SimpleInventory(9) {
         @Override

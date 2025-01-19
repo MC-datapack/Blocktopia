@@ -74,12 +74,12 @@ public class BlocktopiaChestBoatEntity extends ChestBoatEntity implements Blockt
     }
 
     @Override
-    public void setVariant(BoatEntity.Type type) {
+    public void setVariant(Type type) {
         return;
     }
 
     @Override
-    public BoatEntity.Type getVariant() {
+    public Type getVariant() {
         return this.getImpersonatedBoatType();
     }
 

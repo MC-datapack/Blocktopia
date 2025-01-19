@@ -35,13 +35,11 @@
   },
   "mixins": [
     "mixins.blocktopia-boat.json",
-    "mixins.blocktopia-boat-client.json",
-    "mixins.blocktopia-sign.json",
-    "mixins.blocktopia-sign-client.json"
+    "mixins.blocktopia-boat-client.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.5",
-    "minecraft": ">=1.21 <=1.21.1",
+    "minecraft": "1.21.1",
     "java": ">=21",
     "fabric-api": "*",
     "trinkets": ">=3.10.0",

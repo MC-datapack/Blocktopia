@@ -142,5 +142,5 @@
 	  "rolls": 1
 	}
   ],
-  "random_sequence": "minecraft:blocks/cherry_leaves"
+  "random_sequence": "blocktopia:blocks/flowering_cherry_leaves"
 }

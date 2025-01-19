@@ -2,22 +2,15 @@ package github.mcdatapack.blocktopia.init.blocks;
 
 import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.block.ExtendedLeavesBlock;
-import github.mcdatapack.blocktopia.block.SpongeBlockClassic;
-import github.mcdatapack.blocktopia.block.SpongeBlock_1_8;
-import github.mcdatapack.blocktopia.block.WetSpongeBlock_1_8;
+import github.mcdatapack.blocktopia.block.*;
 import github.mcdatapack.blocktopia.init.ItemInit;
-import github.mcdatapack.blocktopia.init.StatusEffectInit;
 import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
 import github.mcdatapack.blocktopia.list.BlockSetTypeList;
 import github.mcdatapack.blocktopia.list.FoodList;
-import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaSignBlock;
-import github.mcdatapack.blocktopia.sign.api.block.BlocktopiaWallSignBlock;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
+import github.mcdatapack.blocktopia.list.WoodTypeList;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
@@ -157,11 +150,8 @@ public class LegacyBlocks {
     public static final StairsBlock COBBLESTONE_STAIRS_RD20090515 = register("cobblestone_stairs_rd20090515", new StairsBlock(COBBLESTONE_RD20090515.getDefaultState(), copy(COBBLESTONE_STAIRS)));
     public static final StairsBlock COBBLESTONE_STAIRS_C0_0_14A = register("cobblestone_stairs_c0_0_14a", new StairsBlock(COBBLESTONE_C_0_0_14A.getDefaultState(), copy(COBBLESTONE_STAIRS)));
     public static final StairsBlock COBBLESTONE_STAIRS_B1_7 = register("cobblestone_stairs_b1_7", new StairsBlock(COBBLESTONE_B1_7.getDefaultState(), copy(COBBLESTONE_STAIRS)));
-    public static Identifier SIGN_INF20100607_TEXTURE = Blocktopia.id("entity/signs/wooden_c0_0_15a");
     public static final TorchBlock TORCH_IN20100124_2 = registerWithoutItem("torch_in20100124_2", new TorchBlock(ParticleTypes.FLAME, AbstractBlock.Settings.create().noCollision().breakInstantly().luminance((state) -> 14).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
     public static final WallTorchBlock WALL_TORCH_IN20100124_2 = registerWithoutItem("wall_torch_in20100124_2", new WallTorchBlock(ParticleTypes.FLAME, AbstractBlock.Settings.create().noCollision().breakInstantly().luminance((state) -> 14).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final BlocktopiaSignBlock SIGN_INF20100607 = registerWithoutItem("sign_inf20100607", new BlocktopiaSignBlock(SIGN_INF20100607_TEXTURE, AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
-    public static final BlocktopiaWallSignBlock WALL_SIGN_INF20100607 = registerWithoutItem("wall_sign_inf20100607", new BlocktopiaWallSignBlock(SIGN_INF20100607_TEXTURE, AbstractBlock.Settings.create().mapColor(MapColor.OAK_TAN).solid().instrument(NoteBlockInstrument.BASS).noCollision().strength(1.0F).burnable()));
     public static final DoorBlock WOODEN_DOOR_INF20100607 = register("wooden_door_inf20100607", new DoorBlock(BlockSetTypeList.WOODEN_C0_0_15A, copy(OAK_DOOR)));
     public static final RedstoneOreBlock REDSTONE_ORE_A1_0_1 = register("redstone_ore_a1_0_1", new RedstoneOreBlock(copy(REDSTONE_ORE)));
     public static final RedstoneOreBlock REDSTONE_ORE_1_14 = register("redstone_ore_1_14", new RedstoneOreBlock(copy(REDSTONE_ORE)));
