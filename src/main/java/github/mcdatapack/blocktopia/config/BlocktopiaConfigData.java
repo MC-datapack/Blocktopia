@@ -48,7 +48,7 @@ public class BlocktopiaConfigData implements ConfigData {
 
     @ConfigEntry.Gui.TransitiveObject
     @ConfigEntry.Category("server")
-    @ConfigEntry.BoundedDiscrete(min = 20, max = 6000)
+    @ConfigEntry.BoundedDiscrete(min = 20, max = 600)
     public int spongeAbsorb = 60;
 
     @ConfigEntry.Gui.CollapsibleObject

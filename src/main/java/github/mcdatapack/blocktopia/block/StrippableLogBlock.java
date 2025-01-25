@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia.block;
 
+import github.mcdatapack.more_tools_and_armor.item.PaxelItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.AbstractBlock;
@@ -26,20 +27,11 @@ public class StrippableLogBlock extends PillarBlock {
         ItemStack itemStack = player.getMainHandStack();
         Item item = itemStack.getItem();
 
-        if (item instanceof AxeItem || isPaxelItem(item)) {
+        if (item instanceof AxeItem || item instanceof PaxelItem) {
             world.setBlockState(pos, strippedState.getDefaultState());
             return ActionResult.SUCCESS;
         }
 
         return super.onUse(state, world, pos, player, hit);
-    }
-
-    private boolean isPaxelItem(Item item) {
-        try {
-            Class<?> paxelItemClass = Class.forName("github.mcdatapack.more_tools_and_armor.item.PaxelItem");
-            return paxelItemClass.isInstance(item);
-        } catch (ClassNotFoundException e) {
-            return false;
-        }
     }
 }

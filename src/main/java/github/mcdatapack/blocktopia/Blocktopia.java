@@ -45,7 +45,6 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
             .dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build(CHEST_BOAT_ID.toString());
 
     public static final int glowFloweringCherry, glowBanana;
-    public static final boolean isMoreToolsAndArmorInstalled;
 
     @Override
     public void onInitialize() {
@@ -108,13 +107,6 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         BlocktopiaConfig.register();
         glowFloweringCherry = BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves;
         glowBanana = BlocktopiaConfig.getConfig().glowingBananaLeaves;
-        boolean isMoreToolsAndArmorInstalledTemp = true;
-        try {
-            Class.forName("github.mcdatapack.more_tools_and_armor.MoreToolsAndArmor");
-        } catch (ClassNotFoundException e) {
-            isMoreToolsAndArmorInstalledTemp = false;
-        }
-        isMoreToolsAndArmorInstalled = isMoreToolsAndArmorInstalledTemp;
     }
 
     public static Identifier id(String path) {
