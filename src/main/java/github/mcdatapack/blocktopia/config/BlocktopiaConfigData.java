@@ -46,6 +46,11 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.BoundedDiscrete(max = 15)
     public int glowingBananaLeaves = 2;
 
+    @ConfigEntry.Gui.RequiresRestart
+    @ConfigEntry.Category("server")
+    @ConfigEntry.BoundedDiscrete(min = 20, max = 6000)
+    public int spongeAbsorb = 60;
+
     @ConfigEntry.Gui.CollapsibleObject
     @ConfigEntry.Category("client")
     public SmallChestConfig smallChestConfig = new SmallChestConfig();

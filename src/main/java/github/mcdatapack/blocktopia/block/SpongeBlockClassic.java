@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.block;
 
 import com.mojang.serialization.MapCodec;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.list.TagList;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -13,8 +14,7 @@ import net.minecraft.world.World;
 
 public class SpongeBlockClassic extends Block {
     public static final MapCodec<SpongeBlock> CODEC = createCodec(SpongeBlock::new);
-    public static final int ABSORB_RADIUS = 60;
-    public static final int ABSORB_LIMIT = 640;
+    public static final int ABSORB_RADIUS = BlocktopiaConfig.getConfig().spongeAbsorb;
     private static final Direction[] DIRECTIONS = Direction.values();
 
     @Override
@@ -46,7 +46,7 @@ public class SpongeBlockClassic extends Block {
     }
 
     private boolean absorbWater(World world, BlockPos pos) {
-        return BlockPos.iterateRecursively(pos, ABSORB_RADIUS, ABSORB_LIMIT + 1, (currentPos, queuer) -> {
+        return BlockPos.iterateRecursively(pos, ABSORB_RADIUS, Integer.MAX_VALUE, (currentPos, queuer) -> {
             for (Direction direction : DIRECTIONS) {
                 queuer.accept(currentPos.offset(direction));
             }

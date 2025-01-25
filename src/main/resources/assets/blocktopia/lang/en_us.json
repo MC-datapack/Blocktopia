@@ -336,5 +336,6 @@
   "text.autoconfig.blocktopia.option.glowingBananaLeaves": "Light Level of Banana Leaves",
   "text.autoconfig.blocktopia.option.smallChestConfig": "Small Chest Configuration",
   "text.autoconfig.blocktopia.option.smallChestConfig.renderItems": "Render the Items of the Small Chest as Item Entities",
-  "text.autoconfig.blocktopia.option.smallChestConfig.closingSpeed": "Opening/Closing speed of the Small Chest"
+  "text.autoconfig.blocktopia.option.smallChestConfig.closingSpeed": "Opening/Closing speed of the Small Chest",
+  "text.autoconfig.blocktopia.option.spongeAbsorb": "Sponge c0.0.19a Absorb Radius"
 }
