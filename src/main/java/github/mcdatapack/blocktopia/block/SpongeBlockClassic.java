@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 
 public class SpongeBlockClassic extends Block {
     public static final MapCodec<SpongeBlock> CODEC = createCodec(SpongeBlock::new);
-    public static final int ABSORB_RADIUS = BlocktopiaConfig.getConfig().spongeAbsorb;
     private static final Direction[] DIRECTIONS = Direction.values();
 
     @Override
@@ -46,7 +45,7 @@ public class SpongeBlockClassic extends Block {
     }
 
     private boolean absorbWater(World world, BlockPos pos) {
-        return BlockPos.iterateRecursively(pos, ABSORB_RADIUS, Integer.MAX_VALUE, (currentPos, queuer) -> {
+        return BlockPos.iterateRecursively(pos, BlocktopiaConfig.getConfig().spongeAbsorb, Integer.MAX_VALUE, (currentPos, queuer) -> {
             for (Direction direction : DIRECTIONS) {
                 queuer.accept(currentPos.offset(direction));
             }

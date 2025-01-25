@@ -46,7 +46,7 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.BoundedDiscrete(max = 15)
     public int glowingBananaLeaves = 2;
 
-    @ConfigEntry.Gui.RequiresRestart
+    @ConfigEntry.Gui.TransitiveObject
     @ConfigEntry.Category("server")
     @ConfigEntry.BoundedDiscrete(min = 20, max = 6000)
     public int spongeAbsorb = 60;
