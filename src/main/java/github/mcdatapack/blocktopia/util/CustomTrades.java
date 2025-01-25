@@ -17,10 +17,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 
+import static github.mcdatapack.blocktopia.Blocktopia.LOGGER;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
 public class CustomTrades {
     private static final float priceMultiplier = 0.75F;
+    private static final Item lastTradeItem = (Blocktopia.isMoreToolsAndArmorInstalled ? moreTools("netherite_paxel") : Items.NETHERITE_PICKAXE);
 
     public static void load(int maxUses) {
         if (BlocktopiaConfig.getConfig().villagerConfig.blocktopiaVillagers) {
@@ -510,7 +512,7 @@ public class CustomTrades {
                                 new ItemStack(Items.GOLD_INGOT, 1),
                                 maxUses, 5, priceMultiplier
                         ));
-                        if (Blocktopia.isMoreToolsAndArmorInstalled() && BlocktopiaConfig.getConfig().villagerConfig.opTrades) {
+                        if (Blocktopia.isMoreToolsAndArmorInstalled && BlocktopiaConfig.getConfig().villagerConfig.opTrades) {
                             factories.add((entity, random) -> new TradeOffer(
                                     new TradedItem(Items.EMERALD, 48),
                                     Optional.of(new TradedItem(moreTools("deepslate_emerald"), 1)),
@@ -537,7 +539,7 @@ public class CustomTrades {
                                 new ItemStack(Items.DIAMOND, 1),
                                 maxUses, 10, priceMultiplier
                         ));
-                        if (Blocktopia.isMoreToolsAndArmorInstalled() && BlocktopiaConfig.getConfig().villagerConfig.opTrades) {
+                        if (Blocktopia.isMoreToolsAndArmorInstalled && BlocktopiaConfig.getConfig().villagerConfig.opTrades) {
                             factories.add((entity, random) -> new TradeOffer(
                                     new TradedItem(Items.NETHERITE_INGOT, 2),
                                     Optional.of(new TradedItem(Items.EMERALD, 1)),
@@ -566,11 +568,13 @@ public class CustomTrades {
                         ));
                     });
             TradeOfferHelper.registerVillagerOffers(VillagerInit.MINER, 5,
-                    factories -> factories.add((entity, random) -> new TradeOffer(
-                            new TradedItem(Items.EMERALD, 4),
-                            new ItemStack((Blocktopia.isMoreToolsAndArmorInstalled() ? moreTools("netherite_paxel") : Items.NETHERITE_PICKAXE), 1),
-                            maxUses, 50, priceMultiplier
-                    )));
+                    factories -> {
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 4),
+                                new ItemStack(lastTradeItem, 1),
+                                maxUses, 50, priceMultiplier
+                        ));
+            });
         }
         
         if (BlocktopiaConfig.getConfig().wanderingTraderTrades) {

@@ -285,7 +285,6 @@ public class ItemGroupInit {
                 entries.add(BlockInit.FLOWERING_CHERRY_LEAVES);
                 entries.add(ItemInit.CHERRY);
                 entries.add(BlockInit.GLOW_FLOWER);
-                //entries.add(ItemInit.BANANA_SEEDS);
                 entries.add(ItemInit.BANANA);
             }).build());
 
@@ -317,6 +316,8 @@ public class ItemGroupInit {
                 entries.add(ItemInit.ENCHANTED_GOLDEN_CHERRY);
                 entries.add(ItemInit.DIAMOND_CHERRY);
                 entries.add(ItemInit.ENCHANTED_DIAMOND_CHERRY);
+                entries.add(ItemInit.NETHERITE_CHERRY);
+                entries.add(ItemInit.ENCHANTED_NETHERITE_CHERRY);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_CARROT);
                 entries.add(ItemInit.GOLDEN_POTATO);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_POTATO);

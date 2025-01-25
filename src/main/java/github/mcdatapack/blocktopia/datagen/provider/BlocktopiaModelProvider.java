@@ -14,23 +14,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.BiFunction;
 
-import github.mcdatapack.blocktopia.list.TagList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.item.Items;
 import net.minecraft.registry.*;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Direction;
-
-import static net.minecraft.data.client.TexturedModel.makeFactory;
 
 public class BlocktopiaModelProvider extends FabricModelProvider {
 
@@ -278,6 +270,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_CHERRY, ItemInit.GOLDEN_CHERRY,Models.GENERATED);
         itemModelGenerator.register(ItemInit.DIAMOND_CHERRY, Models.GENERATED);
         itemModelGenerator.register(ItemInit.ENCHANTED_DIAMOND_CHERRY, ItemInit.DIAMOND_CHERRY,Models.GENERATED);
+        itemModelGenerator.register(ItemInit.NETHERITE_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.ENCHANTED_NETHERITE_CHERRY, ItemInit.NETHERITE_CHERRY,Models.GENERATED);
         itemModelGenerator.register(ItemInit.RABBIT_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.FISH_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);

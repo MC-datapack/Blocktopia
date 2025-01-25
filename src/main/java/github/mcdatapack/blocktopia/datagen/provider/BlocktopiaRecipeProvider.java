@@ -270,6 +270,22 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AAA")
                 .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.NETHERITE_CHERRY)
+                .input('A', NETHERITE_INGOT)
+                .input('B', ItemInit.ENCHANTED_DIAMOND_CHERRY)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.ENCHANTED_NETHERITE_CHERRY)
+                .input('A', NETHERITE_BLOCK)
+                .input('B', ItemInit.NETHERITE_CHERRY)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
+                .offerTo(exporter);
 
 
         RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_RD20090515, COBBLESTONE);

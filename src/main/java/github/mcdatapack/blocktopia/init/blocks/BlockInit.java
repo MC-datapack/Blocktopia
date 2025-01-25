@@ -26,6 +26,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
+import static github.mcdatapack.blocktopia.Blocktopia.LOGGER;
+
 public class BlockInit {
     public static final ColoredFallingBlock PAPER_BLOCK = register("paper_block",
             new ColoredFallingBlock(new ColorCode(16777215), AbstractBlock.Settings.copy(Blocks.SAND).strength(0.2F, 0.0F)));
@@ -46,7 +48,7 @@ public class BlockInit {
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
 
     public static final ExtendedLeavesBlock FLOWERING_CHERRY_LEAVES = register("flowering_cherry_leaves", new ExtendedLeavesBlock(
-            AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES).luminance(state -> BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves)));
+            AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES).luminance(state -> Blocktopia.glowFloweringCherry)));
     public static final FloorExtendedSaplingBlock FLOWERING_CHERRY_SAPLING = register("flowering_cherry_sapling", new FloorExtendedSaplingBlock(
             new SaplingGenerator("flowering_cherry", 0.1F,
                     Optional.of(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY), Optional.empty(),
@@ -102,7 +104,7 @@ public class BlockInit {
     public static final ExtendedLeavesBlock BANANA_LEAVES = register("banana_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
-            .luminance(state -> BlocktopiaConfig.getConfig().glowingBananaLeaves)));
+            .luminance(state -> Blocktopia.glowBanana)));
     public static final FloorExtendedSaplingBlock BANANA_SAPLING = register("banana_sapling", new FloorExtendedSaplingBlock(new SaplingGenerator(Blocktopia.id("banana").toString(),
             0.1F, Optional.of(ConfiguredFeatureInit.BANANA_TREE_KEY), Optional.empty(), Optional.empty(),
             Optional.empty(), Optional.empty(), Optional.empty()), AbstractBlock.Settings.create()

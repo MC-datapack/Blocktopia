@@ -44,11 +44,13 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
             = EntityType.Builder.<BlocktopiaChestBoatEntity>create(BlocktopiaChestBoatEntity::new, SpawnGroup.MISC)
             .dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build(CHEST_BOAT_ID.toString());
 
+    public static final int glowFloweringCherry, glowBanana;
+    public static final boolean isMoreToolsAndArmorInstalled;
+
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
         LOGGER.debug("Loading Items, Blocks and Entities");
-        BlocktopiaConfig.register();
         FluidInit.load();
         ItemInit.load();
         BlockInit.load();
@@ -92,24 +94,27 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         LOGGER.info("Loaded Blocktopia");
     }
 
-    public static boolean isMoreToolsAndArmorInstalled() {
-        try {
-            Class.forName("github.mcdatapack.more_tools_and_armor.MoreToolsAndArmor");
-        } catch (ClassNotFoundException e) {
-            return false;
-        }
-        return true;
-    }
-
     @Override
     public void onTerraBlenderInitialized() {
-        BlocktopiaConfig.register();
         if (!BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures.biomes.palm_island && !BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures.biomes.rain_forest) return;
         Regions.register(new BlocktopiaOverworldRegion(id("overworld"), RegionType.OVERWORLD, BlocktopiaConfig.getConfig().worldgenConfig.weight));
 
         if (BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures.biomes.sandy_dirt_in_palm_island) {
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, "blocktopia", BlocktopiaSurfaceRules.makeRules());
         }
+    }
+
+    static {
+        BlocktopiaConfig.register();
+        glowFloweringCherry = BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves;
+        glowBanana = BlocktopiaConfig.getConfig().glowingBananaLeaves;
+        boolean isMoreToolsAndArmorInstalledTemp = true;
+        try {
+            Class.forName("github.mcdatapack.more_tools_and_armor.MoreToolsAndArmor");
+        } catch (ClassNotFoundException e) {
+            isMoreToolsAndArmorInstalledTemp = false;
+        }
+        isMoreToolsAndArmorInstalled = isMoreToolsAndArmorInstalledTemp;
     }
 
     public static Identifier id(String path) {

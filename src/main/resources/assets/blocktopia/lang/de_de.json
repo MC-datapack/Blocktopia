@@ -5,6 +5,9 @@
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fAndere Blöcke und Items",
   "itemGroup.blocktopia.all_items": "§2§lBlocktopia: §fSuche und alle Elemente",
 
+  "item.blocktopia.netherite_cherry": "Netherit Kirsche",
+  "item.blocktopia.enchanted_netherite_cherry": "Verzauberte Netherit Kirsche",
+
   "enchantment.blocktopia.thundering_smite": "Donner Bann",
 
   "effect.blocktopia.xp_boost": "XP Boost",

@@ -47,6 +47,17 @@ public class ItemInit {
             .rarity(Rarity.EPIC)
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
     ));
+    public static final Item NETHERITE_CHERRY = register("netherite_cherry", new Item(new Item.Settings()
+            .food(FoodList.NETHERITE_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .maxCount(99)
+    ));
+    public static final Item ENCHANTED_NETHERITE_CHERRY = register("enchanted_netherite_cherry", new Item(new Item.Settings()
+            .food(FoodList.ENCHANTED_NETHERITE_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .maxCount(99)
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+    ));
     public static final Item PALM_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_BOAT_ID, BoatInit.PALM_BOAT_KEY, false);
     public static final Item PALM_CHEST_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_CHEST_BOAT_ID, BoatInit.PALM_BOAT_KEY, true);
     public static final Item BANANA_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.BANANA_BOAT_ID, BoatInit.BANANA_BOAT_KEY, false);
