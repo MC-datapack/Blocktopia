@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:netherrack"
+  },
+  "result": {
+    "id": "blocktopia:netherrack_b1_9pre5"
+  }
+}

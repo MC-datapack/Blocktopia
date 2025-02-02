@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "blocktopia:bookshelf_b1_9pre5"
+  },
+  "result": {
+    "id": "blocktopia:bookshelf_c0_26st"
+  }
+}

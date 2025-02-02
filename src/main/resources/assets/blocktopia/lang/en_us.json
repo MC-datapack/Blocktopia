@@ -5,6 +5,13 @@
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fOther Blocks and Items",
   "itemGroup.blocktopia.all_items": "§2§lBlocktopia: §fSearch and All Items",
 
+  "block.customportalapi.customportalblock": "Portal",
+
+  "container.blocktopia.legacy_cutter": "Legacy Cutter",
+  "block.blocktopia.legacy_cutter": "Legacy Cutter",
+  "block.blocktopia.tropical_water": "Tropical Water",
+  "fluid.blocktopia.tropical_water": "Tropical Water",
+
   "item.blocktopia.netherite_cherry": "Netherite Cherry",
   "item.blocktopia.enchanted_netherite_cherry": "Enchanted Netherite Cherry",
 
@@ -106,6 +113,26 @@
   "block.blocktopia.banana_hanging_sign": "Banana Hanging Sign",
   "item.blocktopia.banana_boat": "Banana Boat",
   "item.blocktopia.banana_chest_boat": "Banana Boat with Chest",
+  "block.blocktopia.corn_log": "Corn Log",
+  "block.blocktopia.stripped_corn_log": "Stripped Corn Log",
+  "block.blocktopia.corn_wood": "Corn Wood",
+  "block.blocktopia.stripped_corn_wood": "Stripped Corn Wood",
+  "block.blocktopia.corn_leaves": "Corn Leaves",
+  "block.blocktopia.corn_sapling": "Corn Sapling",
+  "block.blocktopia.corn_planks": "Corn Planks",
+  "block.blocktopia.corn_stairs": "Corn Stairs",
+  "block.blocktopia.corn_slab": "Corn Slab",
+  "block.blocktopia.corn_fence": "Corn Fence",
+  "block.blocktopia.corn_fence_gate": "Corn Fence Gate",
+  "block.blocktopia.corn_pressure_plate": "Corn Pressure Plate",
+  "block.blocktopia.corn_button": "Corn Button",
+  "block.blocktopia.corn_door": "Corn Door",
+  "block.blocktopia.corn_trapdoor": "Corn Trapdoor",
+  "block.blocktopia.corn_sign": "Corn Sign",
+  "block.blocktopia.corn_hanging_sign": "Corn Hanging Sign",
+  "item.blocktopia.corn_boat": "Corn Boat",
+  "item.blocktopia.corn_chest_boat": "Corn Boat with Chest",
+
 
 
   "item.blocktopia.coconut": "Coconut",
@@ -334,6 +361,7 @@
   "text.autoconfig.blocktopia.option.villagerConfig.opTrades": "Overpowered Trades",
   "text.autoconfig.blocktopia.option.glowingFloweringCherryLeaves": "Light Level of Flowering Cherry Leaves",
   "text.autoconfig.blocktopia.option.glowingBananaLeaves": "Light Level of Banana Leaves",
+  "text.autoconfig.blocktopia.option.glowingCornLeaves": "Light Level of Corn Leaves",
   "text.autoconfig.blocktopia.option.smallChestConfig": "Small Chest Configuration",
   "text.autoconfig.blocktopia.option.smallChestConfig.renderItems": "Render the Items of the Small Chest as Item Entities",
   "text.autoconfig.blocktopia.option.smallChestConfig.closingSpeed": "Opening/Closing speed of the Small Chest",

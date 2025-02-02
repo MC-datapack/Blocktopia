@@ -24,7 +24,14 @@ public class PlacedFeatureInit {
     private static final BlocktopiaConfigData.WorldgenFeatureConfig config = BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures;
 
     public static final RegistryKey<PlacedFeature> PALM_TREE_KEY = registerKey("palm_tree");
+    public static final RegistryKey<PlacedFeature> GIANT_3x3BANANA_TREE_KEY = registerKey("giant_3x3_banana_tree");
+    public static final RegistryKey<PlacedFeature> GIANT_3x3CORN_TREE_KEY = registerKey("giant_3x3_corn_tree");
+    public static final RegistryKey<PlacedFeature> GIANT_3x3FLOWERING_CHERRY_KEY = registerKey("giant_3x3_flowering_cherry");
+    public static final RegistryKey<PlacedFeature> GIANT_BANANA_TREE_KEY = registerKey("giant_banana_tree");
+    public static final RegistryKey<PlacedFeature> GIANT_CORN_TREE_KEY = registerKey("giant_corn_tree");
+    public static final RegistryKey<PlacedFeature> GIANT_FLOWERING_CHERRY_KEY = registerKey("giant_flowering_cherry");
     public static final RegistryKey<PlacedFeature> BANANA_TREE_KEY = registerKey("banana_tree");
+    public static final RegistryKey<PlacedFeature> CORN_TREE_KEY = registerKey("corn_tree");
     public static final RegistryKey<PlacedFeature> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry");
     public static final RegistryKey<PlacedFeature> GLOW_FLOWER_KEY = registerKey("glow_flower");
     public static final RegistryKey<PlacedFeature> GLOW_FLOWER_PATCH_KEY = registerKey("glow_flower_patch");
@@ -61,36 +68,67 @@ public class PlacedFeatureInit {
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+
         register(context, PALM_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.PALM_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(config.features.palm.triesPerChunk, 0.1F, 6), BlockInit.PALM_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(12, 0.1F, 6), BlockInit.PALM_SAPLING));
+        register(context, GIANT_3x3BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_3x3BANANA_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.BANANA_SAPLING)
+        );
+        register(context, GIANT_3x3CORN_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_3x3CORN_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.CORN_SAPLING)
+        );
+        register(context, GIANT_3x3FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_3x3FLOWERING_CHERRY_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.FLOWERING_CHERRY_SAPLING)
+        );
+        register(context, GIANT_BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_BANANA_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.BANANA_SAPLING)
+        );
+        register(context, GIANT_CORN_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_CORN_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.CORN_SAPLING)
+        );
+        register(context, GIANT_FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_FLOWERING_CHERRY_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.FLOWERING_CHERRY_SAPLING)
+        );
         register(context, BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(128, 0.1F, 128), BlockInit.BANANA_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.BANANA_SAPLING)
         );
+        register(context, CORN_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.CORN_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.CORN_SAPLING)
+        );
+        register(context, FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.FLOWERING_CHERRY_SAPLING)
+        );
+
+
+
         register(context, GLOW_FLOWER_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GLOW_FLOWER_KEY),
                 List.of(BlockFilterPlacementModifier.of(BlockPredicate.replaceable())));
         register(context, GLOW_FLOWER_PATCH_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GLOW_FLOWER_PATCH_KEY),
                 List.of(RarityFilterPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
 
-        register(context, FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY),
-                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(96, 0.1F, 128), BlockInit.FLOWERING_CHERRY_SAPLING)
-        );
-
 
         register(context, MEGA_JUNGLE_TREE, registryLookup.getOrThrow(TreeConfiguredFeatures.MEGA_JUNGLE_TREE),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(32, 0.1F, 16), Blocks.JUNGLE_SAPLING
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), Blocks.JUNGLE_SAPLING
                 ));
         register(context, JUNGLE_TREE, registryLookup.getOrThrow(TreeConfiguredFeatures.JUNGLE_TREE),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(32, 0.1F, 16), Blocks.JUNGLE_SAPLING
+                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), Blocks.JUNGLE_SAPLING
                 ));
 
         register(context, TREE_C0_24ST_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.TREE_C0_24ST_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(config.features.tree_c0_24st.triesPerChunk, 0.1F, 1), LegacyBlocks.SAPLING_C0_24ST));
+                        PlacedFeatures.createCountExtraModifier(0, 0.1F, 1), LegacyBlocks.SAPLING_C0_24ST));
         //register(context, BIRCH_B1_5_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BIRCH_B1_5_KEY),
         //         VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
         //                 PlacedFeatures.createCountExtraModifier(config.features.birch_b1_5.triesPerChunk, 0.1F, 1), LegacyBlocks.BIRCH_SAPLING_B1_5));
@@ -99,35 +137,25 @@ public class PlacedFeatureInit {
         //                PlacedFeatures.createCountExtraModifier(config.features.spruce_b1_5.triesPerChunk, 0.1F, 1), LegacyBlocks.SPRUCE_SAPLING_B1_5));
 
         register(context, COAL_ORE_C0_0_14A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.COAL_ORE_C0_0_14A_KEY),
-                Modifiers.modifiersCount(config.features.legacy_coal_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_coal_ores.minY), YOffset.fixed(config.features.legacy_coal_ores.maxY))));
+                Modifiers.modifiersCount(20, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(192))));
         register(context, COAL_ORE_1_14_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.COAL_ORE_1_14_KEY),
-                Modifiers.modifiersCount(config.features.legacy_coal_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_coal_ores.minY), YOffset.fixed(config.features.legacy_coal_ores.maxY))));
+                Modifiers.modifiersCount(20, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(192))));
         register(context, IRON_ORE_C0_0_14A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.IRON_ORE_C0_0_14A_KEY),
-                Modifiers.modifiersCount(config.features.legacy_iron_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_iron_ores.minY), YOffset.fixed(config.features.legacy_iron_ores.maxY))));
+                Modifiers.modifiersCount(10, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(72))));
         register(context, IRON_ORE_1_14_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.IRON_ORE_1_14_KEY),
-                Modifiers.modifiersCount(config.features.legacy_iron_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_iron_ores.minY), YOffset.fixed(config.features.legacy_iron_ores.maxY))));
+                Modifiers.modifiersCount(10, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(72))));
         register(context, IRON_ORE_1_14_1_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.IRON_ORE_1_14_1_KEY),
-                Modifiers.modifiersCount(config.features.legacy_iron_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_iron_ores.minY), YOffset.fixed(config.features.legacy_iron_ores.maxY))));
+                Modifiers.modifiersCount(10, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(72))));
         register(context, GOLD_ORE_C0_0_14A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GOLD_ORE_C0_0_14A_KEY),
-                Modifiers.modifiersCount(config.features.legacy_gold_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_gold_ores.minY), YOffset.fixed(config.features.legacy_gold_ores.maxY))));
+                Modifiers.modifiersCount(8, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(32))));
         register(context, GOLD_ORE_C0_26ST_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GOLD_ORE_C0_26ST_KEY),
-                Modifiers.modifiersCount(config.features.legacy_gold_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_gold_ores.minY), YOffset.fixed(config.features.legacy_gold_ores.maxY))));
+                Modifiers.modifiersCount(8, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(32))));
         register(context, GOLD_ORE_1_14_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GOLD_ORE_1_14_KEY),
-                Modifiers.modifiersCount(config.features.legacy_gold_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_gold_ores.minY), YOffset.fixed(config.features.legacy_gold_ores.maxY))));
+                Modifiers.modifiersCount(8, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(32))));
         register(context, DIAMOND_ORE_IN20100128_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.DIAMOND_ORE_IN20100128_KEY),
-                Modifiers.modifiersCount(config.features.legacy_diamond_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_diamond_ores.minY), YOffset.fixed(config.features.legacy_diamond_ores.maxY))));
+                Modifiers.modifiersCount(8, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(20))));
         register(context, DIAMOND_ORE_1_14_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.DIAMOND_ORE_1_14_KEY),
-                Modifiers.modifiersCount(config.features.legacy_diamond_ores.triesPerChunk,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_diamond_ores.minY), YOffset.fixed(config.features.legacy_diamond_ores.maxY))));
+                Modifiers.modifiersCount(8, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(20))));
         //register(context, LAPIS_ORE_B1_2_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.LAPIS_ORE_B1_2_KEY),
         //        Modifiers.modifiersCount(config.features.legacy_lapis_ores.triesPerChunk,
         //                HeightRangePlacementModifier.uniform(YOffset.fixed(config.features.legacy_lapis_ores.minY), YOffset.fixed(config.features.legacy_lapis_ores.maxY))));
@@ -138,23 +166,23 @@ public class PlacedFeatureInit {
         register(context, DANDELION_C0_0_20A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.DANDELION_C0_0_20A_KEY),
                 List.of(BlockFilterPlacementModifier.of(BlockPredicate.replaceable())));
         register(context, DANDELION_C0_0_20A_PATCH_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.DANDELION_C0_0_20A_PATCH_KEY),
-                List.of(RarityFilterPlacementModifier.of(config.features.dandelion_c0_0_20a.chance), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                List.of(RarityFilterPlacementModifier.of(30), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         register(context, ROSE_C0_0_20A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.ROSE_C0_0_20A_KEY),
                 List.of(BlockFilterPlacementModifier.of(BlockPredicate.replaceable())));
         register(context, ROSE_C0_0_20A_PATCH_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.ROSE_C0_0_20A_PATCH_KEY),
-                List.of(RarityFilterPlacementModifier.of(config.features.rose_c0_0_20a.chance), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                List.of(RarityFilterPlacementModifier.of(30), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         register(context, POPPY_1_7_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.POPPY_1_7_KEY),
                 List.of(BlockFilterPlacementModifier.of(BlockPredicate.replaceable())));
         register(context, POPPY_1_7_PATCH_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.POPPY_1_7_PATCH_KEY),
-                List.of(RarityFilterPlacementModifier.of(config.features.poppy_1_7.chance), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                List.of(RarityFilterPlacementModifier.of(30), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         register(context, BROWN_MUSHROOM_C0_0_20A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BROWN_MUSHROOM_C0_0_20A_KEY),
                 List.of(BlockFilterPlacementModifier.of(BlockPredicate.replaceable())));
         register(context, BROWN_MUSHROOM_C0_0_20A_PATCH_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BROWN_MUSHROOM_C0_0_20A_PATCH_KEY),
-                List.of(RarityFilterPlacementModifier.of(config.features.brown_mushroom_c0_0_20a.chance), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                List.of(RarityFilterPlacementModifier.of(30), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         register(context, RED_MUSHROOM_C0_0_20A_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.RED_MUSHROOM_C0_0_20A_KEY),
                 List.of(BlockFilterPlacementModifier.of(BlockPredicate.replaceable())));
         register(context, RED_MUSHROOM_C0_0_20A_PATCH_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.RED_MUSHROOM_C0_0_20A_PATCH_KEY),
-                List.of(RarityFilterPlacementModifier.of(config.features.red_mushroom_c0_0_20a.chance), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                List.of(RarityFilterPlacementModifier.of(30), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
     }
 
     private static RegistryKey<PlacedFeature> registerKey(String name) {

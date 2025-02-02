@@ -9,6 +9,7 @@ import github.mcdatapack.blocktopia.list.BlockSetTypeList;
 import github.mcdatapack.blocktopia.list.WoodTypeList;
 import java.util.Optional;
 
+import github.mcdatapack.blocktopia.util.ExtendedSaplingGenerator;
 import net.minecraft.block.*;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -25,8 +26,6 @@ import net.minecraft.util.ColorCode;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
-
-import static github.mcdatapack.blocktopia.Blocktopia.LOGGER;
 
 public class BlockInit {
     public static final ColoredFallingBlock PAPER_BLOCK = register("paper_block",
@@ -46,14 +45,16 @@ public class BlockInit {
     public static final ExtendedRepeaterBlockMinute EXTENDED_REPEATER_MINUTE = register("extended_repeater_minute",
             new ExtendedRepeaterBlockMinute(AbstractBlock.Settings.create()
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
+    public static final LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
 
     public static final ExtendedLeavesBlock FLOWERING_CHERRY_LEAVES = register("flowering_cherry_leaves", new ExtendedLeavesBlock(
-            AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES).luminance(state -> Blocktopia.glowFloweringCherry)));
+            AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES).luminance(state -> BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves)));
     public static final FloorExtendedSaplingBlock FLOWERING_CHERRY_SAPLING = register("flowering_cherry_sapling", new FloorExtendedSaplingBlock(
-            new SaplingGenerator("flowering_cherry", 0.1F,
+            new ExtendedSaplingGenerator("flowering_cherry", 0.1F,
+                    Optional.of(ConfiguredFeatureInit.GIANT_FLOWERING_CHERRY_KEY), Optional.empty(),
                     Optional.of(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY), Optional.empty(),
-                    Optional.of(TreeConfiguredFeatures.CHERRY), Optional.empty(),
-                    Optional.of(TreeConfiguredFeatures.CHERRY_BEES_005), Optional.empty()), AbstractBlock.Settings.copy(Blocks.CHERRY_SAPLING)));
+                    Optional.empty(), Optional.empty(),
+                    Optional.of(ConfiguredFeatureInit.GIANT_3x3FLOWERING_CHERRY_KEY), Optional.empty()), AbstractBlock.Settings.copy(Blocks.CHERRY_SAPLING)));
     public static final Block POTTED_FLOWERING_CHERRY_SAPLING = register("potted_flowering_cherry_sapling", Blocks.createFlowerPotBlock(FLOWERING_CHERRY_SAPLING));
 
     public static final Block SANDY_DIRT = register("sandy_dirt", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
@@ -75,9 +76,11 @@ public class BlockInit {
     public static final ExtendedLeavesBlock PALM_LEAVES = register("palm_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
-    public static final FloorExtendedSaplingBlock PALM_SAPLING = register("palm_sapling", new FloorExtendedSaplingBlock(new SaplingGenerator(Blocktopia.id("palm").toString(),
+    public static final FloorExtendedSaplingBlock PALM_SAPLING = register("palm_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(
+            Blocktopia.id("palm").toString(),
             0.1F, Optional.empty(), Optional.empty(), Optional.of(ConfiguredFeatureInit.PALM_TREE_KEY),
-            Optional.empty(), Optional.empty(), Optional.empty()), AbstractBlock.Settings.create()
+            Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(),
+            Optional.empty()), AbstractBlock.Settings.create()
             .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never).noCollision()));
     public static final Block POTTED_PALM_SAPLING = registerWithoutItem("potted_palm_sapling", Blocks.createFlowerPotBlock(PALM_SAPLING));
@@ -104,10 +107,11 @@ public class BlockInit {
     public static final ExtendedLeavesBlock BANANA_LEAVES = register("banana_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
-            .luminance(state -> Blocktopia.glowBanana)));
-    public static final FloorExtendedSaplingBlock BANANA_SAPLING = register("banana_sapling", new FloorExtendedSaplingBlock(new SaplingGenerator(Blocktopia.id("banana").toString(),
-            0.1F, Optional.of(ConfiguredFeatureInit.BANANA_TREE_KEY), Optional.empty(), Optional.empty(),
-            Optional.empty(), Optional.empty(), Optional.empty()), AbstractBlock.Settings.create()
+            .luminance(state -> BlocktopiaConfig.getConfig().glowingBananaLeaves)));
+    public static final FloorExtendedSaplingBlock BANANA_SAPLING = register("banana_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(Blocktopia.id("banana").toString(),
+            0.1F, Optional.of(ConfiguredFeatureInit.GIANT_BANANA_TREE_KEY), Optional.empty(), Optional.of(ConfiguredFeatureInit.BANANA_TREE_KEY),
+            Optional.empty(), Optional.empty(), Optional.empty(),
+            Optional.of(ConfiguredFeatureInit.GIANT_3x3BANANA_TREE_KEY), Optional.empty()), AbstractBlock.Settings.create()
             .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never).noCollision()));
     public static final Block POTTED_BANANA_SAPLING = registerWithoutItem("potted_banana_sapling", Blocks.createFlowerPotBlock(BANANA_SAPLING));
@@ -127,6 +131,37 @@ public class BlockInit {
     public static final TrapdoorBlock BANANA_TRAPDOOR = register("banana_trapdoor", new TrapdoorBlock(BlockSetTypeList.BANANA, AbstractBlock.Settings.create()
             .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().allowsSpawning(Blocks::never).burnable()));
 
+    public static final Block STRIPPED_CORN_LOG =  register("stripped_corn_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
+    public static final Block CORN_LOG = register("corn_log", createStrippableLogBlock(MapColor.BROWN, MapColor.BROWN, STRIPPED_CORN_LOG));
+    public static final Block STRIPPED_CORN_WOOD = register("stripped_corn_wood", createWoodBlock(MapColor.BROWN));
+    public static final Block CORN_WOOD = register("corn_wood", createStrippableWoodBlock(MapColor.BROWN, STRIPPED_CORN_WOOD));
+    public static final ExtendedLeavesBlock CORN_LEAVES = register("corn_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
+            .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
+            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
+            .luminance(state -> BlocktopiaConfig.getConfig().glowingCornLeaves)));
+    public static final FloorExtendedSaplingBlock CORN_SAPLING = register("corn_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(Blocktopia.id("corn").toString(),
+            0.1F, Optional.of(ConfiguredFeatureInit.GIANT_CORN_TREE_KEY), Optional.empty(), Optional.of(ConfiguredFeatureInit.CORN_TREE_KEY),
+            Optional.empty(), Optional.empty(), Optional.empty(),
+            Optional.of(ConfiguredFeatureInit.GIANT_3x3CORN_TREE_KEY), Optional.empty()), AbstractBlock.Settings.create()
+            .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
+            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never).noCollision()));
+    public static final Block POTTED_CORN_SAPLING = registerWithoutItem("potted_corn_sapling", Blocks.createFlowerPotBlock(CORN_SAPLING));
+    public static final Block CORN_PLANKS = register("corn_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    public static final DoorBlock CORN_DOOR = register("corn_door", new DoorBlock(BlockSetTypeList.CORN, AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().burnable().sounds(BlockSoundGroup.WOOD)));
+    public static final FenceBlock CORN_FENCE = register("corn_fence", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceGateBlock CORN_FENCE_GATE = register("corn_fence_gate", new FenceGateBlock(WoodTypeList.CORN, AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final StairsBlock CORN_STAIRS = register("corn_stairs", new StairsBlock(CORN_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
+    public static final SlabBlock CORN_SLAB = register("corn_slab", new SlabBlock(AbstractBlock.Settings.create()
+            .instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final PressurePlateBlock CORN_PRESSURE_PLATE = register("corn_pressure_plate", new PressurePlateBlock(BlockSetTypeList.CORN, AbstractBlock.Settings.create()
+            .solid().mapColor(MapColor.BROWN).noCollision().strength(0.5F).burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block CORN_BUTTON = register("corn_button", Blocks.createWoodenButtonBlock(BlockSetTypeList.CORN));
+    public static final TrapdoorBlock CORN_TRAPDOOR = register("corn_trapdoor", new TrapdoorBlock(BlockSetTypeList.CORN, AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().allowsSpawning(Blocks::never).burnable()));
+
     public static final ChairBlock OAK_CHAIR = register("oak_chair", new ChairBlock(Blocks.OAK_PLANKS, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
     public static final ChairBlock SPRUCE_CHAIR = register("spruce_chair", new ChairBlock(Blocks.SPRUCE_PLANKS, AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS)));
     public static final ChairBlock BIRCH_CHAIR = register("birch_chair", new ChairBlock(Blocks.BIRCH_PLANKS, AbstractBlock.Settings.copy(Blocks.BIRCH_PLANKS)));
@@ -139,6 +174,7 @@ public class BlockInit {
     public static final ChairBlock CHERRY_CHAIR = register("cherry_chair", new ChairBlock(Blocks.CHERRY_PLANKS, AbstractBlock.Settings.copy(Blocks.CHERRY_PLANKS)));
     public static final ChairBlock PALM_CHAIR = register("palm_chair", new ChairBlock(PALM_PLANKS, AbstractBlock.Settings.copy(PALM_PLANKS)));
     public static final ChairBlock BANANA_CHAIR = register("banana_chair", new ChairBlock(BANANA_PLANKS, AbstractBlock.Settings.copy(BANANA_PLANKS)));
+    public static final ChairBlock CORN_CHAIR = register("corn_chair", new ChairBlock(CORN_PLANKS, AbstractBlock.Settings.copy(CORN_PLANKS)));
 
     public static final XPTrapBlock XP_TRAP = register("xp_trap", new XPTrapBlock(AbstractBlock.Settings.copy(Blocks.OBSIDIAN)));
 
@@ -198,6 +234,7 @@ public class BlockInit {
         return new FlowerPotBlock(flower, AbstractBlock.Settings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
                 .luminance((state) -> luminance));
     }
+
 
     public static void load() {}
 }

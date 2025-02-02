@@ -25,7 +25,7 @@
 		  "children": [
 			{
 			  "type": "minecraft:item",
-			  "name": "blocktopia:banana_seeds",
+			  "name": "blocktopia:banana",
 			  "functions": [
 				{
 				  "function": "minecraft:set_count",

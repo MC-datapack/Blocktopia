@@ -4,6 +4,7 @@
   "version": "${version}",
   "name": "Blocktopia",
   "description": "Blocktopia adds many Blocks to minecraft.",
+  "accessWidener": "blocktopia.accesswidener",
   "authors": [
     "Timo_11 (MC-Datapack)",
     "Patrick_Farm"
@@ -33,10 +34,7 @@
       "github.mcdatapack.blocktopia.config.ModMenuIntegration"
     ]
   },
-  "mixins": [
-    "mixins.blocktopia-boat.json",
-    "mixins.blocktopia-boat-client.json"
-  ],
+  "mixins": [],
   "depends": {
     "fabricloader": ">=0.16.5",
     "minecraft": "1.21.1",
@@ -45,7 +43,9 @@
     "trinkets": ">=3.10.0",
     "terrablender": ">=4.0.0.0",
     "cloth-config": ">=15.0.127",
-    "modmenu": ">=11.0.0",
+    "modmenu": ">=11.0.0"
+  },
+  "suggests": {
     "more_tools_and_armor": ">=7.4"
   }
 }

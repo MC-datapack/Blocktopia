@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:ice"
+  },
+  "result": {
+    "id": "blocktopia:ice_a1_0_4"
+  }
+}

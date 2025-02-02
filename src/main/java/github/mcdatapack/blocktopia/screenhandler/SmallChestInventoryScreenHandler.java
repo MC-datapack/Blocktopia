@@ -59,7 +59,6 @@ public class SmallChestInventoryScreenHandler extends ScreenHandler {
                 addSlot(new Slot(playerInv, column + row * 9, 8 + column * 18, 15 + row * 18));
             }
         }
-
     }
 
     @Override

@@ -4,6 +4,8 @@ import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.VillagerInit;
 import java.util.Optional;
+
+import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -11,7 +13,6 @@ import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
-import static github.mcdatapack.more_tools_and_armor.init.ItemInit.*;
 
 public class CustomTrades {
     private static final float priceMultiplier = 0.75F;
@@ -439,155 +440,71 @@ public class CustomTrades {
                                 maxUses, 30, priceMultiplier
                         ));
                     });
-            TradeOfferHelper.registerVillagerOffers(VillagerInit.MINER, 1,
-                    factories -> {
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.STONE, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.DEEPSLATE, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.GRANITE, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.DIORITE, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.ANDESITE, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.TUFF, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.NETHERRACK, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.BASALT, 2),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.BLACKSTONE, 1),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.END_STONE, 1),
-                                new ItemStack(Items.COAL, 1),
-                                maxUses, 1, priceMultiplier
-                        ));
-                    });
-            TradeOfferHelper.registerVillagerOffers(VillagerInit.MINER, 2, 
-                    factories -> {
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.COAL, 1),
-                                new ItemStack(Items.COPPER_INGOT, 1),
-                                maxUses, 5, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.COPPER_INGOT, 4),
-                                new ItemStack(Items.GOLD_INGOT, 1),
-                                maxUses, 5, priceMultiplier
-                        ));
-                        if (BlocktopiaConfig.getConfig().villagerConfig.opTrades) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new TradedItem(Items.EMERALD, 48),
-                                    Optional.of(new TradedItem(DEEPSLATE_EMERALD, 1)),
-                                    new ItemStack(DEEPSLATE_EMERALD_PICKAXE),
-                                    maxUses, 10, priceMultiplier
-                            ));
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new TradedItem(Items.EMERALD, 48),
-                                    Optional.of(new TradedItem(END_EMERALD, 2)),
-                                    new ItemStack(DEEPSLATE_EMERALD_PICKAXE),
-                                    maxUses, 10, priceMultiplier
-                            ));
-                        }
-                    });
-            TradeOfferHelper.registerVillagerOffers(VillagerInit.MINER, 3,
-                    factories -> {
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.GOLD_INGOT, 2),
-                                new ItemStack(Items.IRON_INGOT, 1),
-                                maxUses, 10, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.IRON_INGOT, 8),
-                                new ItemStack(Items.DIAMOND, 1),
-                                maxUses, 10, priceMultiplier
-                        ));
-                        if (BlocktopiaConfig.getConfig().villagerConfig.opTrades) {
-                            factories.add((entity, random) -> new TradeOffer(
-                                    new TradedItem(Items.NETHERITE_INGOT, 2),
-                                    Optional.of(new TradedItem(Items.EMERALD, 1)),
-                                    new ItemStack(DEEPSLATE_EMERALD, 1),
-                                    maxUses, 10, priceMultiplier
-                            ));
-                        }
-                    });
-            TradeOfferHelper.registerVillagerOffers(VillagerInit.MINER, 4,
-                    factories -> {
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.DIAMOND, 2),
-                                Optional.of(new TradedItem(Items.LAVA_BUCKET, 1)),
-                                new ItemStack(Items.NETHERITE_INGOT, 1),
-                                maxUses, 10, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.DIAMOND, 2),
-                                new ItemStack(Items.ENCHANTING_TABLE, 1),
-                                maxUses, 10, priceMultiplier
-                        ));
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.GRANITE, 1),
-                                new ItemStack(Items.BOOKSHELF, 1),
-                                maxUses, 10, priceMultiplier
-                        ));
-                    });
-            TradeOfferHelper.registerVillagerOffers(VillagerInit.MINER, 5,
-                    factories -> {
-                        factories.add((entity, random) -> new TradeOffer(
-                                new TradedItem(Items.EMERALD, 4),
-                                new ItemStack(NETHERITE_PAXEL, 1),
-                                maxUses, 50, priceMultiplier
-                        ));
-            });
         }
         
         if (BlocktopiaConfig.getConfig().wanderingTraderTrades) {
-            TradeOfferHelper.registerWanderingTraderOffers(1,
-                    (factories -> {
-                        factories.add(((entity, random) -> new TradeOffer(
+            TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
+                        factories.add((entity, random) -> new TradeOffer(
                                 new TradedItem(Items.EMERALD, 5),
                                 new ItemStack(BlockInit.PALM_SAPLING),
                                 6, 1, priceMultiplier
-                        )));
-                        factories.add(((entity, random) -> new TradeOffer(
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
                                 new TradedItem(Items.EMERALD, 5),
                                 new ItemStack(BlockInit.BANANA_SAPLING),
                                 6, 1, priceMultiplier
-                        )));
-                        factories.add(((entity, random) -> new TradeOffer(
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
                                 new TradedItem(Items.EMERALD, 5),
                                 new ItemStack(BlockInit.FLOWERING_CHERRY_SAPLING),
                                 6, 1, priceMultiplier
-                        )));
-                    }));
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 1),
+                                new ItemStack(BlockInit.GLOW_FLOWER),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 1),
+                                new ItemStack(DANDELION_C0_0_20A),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 1),
+                                new ItemStack(ROSE_C0_0_20A),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 1),
+                                new ItemStack(POPPY_1_7),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 1),
+                                new ItemStack(RED_MUSHROOM_C0_0_20A),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 1),
+                                new ItemStack(BROWN_MUSHROOM_C0_0_20A),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 5),
+                                new ItemStack(SAPLING_RD161348),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 5),
+                                new ItemStack(SAPLING_C0_0_13A),
+                                6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                                new TradedItem(Items.EMERALD, 5),
+                                new ItemStack(SAPLING_C0_24ST),
+                                6, 1, priceMultiplier
+                        ));
+                    });
         }
     }
 }

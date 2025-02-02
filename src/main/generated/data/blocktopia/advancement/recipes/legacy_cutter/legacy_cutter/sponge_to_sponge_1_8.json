@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sponge": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:sponge"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:legacy_cutter/sponge_to_sponge_1_8"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sponge"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:legacy_cutter/sponge_to_sponge_1_8"
+    ]
+  }
+}

@@ -56,6 +56,7 @@ public class ItemGroupInit {
             .displayName(Text.translatable("itemGroup.blocktopia.legacy_blocks"))
             .icon(LegacyBlocks.COBBLESTONE_RD20090515.asItem()::getDefaultStack)
             .entries((displayContext, entries) -> {
+                entries.add(BlockInit.LEGACY_CUTTER);
                 entries.add(LegacyBlocks.COBBLESTONE_RD20090515);
                 entries.add(LegacyBlocks.COBBLESTONE_C_0_0_14A);
                 entries.add(LegacyBlocks.COBBLESTONE_B1_7);
@@ -281,6 +282,23 @@ public class ItemGroupInit {
                 entries.add(BlockInit.BANANA_TRAPDOOR);
                 entries.add(ItemInit.BANANA_BOAT);
                 entries.add(ItemInit.BANANA_CHEST_BOAT);
+                entries.add(BlockInit.CORN_WOOD);
+                entries.add(BlockInit.STRIPPED_CORN_WOOD);
+                entries.add(BlockInit.CORN_LOG);
+                entries.add(BlockInit.STRIPPED_CORN_LOG);
+                entries.add(BlockInit.CORN_LEAVES);
+                entries.add(BlockInit.CORN_SAPLING);
+                entries.add(BlockInit.CORN_PLANKS);
+                entries.add(BlockInit.CORN_STAIRS);
+                entries.add(BlockInit.CORN_SLAB);
+                entries.add(BlockInit.CORN_FENCE);
+                entries.add(BlockInit.CORN_FENCE_GATE);
+                entries.add(BlockInit.CORN_PRESSURE_PLATE);
+                entries.add(BlockInit.CORN_BUTTON);
+                entries.add(BlockInit.CORN_DOOR);
+                entries.add(BlockInit.CORN_TRAPDOOR);
+                entries.add(ItemInit.CORN_BOAT);
+                entries.add(ItemInit.CORN_CHEST_BOAT);
                 entries.add(BlockInit.FLOWERING_CHERRY_SAPLING);
                 entries.add(BlockInit.FLOWERING_CHERRY_LEAVES);
                 entries.add(ItemInit.CHERRY);
@@ -304,6 +322,8 @@ public class ItemGroupInit {
                 entries.add(BlockInit.CHERRY_CHAIR);
                 entries.add(BlockInit.PALM_CHAIR);
                 entries.add(BlockInit.BANANA_CHAIR);
+                entries.add(BlockInit.CORN_CHAIR);
+                entries.add(ItemInit.TROPICAL_WATER_BUCKET);
                 entries.add(BlockInit.SMALL_CHEST);
                 entries.add(BlockInit.EXTENDED_REPEATER_TICK);
                 entries.add(BlockInit.EXTENDED_REPEATER_SECOND);
@@ -326,6 +346,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.GIANT_SPAWN_EGG);
                 entries.add(ItemInit.ILLUSIONER_SPAWN_EGG);
                 entries.add(ItemInit.MONKEY_SPAWN_EGG);
+                entries.add(BlockInit.LEGACY_CUTTER);
                 entries.add(BlockInit.XP_TRAP);
                 entries.add(ItemInit.RABBIT_TRINKET);
                 entries.add(ItemInit.FISH_TRINKET);

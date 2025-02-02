@@ -78,6 +78,30 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(bananaFamily.getBaseBlock())
                 .family(bananaFamily);
 
+
+
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.CORN_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.CORN_SAPLING, BlockInit.POTTED_CORN_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(BlockInit.CORN_LOG)
+                .log(BlockInit.CORN_LOG).wood(BlockInit.CORN_WOOD);
+        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_CORN_LOG)
+                .log(BlockInit.STRIPPED_CORN_LOG).wood(BlockInit.STRIPPED_CORN_WOOD);
+        var cornFamily = new BlockFamily.Builder(BlockInit.CORN_PLANKS)
+                .button(BlockInit.CORN_BUTTON)
+                .fence(BlockInit.CORN_FENCE)
+                .fenceGate(BlockInit.CORN_FENCE_GATE)
+                .pressurePlate(BlockInit.CORN_PRESSURE_PLATE)
+                .slab(BlockInit.CORN_SLAB)
+                .stairs(BlockInit.CORN_STAIRS)
+                .door(BlockInit.CORN_DOOR)
+                .trapdoor(BlockInit.CORN_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        blockStateModelGenerator.registerCubeAllModelTexturePool(cornFamily.getBaseBlock())
+                .family(cornFamily);
+
+
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FLOWERING_CHERRY_LEAVES);
         blockStateModelGenerator.registerFlowerPotPlant(BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING, TintType.NOT_TINTED);
 
@@ -247,6 +271,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         registerChair(BlockInit.CHERRY_CHAIR);
         registerChair(BlockInit.PALM_CHAIR);
         registerChair(BlockInit.BANANA_CHAIR);
+        registerChair(BlockInit.CORN_CHAIR);
     }
 
     @Override
@@ -263,6 +288,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.PALM_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.BANANA_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.BANANA_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.CORN_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.CORN_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.GIANT_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.ILLUSIONER_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.CHERRY, Models.GENERATED);

@@ -7,6 +7,7 @@ import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 import github.mcdatapack.blocktopia.block.ExtendedLeavesBlock;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfigData;
+import github.mcdatapack.blocktopia.tree.trunkplacer.ExtremeTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
@@ -22,6 +23,7 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.CocoaBeansTreeDecorator;
 import net.minecraft.world.gen.treedecorator.LeavesVineTreeDecorator;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
+import net.minecraft.world.gen.trunk.MegaJungleTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.List;
@@ -30,7 +32,14 @@ public class ConfiguredFeatureInit {
     private static final BlocktopiaConfigData.WorldgenFeatureConfig config = BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures;
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM_TREE_KEY = registerKey("palm_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3BANANA_TREE_KEY = registerKey("giant_3x3_banana_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3CORN_TREE_KEY = registerKey("giant_3x3_corn_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3FLOWERING_CHERRY_KEY = registerKey("giant_3x3_flowering_cherry");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_BANANA_TREE_KEY = registerKey("giant_banana_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_CORN_TREE_KEY = registerKey("giant_corn_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_FLOWERING_CHERRY_KEY = registerKey("giant_flowering_cherry");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BANANA_TREE_KEY = registerKey("banana_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CORN_TREE_KEY = registerKey("corn_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GLOW_FLOWER_KEY = registerKey("glow_flower");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GLOW_FLOWER_PATCH_KEY = registerKey("glow_flower_patch");
@@ -74,7 +83,7 @@ public class ConfiguredFeatureInit {
                 new AcaciaFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0)),
                 new TwoLayersFeatureSize(4, 1, 4)
         ).build());
-        register(context, BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+        register(context, GIANT_3x3BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(BANANA_LOG),
                 new ExtremeTrunkPlacer(32, 24, 24),
                 SimpleBlockStateProvider.of(BANANA_LEAVES),
@@ -85,7 +94,18 @@ public class ConfiguredFeatureInit {
                         new LeavesVineTreeDecorator(0.8F),
                         new LeavesTreeDecorator(BANANA_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
                 .build());
-        register(context, FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+        register(context, GIANT_3x3CORN_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(CORN_LOG),
+                new ExtremeTrunkPlacer(32, 24, 24),
+                SimpleBlockStateProvider.of(CORN_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.01F),
+                        new LeavesTreeDecorator(CORN_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                .build());
+        register(context, GIANT_3x3FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),
                 new ExtremeTrunkPlacer(24, 20, 20),
                 SimpleBlockStateProvider.of(FLOWERING_CHERRY_LEAVES),
@@ -94,11 +114,65 @@ public class ConfiguredFeatureInit {
                 .decorators(List.of(
                         new LeavesTreeDecorator(FLOWERING_CHERRY_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
                 .build());
+        register(context, GIANT_BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(BANANA_LOG),
+                new MegaJungleTrunkPlacer(24, 16, 16),
+                SimpleBlockStateProvider.of(BANANA_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(3, 6), ConstantIntProvider.create(0), 10),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.8F)))
+                .build());
+        register(context, GIANT_CORN_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(CORN_LOG),
+                new MegaJungleTrunkPlacer(24, 16, 16),
+                SimpleBlockStateProvider.of(CORN_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(3, 6), ConstantIntProvider.create(0), 10),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.01F)))
+                .build());
+        register(context, GIANT_FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),
+                new MegaJungleTrunkPlacer(20, 12, 12),
+                SimpleBlockStateProvider.of(FLOWERING_CHERRY_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(2, 5), ConstantIntProvider.create(0), 8),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .build());
+        register(context, BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(BANANA_LOG),
+                new StraightTrunkPlacer(16, 10, 10),
+                SimpleBlockStateProvider.of(BANANA_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(2, 4), ConstantIntProvider.create(0), 6),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.8F)))
+                .build());
+        register(context, CORN_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(CORN_LOG),
+                new StraightTrunkPlacer(16, 10, 10),
+                SimpleBlockStateProvider.of(CORN_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(2, 4), ConstantIntProvider.create(0), 6),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.01F)))
+                .build());
+        register(context, FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),
+                new StraightTrunkPlacer(12, 6, 6),
+                SimpleBlockStateProvider.of(FLOWERING_CHERRY_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(1, 3), ConstantIntProvider.create(0), 4),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .build());
         register(context, GLOW_FLOWER_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
                 BlockStateProvider.of(GLOW_FLOWER)
         ));
         register(context, GLOW_FLOWER_PATCH_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(
-                32, 10, 5, registryLookup.getOrThrow(PlacedFeatureInit.GLOW_FLOWER_KEY)
+                64, 32, 10, registryLookup.getOrThrow(PlacedFeatureInit.GLOW_FLOWER_KEY)
         ));
 
 
@@ -182,16 +256,16 @@ public class ConfiguredFeatureInit {
         //        OreFeatureConfig.createTarget(overworldOreReplaceables, LAPIS_ORE_1_14.getDefaultState()));
 
 
-        register(context, COAL_ORE_C0_0_14A_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsCoal_C0_0_14A, config.features.legacy_coal_ores.size, 0));
-        register(context, COAL_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsCoal_1_14, config.features.legacy_coal_ores.size, 0));
-        register(context, IRON_ORE_C0_0_14A_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsIron_C0_0_14A, config.features.legacy_iron_ores.size, 0));
-        register(context, IRON_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsIron_1_14, config.features.legacy_iron_ores.size, 0));
-        register(context, IRON_ORE_1_14_1_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsIron_1_14_1, config.features.legacy_iron_ores.size, 0));
-        register(context, GOLD_ORE_C0_0_14A_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsGold_C0_0_14A, config.features.legacy_gold_ores.size, 0));
-        register(context, GOLD_ORE_C0_26ST_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsGold_C0_24ST, config.features.legacy_gold_ores.size, 0));
-        register(context, GOLD_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsGold_1_14, config.features.legacy_gold_ores.size, 0));
-        register(context, DIAMOND_ORE_IN20100128_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsDiamond_IN20100128, config.features.legacy_diamond_ores.size, 0));
-        register(context, DIAMOND_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsDiamond_1_14, config.features.legacy_diamond_ores.size, 0));
+        register(context, COAL_ORE_C0_0_14A_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsCoal_C0_0_14A, 17, 0));
+        register(context, COAL_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsCoal_1_14, 17, 0));
+        register(context, IRON_ORE_C0_0_14A_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsIron_C0_0_14A, 9, 0));
+        register(context, IRON_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsIron_1_14, 9, 0));
+        register(context, IRON_ORE_1_14_1_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsIron_1_14_1, 9, 0));
+        register(context, GOLD_ORE_C0_0_14A_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsGold_C0_0_14A, 9, 0));
+        register(context, GOLD_ORE_C0_26ST_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsGold_C0_24ST, 9, 0));
+        register(context, GOLD_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsGold_1_14, 9, 0));
+        register(context, DIAMOND_ORE_IN20100128_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsDiamond_IN20100128, 9, 0));
+        register(context, DIAMOND_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsDiamond_1_14, 9, 0));
         //register(context, LAPIS_ORE_B1_2_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsLapis_IN20100128, config.features.legacy_lapis_ores.size, 0));
         //register(context, LAPIS_ORE_1_14_KEY, Feature.ORE, new OreFeatureConfig(overworldTargetsLapis_1_14, config.features.legacy_lapis_ores.size, 0));
     }

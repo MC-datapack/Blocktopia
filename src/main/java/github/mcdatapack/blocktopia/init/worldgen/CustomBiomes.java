@@ -33,11 +33,18 @@ public class CustomBiomes {
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.PATCH_SUGAR_CANE))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.VINES))
 
-                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.BANANA_TREE_KEY))
-                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.FLOWERING_CHERRY_KEY))
-                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.PALM_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_3x3BANANA_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_3x3CORN_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_3x3FLOWERING_CHERRY_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.MEGA_JUNGLE_TREE))
-                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.JUNGLE_TREE));
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.JUNGLE_TREE))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_BANANA_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_CORN_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_FLOWERING_CHERRY_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.BANANA_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.CORN_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.FLOWERING_CHERRY_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.PALM_TREE_KEY));
 
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder()
                 .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityInit.MONKEY, 100, 4, 8))

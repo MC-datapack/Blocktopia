@@ -1,19 +1,7 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "decorators": [
-      {
-        "type": "blocktopia:leaves_tree_decorator",
-        "blockstate": {
-          "Name": "blocktopia:flowering_cherry_leaves",
-          "Properties": {
-            "distance": "64",
-            "persistent": "false",
-            "waterlogged": "false"
-          }
-        }
-      }
-    ],
+    "decorators": [],
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -22,12 +10,12 @@
     },
     "foliage_placer": {
       "type": "minecraft:blob_foliage_placer",
-      "height": 14,
+      "height": 4,
       "offset": 0,
       "radius": {
         "type": "minecraft:uniform",
-        "max_inclusive": 7,
-        "min_inclusive": 3
+        "max_inclusive": 3,
+        "min_inclusive": 1
       }
     },
     "foliage_provider": {
@@ -50,10 +38,10 @@
       "upper_size": 1
     },
     "trunk_placer": {
-      "type": "blocktopia:extreme_trunk_placer",
-      "base_height": 24,
-      "height_rand_a": 20,
-      "height_rand_b": 20
+      "type": "minecraft:straight_trunk_placer",
+      "base_height": 12,
+      "height_rand_a": 6,
+      "height_rand_b": 6
     },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",

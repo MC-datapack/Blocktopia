@@ -1,0 +1,36 @@
+{
+  "type": "blocktopia:tropics",
+  "generator": {
+	"type": "minecraft:noise",
+	"settings": "blocktopia:tropics",
+	"biome_source": {
+	  "type": "minecraft:multi_noise",
+	  "biomes": [
+		{
+		  "biome": "blocktopia:rain_forest",
+		  "parameters": {
+			"temperature": 1,
+			"humidity": 1,
+			"continentalness": 1,
+			"erosion": 1,
+			"weirdness": 1,
+			"depth": -1,
+			"offset": 0
+		  }
+		},
+		{
+		  "biome": "blocktopia:palm_island",
+		  "parameters": {
+			"temperature": 1,
+			"humidity": 2,
+			"continentalness": 0,
+			"erosion": 1,
+			"weirdness": 0.5,
+			"depth": -1,
+			"offset": 0
+		  }
+		}
+	  ]
+	}
+  }
+}

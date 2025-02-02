@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:furnace"
+  },
+  "result": {
+    "id": "blocktopia:furnace_b1_2"
+  }
+}

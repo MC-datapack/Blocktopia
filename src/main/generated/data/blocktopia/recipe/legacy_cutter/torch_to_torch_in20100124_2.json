@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:torch"
+  },
+  "result": {
+    "id": "blocktopia:torch_in20100124_2"
+  }
+}

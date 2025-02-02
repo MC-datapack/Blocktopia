@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "blocktopia:block/corn_pressure_plate"
+    },
+    "powered=true": {
+      "model": "blocktopia:block/corn_pressure_plate_down"
+    }
+  }
+}

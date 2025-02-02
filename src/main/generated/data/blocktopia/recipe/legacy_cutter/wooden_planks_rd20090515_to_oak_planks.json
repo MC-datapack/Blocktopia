@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "blocktopia:wooden_planks_rd20090515"
+  },
+  "result": {
+    "id": "minecraft:oak_planks"
+  }
+}

@@ -106,7 +106,6 @@ public class SmallChestBlockEntity extends BlockEntity implements ExtendedScreen
         if (world != null) {
             world.updateListeners(pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
         }
-
     }
 
     public InventoryStorage getInventoryProvider(Direction direction) {

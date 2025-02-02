@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oak_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:oak_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:legacy_cutter/sapling_c0_0_13a_to_sapling_rd161348"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oak_sapling"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:legacy_cutter/sapling_c0_0_13a_to_sapling_rd161348"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ladder": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:ladder"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:legacy_cutter/ladder_inf20100618_to_ladder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ladder"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:legacy_cutter/ladder_inf20100618_to_ladder"
+    ]
+  }
+}

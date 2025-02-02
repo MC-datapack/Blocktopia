@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.datagen.generator;
 
 import java.util.concurrent.CompletableFuture;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.registry.RegistryKeys;
@@ -19,6 +20,7 @@ public class BlocktopiaWorldGenerator extends FabricDynamicRegistryProvider {
         entries.addAll(registries.getWrapperOrThrow(RegistryKeys.TEMPLATE_POOL));
         entries.addAll(registries.getWrapperOrThrow(RegistryKeys.STRUCTURE));
         entries.addAll(registries.getWrapperOrThrow(RegistryKeys.STRUCTURE_SET));
+        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.DIMENSION_TYPE));
     }
 
     @Override

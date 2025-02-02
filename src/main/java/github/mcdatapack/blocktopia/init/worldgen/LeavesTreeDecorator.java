@@ -18,7 +18,6 @@ public class LeavesTreeDecorator extends TreeDecorator {
 
     private final BlockState blockState;
 
-    // Constructor that takes BlockState as a parameter
     public LeavesTreeDecorator(BlockState blockState) {
         this.blockState = blockState;
     }

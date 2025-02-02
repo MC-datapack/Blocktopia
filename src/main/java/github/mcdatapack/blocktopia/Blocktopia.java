@@ -1,9 +1,6 @@
 package github.mcdatapack.blocktopia;
 
 import github.mcdatapack.blocktopia.block.entity.SmallChestBlockEntity;
-import github.mcdatapack.blocktopia.boat.impl.BlocktopiaBoatTrackedData;
-import github.mcdatapack.blocktopia.boat.impl.entity.BlocktopiaBoatEntity;
-import github.mcdatapack.blocktopia.boat.impl.entity.BlocktopiaChestBoatEntity;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.entity.MonkeyEntity;
 import github.mcdatapack.blocktopia.handlers.LootHandler;
@@ -18,12 +15,10 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,22 +29,16 @@ import terrablender.api.TerraBlenderApi;
 
 public class Blocktopia implements ModInitializer, TerraBlenderApi {
     public static final Logger LOGGER = LoggerFactory.getLogger("Blocktopia");
-    private static final float DIMENSIONS_WIDTH = 1.375F;
-    private static final float DIMENSIONS_HEIGHT = 0.5625F;
-    private static final Identifier BOAT_ID = Identifier.of(id("boat").toString());
-    public static final EntityType<BlocktopiaBoatEntity> BOAT
-            = EntityType.Builder.<BlocktopiaBoatEntity>create(BlocktopiaBoatEntity::new, SpawnGroup.MISC).dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build(BOAT_ID.toString());
-    private static final Identifier CHEST_BOAT_ID = Identifier.of(id("chest_boat").toString());
-    public static final EntityType<BlocktopiaChestBoatEntity> CHEST_BOAT
-            = EntityType.Builder.<BlocktopiaChestBoatEntity>create(BlocktopiaChestBoatEntity::new, SpawnGroup.MISC)
-            .dimensions(DIMENSIONS_WIDTH, DIMENSIONS_HEIGHT).build(CHEST_BOAT_ID.toString());
 
-    public static final int glowFloweringCherry, glowBanana;
+    static {
+        BlocktopiaConfig.register();
+    }
 
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
         LOGGER.debug("Loading Items, Blocks and Entities");
+        RecipeInit.load();
         FluidInit.load();
         ItemInit.load();
         BlockInit.load();
@@ -84,13 +73,20 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         ItemStorage.SIDED.registerForBlockEntity(SmallChestBlockEntity::getInventoryProvider, BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY);
         CompostingChanceRegistry.INSTANCE.add(ItemInit.BANANA, 0.5F);
         CompostingChanceRegistry.INSTANCE.add(ItemInit.CHERRY, 1.0F);
-        LOGGER.debug("Loading Blocktopia Special Boats");
-        BlocktopiaBoatTrackedData.register();
-        Registry.register(Registries.ENTITY_TYPE, BOAT_ID, BOAT);
-        Registry.register(Registries.ENTITY_TYPE, CHEST_BOAT_ID, CHEST_BOAT);
         LOGGER.debug("Loading Creative Tabs");
         ItemGroupInit.load();
         LOGGER.info("Loaded Blocktopia");
+
+        CustomPortalBuilder.beginPortal()
+                .frameBlock(Blocks.JUNGLE_LOG)
+                .destDimID(id("tropics"))
+                .tintColor(26, 158, 10)
+                .registerPortal();
+        CustomPortalBuilder.beginPortal()
+                .frameBlock(BlockInit.BANANA_LOG)
+                .destDimID(id("tropics1"))
+                .tintColor(26, 158, 10)
+                .registerPortal();
     }
 
     @Override
@@ -103,10 +99,16 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         }
     }
 
-    static {
-        BlocktopiaConfig.register();
-        glowFloweringCherry = BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves;
-        glowBanana = BlocktopiaConfig.getConfig().glowingBananaLeaves;
+    public static Identifier signTexture(String name) {
+        return id("entity/signs/" + name);
+    }
+
+    public static Identifier hangingSignTexture(String name) {
+        return id("entity/signs/hanging/" + name);
+    }
+
+    public static Identifier hangingSignGUITexture(String name) {
+        return id("textures/gui/hanging_sign/" + name);
     }
 
     public static Identifier id(String path) {

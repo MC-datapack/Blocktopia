@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.init;
 
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.network.BlockPosPayload;
+import github.mcdatapack.blocktopia.screenhandler.LegacyCutterScreenHandler;
 import github.mcdatapack.blocktopia.screenhandler.SmallChestInventoryScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.network.RegistryByteBuf;
@@ -15,6 +16,8 @@ import net.minecraft.screen.ScreenHandlerType;
 public class ScreenHandlerTypeInit {
     public static final ScreenHandlerType<SmallChestInventoryScreenHandler> SMALL_CHEST_INVENTORY_SCREEN_HANDLER =
             register("small_chest_invetory", SmallChestInventoryScreenHandler::new, BlockPosPayload.PACKET_CODEC);
+    public static final ScreenHandlerType<LegacyCutterScreenHandler> LEGACY_CUTTER_INVENTORY_SCREEN_HANDLER =
+            register("legacy_cutter_inventory", LegacyCutterScreenHandler::new, BlockPosPayload.PACKET_CODEC);
 
 
     public static <T extends ScreenHandler, D extends CustomPayload> ExtendedScreenHandlerType<T, D> register(String name, ExtendedScreenHandlerType.ExtendedFactory<T, D> factory, PacketCodec<? super RegistryByteBuf, D> codec) {

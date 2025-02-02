@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "blocktopia:gold_block_b1_9pre5"
+  },
+  "result": {
+    "id": "blocktopia:gold_block_a1_2_0"
+  }
+}

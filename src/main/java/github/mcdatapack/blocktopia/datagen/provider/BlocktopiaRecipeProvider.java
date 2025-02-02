@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
+import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.ChairBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import github.mcdatapack.blocktopia.list.TagList;
+import github.mcdatapack.blocktopia.recipe.LegacyCutterRecipeJSONBuilder;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -24,26 +26,19 @@ import static github.mcdatapack.blocktopia.list.TagList.Items.*;
 import static net.minecraft.item.Items.*;
 
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
     public BlocktopiaRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
-    }
-
-    private void chairRecipe(ChairBlock block, RecipeExporter exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, block)
-                .input('A', block.plank)
-                .pattern("A  ")
-                .pattern("AAA")
-                .pattern("A A")
-                .criterion(hasItem(block.plank), conditionsFromItem(block.plank))
-                .offerTo(exporter);
     }
 
     @Override
@@ -60,6 +55,13 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         chairRecipe(BlockInit.CHERRY_CHAIR, exporter);
         chairRecipe(BlockInit.PALM_CHAIR, exporter);
         chairRecipe(BlockInit.BANANA_CHAIR, exporter);
+        chairRecipe(BlockInit.CORN_CHAIR, exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.LEGACY_CUTTER)
+                .input(STONECUTTER)
+                .input(CRAFTER)
+                .criterion(hasItem(STONECUTTER), conditionsFromItem(STONECUTTER))
+                .offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.XP_TRAP)
                 .input('A', EXPERIENCE_BOTTLE)
@@ -288,317 +290,6 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
 
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_RD20090515, COBBLESTONE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE, COBBLESTONE_RD20090515);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_C_0_0_14A, COBBLESTONE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE, COBBLESTONE_C_0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_B1_7, COBBLESTONE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE, COBBLESTONE_B1_7);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_RD20090515, OAK_PLANKS);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_PLANKS, WOODEN_PLANKS_RD20090515);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_RD161348, OAK_PLANKS);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_PLANKS, WOODEN_PLANKS_RD161348);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_C0_0_14A, OAK_PLANKS);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_C0_0_14A, 4)
-                .input(LOG_C0_0_14A)
-                .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_PLANKS, WOODEN_PLANKS_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_C0_0_15A, OAK_PLANKS);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_C0_0_15A, 8)
-                .input(LOG_C0_0_14A)
-                .input(LOG_C0_0_14A)
-                .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_PLANKS, WOODEN_PLANKS_C0_0_15A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_B1_9PRE5, OAK_PLANKS);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_B1_9PRE5, 12)
-                .input(LOG_C0_0_14A)
-                .input(LOG_C0_0_14A)
-                .input(LOG_C0_0_14A)
-                .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_PLANKS, WOODEN_PLANKS_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LOG_C0_0_14A, OAK_LOG);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_LOG, LOG_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LEAVES_C0_0_14A, OAK_LEAVES);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_LEAVES, LEAVES_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LEAVES_C0_0_15A, OAK_LEAVES);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_LEAVES, LEAVES_C0_0_15A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LEAVES_C0_24ST, OAK_LEAVES);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_LEAVES, LEAVES_C0_24ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAPLING_RD161348, OAK_SAPLING);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_SAPLING, SAPLING_RD161348);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAPLING_C0_0_13A, OAK_SAPLING);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_SAPLING, SAPLING_C0_0_13A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAPLING_C0_24ST, OAK_SAPLING);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_SAPLING, SAPLING_C0_24ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BEDROCK_C0_0_12A, BEDROCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BEDROCK, BEDROCK_C0_0_12A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAND_C0_0_14A, SAND);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAND, SAND_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAND_C0_0_15A, SAND);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAND, SAND_C0_0_15A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAND_B1_9PRE6, SAND);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SAND, SAND_B1_9PRE6);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL_C0_0_14A, GRAVEL);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL, GRAVEL_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL_C0_0_15A, GRAVEL);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL, GRAVEL_C0_0_15A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL_B1_9PRE5, GRAVEL);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL, GRAVEL_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL_1_3, GRAVEL);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GRAVEL, GRAVEL_1_3);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COAL_ORE_C0_0_14A, COAL_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COAL_ORE, COAL_ORE_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COAL_ORE_1_14, COAL_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COAL_ORE, COAL_ORE_1_14);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_ORE_C0_0_14A, IRON_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_ORE, IRON_ORE_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_ORE_1_14, IRON_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_ORE, IRON_ORE_1_14);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_ORE_1_14_1, IRON_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_ORE, IRON_ORE_1_14_1);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_ORE_C0_0_14A, GOLD_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_ORE, GOLD_ORE_C0_0_14A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_ORE_C0_26ST, GOLD_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_ORE, GOLD_ORE_C0_26ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_ORE_1_14, GOLD_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_ORE, GOLD_ORE_1_14);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SPONGE_C0_0_19A, SPONGE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SPONGE, SPONGE_C0_0_19A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SPONGE_1_8, SPONGE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SPONGE, SPONGE_1_8);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WET_SPONGE_1_8, WET_SPONGE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WET_SPONGE, WET_SPONGE_1_8);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GLASS_C0_0_19A, GLASS);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GLASS, GLASS_C0_0_19A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK_C0_0_20A, GOLD_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK, GOLD_BLOCK_C0_0_20A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK_C0_26ST, GOLD_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK, GOLD_BLOCK_C0_26ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK_A1_2_0, GOLD_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK, GOLD_BLOCK_A1_2_0);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK_B1_9PRE5, GOLD_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK, GOLD_BLOCK_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DANDELION_C0_0_20A, DANDELION);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DANDELION, DANDELION_C0_0_20A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ROSE_C0_0_20A, POPPY);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, POPPY, ROSE_C0_0_20A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, POPPY_1_7, POPPY);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, POPPY, POPPY_1_7);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BROWN_MUSHROOM_C0_0_20A, BROWN_MUSHROOM);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BROWN_MUSHROOM, BROWN_MUSHROOM_C0_0_20A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, RED_MUSHROOM_C0_0_20A, RED_MUSHROOM);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, RED_MUSHROOM, RED_MUSHROOM_C0_0_20A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_BLOCK_C0_26ST, IRON_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_BLOCK, IRON_BLOCK_C0_26ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_BLOCK_A1_2_0, IRON_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_BLOCK, IRON_BLOCK_A1_2_0);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_BLOCK_B1_9PRE5, IRON_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, IRON_BLOCK, IRON_BLOCK_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, TNT_C0_26ST, TNT);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, TNT, TNT_C0_26ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, TNT_C0_28A, TNT);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, TNT, TNT_C0_28A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, MOSSY_COBBLESTONE_C0_26ST, MOSSY_COBBLESTONE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, MOSSY_COBBLESTONE, MOSSY_COBBLESTONE_C0_26ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, MOSSY_COBBLESTONE_B1_8, MOSSY_COBBLESTONE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, MOSSY_COBBLESTONE, MOSSY_COBBLESTONE_B1_8);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BRICKS_C0_26ST, BRICKS);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BRICKS, BRICKS_C0_26ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BRICKS_A1_0_11, BRICKS);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BRICKS, BRICKS_A1_0_11);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BOOKSHELF_C0_26ST, BOOKSHELF);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BOOKSHELF, BOOKSHELF_C0_26ST);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BOOKSHELF_B1_9PRE5, BOOKSHELF);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BOOKSHELF, BOOKSHELF_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OBSIDIAN_C0_28A, OBSIDIAN);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OBSIDIAN, OBSIDIAN_C0_28A);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_ORE_IN20100128, DIAMOND_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_ORE, DIAMOND_ORE_IN20100128);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_ORE_1_14, DIAMOND_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_ORE, DIAMOND_ORE_1_14);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_BLOCK_IN20100128, DIAMOND_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_BLOCK, DIAMOND_BLOCK_IN20100128);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_BLOCK_A1_2_0, DIAMOND_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_BLOCK, DIAMOND_BLOCK_A1_2_0);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_BLOCK_B1_9PRE5, DIAMOND_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DIAMOND_BLOCK, DIAMOND_BLOCK_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CRAFTING_TABLE_IN20100131, CRAFTING_TABLE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CRAFTING_TABLE, CRAFTING_TABLE_IN20100131);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CRAFTING_TABLE_1_14, CRAFTING_TABLE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CRAFTING_TABLE, CRAFTING_TABLE_1_14);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, FURNACE_IN20100219, FURNACE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, FURNACE, FURNACE_IN20100219);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, LIT_FURNACE_IN20100219)
-                .input(FURNACE_IN20100219)
-                .input(COAL)
-                .criterion(hasItem(FURNACE_IN20100219), conditionsFromItem(FURNACE_IN20100219))
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, FURNACE_IN20100219)
-                .input(LIT_FURNACE_IN20100219)
-                .input(WATER_BUCKET)
-                .criterion(hasItem(FURNACE_IN20100219), conditionsFromItem(FURNACE_IN20100219))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, FURNACE_B1_2, FURNACE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, FURNACE, FURNACE_B1_2);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, LIT_FURNACE_B1_2)
-                .input(FURNACE_B1_2)
-                .input(COAL)
-                .criterion(hasItem(FURNACE_B1_2), conditionsFromItem(FURNACE_B1_2))
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, FURNACE_B1_2)
-                .input(LIT_FURNACE_B1_2)
-                .input(WATER_BUCKET)
-                .criterion(hasItem(FURNACE_B1_2), conditionsFromItem(FURNACE_B1_2))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LADDER_INF20100607, LADDER);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LADDER, LADDER_INF20100607);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LADDER_INF20100618, LADDER);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, LADDER, LADDER_INF20100618);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_RD20090515)
-                .input('A', WOODEN_PLANKS_RD20090515)
-                .pattern("A  ")
-                .pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(WOODEN_PLANKS_RD20090515), conditionsFromItem(WOODEN_PLANKS_RD20090515))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_RD161348)
-                .input('A', WOODEN_PLANKS_RD161348)
-                .pattern("A  ")
-                .pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(WOODEN_PLANKS_RD161348), conditionsFromItem(WOODEN_PLANKS_RD161348))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_C0_0_14A)
-                .input('A', WOODEN_PLANKS_C0_0_14A)
-                .pattern("A  ").pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(WOODEN_PLANKS_C0_0_14A), conditionsFromItem(WOODEN_PLANKS_C0_0_14A))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_INF20100629)
-                .input('A', WOODEN_PLANKS_C0_0_15A)
-                .pattern("A  ").pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_B1_9PRE5)
-                .input('A', WOODEN_PLANKS_B1_9PRE5)
-                .pattern("A  ")
-                .pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(WOODEN_PLANKS_B1_9PRE5), conditionsFromItem(WOODEN_PLANKS_B1_9PRE5))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_STAIRS_RD20090515)
-                .input('A', COBBLESTONE_RD20090515)
-                .pattern("A  ")
-                .pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(COBBLESTONE_RD20090515), conditionsFromItem(COBBLESTONE_RD20090515))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_STAIRS_C0_0_14A)
-                .input('A', COBBLESTONE_C_0_0_14A)
-                .pattern("A  ")
-                .pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(COBBLESTONE_C_0_0_14A), conditionsFromItem(COBBLESTONE_C_0_0_14A))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_STAIRS_B1_7)
-                .input('A', COBBLESTONE_B1_7)
-                .pattern("A  ")
-                .pattern("AA ")
-                .pattern("AAA")
-                .criterion(hasItem(COBBLESTONE_B1_7), conditionsFromItem(COBBLESTONE_B1_7))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ItemInit.TORCH_IN20100124_2, TORCH);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, TORCH, ItemInit.TORCH_IN20100124_2);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_DOOR_INF20100607, OAK_DOOR);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_DOOR, WOODEN_DOOR_INF20100607);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_DOOR_INF20100607)
-                .input('A', WOODEN_PLANKS_C0_0_15A)
-                .pattern("AA")
-                .pattern("AA")
-                .pattern("AA")
-                .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, REDSTONE_ORE_A1_0_1, REDSTONE_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, REDSTONE_ORE, REDSTONE_ORE_A1_0_1);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, REDSTONE_ORE_1_14, REDSTONE_ORE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, REDSTONE_ORE, REDSTONE_ORE_1_14);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, REDSTONE_TORCH_A1_0_1, REDSTONE_TORCH);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, REDSTONE_TORCH, REDSTONE_TORCH_A1_0_1);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SNOW_A1_0_4, SNOW);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SNOW, SNOW_A1_0_4);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SNOW_BLOCK_A1_0_5, SNOW_BLOCK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SNOW_BLOCK, SNOW_BLOCK_A1_0_5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ICE_A1_0_4, ICE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ICE, ICE_A1_0_4);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CLAY_BLOCK_A1_0_11, CLAY);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CLAY, CLAY_BLOCK_A1_0_11);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_RD20090515, OAK_FENCE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_FENCE, WOODEN_FENCE_RD20090515);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_RD20090515)
-                .input('A', WOODEN_PLANKS_RD20090515)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("ABA")
-                .pattern("ABA")
-                .criterion(hasItem(WOODEN_PLANKS_RD20090515), conditionsFromItem(WOODEN_PLANKS_RD20090515))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_RD161348, OAK_FENCE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_FENCE, WOODEN_FENCE_RD161348);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_RD161348)
-                .input('A', WOODEN_PLANKS_RD161348)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("ABA")
-                .pattern("ABA")
-                .criterion(hasItem(WOODEN_PLANKS_RD161348), conditionsFromItem(WOODEN_PLANKS_RD161348))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_C0_0_14A, OAK_FENCE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_FENCE, WOODEN_FENCE_C0_0_14A);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_C0_0_14A)
-                .input('A', WOODEN_PLANKS_C0_0_14A)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("ABA")
-                .pattern("ABA")
-                .criterion(hasItem(WOODEN_PLANKS_C0_0_14A), conditionsFromItem(WOODEN_PLANKS_C0_0_14A))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_A1_0_17, OAK_FENCE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_FENCE, WOODEN_FENCE_A1_0_17);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_A1_0_17)
-                .input('A', WOODEN_PLANKS_C0_0_15A)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("ABA")
-                .pattern("ABA")
-                .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_B1_9PRE5, OAK_FENCE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, OAK_FENCE, WOODEN_FENCE_B1_9PRE5);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_B1_9PRE5)
-                .input('A', WOODEN_PLANKS_B1_9PRE5)
-                .input('B', ConventionalItemTags.WOODEN_RODS)
-                .pattern("ABA")
-                .pattern("ABA")
-                .criterion(hasItem(WOODEN_PLANKS_B1_9PRE5), conditionsFromItem(WOODEN_PLANKS_B1_9PRE5))
-                .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, NETHERRACK_A1_2_0, NETHERRACK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, NETHERRACK, NETHERRACK_A1_2_0);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, NETHERRACK_B1_9PRE5, NETHERRACK);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, NETHERRACK, NETHERRACK_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SOUL_SAND_A1_2_0, SOUL_SAND);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SOUL_SAND, SOUL_SAND_A1_2_0);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GLOWSTONE_A1_2_0, GLOWSTONE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GLOWSTONE, GLOWSTONE_A1_2_0);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GLOWSTONE_B1_9PRE5, GLOWSTONE);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, GLOWSTONE, GLOWSTONE_B1_9PRE5);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CARVED_PUMPKIN_A1_2_0, CARVED_PUMPKIN);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CARVED_PUMPKIN, CARVED_PUMPKIN_A1_2_0);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JACK_O_LANTERN_A1_2_0, JACK_O_LANTERN);
-        RecipeProvider.offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JACK_O_LANTERN, JACK_O_LANTERN_A1_2_0);
-
-
-
-
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.PALM_PLANKS, 4)
                 .input(PALM_LOGS)
@@ -786,9 +477,314 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .unlockCriterionName("has_planks")
                 .build();
         generateFamily(exporter, bananaFamily, FeatureSet.empty());
+
+
+
+
+
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_PLANKS, 4)
+                .input(CORN_LOGS)
+                .criterion(hasTag(CORN_LOGS), conditionsFromTag(CORN_LOGS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_SLAB, 6)
+                .input('A', BlockInit.CORN_PLANKS)
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_STAIRS, 4)
+                .input('A', BlockInit.CORN_PLANKS)
+                .pattern("A  ").pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_FENCE, 3)
+                .input('A', BlockInit.CORN_PLANKS)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("ABA")
+                .pattern("ABA")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_FENCE_GATE)
+                .input('A', BlockInit.CORN_PLANKS)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("BAB")
+                .pattern("BAB")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_DOOR, 3)
+                .input('A', BlockInit.CORN_PLANKS)
+                .pattern("AA")
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_TRAPDOOR, 2)
+                .input('A', BlockInit.CORN_PLANKS)
+                .pattern("AAA")
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BlockInit.CORN_BUTTON)
+                .input('A', BlockInit.CORN_PLANKS)
+                .pattern("A")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BlockInit.CORN_PRESSURE_PLATE)
+                .input('A', BlockInit.CORN_PLANKS)
+                .pattern("AA")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.CORN_BOAT)
+                .input('A', BlockInit.CORN_PLANKS)
+                .pattern("A A")
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.CORN_CHEST_BOAT)
+                .input(ItemInit.CORN_BOAT)
+                .input(ConventionalItemTags.WOODEN_CHESTS)
+                .criterion(hasItem(BlockInit.CORN_PLANKS), conditionsFromItem(BlockInit.CORN_PLANKS))
+                .criterion(hasItem(CHEST), conditionsFromItem(CHEST)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.CORN_WOOD)
+                .input('A', BlockInit.CORN_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(CORN_LOGS), conditionsFromTag(CORN_LOGS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.STRIPPED_CORN_WOOD)
+                .input('A', BlockInit.STRIPPED_CORN_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(CORN_LOGS), conditionsFromTag(CORN_LOGS))
+                .offerTo(exporter);
+        var cornFamily = new BlockFamily.Builder(BlockInit.CORN_PLANKS)
+                .button(BlockInit.CORN_BUTTON)
+                .fence(BlockInit.CORN_FENCE)
+                .fenceGate(BlockInit.CORN_FENCE_GATE)
+                .pressurePlate(BlockInit.CORN_PRESSURE_PLATE)
+                .slab(BlockInit.CORN_SLAB)
+                .stairs(BlockInit.CORN_STAIRS)
+                .door(BlockInit.CORN_DOOR)
+                .trapdoor(BlockInit.CORN_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        generateFamily(exporter, cornFamily, FeatureSet.empty());
+
+
+
+
+
+
+
+
+
+
+
+        //Legacy Recipes
+        legacyCutterRecipe(exporter, Blocks.COBBLESTONE, COBBLESTONE_B1_7, COBBLESTONE_C_0_0_14A, COBBLESTONE_RD20090515);
+        legacyCutterRecipe(exporter, Blocks.OAK_PLANKS, WOODEN_PLANKS_B1_9PRE5, WOODEN_PLANKS_C0_0_15A, WOODEN_PLANKS_C0_0_14A, WOODEN_PLANKS_RD161348, WOODEN_PLANKS_RD20090515);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_C0_0_14A, 4)
+                .input(LOG_C0_0_14A)
+                .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_C0_0_15A, 8)
+                .input(LOG_C0_0_14A)
+                .input(LOG_C0_0_14A)
+                .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_B1_9PRE5, 12)
+                .input(LOG_C0_0_14A)
+                .input(LOG_C0_0_14A)
+                .input(LOG_C0_0_14A)
+                .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
+                .offerTo(exporter);
+        legacyCutterRecipe(exporter, OAK_LOG, LOG_C0_0_14A);
+        legacyCutterRecipe(exporter, OAK_LEAVES, LEAVES_C0_24ST, LEAVES_C0_0_15A, LEAVES_C0_0_14A);
+        legacyCutterRecipe(exporter, OAK_SAPLING, SAPLING_C0_24ST, SAPLING_C0_0_13A, SAPLING_RD161348);
+        legacyCutterRecipe(exporter, BEDROCK, BEDROCK_C0_0_12A);
+        legacyCutterRecipe(exporter, SAND, SAND_B1_9PRE6, SAND_C0_0_15A, SAND_C0_0_14A);
+        legacyCutterRecipe(exporter, GRAVEL, GRAVEL_1_3, GRAVEL_B1_9PRE5, GRAVEL_C0_0_15A, GRAVEL_C0_0_14A);
+        legacyCutterRecipe(exporter, COAL_ORE, COAL_ORE_1_14, COAL_ORE_C0_0_14A);
+        legacyCutterRecipe(exporter, IRON_ORE, IRON_ORE_1_14_1, IRON_ORE_1_14, IRON_ORE_C0_0_14A);
+        legacyCutterRecipe(exporter, GOLD_ORE, GOLD_ORE_1_14, GOLD_ORE_C0_26ST, GOLD_ORE_C0_0_14A);
+        legacyCutterRecipe(exporter, SPONGE, SPONGE_1_8, SPONGE_C0_0_19A);
+        legacyCutterRecipe(exporter, WET_SPONGE, WET_SPONGE_1_8);
+        legacyCutterRecipe(exporter, GLASS, GLASS_C0_0_19A);
+        legacyCutterRecipe(exporter, GOLD_BLOCK, GOLD_BLOCK_B1_9PRE5, GOLD_BLOCK_A1_2_0, GOLD_BLOCK_C0_26ST, GOLD_BLOCK_C0_0_20A);
+        legacyCutterRecipe(exporter, DANDELION, DANDELION_C0_0_20A);
+        legacyCutterRecipe(exporter, POPPY, ROSE_C0_0_20A, POPPY_1_7);
+        legacyCutterRecipe(exporter, BROWN_MUSHROOM, BROWN_MUSHROOM_C0_0_20A);
+        legacyCutterRecipe(exporter, RED_MUSHROOM, RED_MUSHROOM_C0_0_20A);
+        legacyCutterRecipe(exporter, IRON_BLOCK, IRON_BLOCK_B1_9PRE5, IRON_BLOCK_A1_2_0, IRON_BLOCK_C0_26ST);
+        legacyCutterRecipe(exporter, TNT, TNT_C0_28A, TNT_C0_26ST);
+        legacyCutterRecipe(exporter, MOSSY_COBBLESTONE, MOSSY_COBBLESTONE_C0_26ST, MOSSY_COBBLESTONE_C0_26ST);
+        legacyCutterRecipe(exporter, BRICKS, BRICKS_A1_0_11, BRICKS_C0_26ST);
+        legacyCutterRecipe(exporter, BOOKSHELF, BOOKSHELF_B1_9PRE5, BOOKSHELF_C0_26ST);
+        legacyCutterRecipe(exporter, OBSIDIAN, OBSIDIAN_C0_28A);
+        legacyCutterRecipe(exporter, DIAMOND_ORE, DIAMOND_ORE_1_14, DIAMOND_ORE_IN20100128);
+        legacyCutterRecipe(exporter, DIAMOND_BLOCK, DIAMOND_BLOCK_B1_9PRE5, DIAMOND_BLOCK_A1_2_0, DIAMOND_BLOCK_IN20100128);
+        legacyCutterRecipe(exporter, CRAFTING_TABLE, CRAFTING_TABLE_1_14, CRAFTING_TABLE_IN20100131);
+        legacyCutterRecipe(exporter, FURNACE, FURNACE_B1_2, FURNACE_IN20100219);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, LIT_FURNACE_IN20100219)
+                .input(FURNACE_IN20100219)
+                .input(COAL)
+                .criterion(hasItem(FURNACE_IN20100219), conditionsFromItem(FURNACE_IN20100219))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, FURNACE_IN20100219)
+                .input(LIT_FURNACE_IN20100219)
+                .input(WATER_BUCKET)
+                .criterion(hasItem(FURNACE_IN20100219), conditionsFromItem(FURNACE_IN20100219))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, LIT_FURNACE_B1_2)
+                .input(FURNACE_B1_2)
+                .input(COAL)
+                .criterion(hasItem(FURNACE_B1_2), conditionsFromItem(FURNACE_B1_2))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, FURNACE_B1_2)
+                .input(LIT_FURNACE_B1_2)
+                .input(WATER_BUCKET)
+                .criterion(hasItem(FURNACE_B1_2), conditionsFromItem(FURNACE_B1_2))
+                .offerTo(exporter);
+        legacyCutterRecipe(exporter, LADDER, LADDER_INF20100607, LADDER_INF20100618);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_RD20090515)
+                .input('A', WOODEN_PLANKS_RD20090515)
+                .pattern("A  ")
+                .pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(WOODEN_PLANKS_RD20090515), conditionsFromItem(WOODEN_PLANKS_RD20090515))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_RD161348)
+                .input('A', WOODEN_PLANKS_RD161348)
+                .pattern("A  ")
+                .pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(WOODEN_PLANKS_RD161348), conditionsFromItem(WOODEN_PLANKS_RD161348))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_C0_0_14A)
+                .input('A', WOODEN_PLANKS_C0_0_14A)
+                .pattern("A  ").pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(WOODEN_PLANKS_C0_0_14A), conditionsFromItem(WOODEN_PLANKS_C0_0_14A))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_INF20100629)
+                .input('A', WOODEN_PLANKS_C0_0_15A)
+                .pattern("A  ").pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_B1_9PRE5)
+                .input('A', WOODEN_PLANKS_B1_9PRE5)
+                .pattern("A  ")
+                .pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(WOODEN_PLANKS_B1_9PRE5), conditionsFromItem(WOODEN_PLANKS_B1_9PRE5))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_STAIRS_RD20090515)
+                .input('A', COBBLESTONE_RD20090515)
+                .pattern("A  ")
+                .pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(COBBLESTONE_RD20090515), conditionsFromItem(COBBLESTONE_RD20090515))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_STAIRS_C0_0_14A)
+                .input('A', COBBLESTONE_C_0_0_14A)
+                .pattern("A  ")
+                .pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(COBBLESTONE_C_0_0_14A), conditionsFromItem(COBBLESTONE_C_0_0_14A))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_STAIRS_B1_7)
+                .input('A', COBBLESTONE_B1_7)
+                .pattern("A  ")
+                .pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(COBBLESTONE_B1_7), conditionsFromItem(COBBLESTONE_B1_7))
+                .offerTo(exporter);
+        legacyCutterRecipe(exporter, TORCH, ItemInit.TORCH_IN20100124_2);
+        legacyCutterRecipe(exporter, OAK_DOOR, WOODEN_DOOR_INF20100607);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_DOOR_INF20100607)
+                .input('A', WOODEN_PLANKS_C0_0_15A)
+                .pattern("AA")
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
+                .offerTo(exporter);
+        legacyCutterRecipe(exporter, REDSTONE_ORE, REDSTONE_ORE_1_14, REDSTONE_ORE_A1_0_1);
+        legacyCutterRecipe(exporter, REDSTONE_TORCH, REDSTONE_TORCH_A1_0_1);
+        legacyCutterRecipe(exporter, SNOW, SNOW_A1_0_4);
+        legacyCutterRecipe(exporter, SNOW_BLOCK, SNOW_BLOCK_A1_0_5);
+        legacyCutterRecipe(exporter, ICE, ICE_A1_0_4);
+        legacyCutterRecipe(exporter, CLAY, CLAY_BLOCK_A1_0_11);
+        legacyCutterRecipe(exporter, OAK_FENCE, WOODEN_FENCE_B1_9PRE5, WOODEN_FENCE_A1_0_17, WOODEN_FENCE_C0_0_14A, WOODEN_FENCE_RD161348, WOODEN_FENCE_RD20090515);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_RD20090515)
+                .input('A', WOODEN_PLANKS_RD20090515)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("ABA")
+                .pattern("ABA")
+                .criterion(hasItem(WOODEN_PLANKS_RD20090515), conditionsFromItem(WOODEN_PLANKS_RD20090515))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_RD161348)
+                .input('A', WOODEN_PLANKS_RD161348)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("ABA")
+                .pattern("ABA")
+                .criterion(hasItem(WOODEN_PLANKS_RD161348), conditionsFromItem(WOODEN_PLANKS_RD161348))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_C0_0_14A)
+                .input('A', WOODEN_PLANKS_C0_0_14A)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("ABA")
+                .pattern("ABA")
+                .criterion(hasItem(WOODEN_PLANKS_C0_0_14A), conditionsFromItem(WOODEN_PLANKS_C0_0_14A))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_A1_0_17)
+                .input('A', WOODEN_PLANKS_C0_0_15A)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("ABA")
+                .pattern("ABA")
+                .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_B1_9PRE5)
+                .input('A', WOODEN_PLANKS_B1_9PRE5)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("ABA")
+                .pattern("ABA")
+                .criterion(hasItem(WOODEN_PLANKS_B1_9PRE5), conditionsFromItem(WOODEN_PLANKS_B1_9PRE5))
+                .offerTo(exporter);
+        legacyCutterRecipe(exporter, NETHERRACK, NETHERRACK_B1_9PRE5, NETHERRACK_A1_2_0);
+        legacyCutterRecipe(exporter, SOUL_SAND, SOUL_SAND_A1_2_0);
+        legacyCutterRecipe(exporter, GLOWSTONE, GLOWSTONE_B1_9PRE5, GLOWSTONE_A1_2_0);
+        legacyCutterRecipe(exporter, CARVED_PUMPKIN, CARVED_PUMPKIN_A1_2_0);
+        legacyCutterRecipe(exporter, JACK_O_LANTERN, JACK_O_LANTERN_A1_2_0);
     }
 
     private static @NotNull String hasTag(@NotNull TagKey<Item> tag) {
         return "has_" + tag.id().toString();
+    }
+
+    private void chairRecipe(ChairBlock block, RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, block)
+                .input('A', block.plank)
+                .pattern("A  ")
+                .pattern("AAA")
+                .pattern("A A")
+                .criterion(hasItem(block.plank), conditionsFromItem(block.plank))
+                .offerTo(exporter);
+    }
+
+    private static void legacyCutterRecipe(RecipeExporter exporter, ItemConvertible base, /* newest to oldest*/ ItemConvertible... legacyVariants) {
+        for (int i = 0; i < legacyVariants.length; i++) {
+            ItemConvertible item = legacyVariants[i];
+            ItemConvertible fromItem = i == 0 ? base : legacyVariants[i-1];
+            LegacyCutterRecipeJSONBuilder.create(Ingredient.ofItems(fromItem), item.asItem(), 1)
+                    .criterion(hasItem(base), conditionsFromItem(base))
+                    .offerTo(exporter, Blocktopia.id("legacy_cutter/" + Registries.ITEM.getId(fromItem.asItem()).getPath()) + "_to_" + Registries.ITEM.getId(item.asItem()).getPath());
+        }
+        ItemConvertible item = legacyVariants[legacyVariants.length-1];
+        LegacyCutterRecipeJSONBuilder.create(Ingredient.ofItems(item), base.asItem(), 1)
+                .criterion(hasItem(base), conditionsFromItem(base))
+                .offerTo(exporter, Blocktopia.id("legacy_cutter/" + Registries.ITEM.getId(item.asItem()).getPath() + "_to_" + Registries.ITEM.getId(base.asItem()).getPath()));
     }
 }

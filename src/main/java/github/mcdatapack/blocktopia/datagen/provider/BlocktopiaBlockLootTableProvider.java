@@ -57,6 +57,21 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(BANANA_BUTTON);
         addDrop(BANANA_TRAPDOOR);
 
+
+        addDrop(CORN_LOG);
+        addDrop(STRIPPED_CORN_LOG);
+        addDrop(CORN_WOOD);
+        addDrop(STRIPPED_CORN_WOOD);
+        addDrop(CORN_SAPLING);
+        addPottedPlantDrops(POTTED_CORN_SAPLING);
+        addDrop(CORN_PLANKS);
+        addDrop(CORN_FENCE);
+        addDrop(CORN_FENCE_GATE);
+        addDrop(CORN_STAIRS);
+        addDrop(CORN_PRESSURE_PLATE);
+        addDrop(CORN_BUTTON);
+        addDrop(CORN_TRAPDOOR);
+
         addDrop(COBBLESTONE_RD20090515);
         addDrop(COBBLESTONE_C_0_0_14A);
         addDrop(COBBLESTONE_B1_7);
@@ -188,5 +203,6 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(BlockInit.CHERRY_CHAIR);
         addDrop(BlockInit.PALM_CHAIR);
         addDrop(BlockInit.BANANA_CHAIR);
+        addDrop(CORN_CHAIR);
     }
 }

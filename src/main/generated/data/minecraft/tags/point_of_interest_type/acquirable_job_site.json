@@ -1,7 +1,6 @@
 {
   "values": [
     "blocktopia:legacy",
-    "blocktopia:beekeeper",
-    "blocktopia:miner"
+    "blocktopia:beekeeper"
   ]
 }

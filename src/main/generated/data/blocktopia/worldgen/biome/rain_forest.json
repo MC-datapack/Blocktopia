@@ -58,11 +58,18 @@
       "blocktopia:glow_flower_patch",
       "minecraft:patch_sugar_cane",
       "minecraft:vines",
-      "blocktopia:banana_tree",
-      "blocktopia:flowering_cherry",
-      "blocktopia:palm_tree",
+      "blocktopia:giant_3x3_banana_tree",
+      "blocktopia:giant_3x3_corn_tree",
+      "blocktopia:giant_3x3_flowering_cherry",
       "blocktopia:mega_jungle_tree",
-      "blocktopia:jungle_tree"
+      "blocktopia:jungle_tree",
+      "blocktopia:giant_banana_tree",
+      "blocktopia:giant_corn_tree",
+      "blocktopia:giant_flowering_cherry",
+      "blocktopia:banana_tree",
+      "blocktopia:corn_tree",
+      "blocktopia:flowering_cherry",
+      "blocktopia:palm_tree"
     ]
   ],
   "has_precipitation": true,

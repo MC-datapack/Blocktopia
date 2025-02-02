@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:ladder"
+  },
+  "result": {
+    "id": "blocktopia:ladder_inf20100607"
+  }
+}

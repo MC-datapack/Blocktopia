@@ -1,8 +1,7 @@
 package github.mcdatapack.blocktopia.init;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.boat.api.item.BlocktopiaBoatItemHelper;
-import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import github.mcdatapack.blocktopia.item.FishTrinket;
 import github.mcdatapack.blocktopia.item.RabbitTrinket;
@@ -58,10 +57,12 @@ public class ItemInit {
             .maxCount(99)
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
     ));
-    public static final Item PALM_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_BOAT_ID, BoatInit.PALM_BOAT_KEY, false);
-    public static final Item PALM_CHEST_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.PALM_CHEST_BOAT_ID, BoatInit.PALM_BOAT_KEY, true);
-    public static final Item BANANA_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.BANANA_BOAT_ID, BoatInit.BANANA_BOAT_KEY, false);
-    public static final Item BANANA_CHEST_BOAT = BlocktopiaBoatItemHelper.registerBoatItem(BoatInit.BANANA_CHEST_BOAT_ID, BoatInit.BANANA_BOAT_KEY, true);
+    public static final Item PALM_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.PALM_BOAT_ID, BoatInit.PALM_BOAT_KEY, false);
+    public static final Item PALM_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.PALM_CHEST_BOAT_ID, BoatInit.PALM_BOAT_KEY, true);
+    public static final Item BANANA_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.BANANA_BOAT_ID, BoatInit.BANANA_BOAT_KEY, false);
+    public static final Item BANANA_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.BANANA_CHEST_BOAT_ID, BoatInit.BANANA_BOAT_KEY, true);
+    public static final Item CORN_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.CORN_BOAT_ID, BoatInit.CORN_BOAT_KEY, false);
+    public static final Item CORN_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.CORN_CHEST_BOAT_ID, BoatInit.CORN_BOAT_KEY, true);
     public static final Item TORCH_IN20100124_2 = register("torch_in20100124_2", new VerticallyAttachableBlockItem(LegacyBlocks.TORCH_IN20100124_2, LegacyBlocks.WALL_TORCH_IN20100124_2, new Item.Settings(), Direction.DOWN));
     public static final Item REDSTONE_TORCH_A1_0_1 = register("redstone_torch_a1_0_1", new VerticallyAttachableBlockItem(LegacyBlocks.REDSTONE_TORCH_A1_0_1, LegacyBlocks.REDSTONE_WALL_TORCH_A1_0_1, new Item.Settings(), Direction.DOWN));
 

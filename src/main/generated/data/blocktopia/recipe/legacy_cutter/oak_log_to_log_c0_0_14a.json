@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:oak_log"
+  },
+  "result": {
+    "id": "blocktopia:log_c0_0_14a"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:sand"
+  },
+  "result": {
+    "id": "blocktopia:sand_b1_9pre6"
+  }
+}

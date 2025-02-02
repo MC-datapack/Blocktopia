@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:iron_ore"
+  },
+  "result": {
+    "id": "blocktopia:iron_ore_1_14_1"
+  }
+}

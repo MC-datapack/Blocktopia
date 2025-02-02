@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "minecraft:obsidian"
+  },
+  "result": {
+    "id": "blocktopia:obsidian_c0_28a"
+  }
+}

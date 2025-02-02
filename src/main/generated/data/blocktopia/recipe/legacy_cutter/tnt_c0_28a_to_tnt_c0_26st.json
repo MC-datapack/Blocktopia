@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "blocktopia:tnt_c0_28a"
+  },
+  "result": {
+    "id": "blocktopia:tnt_c0_26st"
+  }
+}

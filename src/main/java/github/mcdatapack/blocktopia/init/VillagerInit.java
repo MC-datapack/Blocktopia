@@ -24,10 +24,6 @@ public class VillagerInit {
     public static final PointOfInterestType BEEKEEPER_POI = registerPoi("beekeeper", Registries.BLOCK.get(Identifier.of(BlocktopiaConfig.getConfig().villagerConfig.beekeeperVillagerWorkstation)));
     public static final VillagerProfession BEEKEEPER = registerProfession("beekeeper", BEEKEEPER_KEY, SoundEvents.ENTITY_VILLAGER_WORK_FARMER);
 
-    public static final RegistryKey<PointOfInterestType> MINER_KEY = poiKey("miner");
-    public static final PointOfInterestType MINER_POI = registerPoi("miner", Registries.BLOCK.get(Identifier.of(BlocktopiaConfig.getConfig().villagerConfig.minerVillagerWorkstation)));
-    public static final VillagerProfession MINER = registerProfession("miner", MINER_KEY, SoundEvents.ENTITY_VILLAGER_WORK_ARMORER);
-
     public static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type, SoundEvent soundEvent) {
         return Registry.register(Registries.VILLAGER_PROFESSION, Blocktopia.id(name),
                 new VillagerProfession(name, entry -> entry.matchesKey(type), entry -> entry.matchesKey(type),

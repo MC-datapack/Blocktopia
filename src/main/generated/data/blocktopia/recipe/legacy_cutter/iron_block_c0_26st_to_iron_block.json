@@ -1,0 +1,9 @@
+{
+  "type": "blocktopia:legacy_cutter",
+  "ingredient": {
+    "item": "blocktopia:iron_block_c0_26st"
+  },
+  "result": {
+    "id": "minecraft:iron_block"
+  }
+}
