@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:corn_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "blocktopia:poisoned_planks"
+  }
+}

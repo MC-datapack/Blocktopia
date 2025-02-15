@@ -1,7 +1,5 @@
 package github.mcdatapack.blocktopia;
 
-import com.terraformersmc.modmenu.util.mod.Mod;
-import com.terraformersmc.terraform.boat.api.TerraformBoatTypeRegistry;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import github.mcdatapack.blocktopia.init.*;
 import github.mcdatapack.blocktopia.init.blocks.*;
@@ -17,9 +15,13 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.text.Text;
 
 import java.awt.*;
 
@@ -27,11 +29,17 @@ public class BlocktopiaClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        FabricLoader.getInstance().getModContainer("blocktopia").ifPresent(container -> {
+            ResourceManagerHelper.registerBuiltinResourcePack(Blocktopia.id("connected_textures"), container, Text.translatable("resourcepack.blocktopia.connected_textures"), ResourcePackActivationType.NORMAL);
+            ResourceManagerHelper.registerBuiltinResourcePack(Blocktopia.id("dark_ui"), container, Text.translatable("resourcepack.blocktopia.dark_ui"), ResourcePackActivationType.NORMAL);
+        });
+
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), BlockInit.PALM_DOOR, BlockInit.PALM_SAPLING,
                 BlockInit.POTTED_PALM_SAPLING, BlockInit.PALM_LEAVES, BlockInit.PALM_TRAPDOOR, BlockInit.BANANA_SAPLING, BlockInit.POTTED_BANANA_SAPLING,
                 BlockInit.BANANA_LEAVES, BlockInit.FLOWERING_CHERRY_LEAVES, BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING,
                 BlockInit.GLOW_FLOWER, BlockInit.POTTED_GLOW_FLOWER, BlockInit.BANANA_DOOR, BlockInit.BANANA_TRAPDOOR,
                 BlockInit.CORN_SAPLING, BlockInit.POTTED_CORN_SAPLING, BlockInit.CORN_LEAVES, BlockInit.CORN_DOOR, BlockInit.CORN_TRAPDOOR,
+                BlockInit.POISONED_SAPLING, BlockInit.POTTED_POISONED_SAPLING, BlockInit.POISONED_LEAVES, BlockInit.POISONED_DOOR, BlockInit.POISONED_TRAPDOOR,
 
                 LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A,
                 LegacyBlocks.SAPLING_C0_24ST, LegacyBlocks.POTTED_SAPLING_C0_24ST, LegacyBlocks.DANDELION_C0_0_20A,
@@ -58,6 +66,7 @@ public class BlocktopiaClient implements ClientModInitializer {
         TerraformBoatClientHelper.registerModelLayers(BoatInit.PALM_BOAT_ID, false);
         TerraformBoatClientHelper.registerModelLayers(BoatInit.BANANA_BOAT_ID, false);
         TerraformBoatClientHelper.registerModelLayers(BoatInit.CORN_BOAT_ID, false);
+        TerraformBoatClientHelper.registerModelLayers(BoatInit.POISONED_BOAT_ID, false);
 
         EntityModelLayerRegistry.registerModelLayer(SmallChestModel.LAYER, SmallChestModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(LegacyCutterModel.LAYER, LegacyCutterModel::getTexturedModelData);

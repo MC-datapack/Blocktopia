@@ -35,14 +35,17 @@ public class CustomBiomes {
 
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_3x3BANANA_TREE_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_3x3CORN_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_3x3POISONED_TREE_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_3x3FLOWERING_CHERRY_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.MEGA_JUNGLE_TREE))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.JUNGLE_TREE))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_BANANA_TREE_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_CORN_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_POISONED_TREE_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GIANT_FLOWERING_CHERRY_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.BANANA_TREE_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.CORN_TREE_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.POISONED_TREE_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.FLOWERING_CHERRY_KEY))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.PALM_TREE_KEY));
 

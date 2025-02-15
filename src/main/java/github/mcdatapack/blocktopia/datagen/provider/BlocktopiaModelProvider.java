@@ -101,6 +101,27 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(cornFamily.getBaseBlock())
                 .family(cornFamily);
 
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.POISONED_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.POISONED_SAPLING, BlockInit.POTTED_POISONED_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(BlockInit.POISONED_LOG)
+                .log(BlockInit.POISONED_LOG).wood(BlockInit.POISONED_WOOD);
+        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_POISONED_LOG)
+                .log(BlockInit.STRIPPED_POISONED_LOG).wood(BlockInit.STRIPPED_POISONED_WOOD);
+        var poisonedFamily = new BlockFamily.Builder(BlockInit.POISONED_PLANKS)
+                .button(BlockInit.POISONED_BUTTON)
+                .fence(BlockInit.POISONED_FENCE)
+                .fenceGate(BlockInit.POISONED_FENCE_GATE)
+                .pressurePlate(BlockInit.POISONED_PRESSURE_PLATE)
+                .slab(BlockInit.POISONED_SLAB)
+                .stairs(BlockInit.POISONED_STAIRS)
+                .door(BlockInit.POISONED_DOOR)
+                .trapdoor(BlockInit.POISONED_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        blockStateModelGenerator.registerCubeAllModelTexturePool(poisonedFamily.getBaseBlock())
+                .family(poisonedFamily);
+
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FLOWERING_CHERRY_LEAVES);
         blockStateModelGenerator.registerFlowerPotPlant(BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING, TintType.NOT_TINTED);
@@ -272,6 +293,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         registerChair(BlockInit.PALM_CHAIR);
         registerChair(BlockInit.BANANA_CHAIR);
         registerChair(BlockInit.CORN_CHAIR);
+        registerChair(BlockInit.POISONED_CHAIR);
     }
 
     @Override
@@ -290,6 +312,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.BANANA_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.CORN_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.CORN_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.POISONED_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.POISONED_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.GIANT_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.ILLUSIONER_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.CHERRY, Models.GENERATED);

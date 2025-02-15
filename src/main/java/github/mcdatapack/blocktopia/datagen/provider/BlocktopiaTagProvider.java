@@ -45,7 +45,7 @@ public class BlocktopiaTagProvider {
                     .add(SMALL_CHEST, BOOKSHELF_C0_26ST, BOOKSHELF_B1_9PRE5, CRAFTING_TABLE_IN20100131, CRAFTING_TABLE_1_14, LADDER_INF20100607, LADDER_INF20100618, CARVED_PUMPKIN_A1_2_0, JACK_O_LANTERN_A1_2_0);
             getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                     .add(PAPER_BLOCK)
-                    .add(PALM_LEAVES, BANANA_LEAVES, CORN_LEAVES, FLOWERING_CHERRY_LEAVES, LEAVES_C0_0_14A, LEAVES_C0_0_15A, LEAVES_C0_24ST, SPONGE_C0_0_19A, SPONGE_1_8, WET_SPONGE_1_8);
+                    .add(PALM_LEAVES, BANANA_LEAVES, CORN_LEAVES, POISONED_LEAVES, FLOWERING_CHERRY_LEAVES, LEAVES_C0_0_14A, LEAVES_C0_0_15A, LEAVES_C0_24ST, SPONGE_C0_0_19A, SPONGE_1_8, WET_SPONGE_1_8);
             getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                     .add(COBBLESTONE_RD20090515, COBBLESTONE_C_0_0_14A, COBBLESTONE_B1_7, COAL_ORE_C0_0_14A, COAL_ORE_1_14, IRON_ORE_C0_0_14A, IRON_ORE_1_14, IRON_ORE_1_14_1, GOLD_ORE_C0_0_14A,
                             GOLD_ORE_C0_26ST, GOLD_ORE_1_14, GOLD_BLOCK_C0_0_20A, GOLD_BLOCK_C0_26ST, GOLD_BLOCK_A1_2_0, GOLD_BLOCK_B1_9PRE5, STONE_SLAB_C0_26ST, IRON_BLOCK_C0_26ST,
@@ -93,6 +93,8 @@ public class BlocktopiaTagProvider {
                     .add(BANANA_LOG, STRIPPED_BANANA_LOG, BANANA_WOOD, STRIPPED_BANANA_WOOD);
             getOrCreateTagBuilder(TagList.Blocks.CORN_LOGS)
                     .add(CORN_LOG, STRIPPED_CORN_LOG, CORN_WOOD, STRIPPED_CORN_WOOD);
+            getOrCreateTagBuilder(TagList.Blocks.POISONED_LOGS)
+                    .add(POISONED_LOG, STRIPPED_POISONED_LOG, POISONED_WOOD, STRIPPED_POISONED_WOOD);
             getOrCreateTagBuilder(BlockTags.INFINIBURN_OVERWORLD)
                     .add(NETHERRACK_A1_2_0, NETHERRACK_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.SOUL_FIRE_BASE_BLOCKS)
@@ -100,18 +102,18 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
                     .add(BEDROCK_C0_0_12A);
             getOrCreateTagBuilder(BlockTags.FENCE_GATES)
-                    .add(PALM_FENCE_GATE, BANANA_FENCE_GATE, CORN_FENCE_GATE);
+                    .add(PALM_FENCE_GATE, BANANA_FENCE_GATE, CORN_FENCE_GATE, POISONED_FENCE_GATE);
             getOrCreateTagBuilder(BlockTags.INFINIBURN_END)
                     .add(BEDROCK_C0_0_12A);
             getOrCreateTagBuilder(BlockTags.LEAVES)
-                    .add(PALM_LEAVES, BANANA_LEAVES, CORN_LEAVES, FLOWERING_CHERRY_LEAVES, LEAVES_C0_0_14A, LEAVES_C0_0_15A, LEAVES_C0_24ST);
+                    .add(PALM_LEAVES, BANANA_LEAVES, CORN_LEAVES, POISONED_LEAVES, FLOWERING_CHERRY_LEAVES, LEAVES_C0_0_14A, LEAVES_C0_0_15A, LEAVES_C0_24ST);
             getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
-                    .addTag(TagList.Blocks.PALM_LOGS).addTag(TagList.Blocks.BANANA_LOGS).addTag(TagList.Blocks.CORN_LOGS)
+                    .addTag(TagList.Blocks.PALM_LOGS).addTag(TagList.Blocks.BANANA_LOGS).addTag(TagList.Blocks.CORN_LOGS).addTag(TagList.Blocks.POISONED_LOGS)
                     .add(LOG_C0_0_14A);
             getOrCreateTagBuilder(BlockTags.PLANKS)
-                    .add(PALM_PLANKS, BANANA_PLANKS, CORN_PLANKS, WOODEN_PLANKS_RD20090515, WOODEN_PLANKS_RD161348, WOODEN_PLANKS_C0_0_14A, WOODEN_PLANKS_C0_0_15A, WOODEN_PLANKS_B1_9PRE5);
+                    .add(PALM_PLANKS, BANANA_PLANKS, CORN_PLANKS, POISONED_PLANKS, WOODEN_PLANKS_RD20090515, WOODEN_PLANKS_RD161348, WOODEN_PLANKS_C0_0_14A, WOODEN_PLANKS_C0_0_15A, WOODEN_PLANKS_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.SAPLINGS)
-                    .add(PALM_SAPLING, BANANA_SAPLING, CORN_SAPLING, FLOWERING_CHERRY_SAPLING, SAPLING_RD161348, SAPLING_C0_0_13A, SAPLING_C0_24ST);
+                    .add(PALM_SAPLING, BANANA_SAPLING, CORN_SAPLING, POISONED_SAPLING, FLOWERING_CHERRY_SAPLING, SAPLING_RD161348, SAPLING_C0_0_13A, SAPLING_C0_24ST);
             getOrCreateTagBuilder(BlockTags.SLABS)
                     .add(STONE_SLAB_C0_26ST);
             getOrCreateTagBuilder(BlockTags.STAIRS)
@@ -119,19 +121,19 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE)
                     .add(BEDROCK_C0_0_12A);
             getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
-                    .add(PALM_BUTTON, BANANA_BUTTON, CORN_BUTTON);
+                    .add(PALM_BUTTON, BANANA_BUTTON, CORN_BUTTON, POISONED_BUTTON);
             getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
-                    .add(PALM_DOOR, BANANA_DOOR, CORN_DOOR, WOODEN_DOOR_INF20100607);
+                    .add(PALM_DOOR, BANANA_DOOR, CORN_DOOR, POISONED_DOOR, WOODEN_DOOR_INF20100607);
             getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
-                    .add(PALM_FENCE, BANANA_FENCE, CORN_FENCE, WOODEN_FENCE_RD20090515, WOODEN_FENCE_RD161348, WOODEN_FENCE_C0_0_14A, WOODEN_FENCE_A1_0_17, WOODEN_FENCE_B1_9PRE5);
+                    .add(PALM_FENCE, BANANA_FENCE, CORN_FENCE, POISONED_FENCE, WOODEN_FENCE_RD20090515, WOODEN_FENCE_RD161348, WOODEN_FENCE_C0_0_14A, WOODEN_FENCE_A1_0_17, WOODEN_FENCE_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
-                    .add(PALM_PRESSURE_PLATE, BANANA_PRESSURE_PLATE, CORN_PRESSURE_PLATE);
+                    .add(PALM_PRESSURE_PLATE, BANANA_PRESSURE_PLATE, CORN_PRESSURE_PLATE, POISONED_PRESSURE_PLATE);
             getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
-                    .add(PALM_SLAB, BANANA_SLAB, CORN_SLAB);
+                    .add(PALM_SLAB, BANANA_SLAB, CORN_SLAB, POISONED_SLAB);
             getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
-                    .add(PALM_STAIRS, BANANA_STAIRS, CORN_STAIRS, WOODEN_STAIRS_RD20090515, WOODEN_STAIRS_RD161348, WOODEN_STAIRS_C0_0_14A, WOODEN_STAIRS_INF20100629, WOODEN_STAIRS_B1_9PRE5);
+                    .add(PALM_STAIRS, BANANA_STAIRS, CORN_STAIRS, POISONED_STAIRS, WOODEN_STAIRS_RD20090515, WOODEN_STAIRS_RD161348, WOODEN_STAIRS_C0_0_14A, WOODEN_STAIRS_INF20100629, WOODEN_STAIRS_B1_9PRE5);
             getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
-                    .add(PALM_TRAPDOOR, BANANA_TRAPDOOR, CORN_TRAPDOOR);
+                    .add(PALM_TRAPDOOR, BANANA_TRAPDOOR, CORN_TRAPDOOR, POISONED_TRAPDOOR);
             getOrCreateTagBuilder(BlockTags.WOOL)
                     .add(WHITE_CLOTH, LIGHT_GRAY_CLOTH_C0_0_20A, LIGHT_GRAY_CLOTH_C0_28A, DARK_GRAY_CLOTH_C0_0_20A, DARK_GRAY_CLOTH_C0_28A, RED_CLOTH, ORANGE_CLOTH, YELLOW_CLOTH, CHARTREUSE_CLOTH,
                             SPRING_GREEN_CLOTH, CYAN_CLOTH, CAPRI_CLOTH, ULTRAMARINE_CLOTH, VIOLET_CLOTH, PURPLE_CLOTH, MAGENTA_CLOTH, ROSE_CLOTH);
@@ -142,7 +144,7 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
                     .add(GLOW_FLOWER);
             getOrCreateTagBuilder(TagList.Blocks.CLASSIC_SPONGE_REPLACEABLE)
-                    .add(Blocks.KELP, KELP_PLANT, Blocks.SEAGRASS, TALL_SEAGRASS);
+                    .add(Blocks.KELP, KELP_PLANT, Blocks.SEAGRASS, TALL_SEAGRASS, POWDER_SNOW);
             getOrCreateTagBuilder(TagList.Blocks.FLOOR_EXTENDED_SAPLING_UNALLOWED_FLOOR)
                     .addOptionalTag(BlockTags.LEAVES)
                     .addOptionalTag(BlockTags.LOGS)
@@ -186,7 +188,8 @@ public class BlocktopiaTagProvider {
                     .add(CHERRY_CHAIR)
                     .add(PALM_CHAIR)
                     .add(BANANA_CHAIR)
-                    .add(CORN_CHAIR);
+                    .add(CORN_CHAIR)
+                    .add(POISONED_CHAIR);
         }
     }
 
@@ -238,41 +241,43 @@ public class BlocktopiaTagProvider {
                     .add(BANANA_LOG.asItem(), STRIPPED_BANANA_LOG.asItem(), BANANA_WOOD.asItem(), STRIPPED_BANANA_WOOD.asItem());
             getOrCreateTagBuilder(TagList.Items.CORN_LOGS)
                     .add(CORN_LOG.asItem(), STRIPPED_CORN_LOG.asItem(), CORN_WOOD.asItem(), STRIPPED_CORN_WOOD.asItem());
+            getOrCreateTagBuilder(TagList.Items.POISONED_LOGS)
+                    .add(POISONED_LOG.asItem(), STRIPPED_POISONED_LOG.asItem(), POISONED_WOOD.asItem(), STRIPPED_POISONED_WOOD.asItem());
             getOrCreateTagBuilder(ItemTags.FENCES)
-                    .add(PALM_FENCE.asItem(), BANANA_FENCE.asItem(), CORN_FENCE.asItem(), WOODEN_FENCE_RD161348.asItem(), WOODEN_FENCE_C0_0_14A.asItem(), WOODEN_FENCE_A1_0_17.asItem(), WOODEN_FENCE_B1_9PRE5.asItem());
+                    .add(PALM_FENCE.asItem(), BANANA_FENCE.asItem(), CORN_FENCE.asItem(), POISONED_FENCE.asItem(), WOODEN_FENCE_RD161348.asItem(), WOODEN_FENCE_C0_0_14A.asItem(), WOODEN_FENCE_A1_0_17.asItem(), WOODEN_FENCE_B1_9PRE5.asItem());
             getOrCreateTagBuilder(ItemTags.BOATS)
-                    .add(ItemInit.PALM_BOAT, BANANA_BOAT, CORN_BOAT);
+                    .add(ItemInit.PALM_BOAT, BANANA_BOAT, CORN_BOAT, POISONED_BOAT);
             getOrCreateTagBuilder(ItemTags.CHEST_BOATS)
-                    .add(ItemInit.PALM_CHEST_BOAT, BANANA_CHEST_BOAT, CORN_CHEST_BOAT);
+                    .add(ItemInit.PALM_CHEST_BOAT, BANANA_CHEST_BOAT, CORN_CHEST_BOAT, POISONED_CHEST_BOAT);
             getOrCreateTagBuilder(ItemTags.LEAVES)
-                    .add(PALM_LEAVES.asItem(), BANANA_LEAVES.asItem(), CORN_LEAVES.asItem(), FLOWERING_CHERRY_LEAVES.asItem(), LEAVES_C0_0_14A.asItem(), LEAVES_C0_0_15A.asItem(), LEAVES_C0_24ST.asItem());
+                    .add(PALM_LEAVES.asItem(), BANANA_LEAVES.asItem(), CORN_LEAVES.asItem(), POISONED_LEAVES.asItem(), FLOWERING_CHERRY_LEAVES.asItem(), LEAVES_C0_0_14A.asItem(), LEAVES_C0_0_15A.asItem(), LEAVES_C0_24ST.asItem());
             getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
-                    .addTag(TagList.Items.PALM_LOGS).addTag(TagList.Items.BANANA_LOGS).addTag(TagList.Items.CORN_LOGS)
+                    .addTag(TagList.Items.PALM_LOGS).addTag(TagList.Items.BANANA_LOGS).addTag(TagList.Items.CORN_LOGS).addTag(TagList.Items.POISONED_LOGS)
                     .add(LOG_C0_0_14A.asItem());
             getOrCreateTagBuilder(ItemTags.PLANKS)
-                    .add( PALM_PLANKS.asItem(), BANANA_PLANKS.asItem(), CORN_PLANKS.asItem(), WOODEN_PLANKS_RD20090515.asItem(), WOODEN_PLANKS_RD161348.asItem(), WOODEN_PLANKS_C0_0_14A.asItem(),
+                    .add( PALM_PLANKS.asItem(), BANANA_PLANKS.asItem(), CORN_PLANKS.asItem(), POISONED_PLANKS.asItem(), WOODEN_PLANKS_RD20090515.asItem(), WOODEN_PLANKS_RD161348.asItem(), WOODEN_PLANKS_C0_0_14A.asItem(),
                             WOODEN_PLANKS_C0_0_15A.asItem(), WOODEN_PLANKS_B1_9PRE5.asItem());
             getOrCreateTagBuilder(ItemTags.SAPLINGS)
-                    .add( PALM_SAPLING.asItem(), BANANA_SAPLING.asItem(), CORN_SAPLING.asItem(), FLOWERING_CHERRY_SAPLING.asItem(), SAPLING_RD161348.asItem(), SAPLING_C0_0_13A.asItem(), SAPLING_C0_24ST.asItem());
+                    .add( PALM_SAPLING.asItem(), BANANA_SAPLING.asItem(), CORN_SAPLING.asItem(), POISONED_SAPLING.asItem(), FLOWERING_CHERRY_SAPLING.asItem(), SAPLING_RD161348.asItem(), SAPLING_C0_0_13A.asItem(), SAPLING_C0_24ST.asItem());
             getOrCreateTagBuilder(ItemTags.SLABS)
                     .add( STONE_SLAB_C0_26ST.asItem());
             getOrCreateTagBuilder(ItemTags.STAIRS)
                     .add( COBBLESTONE_STAIRS_RD20090515.asItem(), COBBLESTONE_STAIRS_C0_0_14A.asItem(), COBBLESTONE_STAIRS_B1_7.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS)
-                    .add( PALM_BUTTON.asItem(), BANANA_BUTTON.asItem(), CORN_BUTTON.asItem());
+                    .add( PALM_BUTTON.asItem(), BANANA_BUTTON.asItem(), CORN_BUTTON.asItem(), POISONED_BUTTON.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
-                    .add( PALM_DOOR.asItem(), BANANA_DOOR.asItem(), CORN_DOOR.asItem(), WOODEN_DOOR_INF20100607.asItem());
+                    .add( PALM_DOOR.asItem(), BANANA_DOOR.asItem(), CORN_DOOR.asItem(), POISONED_DOOR.asItem(), WOODEN_DOOR_INF20100607.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_FENCES)
                     .add( PALM_FENCE.asItem(), BANANA_FENCE.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES)
-                    .add( PALM_PRESSURE_PLATE.asItem(), BANANA_PRESSURE_PLATE.asItem(), CORN_PRESSURE_PLATE.asItem());
+                    .add( PALM_PRESSURE_PLATE.asItem(), BANANA_PRESSURE_PLATE.asItem(), CORN_PRESSURE_PLATE.asItem(), POISONED_PRESSURE_PLATE.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_SLABS)
-                    .add( PALM_SLAB.asItem(), BANANA_SLAB.asItem(), CORN_SLAB.asItem());
+                    .add( PALM_SLAB.asItem(), BANANA_SLAB.asItem(), CORN_SLAB.asItem(), POISONED_SLAB.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
-                    .add( PALM_STAIRS.asItem(), BANANA_STAIRS.asItem(), CORN_STAIRS.asItem(), WOODEN_STAIRS_RD20090515.asItem(), WOODEN_STAIRS_RD161348.asItem(), WOODEN_STAIRS_C0_0_14A.asItem(),
+                    .add( PALM_STAIRS.asItem(), BANANA_STAIRS.asItem(), CORN_STAIRS.asItem(), POISONED_STAIRS.asItem(), WOODEN_STAIRS_RD20090515.asItem(), WOODEN_STAIRS_RD161348.asItem(), WOODEN_STAIRS_C0_0_14A.asItem(),
                             WOODEN_STAIRS_INF20100629.asItem(), WOODEN_STAIRS_B1_9PRE5.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
-                    .add( PALM_TRAPDOOR.asItem(), BANANA_TRAPDOOR.asItem(), CORN_TRAPDOOR.asItem());
+                    .add( PALM_TRAPDOOR.asItem(), BANANA_TRAPDOOR.asItem(), CORN_TRAPDOOR.asItem(), POISONED_TRAPDOOR.asItem());
             getOrCreateTagBuilder(ItemTags.WOOL)
                     .add( WHITE_CLOTH.asItem(), LIGHT_GRAY_CLOTH_C0_0_20A.asItem(), LIGHT_GRAY_CLOTH_C0_28A.asItem(), DARK_GRAY_CLOTH_C0_0_20A.asItem(), DARK_GRAY_CLOTH_C0_28A.asItem(),
                             RED_CLOTH.asItem(), ORANGE_CLOTH.asItem(), YELLOW_CLOTH.asItem(), CHARTREUSE_CLOTH.asItem(), SPRING_GREEN_CLOTH.asItem(), CYAN_CLOTH.asItem(), CAPRI_CLOTH.asItem(),
@@ -293,7 +298,8 @@ public class BlocktopiaTagProvider {
                     .add(CHERRY_CHAIR.asItem())
                     .add(PALM_CHAIR.asItem())
                     .add(BANANA_CHAIR.asItem())
-                    .add(CORN_CHAIR.asItem());
+                    .add(CORN_CHAIR.asItem())
+                    .add(POISONED_CHAIR.asItem());
 
 
             getOrCreateTagBuilder(TrinketTags.RABBIT_SLOT)

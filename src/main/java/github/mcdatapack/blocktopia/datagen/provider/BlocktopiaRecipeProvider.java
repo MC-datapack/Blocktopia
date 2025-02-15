@@ -56,6 +56,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         chairRecipe(BlockInit.PALM_CHAIR, exporter);
         chairRecipe(BlockInit.BANANA_CHAIR, exporter);
         chairRecipe(BlockInit.CORN_CHAIR, exporter);
+        chairRecipe(BlockInit.POISONED_CHAIR, exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.LEGACY_CUTTER)
                 .input(STONECUTTER)
@@ -575,6 +576,96 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
 
 
 
+
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_PLANKS, 4)
+                .input(POISONED_LOGS)
+                .criterion(hasTag(POISONED_LOGS), conditionsFromTag(POISONED_LOGS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_SLAB, 6)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_STAIRS, 4)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .pattern("A  ").pattern("AA ")
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_FENCE, 3)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("ABA")
+                .pattern("ABA")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_FENCE_GATE)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .input('B', ConventionalItemTags.WOODEN_RODS)
+                .pattern("BAB")
+                .pattern("BAB")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_DOOR, 3)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .pattern("AA")
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_TRAPDOOR, 2)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .pattern("AAA")
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BlockInit.POISONED_BUTTON)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .pattern("A")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BlockInit.POISONED_PRESSURE_PLATE)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .pattern("AA")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.POISONED_BOAT)
+                .input('A', BlockInit.POISONED_PLANKS)
+                .pattern("A A")
+                .pattern("AAA")
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, ItemInit.POISONED_CHEST_BOAT)
+                .input(ItemInit.POISONED_BOAT)
+                .input(ConventionalItemTags.WOODEN_CHESTS)
+                .criterion(hasItem(BlockInit.POISONED_PLANKS), conditionsFromItem(BlockInit.POISONED_PLANKS))
+                .criterion(hasItem(CHEST), conditionsFromItem(CHEST)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.POISONED_WOOD)
+                .input('A', BlockInit.POISONED_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(POISONED_LOGS), conditionsFromTag(POISONED_LOGS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.STRIPPED_POISONED_WOOD)
+                .input('A', BlockInit.STRIPPED_POISONED_LOG)
+                .pattern("AA")
+                .pattern("AA")
+                .criterion(hasTag(POISONED_LOGS), conditionsFromTag(POISONED_LOGS))
+                .offerTo(exporter);
+        var poisonedFamily = new BlockFamily.Builder(BlockInit.POISONED_PLANKS)
+                .button(BlockInit.POISONED_BUTTON)
+                .fence(BlockInit.POISONED_FENCE)
+                .fenceGate(BlockInit.POISONED_FENCE_GATE)
+                .pressurePlate(BlockInit.POISONED_PRESSURE_PLATE)
+                .slab(BlockInit.POISONED_SLAB)
+                .stairs(BlockInit.POISONED_STAIRS)
+                .door(BlockInit.POISONED_DOOR)
+                .trapdoor(BlockInit.POISONED_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        generateFamily(exporter, poisonedFamily, FeatureSet.empty());
 
 
 

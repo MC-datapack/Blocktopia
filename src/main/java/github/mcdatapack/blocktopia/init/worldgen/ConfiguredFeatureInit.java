@@ -29,18 +29,19 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import java.util.List;
 
 public class ConfiguredFeatureInit {
-    private static final BlocktopiaConfigData.WorldgenFeatureConfig config = BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures;
-
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALM_TREE_KEY = registerKey("palm_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3BANANA_TREE_KEY = registerKey("giant_3x3_banana_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3CORN_TREE_KEY = registerKey("giant_3x3_corn_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3FLOWERING_CHERRY_KEY = registerKey("giant_3x3_flowering_cherry");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3POISONED_TREE_KEY = registerKey("giant_3x3_poisoned_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_BANANA_TREE_KEY = registerKey("giant_banana_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_CORN_TREE_KEY = registerKey("giant_corn_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_FLOWERING_CHERRY_KEY = registerKey("giant_flowering_cherry");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GIANT_POISONED_TREE_KEY = registerKey("giant_poisoned_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> BANANA_TREE_KEY = registerKey("banana_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> CORN_TREE_KEY = registerKey("corn_tree");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry_tree");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> POISONED_TREE_KEY = registerKey("poisoned_tree");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GLOW_FLOWER_KEY = registerKey("glow_flower");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GLOW_FLOWER_PATCH_KEY = registerKey("glow_flower_patch");
     //Legacy
@@ -85,7 +86,7 @@ public class ConfiguredFeatureInit {
         ).build());
         register(context, GIANT_3x3BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(BANANA_LOG),
-                new ExtremeTrunkPlacer(32, 24, 24),
+                new ExtremeTrunkPlacer(48, 24, 24),
                 SimpleBlockStateProvider.of(BANANA_LEAVES),
                 new BlobFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
                 new TwoLayersFeatureSize(1, 1, 1))
@@ -104,6 +105,17 @@ public class ConfiguredFeatureInit {
                         new CocoaBeansTreeDecorator(0.5F),
                         new LeavesVineTreeDecorator(0.01F),
                         new LeavesTreeDecorator(CORN_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                .build());
+        register(context, GIANT_3x3POISONED_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(POISONED_LOG),
+                new ExtremeTrunkPlacer(32, 24, 24),
+                SimpleBlockStateProvider.of(POISONED_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.5F),
+                        new LeavesTreeDecorator(POISONED_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
                 .build());
         register(context, GIANT_3x3FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),
@@ -134,6 +146,16 @@ public class ConfiguredFeatureInit {
                         new CocoaBeansTreeDecorator(0.5F),
                         new LeavesVineTreeDecorator(0.01F)))
                 .build());
+        register(context, GIANT_POISONED_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(POISONED_LOG),
+                new MegaJungleTrunkPlacer(24, 16, 16),
+                SimpleBlockStateProvider.of(POISONED_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(3, 6), ConstantIntProvider.create(0), 10),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.5F)))
+                .build());
         register(context, GIANT_FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),
                 new MegaJungleTrunkPlacer(20, 12, 12),
@@ -160,6 +182,16 @@ public class ConfiguredFeatureInit {
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
                         new LeavesVineTreeDecorator(0.01F)))
+                .build());
+        register(context, POISONED_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(POISONED_LOG),
+                new StraightTrunkPlacer(16, 10, 10),
+                SimpleBlockStateProvider.of(POISONED_LEAVES),
+                new BlobFoliagePlacer(UniformIntProvider.create(2, 4), ConstantIntProvider.create(0), 6),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.5F)))
                 .build());
         register(context, FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),

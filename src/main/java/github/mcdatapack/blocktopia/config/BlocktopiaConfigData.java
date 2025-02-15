@@ -52,6 +52,12 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.BoundedDiscrete(max = 15)
     public int glowingCornLeaves = 4;
 
+    @ConfigEntry.Gui.CollapsibleObject
+    @ConfigEntry.Category("server")
+    @Comment("Turn it down to 0 to disable it")
+    @ConfigEntry.BoundedDiscrete(max = 15)
+    public int glowingPoisonedLeaves = 6;
+
     @ConfigEntry.Gui.TransitiveObject
     @ConfigEntry.Category("server")
     @ConfigEntry.BoundedDiscrete(min = 20, max = 250)

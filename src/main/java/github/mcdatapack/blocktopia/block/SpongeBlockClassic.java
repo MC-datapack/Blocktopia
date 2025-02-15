@@ -55,7 +55,7 @@ public class SpongeBlockClassic extends Block {
             } else {
                 BlockState blockState = world.getBlockState(currentPos);
                 FluidState fluidState = world.getFluidState(currentPos);
-                if (!fluidState.isIn(TagList.Fluids.CLASSIC_SPONGE_ABSORB)) {
+                if (!fluidState.isIn(TagList.Fluids.CLASSIC_SPONGE_ABSORB) && !blockState.isIn(TagList.Blocks.CLASSIC_SPONGE_REPLACEABLE)) {
                     return false;
                 } else {
                     if (blockState.getBlock() instanceof FluidDrainable fluidDrainable && !fluidDrainable.tryDrainFluid(null, world, currentPos, blockState).isEmpty()) {

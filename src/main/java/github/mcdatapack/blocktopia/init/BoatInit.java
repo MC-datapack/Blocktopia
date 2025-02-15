@@ -24,6 +24,11 @@ public class BoatInit {
     public static final RegistryKey<TerraformBoatType> CORN_BOAT_KEY = TerraformBoatTypeRegistry.createKey(CORN_BOAT_ID);
     public static TerraformBoatType CORN_TYPE;
 
+    public static final Identifier POISONED_BOAT_ID = Blocktopia.id("poisoned_boat");
+    public static final Identifier POISONED_CHEST_BOAT_ID = Blocktopia.id("poisoned_chest_boat");
+    public static final RegistryKey<TerraformBoatType> POISONED_BOAT_KEY = TerraformBoatTypeRegistry.createKey(POISONED_BOAT_ID);
+    public static TerraformBoatType POISONED_TYPE;
+
     public static TerraformBoatType register(RegistryKey<TerraformBoatType> key, TerraformBoatType type) {
         return Registry.register(TerraformBoatTypeRegistry.INSTANCE, key, type);
     }
@@ -37,5 +42,7 @@ public class BoatInit {
 
         CORN_TYPE = register(CORN_BOAT_KEY, new TerraformBoatType.Builder().item(ItemInit.CORN_BOAT).chestItem(ItemInit.CORN_CHEST_BOAT)
                 .planks(BlockInit.CORN_PLANKS.asItem()).build());
+        POISONED_TYPE = register(POISONED_BOAT_KEY, new TerraformBoatType.Builder().item(ItemInit.POISONED_BOAT).chestItem(ItemInit.POISONED_CHEST_BOAT)
+                .planks(BlockInit.POISONED_PLANKS.asItem()).build());
     }
 }

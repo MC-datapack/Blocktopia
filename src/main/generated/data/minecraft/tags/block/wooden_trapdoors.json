@@ -2,6 +2,7 @@
   "values": [
     "blocktopia:palm_trapdoor",
     "blocktopia:banana_trapdoor",
-    "blocktopia:corn_trapdoor"
+    "blocktopia:corn_trapdoor",
+    "blocktopia:poisoned_trapdoor"
   ]
 }

@@ -132,8 +132,8 @@ public class LegacyBlocks {
     public static final Block DIAMOND_BLOCK_IN20100128 = registerC("diamond_block_in20100128", DIAMOND_BLOCK);
     public static final Block DIAMOND_BLOCK_A1_2_0 = registerC("diamond_block_a1_2_0", DIAMOND_BLOCK);
     public static final Block DIAMOND_BLOCK_B1_9PRE5 = registerC("diamond_block_b1_9pre5", DIAMOND_BLOCK);
-    public static final Block CRAFTING_TABLE_IN20100131 = registerC("crafting_table_in20100131", CRAFTING_TABLE);
-    public static final Block CRAFTING_TABLE_1_14 = registerC("crafting_table_1_14", CRAFTING_TABLE);
+    public static final Block CRAFTING_TABLE_IN20100131 = register("crafting_table_in20100131", new Block(copy(CRAFTING_TABLE)));
+    public static final Block CRAFTING_TABLE_1_14 = register("crafting_table_1_14", new Block(copy(CRAFTING_TABLE)));
     public static final Block FURNACE_IN20100219 = register("furnace_in20100219", new Block(AbstractBlock.Settings.create()
             .mapColor(MapColor.STONE_GRAY).instrument(NoteBlockInstrument.BASEDRUM).requiresTool().strength(3.5F)));
     public static final Block LIT_FURNACE_IN20100219 = register("lit_furnace_in20100219", new Block(AbstractBlock.Settings.create().

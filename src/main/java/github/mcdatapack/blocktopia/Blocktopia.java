@@ -1,6 +1,8 @@
 package github.mcdatapack.blocktopia;
 
+import com.mojang.datafixers.DataFixerBuilder;
 import github.mcdatapack.blocktopia.block.entity.SmallChestBlockEntity;
+import github.mcdatapack.blocktopia.commands.LocateMobCommand;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.entity.MonkeyEntity;
 import github.mcdatapack.blocktopia.handlers.LootHandler;
@@ -14,11 +16,15 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
+import net.fabricmc.loader.api.FabricLoader;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +44,7 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
         LOGGER.debug("Loading Items, Blocks and Entities");
+        LocateMobCommand.register();
         RecipeInit.load();
         FluidInit.load();
         ItemInit.load();

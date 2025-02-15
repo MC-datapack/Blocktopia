@@ -1,20 +1,27 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
+import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
 public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvider {
+    private final RegistryWrapper<Enchantment> enchantmentRegistry;
+
     public BlocktopiaBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
+        this.enchantmentRegistry = registryLookup.getNow(null).getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
     }
 
     @Override
@@ -71,6 +78,20 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(CORN_PRESSURE_PLATE);
         addDrop(CORN_BUTTON);
         addDrop(CORN_TRAPDOOR);
+
+        addDrop(POISONED_LOG);
+        addDrop(STRIPPED_POISONED_LOG);
+        addDrop(POISONED_WOOD);
+        addDrop(STRIPPED_POISONED_WOOD);
+        addDrop(POISONED_SAPLING);
+        addPottedPlantDrops(POTTED_POISONED_SAPLING);
+        addDrop(POISONED_PLANKS);
+        addDrop(POISONED_FENCE);
+        addDrop(POISONED_FENCE_GATE);
+        addDrop(POISONED_STAIRS);
+        addDrop(POISONED_PRESSURE_PLATE);
+        addDrop(POISONED_BUTTON);
+        addDrop(POISONED_TRAPDOOR);
 
         addDrop(COBBLESTONE_RD20090515);
         addDrop(COBBLESTONE_C_0_0_14A);
@@ -204,5 +225,6 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(BlockInit.PALM_CHAIR);
         addDrop(BlockInit.BANANA_CHAIR);
         addDrop(CORN_CHAIR);
+        addDrop(POISONED_CHAIR);
     }
 }

@@ -39,7 +39,7 @@ public class LegacyCutterBlockEntity extends LockableContainerBlockEntity implem
 
     public final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 20;
+    private int maxProgress = 10;
 
     public LegacyCutterBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityTypeInit.LEGACY_CUTTER, pos, state);

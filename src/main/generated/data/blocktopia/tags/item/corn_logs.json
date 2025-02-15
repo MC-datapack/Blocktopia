@@ -3,6 +3,10 @@
     "blocktopia:corn_log",
     "blocktopia:stripped_corn_log",
     "blocktopia:corn_wood",
-    "blocktopia:stripped_corn_wood"
+    "blocktopia:stripped_corn_wood",
+    "blocktopia:poisoned_log",
+    "blocktopia:stripped_poisoned_log",
+    "blocktopia:poisoned_wood",
+    "blocktopia:stripped_poisoned_wood"
   ]
 }

@@ -455,6 +455,16 @@ public class CustomTrades {
                                 6, 1, priceMultiplier
                         ));
                         factories.add((entity, random) -> new TradeOffer(
+                        new TradedItem(Items.EMERALD, 5),
+                        new ItemStack(BlockInit.CORN_SAPLING),
+                        6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
+                        new TradedItem(Items.EMERALD, 5),
+                        new ItemStack(BlockInit.POISONED_SAPLING),
+                        6, 1, priceMultiplier
+                        ));
+                        factories.add((entity, random) -> new TradeOffer(
                                 new TradedItem(Items.EMERALD, 5),
                                 new ItemStack(BlockInit.FLOWERING_CHERRY_SAPLING),
                                 6, 1, priceMultiplier

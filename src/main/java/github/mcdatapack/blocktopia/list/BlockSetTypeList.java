@@ -7,5 +7,6 @@ public class BlockSetTypeList {
     public static final BlockSetType PALM = new BlockSetType(Blocktopia.id("palm").toString());
     public static final BlockSetType BANANA = new BlockSetType(Blocktopia.id("banana").toString());
     public static final BlockSetType CORN = new BlockSetType(Blocktopia.id("corn").toString());
+    public static final BlockSetType POISONED = new BlockSetType(Blocktopia.id("poisoned").toString());
     public static final BlockSetType WOODEN_C0_0_15A = new BlockSetType(Blocktopia.id("wooden_c0_0_15a").toString());
 }

@@ -63,6 +63,8 @@ public class ItemInit {
     public static final Item BANANA_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.BANANA_CHEST_BOAT_ID, BoatInit.BANANA_BOAT_KEY, true);
     public static final Item CORN_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.CORN_BOAT_ID, BoatInit.CORN_BOAT_KEY, false);
     public static final Item CORN_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.CORN_CHEST_BOAT_ID, BoatInit.CORN_BOAT_KEY, true);
+    public static final Item POISONED_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.POISONED_BOAT_ID, BoatInit.POISONED_BOAT_KEY, false);
+    public static final Item POISONED_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.POISONED_CHEST_BOAT_ID, BoatInit.POISONED_BOAT_KEY, true);
     public static final Item TORCH_IN20100124_2 = register("torch_in20100124_2", new VerticallyAttachableBlockItem(LegacyBlocks.TORCH_IN20100124_2, LegacyBlocks.WALL_TORCH_IN20100124_2, new Item.Settings(), Direction.DOWN));
     public static final Item REDSTONE_TORCH_A1_0_1 = register("redstone_torch_a1_0_1", new VerticallyAttachableBlockItem(LegacyBlocks.REDSTONE_TORCH_A1_0_1, LegacyBlocks.REDSTONE_WALL_TORCH_A1_0_1, new Item.Settings(), Direction.DOWN));
 

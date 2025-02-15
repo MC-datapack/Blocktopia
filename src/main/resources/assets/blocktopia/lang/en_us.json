@@ -5,6 +5,9 @@
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fOther Blocks and Items",
   "itemGroup.blocktopia.all_items": "§2§lBlocktopia: §fSearch and All Items",
 
+  "resourcepack.blocktopia.connected_textures": "Blocktopia Connected Textures",
+  "resourcepack.blocktopia.dark_ui": "Dark UI",
+
   "block.customportalapi.customportalblock": "Portal",
 
   "container.blocktopia.legacy_cutter": "Legacy Cutter",
@@ -36,6 +39,8 @@
   "block.blocktopia.cherry_chair": "Cherry Chair",
   "block.blocktopia.palm_chair": "Palm Chair",
   "block.blocktopia.banana_chair": "Banana Chair",
+  "block.blocktopia.corn_chair": "Corn Chair",
+  "block.blocktopia.poisoned_chair": "Poisoned Chair",
   "block.blocktopia.sandy_dirt": "Sandy Dirt",
   "biome.blocktopia.palm_island": "Palm Island",
 
@@ -132,6 +137,25 @@
   "block.blocktopia.corn_hanging_sign": "Corn Hanging Sign",
   "item.blocktopia.corn_boat": "Corn Boat",
   "item.blocktopia.corn_chest_boat": "Corn Boat with Chest",
+  "block.blocktopia.poisoned_log": "Poisoned Log",
+  "block.blocktopia.stripped_poisoned_log": "Stripped Poisoned Log",
+  "block.blocktopia.poisoned_wood": "Poisoned Wood",
+  "block.blocktopia.stripped_poisoned_wood": "Stripped Poisoned Wood",
+  "block.blocktopia.poisoned_leaves": "Poisoned Leaves",
+  "block.blocktopia.poisoned_sapling": "Poisoned Sapling",
+  "block.blocktopia.poisoned_planks": "Poisoned Planks",
+  "block.blocktopia.poisoned_stairs": "Poisoned Stairs",
+  "block.blocktopia.poisoned_slab": "Poisoned Slab",
+  "block.blocktopia.poisoned_fence": "Poisoned Fence",
+  "block.blocktopia.poisoned_fence_gate": "Poisoned Fence Gate",
+  "block.blocktopia.poisoned_pressure_plate": "Poisoned Pressure Plate",
+  "block.blocktopia.poisoned_button": "Poisoned Button",
+  "block.blocktopia.poisoned_door": "Poisoned Door",
+  "block.blocktopia.poisoned_trapdoor": "Poisoned Trapdoor",
+  "block.blocktopia.poisoned_sign": "Poisoned Sign",
+  "block.blocktopia.poisoned_hanging_sign": "Poisoned Hanging Sign",
+  "item.blocktopia.poisoned_boat": "Poisoned Boat",
+  "item.blocktopia.poisoned_chest_boat": "Poisoned Boat with Chest",
 
 
 
@@ -362,6 +386,7 @@
   "text.autoconfig.blocktopia.option.glowingFloweringCherryLeaves": "Light Level of Flowering Cherry Leaves",
   "text.autoconfig.blocktopia.option.glowingBananaLeaves": "Light Level of Banana Leaves",
   "text.autoconfig.blocktopia.option.glowingCornLeaves": "Light Level of Corn Leaves",
+  "text.autoconfig.blocktopia.option.glowingPoisonedLeaves": "Light Level of Poisoned Leaves",
   "text.autoconfig.blocktopia.option.smallChestConfig": "Small Chest Configuration",
   "text.autoconfig.blocktopia.option.smallChestConfig.renderItems": "Render the Items of the Small Chest as Item Entities",
   "text.autoconfig.blocktopia.option.smallChestConfig.closingSpeed": "Opening/Closing speed of the Small Chest",

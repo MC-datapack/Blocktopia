@@ -4,7 +4,6 @@ import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.init.EntityInit;
 import github.mcdatapack.blocktopia.list.TagList;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
@@ -26,7 +25,6 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -114,6 +112,7 @@ public class MonkeyEntity extends AnimalEntity {
         if (!(entity instanceof MonkeyEntity monkeyEntity)) return null;
         MonkeyEntity baby = EntityInit.MONKEY.create(world);
         Variants variant = Variants.getBreedVariant(this, monkeyEntity);
+        assert baby != null;
         baby.setVariant(variant);
         return baby;
     }

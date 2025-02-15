@@ -5,7 +5,6 @@ import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfigData;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
-import github.mcdatapack.blocktopia.list.TagList;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
@@ -18,7 +17,6 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
-import java.util.Map;
 
 public class PlacedFeatureInit {
     private static final BlocktopiaConfigData.WorldgenFeatureConfig config = BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures;
@@ -27,12 +25,15 @@ public class PlacedFeatureInit {
     public static final RegistryKey<PlacedFeature> GIANT_3x3BANANA_TREE_KEY = registerKey("giant_3x3_banana_tree");
     public static final RegistryKey<PlacedFeature> GIANT_3x3CORN_TREE_KEY = registerKey("giant_3x3_corn_tree");
     public static final RegistryKey<PlacedFeature> GIANT_3x3FLOWERING_CHERRY_KEY = registerKey("giant_3x3_flowering_cherry");
+    public static final RegistryKey<PlacedFeature> GIANT_3x3POISONED_TREE_KEY = registerKey("giant_3x3_poisoned_tree");
     public static final RegistryKey<PlacedFeature> GIANT_BANANA_TREE_KEY = registerKey("giant_banana_tree");
     public static final RegistryKey<PlacedFeature> GIANT_CORN_TREE_KEY = registerKey("giant_corn_tree");
     public static final RegistryKey<PlacedFeature> GIANT_FLOWERING_CHERRY_KEY = registerKey("giant_flowering_cherry");
+    public static final RegistryKey<PlacedFeature> GIANT_POISONED_TREE_KEY = registerKey("giant_poisoned_tree");
     public static final RegistryKey<PlacedFeature> BANANA_TREE_KEY = registerKey("banana_tree");
     public static final RegistryKey<PlacedFeature> CORN_TREE_KEY = registerKey("corn_tree");
-    public static final RegistryKey<PlacedFeature> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry");
+    public static final RegistryKey<PlacedFeature> FLOWERING_CHERRY_KEY = registerKey("flowering_cherry_tree");
+    public static final RegistryKey<PlacedFeature> POISONED_TREE_KEY = registerKey("poisoned_tree");
     public static final RegistryKey<PlacedFeature> GLOW_FLOWER_KEY = registerKey("glow_flower");
     public static final RegistryKey<PlacedFeature> GLOW_FLOWER_PATCH_KEY = registerKey("glow_flower_patch");
     //Of Vanilla
@@ -74,39 +75,51 @@ public class PlacedFeatureInit {
                         PlacedFeatures.createCountExtraModifier(12, 0.1F, 6), BlockInit.PALM_SAPLING));
         register(context, GIANT_3x3BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_3x3BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.BANANA_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.BANANA_SAPLING)
         );
         register(context, GIANT_3x3CORN_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_3x3CORN_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.CORN_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.CORN_SAPLING)
+        );
+        register(context, GIANT_3x3POISONED_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_3x3POISONED_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.POISONED_SAPLING)
         );
         register(context, GIANT_3x3FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_3x3FLOWERING_CHERRY_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.FLOWERING_CHERRY_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.FLOWERING_CHERRY_SAPLING)
         );
         register(context, GIANT_BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.BANANA_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.BANANA_SAPLING)
         );
         register(context, GIANT_CORN_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_CORN_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.CORN_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.CORN_SAPLING)
+        );
+        register(context, GIANT_POISONED_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_POISONED_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.POISONED_SAPLING)
         );
         register(context, GIANT_FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.GIANT_FLOWERING_CHERRY_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.FLOWERING_CHERRY_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.FLOWERING_CHERRY_SAPLING)
         );
         register(context, BANANA_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.BANANA_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.BANANA_SAPLING)
         );
         register(context, CORN_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.CORN_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.CORN_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.CORN_SAPLING)
+        );
+        register(context, POISONED_TREE_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.POISONED_TREE_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.POISONED_SAPLING)
         );
         register(context, FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(64, 0.1F, 48), BlockInit.FLOWERING_CHERRY_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), BlockInit.FLOWERING_CHERRY_SAPLING)
         );
 
 

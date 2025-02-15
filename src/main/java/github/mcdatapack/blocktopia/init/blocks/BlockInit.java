@@ -162,6 +162,39 @@ public class BlockInit {
     public static final TrapdoorBlock CORN_TRAPDOOR = register("corn_trapdoor", new TrapdoorBlock(BlockSetTypeList.CORN, AbstractBlock.Settings.create()
             .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().allowsSpawning(Blocks::never).burnable()));
 
+
+    public static final Block STRIPPED_POISONED_LOG =  register("stripped_poisoned_log", Blocks.createLogBlock(MapColor.BROWN, MapColor.BROWN));
+    public static final Block POISONED_LOG = register("poisoned_log", createStrippableLogBlock(MapColor.BROWN, MapColor.BROWN, STRIPPED_POISONED_LOG));
+    public static final Block STRIPPED_POISONED_WOOD = register("stripped_poisoned_wood", createWoodBlock(MapColor.BROWN));
+    public static final Block POISONED_WOOD = register("poisoned_wood", createStrippableWoodBlock(MapColor.BROWN, STRIPPED_POISONED_WOOD));
+    public static final ExtendedLeavesBlock POISONED_LEAVES = register("poisoned_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
+            .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
+            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
+            .luminance(state -> BlocktopiaConfig.getConfig().glowingPoisonedLeaves)));
+    public static final FloorExtendedSaplingBlock POISONED_SAPLING = register("poisoned_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(Blocktopia.id("poisoned").toString(),
+            0.1F, Optional.of(ConfiguredFeatureInit.GIANT_POISONED_TREE_KEY), Optional.empty(), Optional.of(
+                    ConfiguredFeatureInit.POISONED_TREE_KEY),
+            Optional.empty(), Optional.empty(), Optional.empty(),
+            Optional.of(ConfiguredFeatureInit.GIANT_3x3POISONED_TREE_KEY), Optional.empty()), AbstractBlock.Settings.create()
+            .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
+            .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never).noCollision()));
+    public static final Block POTTED_POISONED_SAPLING = registerWithoutItem("potted_poisoned_sapling", Blocks.createFlowerPotBlock(POISONED_SAPLING));
+    public static final Block POISONED_PLANKS = register("poisoned_planks", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    public static final DoorBlock POISONED_DOOR = register("poisoned_door", new DoorBlock(BlockSetTypeList.POISONED, AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().burnable().sounds(BlockSoundGroup.WOOD)));
+    public static final FenceBlock POISONED_FENCE = register("poisoned_fence", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceGateBlock POISONED_FENCE_GATE = register("poisoned_fence_gate", new FenceGateBlock(WoodTypeList.POISONED, AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final StairsBlock POISONED_STAIRS = register("poisoned_stairs", new StairsBlock(POISONED_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
+    public static final SlabBlock POISONED_SLAB = register("poisoned_slab", new SlabBlock(AbstractBlock.Settings.create()
+            .instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final PressurePlateBlock POISONED_PRESSURE_PLATE = register("poisoned_pressure_plate", new PressurePlateBlock(BlockSetTypeList.POISONED, AbstractBlock.Settings.create()
+            .solid().mapColor(MapColor.BROWN).noCollision().strength(0.5F).burnable().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block POISONED_BUTTON = register("poisoned_button", Blocks.createWoodenButtonBlock(BlockSetTypeList.POISONED));
+    public static final TrapdoorBlock POISONED_TRAPDOOR = register("poisoned_trapdoor", new TrapdoorBlock(BlockSetTypeList.POISONED, AbstractBlock.Settings.create()
+            .mapColor(MapColor.BROWN).strength(3.0F).nonOpaque().allowsSpawning(Blocks::never).burnable()));
+
     public static final ChairBlock OAK_CHAIR = register("oak_chair", new ChairBlock(Blocks.OAK_PLANKS, AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
     public static final ChairBlock SPRUCE_CHAIR = register("spruce_chair", new ChairBlock(Blocks.SPRUCE_PLANKS, AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS)));
     public static final ChairBlock BIRCH_CHAIR = register("birch_chair", new ChairBlock(Blocks.BIRCH_PLANKS, AbstractBlock.Settings.copy(Blocks.BIRCH_PLANKS)));
@@ -175,6 +208,7 @@ public class BlockInit {
     public static final ChairBlock PALM_CHAIR = register("palm_chair", new ChairBlock(PALM_PLANKS, AbstractBlock.Settings.copy(PALM_PLANKS)));
     public static final ChairBlock BANANA_CHAIR = register("banana_chair", new ChairBlock(BANANA_PLANKS, AbstractBlock.Settings.copy(BANANA_PLANKS)));
     public static final ChairBlock CORN_CHAIR = register("corn_chair", new ChairBlock(CORN_PLANKS, AbstractBlock.Settings.copy(CORN_PLANKS)));
+    public static final ChairBlock POISONED_CHAIR = register("poisoned_chair", new ChairBlock(POISONED_PLANKS, AbstractBlock.Settings.copy(POISONED_PLANKS)));
 
     public static final XPTrapBlock XP_TRAP = register("xp_trap", new XPTrapBlock(AbstractBlock.Settings.copy(Blocks.OBSIDIAN)));
 

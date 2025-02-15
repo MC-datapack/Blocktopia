@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "github.mcdatapack.blocktopia.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+	"FeatureManagerBuilderMixin",
+	"TrunkPlacerMixin"
+  ],
+  "injectors": {
+	"defaultRequire": 1
+  }
+}

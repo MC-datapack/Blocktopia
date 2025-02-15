@@ -10,7 +10,7 @@ import java.util.*;
 public class NeedToDo {
     public static final Task TEXTURES_OF_BANANA_WOOD = new Task(3.0, 1, TaskStatus.DONE);
     public static final Task STRIPPING_OF_LOGS = new Task(3.0, 0, TaskStatus.DONE);
-    public static final Task NETHERITE_CHERRIES = new Task(3.0, 0, TaskStatus.NOT_STARTED);
+    public static final Task NETHERITE_CHERRIES = new Task(3.0, 0, TaskStatus.DONE);
     public static final Task DIAMOND_AND_NETHERITE_COCONUTS = new Task(3.0, 0, TaskStatus.NOT_STARTED);
     public static final Task MONKEY_WALK_ANIMATION_FIX = new Task(3.0, 0, TaskStatus.NOT_STARTED);
     public static final Task MONKEY_HEAD_LOOKAROUND_FIX = new Task(3.0, 0, TaskStatus.NOT_STARTED);
