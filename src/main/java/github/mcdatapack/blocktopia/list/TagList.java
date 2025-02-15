@@ -33,7 +33,7 @@ public class TagList {
         public static final TagKey<Item> PALM_LOGS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("palm_logs"));
         public static final TagKey<Item> BANANA_LOGS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("banana_logs"));
         public static final TagKey<Item> CORN_LOGS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("corn_logs"));
-        public static final TagKey<Item> POISONED_LOGS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("corn_logs"));
+        public static final TagKey<Item> POISONED_LOGS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("poisoned_logs"));
         public static final TagKey<Item> GOLDEN_BLOCKS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("golden_blocks"));
         public static final TagKey<Item> IRON_BLOCKS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("iron_blocks"));
         public static final TagKey<Item> DIAMOND_BLOCKS = TagKey.of(RegistryKeys.ITEM, Blocktopia.id("diamond_blocks"));

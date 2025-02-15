@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blocktopia:corn_logs": {
+    "has_blocktopia:poisoned_logs": {
       "conditions": {
         "items": [
           {
-            "items": "#blocktopia:corn_logs"
+            "items": "#blocktopia:poisoned_logs"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_blocktopia:corn_logs"
+      "has_blocktopia:poisoned_logs"
     ]
   ],
   "rewards": {
