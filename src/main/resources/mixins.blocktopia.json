@@ -4,7 +4,7 @@
   "package": "github.mcdatapack.blocktopia.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-	"FeatureManagerBuilderMixin",
+	"SetBlockSuppressorMixin",
 	"TrunkPlacerMixin"
   ],
   "injectors": {

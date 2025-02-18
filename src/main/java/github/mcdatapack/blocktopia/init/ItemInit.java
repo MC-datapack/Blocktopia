@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.init;
 
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import github.mcdatapack.blocktopia.item.FishTrinket;
 import github.mcdatapack.blocktopia.item.RabbitTrinket;

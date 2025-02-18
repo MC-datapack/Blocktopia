@@ -8,6 +8,7 @@ import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
 import github.mcdatapack.blocktopia.list.BlockSetTypeList;
 import github.mcdatapack.blocktopia.list.WoodTypeList;
 import java.util.Optional;
+import java.util.function.BiFunction;
 
 import github.mcdatapack.blocktopia.util.ExtendedSaplingGenerator;
 import net.minecraft.block.*;
@@ -25,7 +26,6 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.ColorCode;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 
 public class BlockInit {
     public static final ColoredFallingBlock PAPER_BLOCK = register("paper_block",
@@ -221,9 +221,13 @@ public class BlockInit {
         return Registry.register(Registries.BLOCK, Blocktopia.id(name), block);
     }
 
-    public static <T extends Block> T register(String name, T block, Item.Settings Settings) {
+    public static <T extends Block> T register(String name, T block, Item.Settings settings) {
+            return register(name, block, settings, BlockItem::new);
+    }
+
+    public static <T extends Block> T register(String name, T block, Item.Settings settings, BiFunction<Block, Item.Settings, BlockItem> item) {
         T registered = registerWithoutItem(name, block);
-        ItemInit.register(name, new BlockItem(registered, Settings));
+        ItemInit.register(name, item.apply(registered, settings));
         return registered;
     }
 
