@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 
 public class ExtendedRepeaterBlockSecond extends ExtendedRepeaterBlock {
     public static final MapCodec<ExtendedRepeaterBlock> CODEC = createCodec(ExtendedRepeaterBlockSecond::new);
+
     public ExtendedRepeaterBlockSecond(Settings settings) {
         super(settings);
     }

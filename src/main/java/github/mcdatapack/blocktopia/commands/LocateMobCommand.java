@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
+@SuppressWarnings("unchecked")
 public class LocateMobCommand {
 
     private static final SuggestionProvider<ServerCommandSource> SUGGEST_MOB_IDENTIFIERS = (context, builder) -> CommandSource.suggestMatching(Registries.ENTITY_TYPE.stream()

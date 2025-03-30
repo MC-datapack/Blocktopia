@@ -38,16 +38,12 @@ public class FishTrinket extends TrinketItem {
     @Override
     public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
         super.onEquip(stack, slot, entity);
-        if (entity instanceof LivingEntity) {
-            (entity).addStatusEffect(statusEffectInstance);
-        }
+        entity.addStatusEffect(statusEffectInstance);
     }
 
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         super.tick(stack, slot, entity);
-        if (entity instanceof LivingEntity) {
-            (entity).addStatusEffect(statusEffectInstance);
-        }
+        entity.addStatusEffect(statusEffectInstance);
     }
 }

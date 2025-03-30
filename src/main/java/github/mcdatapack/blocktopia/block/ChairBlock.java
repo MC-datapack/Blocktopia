@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ChairBlock extends HorizontalFacingBlock {
+    private static final MapCodec<ChairBlock> CODEC = createCodec(settings -> new ChairBlock(Blocks.OAK_PLANKS, settings));
     public final Block plank;
     private static final VoxelShape SHAPE = Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 16.0, 13.0);
 
@@ -33,12 +34,12 @@ public class ChairBlock extends HorizontalFacingBlock {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if(!world.isClient()) {
-            Entity entity = null;
+            Entity entity;
             List<ChairEntity> entities = world.getEntitiesByType(EntityInit.CHAIR, new Box(pos), chair -> true);
             if(entities.isEmpty()) {
                 entity = EntityInit.CHAIR.spawn((ServerWorld) world, pos, SpawnReason.TRIGGERED);
             } else {
-                entity = entities.get(0);
+                entity = entities.getFirst();
             }
 
             player.startRiding(entity);
@@ -65,6 +66,6 @@ public class ChairBlock extends HorizontalFacingBlock {
 
     @Override
     protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
-        return null;
+        return CODEC;
     }
 }

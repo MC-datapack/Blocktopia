@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-18T14:58:53.8132117	Blocktopia/Block Loot Tables
+// 1.21.1	2025-03-30T20:14:20.6535509	Blocktopia/Block Loot Tables
 bcd73b981044c931c85ded58a2c16df65470a844 data\blocktopia\loot_table\blocks\cobblestone_stairs_rd20090515.json
 a28f4aac9c849da97dc3f182db5d484f66081cac data\blocktopia\loot_table\blocks\wooden_planks_rd20090515.json
 285d4f1c2fb26b8b4d59589d0dee2de77b57e289 data\blocktopia\loot_table\blocks\banana_fence.json
@@ -73,6 +73,7 @@ f6c48b38288dfcb390420b4973c38771cfeb6fb1 data\blocktopia\loot_table\blocks\gold_
 a8a3bf500831ea3c21be6f0dffe913a41f3df676 data\blocktopia\loot_table\blocks\mangrove_chair.json
 db15373d912278b29a3e8a339c23307419b2f967 data\blocktopia\loot_table\blocks\chartreuse_cloth.json
 37a7530e8da9d6ec128ffcbb0fb2f60bc97eb329 data\blocktopia\loot_table\blocks\wooden_stairs_rd161348.json
+7aa420c54becc4ed06887a189a2380da616fc66d data\blocktopia\loot_table\blocks\sponge_tnt.json
 1d4b3bab02242a2457612b391a98edf8ce50ef99 data\blocktopia\loot_table\blocks\wet_sponge_1_8.json
 c45d7c4516adc8ff778a56c108434050333c6a07 data\blocktopia\loot_table\blocks\wooden_fence_b1_9pre5.json
 10bd606d7f51501072b76010098cf72e2ef0c313 data\blocktopia\loot_table\blocks\paper_block.json

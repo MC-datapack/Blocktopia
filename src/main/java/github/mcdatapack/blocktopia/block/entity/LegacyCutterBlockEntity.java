@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia.block.entity;
 
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.init.BlockEntityTypeInit;
 import github.mcdatapack.blocktopia.init.RecipeInit;
 import github.mcdatapack.blocktopia.network.BlockPosPayload;
@@ -10,6 +11,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,6 +20,7 @@ import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.RecipeUnlocker;
 import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
@@ -26,12 +29,16 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
-public class LegacyCutterBlockEntity extends LockableContainerBlockEntity implements ExtendedScreenHandlerFactory<BlockPosPayload> {
+public class LegacyCutterBlockEntity extends LockableContainerBlockEntity implements ExtendedScreenHandlerFactory<BlockPosPayload>, SidedInventory {
     protected DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
     private static final int INPUT_SLOT = 0;
@@ -39,7 +46,7 @@ public class LegacyCutterBlockEntity extends LockableContainerBlockEntity implem
 
     public final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 10;
+    private int maxProgress = BlocktopiaConfig.getConfig().legacyCutterConfig.processingTime;
 
     public LegacyCutterBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityTypeInit.LEGACY_CUTTER, pos, state);
@@ -217,5 +224,20 @@ public class LegacyCutterBlockEntity extends LockableContainerBlockEntity implem
 
     public DefaultedList<ItemStack> getItems() {
         return inventory;
+    }
+
+    @Override
+    public int[] getAvailableSlots(Direction side) {
+        return new int[]{0, 1};
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        return true;
+    }
+
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+        return slot != 0;
     }
 }

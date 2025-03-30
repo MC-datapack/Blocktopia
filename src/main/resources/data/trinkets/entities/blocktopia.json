@@ -4,6 +4,7 @@
   ],
   "slots": [
 	"feet/rabbit",
+	"feet/cat",
 	"head/fish"
   ]
 }

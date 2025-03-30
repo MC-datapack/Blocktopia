@@ -32,6 +32,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.SPONGE_TNT);
+
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PAPER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.GUNPOWDER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FIREWORK_BLOCK);
@@ -325,6 +327,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ItemInit.ENCHANTED_NETHERITE_CHERRY, ItemInit.NETHERITE_CHERRY,Models.GENERATED);
         itemModelGenerator.register(ItemInit.RABBIT_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.FISH_TRINKET, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.CAT_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ItemInit.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
         itemModelGenerator.register(ItemInit.BANANA, Models.GENERATED);
         itemModelGenerator.register(ItemInit.TROPICAL_WATER_BUCKET, Models.GENERATED);

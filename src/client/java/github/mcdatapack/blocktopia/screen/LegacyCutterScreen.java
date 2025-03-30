@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.screenhandler.LegacyCutterScreenHandler;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -9,6 +10,8 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+
+import java.awt.*;
 
 public class LegacyCutterScreen extends HandledScreen<LegacyCutterScreenHandler> {
     private static final Identifier TEXTURE = Blocktopia.id("textures/gui/container/legacy_cutter.png");
@@ -35,8 +38,11 @@ public class LegacyCutterScreen extends HandledScreen<LegacyCutterScreenHandler>
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
+        if (handler.isCrafting()) {
+            Color color = BlocktopiaConfig.getConfig().legacyCutterClientConfig.getColor();
+            RenderSystem.setShaderColor(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
             context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress());
+            RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         }
     }
 

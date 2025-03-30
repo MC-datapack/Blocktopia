@@ -5,9 +5,20 @@ accessible method net/minecraft/block/SaplingGenerator getSmallTreeFeature (Lnet
 accessible method net/minecraft/block/SaplingGenerator areFlowersNearby (Lnet/minecraft/world/WorldAccess;Lnet/minecraft/util/math/BlockPos;)Z
 accessible method net/minecraft/block/SaplingGenerator canGenerateLargeTree (Lnet/minecraft/block/BlockState;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;II)Z
 accessible method net/minecraft/block/SaplingGenerator getMegaTreeFeature (Lnet/minecraft/util/math/random/Random;)Lnet/minecraft/registry/RegistryKey;
+accessible field net/minecraft/block/SaplingGenerator rareChance F
 
 accessible field net/minecraft/world/gen/trunk/TrunkPlacer baseHeight I
 accessible field net/minecraft/world/gen/trunk/TrunkPlacer firstRandomHeight I
 accessible field net/minecraft/world/gen/trunk/TrunkPlacer secondRandomHeight I
 
 accessible method net/minecraft/block/WoodType register (Lnet/minecraft/block/WoodType;)Lnet/minecraft/block/WoodType;
+
+accessible field net/minecraft/resource/featuretoggle/FeatureManager featureFlags Ljava/util/Map;
+
+accessible field net/minecraft/datafixer/Schemas EMPTY Ljava/util/function/BiFunction;
+
+accessible method net/minecraft/entity/TntEntity explode ()V
+extendable method net/minecraft/entity/TntEntity explode ()V
+accessible field net/minecraft/entity/TntEntity FUSE Lnet/minecraft/entity/data/TrackedData;
+accessible field net/minecraft/entity/TntEntity BLOCK_STATE Lnet/minecraft/entity/data/TrackedData;
+accessible field net/minecraft/entity/TntEntity causingEntity Lnet/minecraft/entity/LivingEntity;

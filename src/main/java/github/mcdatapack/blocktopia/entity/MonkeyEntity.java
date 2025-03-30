@@ -86,6 +86,9 @@ public class MonkeyEntity extends AnimalEntity {
 
     @Override
     public void tick() {
+        if (getVariant() == null) {
+            setVariant(Variants.BROWN);
+        }
         super.tick();
         if (this.getWorld().isClient) {
             updateAnimationStates();
@@ -174,6 +177,11 @@ public class MonkeyEntity extends AnimalEntity {
 
     private void setVariant(Variants variant) {
         this.dataTracker.set(MONKEY_VARIANT, variant.getId() & 255);
+    }
+
+    @Override
+    protected int getXpToDrop() {
+        return 10 + this.getWorld().random.nextInt(10);
     }
 
     public enum Variants {

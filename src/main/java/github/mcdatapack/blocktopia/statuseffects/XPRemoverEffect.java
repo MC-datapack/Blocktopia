@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class XPRemoverEffect extends StatusEffect {
     public XPRemoverEffect() {
-        super(StatusEffectCategory.HARMFUL, new Color(12, 177, 119).getRGB());
+        super(StatusEffectCategory.HARMFUL, new Color(177, 12, 12).getRGB());
     }
 
     @Override

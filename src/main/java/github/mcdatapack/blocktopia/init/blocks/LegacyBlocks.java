@@ -21,6 +21,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
@@ -53,20 +54,13 @@ public class LegacyBlocks {
             copy(OAK_SAPLING)));
     public static final Block POTTED_SAPLING_C0_24ST = registerWithoutItem("potted_sapling_c0_24st", createFlowerPotBlock(SAPLING_C0_24ST));
     public static final Block BEDROCK_C0_0_12A = registerC("bedrock_c0_0_12a", BEDROCK);
-    public static final FallingBlock SAND_C0_0_14A = register("sand_c0_0_14a", new FallingBlock(copy(SAND)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock SAND_C0_0_15A = register("sand_c0_0_15a", new FallingBlock(copy(SAND)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock SAND_B1_9PRE6 = register("sand_b1_9pre6", new FallingBlock(copy(SAND)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock GRAVEL_C0_0_14A = register("gravel_c0_0_14a", new FallingBlock(copy(GRAVEL)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock GRAVEL_C0_0_15A = register("gravel_c0_0_15a", new FallingBlock(copy(GRAVEL)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock GRAVEL_B1_9PRE5 = register("gravel_b1_9pre5", new FallingBlock(copy(GRAVEL)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
-    public static final FallingBlock GRAVEL_1_3 = register("gravel_1_3", new FallingBlock(copy(GRAVEL)) {
-        @Override protected MapCodec<? extends FallingBlock> getCodec() {return null;}});
+    public static final FallingBlock SAND_C0_0_14A = register("sand_c0_0_14a", new ColoredFallingBlock(new ColorCode(14406560),copy(SAND)));
+    public static final FallingBlock SAND_C0_0_15A = register("sand_c0_0_15a", new ColoredFallingBlock(new ColorCode(14406560),copy(SAND)));
+    public static final FallingBlock SAND_B1_9PRE6 = register("sand_b1_9pre6", new ColoredFallingBlock(new ColorCode(14406560),copy(SAND)));
+    public static final FallingBlock GRAVEL_C0_0_14A = register("gravel_c0_0_14a", new ColoredFallingBlock(new ColorCode(14406560),copy(GRAVEL)));
+    public static final FallingBlock GRAVEL_C0_0_15A = register("gravel_c0_0_15a", new ColoredFallingBlock(new ColorCode(14406560),copy(GRAVEL)));
+    public static final FallingBlock GRAVEL_B1_9PRE5 = register("gravel_b1_9pre5", new ColoredFallingBlock(new ColorCode(14406560),copy(GRAVEL)));
+    public static final FallingBlock GRAVEL_1_3 = register("gravel_1_3", new ColoredFallingBlock(new ColorCode(14406560),copy(GRAVEL)));
     public static final ExperienceDroppingBlock COAL_ORE_C0_0_14A = register("coal_ore_c0_0_14a",
             new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), copy(COAL_ORE)));
     public static final ExperienceDroppingBlock COAL_ORE_1_14 = register("coal_ore_1_14",
@@ -161,11 +155,16 @@ public class LegacyBlocks {
     public static final Block ICE_A1_0_4 = registerC("ice_a1_0_4", ICE);
     public static final Block SNOW_BLOCK_A1_0_5 = registerC("snow_block_a1_0_5", SNOW_BLOCK);
     public static final Block CLAY_BLOCK_A1_0_11 = registerC("clay_block_a1_0_11", CLAY);
-    public static final FenceBlock WOODEN_FENCE_RD20090515 = register("wooden_fence_rd20090515", new FenceBlock(AbstractBlock.Settings.create().solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
-    public static final FenceBlock WOODEN_FENCE_RD161348 = register("wooden_fence_rd161348", new FenceBlock(AbstractBlock.Settings.create().solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
-    public static final FenceBlock WOODEN_FENCE_C0_0_14A = register("wooden_fence_c0_0_14a", new FenceBlock(AbstractBlock.Settings.create().solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
-    public static final FenceBlock WOODEN_FENCE_A1_0_17 = register("wooden_fence_a1_0_17", new FenceBlock(AbstractBlock.Settings.create().solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
-    public static final FenceBlock WOODEN_FENCE_B1_9PRE5 = register("wooden_fence_b1_9pre5", new FenceBlock(AbstractBlock.Settings.create().solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceBlock WOODEN_FENCE_RD20090515 = register("wooden_fence_rd20090515", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceBlock WOODEN_FENCE_RD161348 = register("wooden_fence_rd161348", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceBlock WOODEN_FENCE_C0_0_14A = register("wooden_fence_c0_0_14a", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceBlock WOODEN_FENCE_A1_0_17 = register("wooden_fence_a1_0_17", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final FenceBlock WOODEN_FENCE_B1_9PRE5 = register("wooden_fence_b1_9pre5", new FenceBlock(AbstractBlock.Settings.create()
+            .solid().instrument(NoteBlockInstrument.BASS).strength(2.0F).sounds(BlockSoundGroup.WOOD).burnable()));
     public static final Block NETHERRACK_A1_2_0 = registerC("netherrack_a1_2_0", NETHERRACK);
     public static final Block NETHERRACK_B1_9PRE5 = registerC("netherrack_b1_9pre5", NETHERRACK);
     public static final SoulSandBlock SOUL_SAND_A1_2_0 = register("soul_sand_a1_2_0", new SoulSandBlock(copy(SOUL_SAND)));

@@ -46,6 +46,7 @@ public class TagList {
 
     public static class Fluids {
         public static final TagKey<Fluid> CLASSIC_SPONGE_ABSORB = TagKey.of(RegistryKeys.FLUID, Blocktopia.id("clasic_sponge_absorb"));
+        public static final TagKey<Fluid> TROPICAL_WATER = TagKey.of(RegistryKeys.FLUID, Blocktopia.id("tropical_water"));
     }
 
     public static class Biomes {

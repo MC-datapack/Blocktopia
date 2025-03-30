@@ -46,11 +46,12 @@ public class BlockInit {
             new ExtendedRepeaterBlockMinute(AbstractBlock.Settings.create()
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
     public static final LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
+    public static final SpongeTNTBlock SPONGE_TNT = register("sponge_tnt", new SpongeTNTBlock(AbstractBlock.Settings.copy(Blocks.TNT)));
 
     public static final ExtendedLeavesBlock FLOWERING_CHERRY_LEAVES = register("flowering_cherry_leaves", new ExtendedLeavesBlock(
             AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES).luminance(state -> BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves)));
     public static final FloorExtendedSaplingBlock FLOWERING_CHERRY_SAPLING = register("flowering_cherry_sapling", new FloorExtendedSaplingBlock(
-            new ExtendedSaplingGenerator("flowering_cherry", 0.1F,
+            new ExtendedSaplingGenerator.ExtendedSaplingGenerator$3x3("flowering_cherry", 0.1F,
                     Optional.of(ConfiguredFeatureInit.GIANT_FLOWERING_CHERRY_KEY), Optional.empty(),
                     Optional.of(ConfiguredFeatureInit.FLOWERING_CHERRY_KEY), Optional.empty(),
                     Optional.empty(), Optional.empty(),
@@ -76,7 +77,7 @@ public class BlockInit {
     public static final ExtendedLeavesBlock PALM_LEAVES = register("palm_leaves", new ExtendedLeavesBlock(AbstractBlock.Settings.create()
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
-    public static final FloorExtendedSaplingBlock PALM_SAPLING = register("palm_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(
+    public static final FloorExtendedSaplingBlock PALM_SAPLING = register("palm_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator.ExtendedSaplingGenerator$3x3(
             Blocktopia.id("palm").toString(),
             0.1F, Optional.empty(), Optional.empty(), Optional.of(ConfiguredFeatureInit.PALM_TREE_KEY),
             Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty(),
@@ -108,7 +109,7 @@ public class BlockInit {
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
             .luminance(state -> BlocktopiaConfig.getConfig().glowingBananaLeaves)));
-    public static final FloorExtendedSaplingBlock BANANA_SAPLING = register("banana_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(Blocktopia.id("banana").toString(),
+    public static final FloorExtendedSaplingBlock BANANA_SAPLING = register("banana_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator.ExtendedSaplingGenerator$3x3(Blocktopia.id("banana").toString(),
             0.1F, Optional.of(ConfiguredFeatureInit.GIANT_BANANA_TREE_KEY), Optional.empty(), Optional.of(ConfiguredFeatureInit.BANANA_TREE_KEY),
             Optional.empty(), Optional.empty(), Optional.empty(),
             Optional.of(ConfiguredFeatureInit.GIANT_3x3BANANA_TREE_KEY), Optional.empty()), AbstractBlock.Settings.create()
@@ -139,7 +140,7 @@ public class BlockInit {
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
             .luminance(state -> BlocktopiaConfig.getConfig().glowingCornLeaves)));
-    public static final FloorExtendedSaplingBlock CORN_SAPLING = register("corn_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(Blocktopia.id("corn").toString(),
+    public static final FloorExtendedSaplingBlock CORN_SAPLING = register("corn_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator.ExtendedSaplingGenerator$3x3(Blocktopia.id("corn").toString(),
             0.1F, Optional.of(ConfiguredFeatureInit.GIANT_CORN_TREE_KEY), Optional.empty(), Optional.of(ConfiguredFeatureInit.CORN_TREE_KEY),
             Optional.empty(), Optional.empty(), Optional.empty(),
             Optional.of(ConfiguredFeatureInit.GIANT_3x3CORN_TREE_KEY), Optional.empty()), AbstractBlock.Settings.create()
@@ -171,7 +172,7 @@ public class BlockInit {
             .strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves)
             .suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)
             .luminance(state -> BlocktopiaConfig.getConfig().glowingPoisonedLeaves)));
-    public static final FloorExtendedSaplingBlock POISONED_SAPLING = register("poisoned_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator(Blocktopia.id("poisoned").toString(),
+    public static final FloorExtendedSaplingBlock POISONED_SAPLING = register("poisoned_sapling", new FloorExtendedSaplingBlock(new ExtendedSaplingGenerator.ExtendedSaplingGenerator$3x3(Blocktopia.id("poisoned").toString(),
             0.1F, Optional.of(ConfiguredFeatureInit.GIANT_POISONED_TREE_KEY), Optional.empty(), Optional.of(
                     ConfiguredFeatureInit.POISONED_TREE_KEY),
             Optional.empty(), Optional.empty(), Optional.empty(),

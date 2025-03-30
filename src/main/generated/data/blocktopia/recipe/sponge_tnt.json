@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "blocktopia:sponge_c0_0_19a"
+    },
+    {
+      "item": "minecraft:tnt"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "blocktopia:sponge_tnt"
+  }
+}

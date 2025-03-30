@@ -1,0 +1,36 @@
+{
+  "anvil_cost": 6,
+  "description": {
+    "translate": "enchantment.blocktopia.silk_swing"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "blocktopia:spawn_egg_effect",
+          "level": {
+            "type": "minecraft:linear",
+            "base": 1.0,
+            "per_level_above_first": 1.0
+          }
+        },
+        "enchanted": "attacker"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 2,
+    "per_level_above_first": 6
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 2,
+    "per_level_above_first": 4
+  },
+  "slots": [
+    "hand"
+  ],
+  "supported_items": "#minecraft:enchantable/sword",
+  "weight": 1
+}

@@ -19,8 +19,6 @@ import net.minecraft.world.gen.placementmodifier.*;
 import java.util.List;
 
 public class PlacedFeatureInit {
-    private static final BlocktopiaConfigData.WorldgenFeatureConfig config = BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures;
-
     public static final RegistryKey<PlacedFeature> PALM_TREE_KEY = registerKey("palm_tree");
     public static final RegistryKey<PlacedFeature> GIANT_3x3BANANA_TREE_KEY = registerKey("giant_3x3_banana_tree");
     public static final RegistryKey<PlacedFeature> GIANT_3x3CORN_TREE_KEY = registerKey("giant_3x3_corn_tree");

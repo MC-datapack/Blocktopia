@@ -4,6 +4,7 @@ import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -14,8 +15,6 @@ import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.LootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
 
 public class LootHandler {
     public static void registerListeners() {
@@ -24,6 +23,8 @@ public class LootHandler {
                 addItemsToLootTable(builder, LootTables.SHIPWRECK_SUPPLY_CHEST, lootTable,
                         new LootTableItem(ItemInit.COCONUT, UniformLootNumberProvider.create(2, 4)),
                         new LootTableItem(BlockInit.PALM_SAPLING, UniformLootNumberProvider.create(6, 8), 0.6F));
+                addItemsToLootTable(builder, EntityType.WITCH.getLootTableId(), lootTable,
+                        new LootTableItem(ItemInit.MONKEY_SPAWN_EGG, ConstantLootNumberProvider.create(1), 0.01F));
             });
         }
     }

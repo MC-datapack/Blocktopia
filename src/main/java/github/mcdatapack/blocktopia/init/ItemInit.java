@@ -4,6 +4,7 @@ import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
+import github.mcdatapack.blocktopia.item.CatTrinket;
 import github.mcdatapack.blocktopia.item.FishTrinket;
 import github.mcdatapack.blocktopia.item.RabbitTrinket;
 import github.mcdatapack.blocktopia.list.FoodList;
@@ -75,6 +76,7 @@ public class ItemInit {
 
     public static final RabbitTrinket RABBIT_TRINKET = register("rabbit_trinket", new RabbitTrinket(new Item.Settings()));
     public static final FishTrinket FISH_TRINKET = register("fish_trinket", new FishTrinket(new Item.Settings()));
+    public static final CatTrinket CAT_TRINKET = register("cat_trinket", new CatTrinket(new Item.Settings()));
     public static final Item BANANA = register("banana", new Item(new Item.Settings().food(FoodList.BANANA)));
 
     public static final BucketItem TROPICAL_WATER_BUCKET = register("tropical_water_bucket", new BucketItem(FluidInit.TROPICAL_WATER, new Item.Settings().maxCount(1)));

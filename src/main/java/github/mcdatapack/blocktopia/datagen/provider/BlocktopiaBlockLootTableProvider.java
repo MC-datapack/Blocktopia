@@ -30,6 +30,8 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(GUNPOWDER_BLOCK);
         addDrop(FIREWORK_BLOCK);
 
+        addDrop(SPONGE_TNT);
+
         addDrop(FLOWERING_CHERRY_SAPLING);
         addPottedPlantDrops(POTTED_FLOWERING_CHERRY_SAPLING);
 

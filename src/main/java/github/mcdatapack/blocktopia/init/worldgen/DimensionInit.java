@@ -1,23 +1,15 @@
 package github.mcdatapack.blocktopia.init.worldgen;
 
-import com.mojang.datafixers.util.Pair;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.MultiNoiseBiomeSource;
-import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.minecraft.world.dimension.DimensionOptions;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
-import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
 
-import java.util.List;
 import java.util.OptionalLong;
 
 public class DimensionInit {

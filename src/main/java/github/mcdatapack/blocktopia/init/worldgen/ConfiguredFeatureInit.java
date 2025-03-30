@@ -5,8 +5,7 @@ import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
 import github.mcdatapack.blocktopia.block.ExtendedLeavesBlock;
-import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
-import github.mcdatapack.blocktopia.config.BlocktopiaConfigData;
+import github.mcdatapack.blocktopia.tree.decorator.LeavesTreeDecorator;
 import github.mcdatapack.blocktopia.tree.trunkplacer.ExtremeTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.*;

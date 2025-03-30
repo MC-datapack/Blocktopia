@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.renderer;
 
 import github.mcdatapack.blocktopia.block.entity.LegacyCutterBlockEntity;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.models.LegacyCutterModel;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -45,31 +46,34 @@ public class LegacyCutterRenderer implements BlockEntityRenderer<LegacyCutterBlo
         matrices.translate(0.5F, 1.5, 0.5F);
 
         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(180));
+        
+        if (BlocktopiaConfig.getConfig().legacyCutterClientConfig.renderItems) {
+            World world = entity.getWorld();
+            for (int i = 0; i < entity.size(); i++) {
+                ItemStack stack = entity.getStack(i);
+                if (stack.isEmpty()) continue;
 
-        World world = entity.getWorld();
-        for (int i = 0; i < entity.size(); i++) {
-            ItemStack stack = entity.getStack(i);
-            if (stack.isEmpty()) continue;
+                ItemTransformation transformation = switch (i) {
+                    case 0 -> new ItemTransformation(0.01375, 0.1375, 0);
+                    case 1 -> new ItemTransformation(-0.01375, -0.1375, 0);
+                    default -> null;
+                };
+                matrices.push();
+                matrices.translate(transformation.x(), 0.8, transformation.z());
+                matrices.scale(0.2325F, 0.20325F, 0.2325F);
+                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(transformation.rotation()));
 
-            ItemTransformation transformation = switch (i) {
-                case 0 -> new ItemTransformation(0.01375,0.1375, 0);
-                case 1 -> new ItemTransformation(-0.01375,-0.1375, 0);
-                default -> null;
-            };
-            matrices.push();
-            matrices.translate(transformation.x(), 0.8, transformation.z());
-            matrices.scale(0.2325F, 0.20325F, 0.2325F);
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(transformation.rotation()));
-
-            this.context.getItemRenderer().renderItem(stack, ModelTransformationMode.FIXED,
-                    light, overlay,
-                    matrices, vertexConsumers,
-                    world, 0);
-            matrices.pop();
+                this.context.getItemRenderer().renderItem(stack, ModelTransformationMode.FIXED,
+                        light, overlay,
+                        matrices, vertexConsumers,
+                        world, 0);
+                matrices.pop();
+            }
         }
 
         this.model.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntitySolid(LegacyCutterModel.TEXTURE_LOCATION)), light, overlay);
         matrices.pop();
     }
+
     public record ItemTransformation(double x, double z, int rotation) {}
 }

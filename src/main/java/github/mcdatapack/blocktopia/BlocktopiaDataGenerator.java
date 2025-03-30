@@ -1,9 +1,7 @@
 package github.mcdatapack.blocktopia;
 
-import github.mcdatapack.blocktopia.datagen.generator.BlocktopiaEnchantmentGenerator;
-import github.mcdatapack.blocktopia.datagen.generator.BlocktopiaWorldGenerator;
+import github.mcdatapack.blocktopia.datagen.generator.*;
 import github.mcdatapack.blocktopia.datagen.provider.*;
-import github.mcdatapack.blocktopia.init.FeatureFlagInit;
 import github.mcdatapack.blocktopia.init.worldgen.*;
 import github.mcdatapack.blocktopia.init.worldgen.structure.StructureInit;
 import github.mcdatapack.blocktopia.init.worldgen.structure.StructurePoolInit;
@@ -16,8 +14,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.text.Text;
-
-import java.util.concurrent.ExecutionException;
 
 public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
@@ -33,14 +29,16 @@ public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(BlocktopiaRecipeProvider::new);
         //pack.addProvider(BlocktopiaAdvancementProvider::new);
         pack.addProvider(BlocktopiaWorldGenerator::new);
-        pack.addProvider(BlocktopiaEnchantmentGenerator::new);
 
-        //FabricDataGenerator.Pack pack1 = fabricDataGenerator.createBuiltinResourcePack(Blocktopia.id("update_1_21_2"));
-        //pack1.addProvider(
-        //        (FabricDataGenerator.Pack.Factory<MetadataProvider>) outputx ->
-        //                MetadataProvider.create(outputx, Text.translatable("datapack.blocktopia.update_1_21_2.description"),
-        //                        FeatureSet.of(FeatureFlagInit.))
-        //);
+        FabricDataGenerator.Pack thunderingSmitePack = fabricDataGenerator.createBuiltinResourcePack(Blocktopia.id("thundering_smite"));
+        thunderingSmitePack.addProvider((FabricDataGenerator.Pack.Factory<MetadataProvider>)
+                outputx -> MetadataProvider.create(outputx, Text.translatable("dataPack.thundering_smite.description")));
+        thunderingSmitePack.addProvider(ThunderingSmiteGenerator::new);
+
+        FabricDataGenerator.Pack silkSwingPack = fabricDataGenerator.createBuiltinResourcePack(Blocktopia.id("silk_swing"));
+        silkSwingPack.addProvider((FabricDataGenerator.Pack.Factory<MetadataProvider>)
+                outputx -> MetadataProvider.create(outputx, Text.translatable("dataPack.silk_swing.description")));
+        silkSwingPack.addProvider(SilkSwingGenerator::new);
     }
 
     @Override

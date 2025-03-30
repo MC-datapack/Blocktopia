@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:gift",
+  "pools": [
+	{
+	  "bonus_rolls": 0,
+	  "entries": [
+		{
+		  "type": "minecraft:item",
+		  "name": "blocktopia:sponge_c0_0_19a"
+		}
+	  ],
+	  "rolls": 1
+	}
+  ],
+  "random_sequence": "blocktopia:gameplay/hero_of_the_village/legacy_gift"
+}

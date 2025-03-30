@@ -3,17 +3,22 @@ package github.mcdatapack.blocktopia.datagen.provider;
 import com.google.common.collect.ImmutableMap;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
+import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import github.mcdatapack.blocktopia.init.worldgen.BiomeInit;
 import github.mcdatapack.blocktopia.init.worldgen.DimensionInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
+import net.fabricmc.fabric.mixin.event.interaction.PlayerAdvancementTrackerMixin;
 import net.minecraft.advancement.*;
-import net.minecraft.advancement.criterion.ChangedDimensionCriterion;
-import net.minecraft.advancement.criterion.TickCriterion;
+import net.minecraft.advancement.criterion.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
+import net.minecraft.predicate.entity.LootContextPredicate;
+import net.minecraft.predicate.entity.PlayerPredicate;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -36,37 +41,45 @@ public class BlocktopiaAdvancementProvider extends FabricAdvancementProvider {
 
     @Override
     public void generateAdvancement(RegistryWrapper.WrapperLookup registryLookup, Consumer<AdvancementEntry> exporter) {
-        create(BlockInit.SMALL_CHEST, "advancements.blocktopia.root",
+        create(BlockInit.SMALL_CHEST, "root",
                 Optional.of(Blocktopia.id("textures/block/cobblestone_rd20090515.png")), Optional.empty(), false, false, false)
                 .criterion("download", TickCriterion.Conditions.createTick())
                 .build(exporter, Blocktopia.id("root"));
 
         generateTerrainAdvancements(registryLookup, exporter);
+        generateLegacyAdvancements(registryLookup, exporter);
     }
 
     private void generateTerrainAdvancements(RegistryWrapper.WrapperLookup registryLookup, Consumer<AdvancementEntry> exporter) {
-        create(BlockInit.BANANA_LOG, "advancements.blocktopia.rainforest",
+        create(BlockInit.BANANA_LOG, "rainforest",
                 Optional.empty(), Optional.empty())
                 .criterion("biome", TickCriterion.Conditions.createLocation(biomeLocation(registryLookup, BiomeInit.RAIN_FOREST_KEY)))
                 .parent(Blocktopia.id("root"))
                 .build(exporter, Blocktopia.id("rainforest"));
-        create(BlockInit.SANDY_DIRT, "advancements.blocktopia.palm_island",
+        create(BlockInit.SANDY_DIRT, "palm_island",
                 Optional.empty(), Optional.empty())
                 .criterion("biome", TickCriterion.Conditions.createLocation(biomeLocation(registryLookup, BiomeInit.PALM_ISLAND_KEY)))
                 .parent(Blocktopia.id("rainforest"))
                 .build(exporter, Blocktopia.id("palm_island"));
-        create(Blocks.JUNGLE_LOG, "advancements.blocktopia.tropics",
+        create(Blocks.JUNGLE_LOG, "tropics",
                 Optional.empty(), Optional.empty())
                 .criterion("dimension", ChangedDimensionCriterion.Conditions.create(World.OVERWORLD, DimensionInit.TROPICS_LEVEL_KEY))
                 .parent(Blocktopia.id("palm_island"))
                 .build(exporter, Blocktopia.id("tropics"));
     }
+    
+    private void generateLegacyAdvancements(RegistryWrapper.WrapperLookup registryLookup, Consumer<AdvancementEntry> exporter) {
 
+    }
 
 
 
     private LocationPredicate.Builder biomeLocation(RegistryWrapper.WrapperLookup registryLookup, RegistryKey<Biome> biome) {
         return LocationPredicate.Builder.createBiome(registryLookup.getWrapperOrThrow(RegistryKeys.BIOME).getOrThrow(biome));
+    }
+
+    private Builder create(ItemConvertible icon, String baseName) {
+        return create(icon, baseName, Optional.empty(), Optional.empty(), true, true, false);
     }
 
     private Builder create(ItemConvertible icon, String baseName, Optional<Identifier> background, Optional<AdvancementFrame> frame) {
@@ -76,7 +89,7 @@ public class BlocktopiaAdvancementProvider extends FabricAdvancementProvider {
     private Builder create(ItemConvertible icon, String baseName, Optional<Identifier> background, Optional<AdvancementFrame> frame,
                                        boolean showToast, boolean announceToChat, boolean hidden) {
         return Builder.create().display(icon,
-                Text.translatable(baseName + ".title"), Text.translatable(baseName + ".description"),
+                Text.translatable("advancement.blocktopia." + baseName + ".title"), Text.translatable("advancement.blocktopia." + baseName + ".description"),
                 background.orElse(null), frame.orElse(AdvancementFrame.TASK), showToast, announceToChat, hidden);
     }
 
@@ -95,11 +108,6 @@ public class BlocktopiaAdvancementProvider extends FabricAdvancementProvider {
 
         public static Builder createUntelemetered() {
             return new Builder();
-        }
-
-        public Builder parent(AdvancementEntry parent) {
-            this.parentObj = Optional.of(parent.id());
-            return this;
         }
 
         public Builder parent(Identifier parentId) {

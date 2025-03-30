@@ -10,6 +10,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
 
+import java.awt.*;
+
 @Config(name = "blocktopia")
 public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
@@ -19,6 +21,10 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     @ConfigEntry.Category("server")
     public VillagerConfig villagerConfig = new VillagerConfig();
+
+    @ConfigEntry.Gui.CollapsibleObject
+    @ConfigEntry.Category("server")
+    public LegacyCutterConfig legacyCutterConfig = new LegacyCutterConfig();
 
     @ConfigEntry.Gui.RequiresRestart
     @ConfigEntry.Category("server")
@@ -63,9 +69,19 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 20, max = 250)
     public int spongeAbsorb = 60;
 
+    @ConfigEntry.Gui.TransitiveObject
+    @ConfigEntry.Category("server")
+    @ConfigEntry.BoundedDiscrete(min = 4, max = 150)
+    @Comment("4 is the default Explosion Power of TNT")
+    public int spongeTntExplosionPower = 12;
+
     @ConfigEntry.Gui.CollapsibleObject
     @ConfigEntry.Category("client")
     public SmallChestConfig smallChestConfig = new SmallChestConfig();
+
+    @ConfigEntry.Gui.CollapsibleObject
+    @ConfigEntry.Category("client")
+    public LegacyCutterClientConfig legacyCutterClientConfig = new LegacyCutterClientConfig();
 
     public static class SmallChestConfig {
         @ConfigEntry.Gui.TransitiveObject
@@ -75,6 +91,72 @@ public class BlocktopiaConfigData implements ConfigData {
         @ConfigEntry.BoundedDiscrete(min = 1, max = 1000)
         @Comment("The higher the value the longer it takes to fully open and close")
         public int closingSpeed = 12;
+    }
+
+    public static class LegacyCutterConfig {
+        @ConfigEntry.Gui.TransitiveObject
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+        public int processingTime = 10;
+    }
+
+    public static class LegacyCutterClientConfig {
+        @ConfigEntry.Gui.TransitiveObject
+        public boolean renderItems = true;
+
+        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
+        @Comment("Set it to Custom to use the option below.")
+        public Colors arrowColor = Colors.Blue;
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public CustomColor customArrowColor = new CustomColor();
+
+        public Color getColor() {
+            return arrowColor == Colors.Custom ? new Color(customArrowColor.red,customArrowColor.green, customArrowColor.blue, customArrowColor.alpha) : arrowColor.color;
+        }
+
+        public static class CustomColor {
+            @ConfigEntry.Gui.TransitiveObject
+            @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+            public int red = 0;
+
+            @ConfigEntry.Gui.TransitiveObject
+            @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+            public int green = 0;
+
+            @ConfigEntry.Gui.TransitiveObject
+            @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+            public int blue = 255;
+
+            @ConfigEntry.Gui.TransitiveObject
+            @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+            public int alpha = 0;
+        }
+
+        public enum Colors {
+            White(Color.WHITE),
+            Light_Gray(Color.LIGHT_GRAY),
+            Gray(Color.GRAY),
+            Black(Color.BLACK),
+            Blue(Color.BLUE),
+            Light_Blue(new Color(0, 215, 253)),
+            Cyan(Color.CYAN),
+            Lime(new Color(12, 213, 8)),
+            Green(new Color(13, 126, 7)),
+            Yellow(Color.YELLOW),
+            Orange(Color.ORANGE),
+            Pink(Color.PINK),
+            Magenta(Color.MAGENTA),
+            Red(Color.RED),
+            Purple(new Color(136, 4, 136)),
+            Brown(new Color(159, 70, 5)),
+            Custom(new Color(0, 0, 0));
+
+            public final Color color;
+
+            Colors(Color color) {
+                this.color = color;
+            }
+        }
     }
 
     public static class WorldgenConfig {

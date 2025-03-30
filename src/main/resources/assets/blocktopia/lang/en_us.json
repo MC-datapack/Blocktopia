@@ -5,8 +5,36 @@
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fOther Blocks and Items",
   "itemGroup.blocktopia.all_items": "§2§lBlocktopia: §fSearch and All Items",
 
+  "block.blocktopia.sponge_tnt": "Sponge TNT",
+  "entity.blocktopia.sponge_tnt": "Fused Sponge TNT",
+
   "resourcepack.blocktopia.connected_textures": "Blocktopia Connected Textures",
   "resourcepack.blocktopia.dark_ui": "Dark UI",
+  "datapack.blocktopia.modified_villages": "Modified Villages",
+  "datapack.blocktopia.modified_villages.description": "Adds Village houses for Blocktopia Professions",
+  "datapack.blocktopia.thundering_smite": "Thundering Smite Enchantment",
+  "datapack.blocktopia.thundering_smite.description": "Adds a Enchantment for Swords",
+  "datapack.blocktopia.silk_swing": "Silk Swing Enchantment",
+  "datapack.blocktopia.silk_swing.description": "Adds a Enchantment for Swords",
+  
+  "item.minecraft.potion.effect.strong_xp_boost": "Potion of XP Boost",
+  "item.minecraft.potion.effect.xp_boost": "Potion of XP Boost",
+  "item.minecraft.potion.effect.long_xp_boost": "Potion of XP Boost",
+  "item.minecraft.splash_potion.effect.strong_xp_boost": "Splash Potion of XP Boost",
+  "item.minecraft.splash_potion.effect.xp_boost": "Splash Potion of XP Boost",
+  "item.minecraft.splash_potion.effect.long_xp_boost": "Splash Potion of XP Boost",
+  "item.minecraft.lingering_potion.effect.strong_xp_boost": "Lingering Potion of XP Boost",
+  "item.minecraft.lingering_potion.effect.xp_boost": "Lingering Potion of XP Boost",
+  "item.minecraft.lingering_potion.effect.long_xp_boost": "Lingering Potion of XP Boost",
+  "item.minecraft.potion.effect.strong_xp_remover": "Potion of XP Remover",
+  "item.minecraft.potion.effect.xp_remover": "Potion of XP Remover",
+  "item.minecraft.potion.effect.long_xp_remover": "Potion of XP Remover",
+  "item.minecraft.splash_potion.effect.strong_xp_remover": "Splash Potion of XP Remover",
+  "item.minecraft.splash_potion.effect.xp_remover": "Splash Potion of XP Remover",
+  "item.minecraft.splash_potion.effect.long_xp_remover": "Splash Potion of XP Remover",
+  "item.minecraft.lingering_potion.effect.strong_xp_remover": "Lingering Potion of XP Remover",
+  "item.minecraft.lingering_potion.effect.xp_remover": "Lingering Potion of XP Remover",
+  "item.minecraft.lingering_potion.effect.long_xp_remover": "Lingering Potion of XP Remover",
 
   "block.customportalapi.customportalblock": "Portal",
 
@@ -19,6 +47,7 @@
   "item.blocktopia.enchanted_netherite_cherry": "Enchanted Netherite Cherry",
 
   "enchantment.blocktopia.thundering_smite": "Thundering Smite",
+  "enchantment.blocktopia.silk_swing": "Silk Swing",
 
   "item.blocktopia.tropical_water_bucket": "Tropical Water Bucket",
 
@@ -51,6 +80,8 @@
 
   "item.blocktopia.rabbit_trinket": "Rabbit Trinket",
   "trinkets.slot.feet.rabbit": "Rabbit Slot",
+  "trinkets.slot.feet.cat": "Cat Slot",
+  "item.blocktopia.cat_trinket": "Cat Trinket",
   "item.blocktopia.fish_trinket": "Fish Trinket",
   "trinkets.slot.head.fish": "Fish Slot",
 
@@ -390,5 +421,16 @@
   "text.autoconfig.blocktopia.option.smallChestConfig": "Small Chest Configuration",
   "text.autoconfig.blocktopia.option.smallChestConfig.renderItems": "Render the Items of the Small Chest as Item Entities",
   "text.autoconfig.blocktopia.option.smallChestConfig.closingSpeed": "Opening/Closing speed of the Small Chest",
-  "text.autoconfig.blocktopia.option.spongeAbsorb": "Sponge c0.0.19a Absorb Radius"
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig": "Legacy Cutter Configuration",
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig.renderItems": "Render the Items of the Legacy Cutter as Item Entities",
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig.arrowColor": "The Color of the arrow that shows the progress",
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig.customArrowColor": "Custom configuration of the arrow color (Option above has to be set to \"Custom\" to use this)",
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig.customArrowColor.red": "Red",
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig.customArrowColor.green": "Green",
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig.customArrowColor.blue": "Blue",
+  "text.autoconfig.blocktopia.option.legacyCutterClientConfig.customArrowColor.alpha": "Alpha",
+  "text.autoconfig.blocktopia.option.legacyCutterConfig": "Legacy Cutter Configuration",
+  "text.autoconfig.blocktopia.option.legacyCutterConfig.processingTime": "Processing Time",
+  "text.autoconfig.blocktopia.option.spongeAbsorb": "Sponge c0.0.19a Absorb Radius",
+  "text.autoconfig.blocktopia.option.spongeTntExplosionPower": "Sponge Tnt Explosion Power"
 }

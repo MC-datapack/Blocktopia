@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.init.worldgen;
 
 import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.tree.decorator.LeavesTreeDecorator;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;

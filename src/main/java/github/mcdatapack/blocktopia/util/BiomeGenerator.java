@@ -1,6 +1,7 @@
-package github.mcdatapack.blocktopia.init.worldgen;
+package github.mcdatapack.blocktopia.util;
 
 import github.mcdatapack.blocktopia.init.EntityInit;
+import github.mcdatapack.blocktopia.init.worldgen.PlacedFeatureInit;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.RegistryEntryLookup;
@@ -13,7 +14,7 @@ import net.minecraft.world.gen.carver.ConfiguredCarver;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.*;
 
-public class CustomBiomes {
+public class BiomeGenerator {
     public static Biome createRainForestBiome(RegistryEntryLookup<PlacedFeature> registryEntryLookup, RegistryEntryLookup<ConfiguredCarver<?>> registryEntryLookupCarver) {
         BiomeEffects effects = new BiomeEffects.Builder()
                 .fogColor(0xc0d8ff)

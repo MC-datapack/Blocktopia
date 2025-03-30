@@ -56,6 +56,18 @@ repositories {
 	maven {
 		url = "https://maven.kyrptonaught.dev"
 	}
+	maven {
+		name = "Progwml6's maven"
+		url = "https://dvs1.progwml6.com/files/maven/"
+	}
+	maven {
+		name = "Jared's maven"
+		url = "https://maven.blamejared.com/"
+	}
+	maven {
+		name = "ModMaven"
+		url = "https://modmaven.dev"
+	}
 	mavenCentral()
 }
 
@@ -78,6 +90,8 @@ dependencies {
 	include "net.kyrptonaught:customportalapi:${project.custom_portal_api_version}"
 
 	modRuntimeOnly "maven.modrinth:continuity:${project.continuity_version}"
+
+	modRuntimeOnly "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
 }
 
 processResources {

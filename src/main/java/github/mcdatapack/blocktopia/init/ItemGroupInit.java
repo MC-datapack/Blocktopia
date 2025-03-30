@@ -361,6 +361,7 @@ public class ItemGroupInit {
                 entries.add(ItemInit.ENCHANTED_GOLDEN_POTATO);
                 entries.add(ItemInit.GOLDEN_BAKED_POTATO);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO);
+                entries.add(BlockInit.SPONGE_TNT);
                 entries.add(ItemInit.GIANT_SPAWN_EGG);
                 entries.add(ItemInit.ILLUSIONER_SPAWN_EGG);
                 entries.add(ItemInit.MONKEY_SPAWN_EGG);
@@ -368,6 +369,7 @@ public class ItemGroupInit {
                 entries.add(BlockInit.XP_TRAP);
                 entries.add(ItemInit.RABBIT_TRINKET);
                 entries.add(ItemInit.FISH_TRINKET);
+                entries.add(ItemInit.CAT_TRINKET);
             }).build());
 
     public static <T extends ItemGroup> T register(String name, T itemGroup) {

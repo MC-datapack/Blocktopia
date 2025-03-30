@@ -9,9 +9,57 @@
 		{
 		  "biome": "blocktopia:rain_forest",
 		  "parameters": {
-			"temperature": 1,
-			"humidity": 1,
-			"continentalness": 1,
+			"temperature": 1.65,
+			"humidity": 1.6,
+			"continentalness": 2,
+			"erosion": 0,
+			"weirdness": 0,
+			"depth": 0,
+			"offset": 0
+		  }
+		},
+		{
+		  "biome": "blocktopia:palm_island",
+		  "parameters": {
+			"temperature": 1.9,
+			"humidity": 2,
+			"continentalness": -2,
+			"erosion": 0,
+			"weirdness": 0,
+			"depth": 0,
+			"offset": 0
+		  }
+		},
+		{
+		  "biome": "minecraft:desert",
+		  "parameters": {
+			"temperature": 2,
+			"humidity": -2,
+			"continentalness": 2,
+			"erosion": 0,
+			"weirdness": 0,
+			"depth": 0,
+			"offset": 0
+		  }
+		},
+		{
+		  "biome": "minecraft:savanna",
+		  "parameters": {
+			"temperature": 2,
+			"humidity": -1,
+			"continentalness": 2,
+			"erosion": 0,
+			"weirdness": 0,
+			"depth": 0,
+			"offset": 0
+		  }
+		},
+		{
+		  "biome": "minecraft:jungle",
+		  "parameters": {
+			"temperature": 1.8,
+			"humidity": 1.5,
+			"continentalness": 2,
 			"erosion": 1,
 			"weirdness": 1,
 			"depth": -1,
@@ -19,14 +67,26 @@
 		  }
 		},
 		{
-		  "biome": "blocktopia:palm_island",
+		  "biome": "minecraft:badlands",
 		  "parameters": {
-			"temperature": 1,
-			"humidity": 2,
-			"continentalness": 0,
-			"erosion": 1,
-			"weirdness": 0.5,
-			"depth": -1,
+			"temperature": 2,
+			"humidity": -2,
+			"continentalness": 2,
+			"erosion": 0,
+			"weirdness": 0,
+			"depth": 0,
+			"offset": 0
+		  }
+		},
+		{
+		  "biome": "minecraft:wooded_badlands",
+		  "parameters": {
+			"temperature": 2,
+			"humidity": -2,
+			"continentalness": 2,
+			"erosion": 0,
+			"weirdness": 0,
+			"depth": 0,
 			"offset": 0
 		  }
 		}

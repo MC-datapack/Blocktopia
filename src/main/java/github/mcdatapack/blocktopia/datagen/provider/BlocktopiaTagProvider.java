@@ -1,8 +1,6 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
-import github.mcdatapack.blocktopia.init.EntityInit;
-import github.mcdatapack.blocktopia.init.FluidInit;
-import github.mcdatapack.blocktopia.init.ItemInit;
+import github.mcdatapack.blocktopia.init.*;
 
 import static github.mcdatapack.blocktopia.init.ItemInit.*;
 import static github.mcdatapack.blocktopia.init.ItemInit.REDSTONE_TORCH_A1_0_1;
@@ -19,7 +17,6 @@ import github.mcdatapack.blocktopia.list.TagList;
 import java.util.concurrent.CompletableFuture;
 
 import github.mcdatapack.blocktopia.list.TrinketTags;
-import github.mcdatapack.blocktopia.init.VillagerInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
@@ -306,6 +303,8 @@ public class BlocktopiaTagProvider {
                     .add(RABBIT, COOKED_RABBIT, RABBIT_HIDE, RABBIT_FOOT, RABBIT_TRINKET);
             getOrCreateTagBuilder(TrinketTags.FISH_SLOT)
                     .add(FISH_TRINKET, COD, SALMON, TROPICAL_FISH, PUFFERFISH, COD_BUCKET, SALMON_BUCKET, TROPICAL_FISH_BUCKET, PUFFERFISH_BUCKET, COOKED_COD, COOKED_SALMON);
+            getOrCreateTagBuilder(TrinketTags.CAT_SLOT)
+                    .add(CAT_TRINKET);
         }
     }
 
@@ -319,6 +318,8 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(TagList.Fluids.CLASSIC_SPONGE_ABSORB)
                     .add(Fluids.WATER, Fluids.FLOWING_WATER, Fluids.LAVA, Fluids.FLOWING_LAVA, FluidInit.TROPICAL_WATER, FluidInit.FLOWING_TROPICAL_WATER);
             getOrCreateTagBuilder(FluidTags.WATER)
+                    .add(FluidInit.TROPICAL_WATER, FluidInit.FLOWING_TROPICAL_WATER);
+            getOrCreateTagBuilder(TagList.Fluids.TROPICAL_WATER)
                     .add(FluidInit.TROPICAL_WATER, FluidInit.FLOWING_TROPICAL_WATER);
         }
     }
