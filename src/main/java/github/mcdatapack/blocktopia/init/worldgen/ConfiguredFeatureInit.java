@@ -203,7 +203,7 @@ public class ConfiguredFeatureInit {
                 BlockStateProvider.of(GLOW_FLOWER)
         ));
         register(context, GLOW_FLOWER_PATCH_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(
-                64, 32, 10, registryLookup.getOrThrow(PlacedFeatureInit.GLOW_FLOWER_KEY)
+                500, 64, 40, registryLookup.getOrThrow(PlacedFeatureInit.GLOW_FLOWER_KEY)
         ));
 
 

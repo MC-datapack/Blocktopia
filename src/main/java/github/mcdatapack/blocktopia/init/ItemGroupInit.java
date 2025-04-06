@@ -264,6 +264,8 @@ public class ItemGroupInit {
                 entries.add(BlockInit.PALM_TRAPDOOR);
                 entries.add(ItemInit.PALM_BOAT);
                 entries.add(ItemInit.PALM_CHEST_BOAT);
+                entries.add(BlockInit.PALM_SIGN);
+                entries.add(BlockInit.PALM_HANGING_SIGN);
                 entries.add(ItemInit.COCONUT);
                 entries.add(BlockInit.BANANA_WOOD);
                 entries.add(BlockInit.STRIPPED_BANANA_WOOD);
@@ -282,6 +284,8 @@ public class ItemGroupInit {
                 entries.add(BlockInit.BANANA_TRAPDOOR);
                 entries.add(ItemInit.BANANA_BOAT);
                 entries.add(ItemInit.BANANA_CHEST_BOAT);
+                entries.add(BlockInit.BANANA_SIGN);
+                entries.add(BlockInit.BANANA_HANGING_SIGN);
                 entries.add(BlockInit.CORN_WOOD);
                 entries.add(BlockInit.STRIPPED_CORN_WOOD);
                 entries.add(BlockInit.CORN_LOG);
@@ -299,6 +303,8 @@ public class ItemGroupInit {
                 entries.add(BlockInit.CORN_TRAPDOOR);
                 entries.add(ItemInit.CORN_BOAT);
                 entries.add(ItemInit.CORN_CHEST_BOAT);
+                entries.add(BlockInit.CORN_SIGN);
+                entries.add(BlockInit.CORN_HANGING_SIGN);
                 entries.add(BlockInit.POISONED_WOOD);
                 entries.add(BlockInit.STRIPPED_POISONED_WOOD);
                 entries.add(BlockInit.POISONED_LOG);
@@ -316,10 +322,13 @@ public class ItemGroupInit {
                 entries.add(BlockInit.POISONED_TRAPDOOR);
                 entries.add(ItemInit.POISONED_BOAT);
                 entries.add(ItemInit.POISONED_CHEST_BOAT);
+                entries.add(BlockInit.POISONED_SIGN);
+                entries.add(BlockInit.POISONED_HANGING_SIGN);
                 entries.add(BlockInit.FLOWERING_CHERRY_SAPLING);
                 entries.add(BlockInit.FLOWERING_CHERRY_LEAVES);
                 entries.add(ItemInit.CHERRY);
                 entries.add(BlockInit.GLOW_FLOWER);
+                entries.add(BlockInit.BANANA_CROP);
                 entries.add(ItemInit.BANANA);
             }).build());
 

@@ -10,19 +10,19 @@
 	}
   },
   "disable_mob_generation": false,
-  "legacy_random_source": false,
+  "legacy_random_source": true,
   "noise": {
 	"height": 384,
 	"min_y": -64,
-	"size_horizontal": 1,
-	"size_vertical": 2
+	"size_horizontal": 4,
+	"size_vertical": 4
   },
   "noise_router": {
 	"barrier": {
 	  "type": "minecraft:noise",
 	  "noise": "minecraft:aquifer_barrier",
 	  "xz_scale": 1,
-	  "y_scale": 0.5
+	  "y_scale": 1
 	},
 	"continents": "minecraft:overworld/continents",
 	"depth": "minecraft:overworld/depth",
@@ -61,9 +61,9 @@
 						"argument1": {
 						  "type": "minecraft:y_clamped_gradient",
 						  "from_value": 1,
-						  "from_y": 240,
+						  "from_y": 280,
 						  "to_value": 0,
-						  "to_y": 256
+						  "to_y": 319
 						},
 						"argument2": {
 						  "type": "minecraft:add",
@@ -99,7 +99,7 @@
 										  "type": "minecraft:noise",
 										  "noise": "minecraft:cave_layer",
 										  "xz_scale": 1,
-										  "y_scale": 8
+										  "y_scale": 10
 										}
 									  }
 									},
@@ -114,7 +114,7 @@
 											"type": "minecraft:noise",
 											"noise": "minecraft:cave_cheese",
 											"xz_scale": 1,
-											"y_scale": 0.6666666666666666
+											"y_scale": 1
 										  }
 										},
 										"max": 1,
@@ -170,13 +170,13 @@
 	  "type": "minecraft:noise",
 	  "noise": "minecraft:aquifer_fluid_level_floodedness",
 	  "xz_scale": 1,
-	  "y_scale": 0.67
+	  "y_scale": 1.5
 	},
 	"fluid_level_spread": {
 	  "type": "minecraft:noise",
 	  "noise": "minecraft:aquifer_fluid_level_spread",
 	  "xz_scale": 1,
-	  "y_scale": 0.7142857142857143
+	  "y_scale": 1
 	},
 	"initial_density_without_jaggedness": {
 	  "type": "minecraft:add",
@@ -203,7 +203,7 @@
 				"from_value": 1,
 				"from_y": 240,
 				"to_value": 0,
-				"to_y": 256
+				"to_y": 319
 			  },
 			  "argument2": {
 				"type": "minecraft:add",
@@ -229,7 +229,7 @@
 					  }
 					}
 				  },
-				  "max": 64,
+				  "max": 128,
 				  "min": -64
 				}
 			  }
@@ -287,7 +287,7 @@
 				"type": "minecraft:noise",
 				"noise": "minecraft:ore_vein_a",
 				"xz_scale": 4,
-				"y_scale": 4
+				"y_scale": 7
 			  },
 			  "when_out_of_range": 0
 			}
@@ -306,7 +306,7 @@
 				"type": "minecraft:noise",
 				"noise": "minecraft:ore_vein_b",
 				"xz_scale": 4,
-				"y_scale": 4
+				"y_scale": 8
 			  },
 			  "when_out_of_range": 0
 			}
@@ -319,7 +319,7 @@
 	  "argument": {
 		"type": "minecraft:range_choice",
 		"input": "minecraft:y",
-		"max_exclusive": 51,
+		"max_exclusive": 150,
 		"min_inclusive": -60,
 		"when_in_range": {
 		  "type": "minecraft:noise",
@@ -332,7 +332,7 @@
 	}
   },
   "ore_veins_enabled": true,
-  "sea_level": 45,
+  "sea_level": 40,
   "spawn_target": [
 	{
 	  "continentalness": [

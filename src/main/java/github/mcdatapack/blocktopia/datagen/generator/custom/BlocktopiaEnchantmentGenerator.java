@@ -2,7 +2,9 @@ package github.mcdatapack.blocktopia.datagen.generator.custom;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntryList;
@@ -17,7 +19,7 @@ public abstract class BlocktopiaEnchantmentGenerator extends FabricDynamicRegist
     public BlocktopiaEnchantmentGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
         registriesFuture.thenAccept(registries -> {
-            RegistryWrapper.Impl<Item> wrapper = registries.getWrapperOrThrow(RegistryKeys.ITEM);
+            RegistryWrapper<Item> wrapper = registries.getWrapperOrThrow(RegistryKeys.ITEM);
             swordEnchantable = wrapper.getOrThrow(ItemTags.SWORD_ENCHANTABLE);
             axeEnchantable = wrapper.getOrThrow(ItemTags.AXES);
             pickaxeEnchantable = wrapper.getOrThrow(ItemTags.PICKAXES);
@@ -32,6 +34,10 @@ public abstract class BlocktopiaEnchantmentGenerator extends FabricDynamicRegist
             sharpWeaponEnchantable = wrapper.getOrThrow(ItemTags.SHARP_WEAPON_ENCHANTABLE);
             miningToolEnchantable = wrapper.getOrThrow(ItemTags.MINING_ENCHANTABLE);
         });
+    }
+
+    protected void addEnchantment(Entries entries, RegistryKey<Enchantment> key, Enchantment.Builder builder) {
+        entries.add(key, builder.build(key.getValue()));
     }
 
     @Override

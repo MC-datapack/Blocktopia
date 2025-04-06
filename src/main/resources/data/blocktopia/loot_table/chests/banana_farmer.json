@@ -25,7 +25,7 @@
 		  "children": [
 			{
 			  "type": "minecraft:item",
-			  "name": "blocktopia:banana",
+			  "name": "blocktopia:banana_crop",
 			  "functions": [
 				{
 				  "function": "minecraft:set_count",

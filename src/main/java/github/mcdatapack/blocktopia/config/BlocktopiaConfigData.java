@@ -311,5 +311,8 @@ public class BlocktopiaConfigData implements ConfigData {
         @ConfigEntry.Gui.RequiresRestart
         @Comment("Change the Workstation of the Beekeeper Villager Profession (requires the id of the block: <namespace>:<block id>)")
         public String beekeeperVillagerWorkstation = "minecraft:honey_block";
+
+        @ConfigEntry.Gui.RequiresRestart
+        public boolean bananaFarmerTrade = true;
     }
 }

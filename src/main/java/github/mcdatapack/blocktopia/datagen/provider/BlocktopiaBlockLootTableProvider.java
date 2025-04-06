@@ -3,6 +3,7 @@ package github.mcdatapack.blocktopia.datagen.provider;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+import github.mcdatapack.blocktopia.block.BananaCropBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
@@ -10,9 +11,12 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
+import static github.mcdatapack.blocktopia.init.ItemInit.BANANA;
 import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
@@ -26,6 +30,10 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
 
     @Override
     public void generate() {
+        BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(BANANA_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(BananaCropBlock.AGE, BananaCropBlock.MAX_AGE));
+        this.addDrop(BANANA_CROP, this.cropDrops(BANANA_CROP, BANANA, BANANA_CROP.asItem(), builder2));
+
         addDrop(PAPER_BLOCK);
         addDrop(GUNPOWDER_BLOCK);
         addDrop(FIREWORK_BLOCK);

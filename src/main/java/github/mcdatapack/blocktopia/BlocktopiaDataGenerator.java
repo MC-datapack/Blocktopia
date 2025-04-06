@@ -9,11 +9,13 @@ import github.mcdatapack.blocktopia.init.worldgen.structure.StructureSetInit;
 import net.fabricmc.fabric.api.datagen.v1.*;
 
 import net.minecraft.data.MetadataProvider;
+import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.text.Text;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {

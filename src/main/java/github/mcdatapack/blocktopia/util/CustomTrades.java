@@ -1,16 +1,17 @@
 package github.mcdatapack.blocktopia.util;
 
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
+import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.VillagerInit;
 import java.util.Optional;
 
-import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
+import net.minecraft.village.VillagerProfession;
 
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
@@ -440,6 +441,21 @@ public class CustomTrades {
                                 maxUses, 30, priceMultiplier
                         ));
                     });
+        }
+
+        if (BlocktopiaConfig.getConfig().villagerConfig.bananaFarmerTrade) {
+            TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1, factories -> {
+                factories.add((entity, random) -> new TradeOffer(
+                        new TradedItem(ItemInit.BANANA, 18),
+                        new ItemStack(Items.EMERALD),
+                        maxUses, 1, priceMultiplier
+                ));
+                factories.add((entity, random) -> new TradeOffer(
+                        new TradedItem(ItemInit.CHERRY, 2),
+                        new ItemStack(Items.EMERALD),
+                        maxUses, 1, priceMultiplier
+                ));
+            });
         }
         
         if (BlocktopiaConfig.getConfig().wanderingTraderTrades) {

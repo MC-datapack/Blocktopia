@@ -1,11 +1,16 @@
 package github.mcdatapack.blocktopia.init.blocks;
 
+import com.terraformersmc.terraform.sign.api.block.TerraformHangingSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock;
+import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.*;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.worldgen.ConfiguredFeatureInit;
 import github.mcdatapack.blocktopia.list.BlockSetTypeList;
+import github.mcdatapack.blocktopia.list.TagList;
 import github.mcdatapack.blocktopia.list.WoodTypeList;
 import java.util.Optional;
 import java.util.function.BiFunction;
@@ -18,8 +23,7 @@ import net.minecraft.block.cauldron.CauldronBehavior;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -47,6 +51,9 @@ public class BlockInit {
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
     public static final LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
     public static final SpongeTNTBlock SPONGE_TNT = register("sponge_tnt", new SpongeTNTBlock(AbstractBlock.Settings.copy(Blocks.TNT)));
+
+    public static final BananaCropBlock BANANA_CROP = register("banana_crop", new BananaCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)),
+            new Item.Settings(), AliasedBlockItem::new);
 
     public static final ExtendedLeavesBlock FLOWERING_CHERRY_LEAVES = register("flowering_cherry_leaves", new ExtendedLeavesBlock(
             AbstractBlock.Settings.copy(Blocks.CHERRY_LEAVES).luminance(state -> BlocktopiaConfig.getConfig().glowingFloweringCherryLeaves)));
@@ -212,6 +219,33 @@ public class BlockInit {
     public static final ChairBlock POISONED_CHAIR = register("poisoned_chair", new ChairBlock(POISONED_PLANKS, AbstractBlock.Settings.copy(POISONED_PLANKS)));
 
     public static final XPTrapBlock XP_TRAP = register("xp_trap", new XPTrapBlock(AbstractBlock.Settings.copy(Blocks.OBSIDIAN)));
+
+    public static final WallSignBlock PALM_WALL_SIGN = registerWithoutItem("palm_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/palm"), WoodTypeList.PALM, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    public static final SignBlock PALM_SIGN = register("palm_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/palm"), WoodTypeList.PALM, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, PALM_WALL_SIGN));
+    public static final WallSignBlock BANANA_WALL_SIGN = registerWithoutItem("banana_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/banana"), WoodTypeList.PALM, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    public static final SignBlock BANANA_SIGN = register("banana_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/banana"), WoodTypeList.BANANA, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, BANANA_WALL_SIGN));
+    public static final WallSignBlock CORN_WALL_SIGN = registerWithoutItem("corn_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/corn"), WoodTypeList.PALM, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    public static final SignBlock CORN_SIGN = register("corn_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/corn"), WoodTypeList.CORN, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, CORN_WALL_SIGN));
+    public static final WallSignBlock POISONED_WALL_SIGN = registerWithoutItem("poisoned_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/poisoned"), WoodTypeList.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    public static final SignBlock POISONED_SIGN = register("poisoned_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/poisoned"), WoodTypeList.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, POISONED_WALL_SIGN));
+
+    public static final WallHangingSignBlock PALM_WALL_HANGING_SIGN = registerWithoutItem("palm_wall_hanging_sign", new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/palm"), Blocktopia.id("textures/gui/hanging_signs/palm"), WoodTypeList.PALM, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    public static final HangingSignBlock PALM_HANGING_SIGN = register("palm_hanging_sign", new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/palm"), Blocktopia.id("textures/gui/hanging_signs/palm"), WoodTypeList.PALM, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, PALM_WALL_HANGING_SIGN, settings));
+    public static final WallHangingSignBlock BANANA_WALL_HANGING_SIGN = registerWithoutItem("banana_wall_hanging_sign", new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/banana"), Blocktopia.id("textures/gui/hanging_signs/banana"), WoodTypeList.BANANA, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    public static final HangingSignBlock BANANA_HANGING_SIGN = register("banana_hanging_sign", new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/banana"), Blocktopia.id("textures/gui/hanging_signs/banana"), WoodTypeList.BANANA, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, BANANA_WALL_HANGING_SIGN, settings));
+    public static final WallHangingSignBlock CORN_WALL_HANGING_SIGN = registerWithoutItem("corn_wall_hanging_sign", new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/corn"), Blocktopia.id("textures/gui/hanging_signs/corn"), WoodTypeList.CORN, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    public static final HangingSignBlock CORN_HANGING_SIGN = register("corn_hanging_sign", new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/corn"), Blocktopia.id("textures/gui/hanging_signs/corn"), WoodTypeList.CORN, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, CORN_WALL_HANGING_SIGN, settings));
+    public static final WallHangingSignBlock POISONED_WALL_HANGING_SIGN = registerWithoutItem("poisoned_wall_hanging_sign", new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/poisoned"), Blocktopia.id("textures/gui/hanging_signs/poisoned"), WoodTypeList.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    public static final HangingSignBlock POISONED_HANGING_SIGN = register("poisoned_hanging_sign", new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/poisoned"), Blocktopia.id("textures/gui/hanging_signs/poisoned"), WoodTypeList.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
+            new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, POISONED_WALL_HANGING_SIGN, settings));
+
 
 
     public static final LeveledCauldronBlock TROPICAL_WATER_CAULDRON = BlockInit.registerWithoutItem("tropical_water_cauldron",

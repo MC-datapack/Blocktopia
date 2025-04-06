@@ -42,7 +42,7 @@ public class BlocktopiaClient implements ClientModInitializer {
                 BlockInit.BANANA_LEAVES, BlockInit.FLOWERING_CHERRY_LEAVES, BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING,
                 BlockInit.GLOW_FLOWER, BlockInit.POTTED_GLOW_FLOWER, BlockInit.BANANA_DOOR, BlockInit.BANANA_TRAPDOOR,
                 BlockInit.CORN_SAPLING, BlockInit.POTTED_CORN_SAPLING, BlockInit.CORN_LEAVES, BlockInit.CORN_DOOR, BlockInit.CORN_TRAPDOOR,
-                BlockInit.POISONED_SAPLING, BlockInit.POTTED_POISONED_SAPLING, BlockInit.POISONED_LEAVES, BlockInit.POISONED_DOOR, BlockInit.POISONED_TRAPDOOR,
+                BlockInit.POISONED_SAPLING, BlockInit.POTTED_POISONED_SAPLING, BlockInit.POISONED_LEAVES, BlockInit.POISONED_DOOR, BlockInit.POISONED_TRAPDOOR, BlockInit.BANANA_CROP,
 
                 LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A,
                 LegacyBlocks.SAPLING_C0_24ST, LegacyBlocks.POTTED_SAPLING_C0_24ST, LegacyBlocks.DANDELION_C0_0_20A,

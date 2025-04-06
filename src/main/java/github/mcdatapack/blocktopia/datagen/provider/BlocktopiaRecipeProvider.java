@@ -58,6 +58,8 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         chairRecipe(BlockInit.CORN_CHAIR, exporter);
         chairRecipe(BlockInit.POISONED_CHAIR, exporter);
 
+        offerSingleOutputShapelessRecipe(exporter, PURPLE_DYE, BlockInit.GLOW_FLOWER, "purple_dye");
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.SPONGE_TNT, 2)
                 .input(SPONGE_C0_0_19A).input(TNT)
                 .criterion(hasItem(TNT), conditionsFromItem(TNT))

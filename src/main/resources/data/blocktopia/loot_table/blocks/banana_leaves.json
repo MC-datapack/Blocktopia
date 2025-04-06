@@ -45,10 +45,6 @@
 				{
 				  "type": "minecraft:item",
 				  "name": "blocktopia:banana_sapling"
-				},
-				{
-				  "type": "minecraft:item",
-				  "name": "blocktopia:banana"
 				}
 			  ],
 			  "conditions": [

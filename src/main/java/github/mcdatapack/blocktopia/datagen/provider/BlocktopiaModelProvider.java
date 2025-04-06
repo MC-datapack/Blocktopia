@@ -3,6 +3,7 @@ package github.mcdatapack.blocktopia.datagen.provider;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.BananaCropBlock;
 import github.mcdatapack.blocktopia.block.ChairBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
@@ -32,6 +33,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerCrop(BlockInit.BANANA_CROP, BananaCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.SPONGE_TNT);
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PAPER_BLOCK);
@@ -52,11 +55,13 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .stairs(BlockInit.PALM_STAIRS)
                 .door(BlockInit.PALM_DOOR)
                 .trapdoor(BlockInit.PALM_TRAPDOOR)
+                .sign(BlockInit.PALM_SIGN, BlockInit.PALM_WALL_SIGN)
                 .group("wooden")
                 .unlockCriterionName("has_planks")
                 .build();
         blockStateModelGenerator.registerCubeAllModelTexturePool(palmFamily.getBaseBlock())
                 .family(palmFamily);
+        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_PALM_LOG, BlockInit.PALM_HANGING_SIGN, BlockInit.PALM_WALL_HANGING_SIGN);
 
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.BANANA_LEAVES);
@@ -74,11 +79,13 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .stairs(BlockInit.BANANA_STAIRS)
                 .door(BlockInit.BANANA_DOOR)
                 .trapdoor(BlockInit.BANANA_TRAPDOOR)
+                .sign(BlockInit.BANANA_SIGN, BlockInit.BANANA_WALL_SIGN)
                 .group("wooden")
                 .unlockCriterionName("has_planks")
                 .build();
         blockStateModelGenerator.registerCubeAllModelTexturePool(bananaFamily.getBaseBlock())
                 .family(bananaFamily);
+        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_BANANA_LOG, BlockInit.BANANA_HANGING_SIGN, BlockInit.BANANA_WALL_HANGING_SIGN);
 
 
 
@@ -97,11 +104,13 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .stairs(BlockInit.CORN_STAIRS)
                 .door(BlockInit.CORN_DOOR)
                 .trapdoor(BlockInit.CORN_TRAPDOOR)
+                .sign(BlockInit.CORN_SIGN, BlockInit.CORN_WALL_SIGN)
                 .group("wooden")
                 .unlockCriterionName("has_planks")
                 .build();
         blockStateModelGenerator.registerCubeAllModelTexturePool(cornFamily.getBaseBlock())
                 .family(cornFamily);
+        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_CORN_LOG, BlockInit.CORN_HANGING_SIGN, BlockInit.CORN_WALL_HANGING_SIGN);
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.POISONED_LEAVES);
         blockStateModelGenerator.registerFlowerPotPlant(BlockInit.POISONED_SAPLING, BlockInit.POTTED_POISONED_SAPLING, TintType.NOT_TINTED);
@@ -118,11 +127,13 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .stairs(BlockInit.POISONED_STAIRS)
                 .door(BlockInit.POISONED_DOOR)
                 .trapdoor(BlockInit.POISONED_TRAPDOOR)
+                .sign(BlockInit.POISONED_SIGN, BlockInit.POISONED_WALL_SIGN)
                 .group("wooden")
                 .unlockCriterionName("has_planks")
                 .build();
         blockStateModelGenerator.registerCubeAllModelTexturePool(poisonedFamily.getBaseBlock())
                 .family(poisonedFamily);
+        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_POISONED_LOG, BlockInit.POISONED_HANGING_SIGN, BlockInit.POISONED_WALL_HANGING_SIGN);
 
 
         blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FLOWERING_CHERRY_LEAVES);

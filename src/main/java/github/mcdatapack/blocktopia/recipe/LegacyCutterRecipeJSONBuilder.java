@@ -21,8 +21,6 @@ public class LegacyCutterRecipeJSONBuilder implements CraftingRecipeJsonBuilder 
     private final Item output;
     private final int count;
 
-    @Nullable
-    private String group;
     private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap<>();
     private final LegacyCutterRecipe.RecipeFactory recipeFactory;
 
@@ -45,17 +43,12 @@ public class LegacyCutterRecipeJSONBuilder implements CraftingRecipeJsonBuilder 
 
     @Override
     public LegacyCutterRecipeJSONBuilder group(@Nullable String group) {
-        this.group = group;
-        return this;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Item getOutputItem() {
         return output;
-    }
-
-    public Ingredient getInput() {
-        return input;
     }
 
     public int getCount() {

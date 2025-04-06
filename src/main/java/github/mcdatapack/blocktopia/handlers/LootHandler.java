@@ -25,6 +25,8 @@ public class LootHandler {
                         new LootTableItem(BlockInit.PALM_SAPLING, UniformLootNumberProvider.create(6, 8), 0.6F));
                 addItemsToLootTable(builder, EntityType.WITCH.getLootTableId(), lootTable,
                         new LootTableItem(ItemInit.MONKEY_SPAWN_EGG, ConstantLootNumberProvider.create(1), 0.01F));
+                addItemsToLootTable(builder, LootTables.END_CITY_TREASURE_CHEST, lootTable,
+                        new LootTableItem(BlockInit.FIREWORK_BLOCK, UniformLootNumberProvider.create(1, 5), 0.75F));
             });
         }
     }

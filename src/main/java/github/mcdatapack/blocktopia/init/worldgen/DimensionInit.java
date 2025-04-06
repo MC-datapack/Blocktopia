@@ -34,6 +34,6 @@ public class DimensionInit {
                 BlockTags.INFINIBURN_OVERWORLD,
                 DimensionTypes.OVERWORLD_ID,
                 1,
-                new DimensionType.MonsterSettings(true, true, UniformIntProvider.create(0, 0), 0)));
+                new DimensionType.MonsterSettings(true, true, UniformIntProvider.create(0, 5), 0)));
     }
 }

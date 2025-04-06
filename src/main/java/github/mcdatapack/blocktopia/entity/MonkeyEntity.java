@@ -164,7 +164,7 @@ public class MonkeyEntity extends AnimalEntity {
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        this.dataTracker.set(MONKEY_VARIANT, nbt.getInt("Variant"));
+        setVariant(Variants.BY_ID[nbt.getInt("Variant")]);
     }
 
     public Variants getVariant() {

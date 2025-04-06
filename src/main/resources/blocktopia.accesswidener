@@ -11,8 +11,6 @@ accessible field net/minecraft/world/gen/trunk/TrunkPlacer baseHeight I
 accessible field net/minecraft/world/gen/trunk/TrunkPlacer firstRandomHeight I
 accessible field net/minecraft/world/gen/trunk/TrunkPlacer secondRandomHeight I
 
-accessible method net/minecraft/block/WoodType register (Lnet/minecraft/block/WoodType;)Lnet/minecraft/block/WoodType;
-
 accessible field net/minecraft/resource/featuretoggle/FeatureManager featureFlags Ljava/util/Map;
 
 accessible field net/minecraft/datafixer/Schemas EMPTY Ljava/util/function/BiFunction;

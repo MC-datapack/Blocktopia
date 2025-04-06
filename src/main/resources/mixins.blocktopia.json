@@ -4,6 +4,7 @@
   "package": "github.mcdatapack.blocktopia.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+	"BlocksMixin",
 	"ChunkRegionMixin",
 	"FeatureManagerBuilderMixin",
 	"FluidBlockMixin",

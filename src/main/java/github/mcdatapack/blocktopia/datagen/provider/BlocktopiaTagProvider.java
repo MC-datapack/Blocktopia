@@ -187,6 +187,10 @@ public class BlocktopiaTagProvider {
                     .add(BANANA_CHAIR)
                     .add(CORN_CHAIR)
                     .add(POISONED_CHAIR);
+            getOrCreateTagBuilder(BlockTags.MAINTAINS_FARMLAND)
+                    .add(BANANA_CROP);
+            getOrCreateTagBuilder(BlockTags.DIRT)
+                    .add(SANDY_DIRT);
         }
     }
 

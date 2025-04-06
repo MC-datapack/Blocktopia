@@ -31,6 +31,7 @@ public class BiomeGenerator {
                 addOres(generationSettings, registryEntryLookup)
                 .feature(GenerationStep.Feature.FLUID_SPRINGS, registryEntryLookup.getOrThrow(MiscPlacedFeatures.SPRING_WATER))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.GLOW_FLOWER_PATCH_KEY))
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.BAMBOO))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.PATCH_SUGAR_CANE))
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(VegetationPlacedFeatures.VINES))
 
@@ -51,7 +52,8 @@ public class BiomeGenerator {
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, registryEntryLookup.getOrThrow(PlacedFeatureInit.PALM_TREE_KEY));
 
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder()
-                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityInit.MONKEY, 100, 4, 8))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityInit.MONKEY, 50, 4, 8))
+                .spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.PARROT, 50, 8, 12))
                 .spawn(SpawnGroup.UNDERGROUND_WATER_CREATURE, new SpawnSettings.SpawnEntry(EntityType.GLOW_SQUID, 10, 4, 6))
                 .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SPIDER, 5, 4, 4))
                 .spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 5, 4, 4))

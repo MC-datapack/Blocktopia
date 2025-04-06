@@ -1,4 +1,4 @@
-// 1.21.1	2025-03-30T20:14:20.6525509	Blocktopia/Tags for minecraft:block
+// 1.21.1	2025-04-06T12:16:00.885635	Blocktopia/Tags for minecraft:block
 f9ddeefd6ed7be3ccb093756ce135856d568f8ca data\minecraft\tags\block\enchantment_power_provider.json
 839e0f88025ffa3cb27642d1f0128c9f475b72af data\minecraft\tags\block\fence_gates.json
 7eb21ecd2a13148f709d14f845f1ec12856b22e4 data\blocktopia\tags\block\floor_extended_sapling_unallowed_floor.json
@@ -27,6 +27,7 @@ ed0ce9da3297a8dff6532ade51853c5317ce674a data\minecraft\tags\block\dragon_immune
 0cfb78b3c482e73ba2109bca5e2a6305d6da2110 data\blocktopia\tags\block\chairs.json
 3d4cfb94c41b2cbd62e13cb072982998dcee49d8 data\minecraft\tags\block\wool.json
 609771c2dd3788f24687be841fd7428d3b085b45 data\blocktopia\tags\block\legacy_cobblestone.json
+bd15dd12870e10da919c251d842c9eb333321e79 data\minecraft\tags\block\maintains_farmland.json
 2c98ea7100272b6d1d02de8e4a1e41c4e1ff430c data\minecraft\tags\block\stairs.json
 b131ee4fce99349b0bc0c7351b81d9b66e634b69 data\minecraft\tags\block\leaves.json
 ed0ce9da3297a8dff6532ade51853c5317ce674a data\minecraft\tags\block\wither_immune.json
@@ -39,4 +40,5 @@ fc9cea2bf4774abb718970356a6a516bb4c5ba40 data\blocktopia\tags\block\corn_logs.js
 78024558ca741f0b019d5b628ecfbf83bbd3c7cd data\blocktopia\tags\block\diamond_blocks.json
 5a1b4db7e14993d664746a7dcee723c38c825737 data\minecraft\tags\block\soul_fire_base_blocks.json
 72a19e0204b1a88079e73ff34139306693f9ed09 data\minecraft\tags\block\mineable\hoe.json
+f2c348d6ebf3d8f3123180b653276cb8fe9c75b3 data\minecraft\tags\block\dirt.json
 b74ce4205a73b7b32a37c06594b59f04cd0fd1c0 data\blocktopia\tags\block\iron_blocks.json
