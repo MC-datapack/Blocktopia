@@ -2,7 +2,6 @@ package github.mcdatapack.blocktopia.init;
 
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.init.blocks.BlockInit;
 import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import github.mcdatapack.blocktopia.item.CatTrinket;
 import github.mcdatapack.blocktopia.item.FishTrinket;
@@ -59,6 +58,17 @@ public class ItemInit {
             .maxCount(99)
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
     ));
+    public static final Item DEEPSLATE_EMERALD_CHERRY = register("deepslate_emerald_cherry", new Item(new Item.Settings()
+            .food(FoodList.DEEPSLATE_EMERALD_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .maxCount(99)
+    ));
+    public static final Item ENCHANTED_DEEPSLATE_EMERALD_CHERRY = register("enchanted_deepslate_emerald_cherry", new Item(new Item.Settings()
+            .food(FoodList.ENCHANTED_DEEPSLATE_EMERALD_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .maxCount(99)
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+    ));
     public static final Item PALM_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.PALM_BOAT_ID, BoatInit.PALM_BOAT_KEY, false);
     public static final Item PALM_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.PALM_CHEST_BOAT_ID, BoatInit.PALM_BOAT_KEY, true);
     public static final Item BANANA_BOAT = TerraformBoatItemHelper.registerBoatItem(BoatInit.BANANA_BOAT_ID, BoatInit.BANANA_BOAT_KEY, false);
@@ -78,6 +88,15 @@ public class ItemInit {
     public static final FishTrinket FISH_TRINKET = register("fish_trinket", new FishTrinket(new Item.Settings()));
     public static final CatTrinket CAT_TRINKET = register("cat_trinket", new CatTrinket(new Item.Settings()));
     public static final Item BANANA = register("banana", new Item(new Item.Settings().food(FoodList.BANANA)));
+
+    public static final Item CREATIVE_NUGGET = register("creative_nugget", new Item(new Item.Settings()
+            .fireproof()
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+    ));
+    public static final Item CREATIVE_INGOT = register("creative_ingot", new Item(new Item.Settings()
+            .fireproof()
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+    ));
 
     public static final BucketItem TROPICAL_WATER_BUCKET = register("tropical_water_bucket", new BucketItem(FluidInit.TROPICAL_WATER, new Item.Settings().maxCount(1)));
 

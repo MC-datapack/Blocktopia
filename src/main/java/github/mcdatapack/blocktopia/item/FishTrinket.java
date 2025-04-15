@@ -18,7 +18,7 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 
 public class FishTrinket extends TrinketItem {
-    private final StatusEffectInstance statusEffectInstance = new StatusEffectInstance(StatusEffects.WATER_BREATHING, 200, 1, false, true);
+    private final StatusEffectInstance statusEffectInstance = new StatusEffectInstance(StatusEffects.WATER_BREATHING, -1, 1, false, true);
     public FishTrinket(Settings settings) {
         super(settings);
     }

@@ -1,4 +1,4 @@
-// 1.21.1	2025-04-06T12:16:00.888635	Blocktopia/Tags for minecraft:item
+// 1.21.1	2025-04-15T17:26:40.8995259	Blocktopia/Tags for minecraft:item
 0cfb78b3c482e73ba2109bca5e2a6305d6da2110 data\blocktopia\tags\item\chairs.json
 38510d9c5cf43e8cd3c3f51ad044c478ce04d705 data\minecraft\tags\item\planks.json
 c6a8e3faa2a94a8c997e8f5446633fc07d2e6bab data\trinkets\tags\item\feet\cat.json
@@ -8,9 +8,11 @@ c6a8e3faa2a94a8c997e8f5446633fc07d2e6bab data\trinkets\tags\item\feet\cat.json
 3504f88213a313b1b253e816450394d0a4d56b9a data\minecraft\tags\item\wooden_doors.json
 849213cada9fa6e5a44c9ad8e1fde10af86ed0bf data\minecraft\tags\item\chest_boats.json
 2c98ea7100272b6d1d02de8e4a1e41c4e1ff430c data\minecraft\tags\item\stairs.json
+f3f5af2b33dd2ede7e778c2e56aeb3fd30ef355e data\minecraft\tags\item\piglin_loved.json
 b131ee4fce99349b0bc0c7351b81d9b66e634b69 data\minecraft\tags\item\leaves.json
 3d4cfb94c41b2cbd62e13cb072982998dcee49d8 data\minecraft\tags\item\wool.json
 d765ce436bf99d3e4077663ec34c222a22266275 data\minecraft\tags\item\enchantable\vanishing.json
+ecaf220bb8a13c0d2fb939f8fa2ec7e0ab083d30 data\c\tags\item\buckets.json
 03cda8030b5f3ac63bdc97a595cfa799b75bec08 data\blocktopia\tags\item\palm_logs.json
 9eda5c264751dd4e1680c0d33a2626797173e68f data\minecraft\tags\item\wooden_trapdoors.json
 94b418552c2e9466afc5553cd52ee5b1b7360f08 data\minecraft\tags\item\wooden_slabs.json

@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.init;
 
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.entity.DuperBlockEntity;
 import github.mcdatapack.blocktopia.block.entity.LegacyCutterBlockEntity;
 import github.mcdatapack.blocktopia.block.entity.SmallChestBlockEntity;
 import github.mcdatapack.blocktopia.block.entity.XPTrapBlockEntity;
@@ -19,6 +20,8 @@ public class BlockEntityTypeInit {
             BlockEntityType.Builder.create(XPTrapBlockEntity::new, BlockInit.XP_TRAP));
     public static final BlockEntityType<LegacyCutterBlockEntity> LEGACY_CUTTER = register("legacy_cutter",
             BlockEntityType.Builder.create(LegacyCutterBlockEntity::new, BlockInit.LEGACY_CUTTER));
+    public static final BlockEntityType<DuperBlockEntity> DUPER = register("duper",
+            BlockEntityType.Builder.create(DuperBlockEntity::new, BlockInit.DUPER));
 
 
     public static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType.Builder<T> builder) {

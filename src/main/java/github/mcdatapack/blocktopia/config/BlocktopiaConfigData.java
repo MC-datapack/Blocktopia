@@ -83,6 +83,9 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.Category("client")
     public LegacyCutterClientConfig legacyCutterClientConfig = new LegacyCutterClientConfig();
 
+    @ConfigEntry.Category("server")
+    public DuperConfig duperConfig = new DuperConfig();
+
     public static class SmallChestConfig {
         @ConfigEntry.Gui.TransitiveObject
         public boolean renderItems = true;
@@ -97,6 +100,10 @@ public class BlocktopiaConfigData implements ConfigData {
         @ConfigEntry.Gui.TransitiveObject
         @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
         public int processingTime = 10;
+    }
+
+    public static class DuperConfig {
+        public int processingTime = 20;
     }
 
     public static class LegacyCutterClientConfig {

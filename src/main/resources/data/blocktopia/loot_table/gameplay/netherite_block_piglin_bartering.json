@@ -1,0 +1,88 @@
+{
+  "type": "minecraft:barter",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "more_tools_and_armor:end_emerald",
+          "weight": 40,
+          "functions": []
+        },
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:enchanted_netherite_cherry",
+          "weight": 35,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:deepslate_emerald_cherry",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:bedrock_c0_0_12a",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 32,
+                "max": 64
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:enchanted_deepslate_emerald_cherry",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:creative_nugget",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:creative_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "blocktopia:gameplay/netherite_block_piglin_bartering"
+}

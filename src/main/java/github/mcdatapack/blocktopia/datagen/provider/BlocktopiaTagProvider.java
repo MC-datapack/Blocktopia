@@ -19,8 +19,10 @@ import java.util.concurrent.CompletableFuture;
 import github.mcdatapack.blocktopia.list.TrinketTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -201,6 +203,10 @@ public class BlocktopiaTagProvider {
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+            getOrCreateTagBuilder(ConventionalItemTags.BUCKETS)
+                    .add(TROPICAL_WATER_BUCKET);
+            getOrCreateTagBuilder(ItemTags.PIGLIN_LOVED)
+                    .add(NETHERITE_INGOT, Items.NETHERITE_BLOCK);
             getOrCreateTagBuilder(ItemTags.EQUIPPABLE_ENCHANTABLE)
                     .add(CARVED_PUMPKIN_A1_2_0.asItem());
             getOrCreateTagBuilder(ItemTags.VANISHING_ENCHANTABLE)

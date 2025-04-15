@@ -6,9 +6,9 @@
   "mixins": [
 	"BlocksMixin",
 	"ChunkRegionMixin",
-	"FeatureManagerBuilderMixin",
 	"FluidBlockMixin",
 	"LivingEntityMixin",
+	"PiglinBrainMixin",
 	"TrunkPlacerMixin"
   ],
   "injectors": {

@@ -51,6 +51,7 @@ public class BlockInit {
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
     public static final LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
     public static final SpongeTNTBlock SPONGE_TNT = register("sponge_tnt", new SpongeTNTBlock(AbstractBlock.Settings.copy(Blocks.TNT)));
+    public static final DuperBlock DUPER = register("duper", new DuperBlock(AbstractBlock.Settings.copy(Blocks.BEDROCK).strength(5000)));
 
     public static final BananaCropBlock BANANA_CROP = register("banana_crop", new BananaCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)),
             new Item.Settings(), AliasedBlockItem::new);

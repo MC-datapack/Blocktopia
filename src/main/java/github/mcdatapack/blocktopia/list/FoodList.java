@@ -178,6 +178,38 @@ public class FoodList {
             .statusEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, TickHourConverter(3), 9), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffectInit.XP_BOOST, TickMinuteConverter(25), 9), 1.0F)
             .build();
+    public static final FoodComponent DEEPSLATE_EMERALD_CHERRY_SETTINGS = new Builder()
+            .nutrition(40)
+            .saturationModifier(1)
+            .alwaysEdible()
+            .eatingTime(5)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TickHourConverter(1), 16), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, TickHourConverter(1), 16), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, TickHourConverter(1), 16), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, TickHourConverter(1), 16), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, TickHourConverter(1), 16), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, TickHourConverter(4), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.CONDUIT_POWER, TickHourConverter(4), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.LUCK, TickHourConverter(6), 14), 0.775F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, TickHourConverter(6), 14), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffectInit.XP_BOOST, TickHourConverter(1), 14), 1.0F)
+            .build();
+    public static final FoodComponent ENCHANTED_DEEPSLATE_EMERALD_CHERRY_SETTINGS = new Builder()
+            .nutrition(100)
+            .saturationModifier(1)
+            .alwaysEdible()
+            .eatingTime(5)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TickHourConverter(2), 32), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, TickHourConverter(2), 32), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, TickHourConverter(2), 32), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, TickHourConverter(2), 32), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, TickHourConverter(2), 32), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, TickHourConverter(10), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.CONDUIT_POWER, TickHourConverter(10), 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.LUCK, TickHourConverter(10), 32), 0.775F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, TickHourConverter(10), 32), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffectInit.XP_BOOST, TickHourConverter(2), 32), 1.0F)
+            .build();
     public static final FoodComponent BANANA = new Builder()
             .nutrition(5)
             .saturationModifier(0.5F)
@@ -190,6 +222,8 @@ public class FoodList {
     public static int TickSecondConverter(int seconds) {return seconds * 20;}
     public static int TickMinuteConverter(int minutes) {return minutes * 20 * 60;}
     public static int TickHourConverter(double hours) {return (int) (hours * 20 * 60 * 60);}
+
+
 
     public static class Builder {
         private int nutrition;

@@ -29,6 +29,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
@@ -57,6 +58,15 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         chairRecipe(BlockInit.BANANA_CHAIR, exporter);
         chairRecipe(BlockInit.CORN_CHAIR, exporter);
         chairRecipe(BlockInit.POISONED_CHAIR, exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BlockInit.DUPER)
+                .input('A', ItemInit.CREATIVE_INGOT)
+                .input('B', BlockInit.SMALL_CHEST)
+                .pattern(" A ")
+                .pattern("ABA")
+                .pattern(" A ")
+                .criterion(hasItem(ItemInit.CREATIVE_INGOT), conditionsFromItem(ItemInit.CREATIVE_INGOT))
+                .offerTo(exporter);
 
         offerSingleOutputShapelessRecipe(exporter, PURPLE_DYE, BlockInit.GLOW_FLOWER, "purple_dye");
 
@@ -291,6 +301,22 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.ENCHANTED_NETHERITE_CHERRY)
                 .input('A', NETHERITE_BLOCK)
                 .input('B', ItemInit.NETHERITE_CHERRY)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.DEEPSLATE_EMERALD_CHERRY)
+                .input('A', github.mcdatapack.more_tools_and_armor.init.ItemInit.DEEPSLATE_EMERALD)
+                .input('B', ItemInit.ENCHANTED_NETHERITE_CHERRY)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(ItemInit.CHERRY), conditionsFromItem(ItemInit.CHERRY))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ItemInit.ENCHANTED_DEEPSLATE_EMERALD_CHERRY)
+                .input('A', github.mcdatapack.more_tools_and_armor.init.BlockInit.DEEPSLATE_EMERALD_BLOCK)
+                .input('B', ItemInit.DEEPSLATE_EMERALD_CHERRY)
                 .pattern("AAA")
                 .pattern("ABA")
                 .pattern("AAA")

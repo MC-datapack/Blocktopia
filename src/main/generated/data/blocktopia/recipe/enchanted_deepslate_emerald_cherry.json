@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "more_tools_and_armor:deepslate_emerald_block"
+    },
+    "B": {
+      "item": "blocktopia:deepslate_emerald_cherry"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:enchanted_deepslate_emerald_cherry"
+  }
+}

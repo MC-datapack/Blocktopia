@@ -18,9 +18,11 @@ import java.util.Optional;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.data.family.BlockFamily;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
@@ -279,6 +281,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.SOUL_SAND_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GLOWSTONE_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GLOWSTONE_B1_9PRE5);
+        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.DUPER);
 
         Identifier topTexture = Identifier.ofVanilla("block/sand");
         Identifier sideTexture = Blocktopia.id("block/sandy_dirt");
@@ -311,6 +314,10 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ItemInit.DEEPSLATE_EMERALD_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.ENCHANTED_DEEPSLATE_EMERALD_CHERRY, ItemInit.DEEPSLATE_EMERALD_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.CREATIVE_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ItemInit.CREATIVE_INGOT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.COCONUT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.GOLDEN_COCONUT, Models.GENERATED);
         itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_COCONUT, ItemInit.GOLDEN_COCONUT, Models.GENERATED);

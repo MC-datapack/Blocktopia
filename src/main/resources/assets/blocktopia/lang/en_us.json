@@ -5,6 +5,10 @@
   "itemGroup.blocktopia.other_items": "§2§lBlocktopia: §fOther Blocks and Items",
   "itemGroup.blocktopia.all_items": "§2§lBlocktopia: §fSearch and All Items",
 
+  "item.blocktopia.deepslate_emerald_cherry": "Deepslate Emerald Cherry",
+  "item.blocktopia.enchanted_deepslate_emerald_cherry": "Enchanted Deepslate Emerald Cherry",
+  "block.blocktopia.duper": "Duper",
+
   "block.blocktopia.sponge_tnt": "Sponge TNT",
   "entity.blocktopia.sponge_tnt": "Fused Sponge TNT",
 
@@ -39,6 +43,7 @@
   "block.customportalapi.customportalblock": "Portal",
 
   "container.blocktopia.legacy_cutter": "Legacy Cutter",
+  "container.blocktopia.duper": "Duper",
   "block.blocktopia.legacy_cutter": "Legacy Cutter",
   "block.blocktopia.tropical_water": "Tropical Water",
   "fluid.blocktopia.tropical_water": "Tropical Water",

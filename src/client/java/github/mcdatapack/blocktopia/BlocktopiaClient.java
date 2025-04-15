@@ -3,10 +3,12 @@ package github.mcdatapack.blocktopia;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import github.mcdatapack.blocktopia.init.*;
 import github.mcdatapack.blocktopia.init.blocks.*;
+import github.mcdatapack.blocktopia.models.DuperModel;
 import github.mcdatapack.blocktopia.models.LegacyCutterModel;
 import github.mcdatapack.blocktopia.models.MonkeyModel;
 import github.mcdatapack.blocktopia.models.SmallChestModel;
 import github.mcdatapack.blocktopia.renderer.*;
+import github.mcdatapack.blocktopia.screen.DuperScreen;
 import github.mcdatapack.blocktopia.screen.LegacyCutterScreen;
 import github.mcdatapack.blocktopia.screen.SmallChestInventoryScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -18,6 +20,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -73,6 +76,7 @@ public class BlocktopiaClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(SmallChestModel.LAYER, SmallChestModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(LegacyCutterModel.LAYER, LegacyCutterModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(DuperModel.LAYER, DuperModel::getTexturedModelData);
 
         EntityModelLayerRegistry.registerModelLayer(ModelLayerInit.MONKEY, MonkeyModel::getTexturedModelData);
 
@@ -80,6 +84,7 @@ public class BlocktopiaClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(BlockEntityTypeInit.SMALL_CHEST_BLOCK_ENTITY, SmallChestBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(BlockEntityTypeInit.XP_TRAP, XPTrapBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(BlockEntityTypeInit.LEGACY_CUTTER, LegacyCutterRenderer::new);
+        BlockEntityRendererFactories.register(BlockEntityTypeInit.DUPER, DuperRenderer::new);
 
         //Entity Renderers
         EntityRendererRegistry.register(EntityInit.MONKEY, MonkeyRenderer::new);
@@ -90,5 +95,6 @@ public class BlocktopiaClient implements ClientModInitializer {
 
         HandledScreens.register(ScreenHandlerTypeInit.SMALL_CHEST_INVENTORY_SCREEN_HANDLER, SmallChestInventoryScreen::new);
         HandledScreens.register(ScreenHandlerTypeInit.LEGACY_CUTTER_INVENTORY_SCREEN_HANDLER, LegacyCutterScreen::new);
+        HandledScreens.register(ScreenHandlerTypeInit.DUPER_INVENTORY_SCREEN_HANDLER, DuperScreen::new);
     }
 }

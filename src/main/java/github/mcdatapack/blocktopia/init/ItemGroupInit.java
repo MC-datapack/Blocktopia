@@ -355,6 +355,9 @@ public class ItemGroupInit {
                 entries.add(BlockInit.EXTENDED_REPEATER_TICK);
                 entries.add(BlockInit.EXTENDED_REPEATER_SECOND);
                 entries.add(BlockInit.EXTENDED_REPEATER_MINUTE);
+                entries.add(ItemInit.CREATIVE_NUGGET);
+                entries.add(ItemInit.CREATIVE_INGOT);
+                entries.add(BlockInit.DUPER);
                 entries.add(ItemInit.COCONUT);
                 entries.add(ItemInit.GOLDEN_COCONUT);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_COCONUT);
@@ -365,6 +368,8 @@ public class ItemGroupInit {
                 entries.add(ItemInit.ENCHANTED_DIAMOND_CHERRY);
                 entries.add(ItemInit.NETHERITE_CHERRY);
                 entries.add(ItemInit.ENCHANTED_NETHERITE_CHERRY);
+                entries.add(ItemInit.DEEPSLATE_EMERALD_CHERRY);
+                entries.add(ItemInit.ENCHANTED_DEEPSLATE_EMERALD_CHERRY);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_CARROT);
                 entries.add(ItemInit.GOLDEN_POTATO);
                 entries.add(ItemInit.ENCHANTED_GOLDEN_POTATO);

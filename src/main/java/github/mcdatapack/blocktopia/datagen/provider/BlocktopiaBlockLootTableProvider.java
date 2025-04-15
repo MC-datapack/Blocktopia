@@ -1,12 +1,10 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 import github.mcdatapack.blocktopia.block.BananaCropBlock;
 import github.mcdatapack.blocktopia.init.ItemInit;
 import github.mcdatapack.blocktopia.init.blocks.BlockInit;
-import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Blocks;
@@ -21,11 +19,8 @@ import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
 import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
 
 public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvider {
-    private final RegistryWrapper<Enchantment> enchantmentRegistry;
-
     public BlocktopiaBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
-        this.enchantmentRegistry = registryLookup.getNow(null).getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
     }
 
     @Override
@@ -37,6 +32,9 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(PAPER_BLOCK);
         addDrop(GUNPOWDER_BLOCK);
         addDrop(FIREWORK_BLOCK);
+
+        addDrop(LEGACY_CUTTER);
+        addDrop(DUPER);
 
         addDrop(SPONGE_TNT);
 

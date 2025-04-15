@@ -11,10 +11,6 @@ accessible field net/minecraft/world/gen/trunk/TrunkPlacer baseHeight I
 accessible field net/minecraft/world/gen/trunk/TrunkPlacer firstRandomHeight I
 accessible field net/minecraft/world/gen/trunk/TrunkPlacer secondRandomHeight I
 
-accessible field net/minecraft/resource/featuretoggle/FeatureManager featureFlags Ljava/util/Map;
-
-accessible field net/minecraft/datafixer/Schemas EMPTY Ljava/util/function/BiFunction;
-
 accessible method net/minecraft/entity/TntEntity explode ()V
 extendable method net/minecraft/entity/TntEntity explode ()V
 accessible field net/minecraft/entity/TntEntity FUSE Lnet/minecraft/entity/data/TrackedData;

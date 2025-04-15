@@ -47,7 +47,6 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
-        LOGGER.debug("Loading Items, Blocks and Entities");
         LocateMobCommand.register();
         RecipeInit.load();
         FluidInit.load();
@@ -59,23 +58,18 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         FoliagePlacerTypeInit.load();
         TreeDecoratorTypeInit.load();
         PotionInit.load();
-        LOGGER.debug("Applying Biome Modifications");
         BiomeModificationInit.load(BlocktopiaConfig.getConfig().worldgenConfig.worldgenFeatures.features);
         BiomeInit.load();
-        LOGGER.debug("Loading Block Entities");
         BlockEntityTypeInit.load();
         ScreenHandlerTypeInit.load();
-        LOGGER.debug("Loading Entities");
         EntityInit.load();
         FabricDefaultAttributeRegistry.register(EntityInit.MONKEY, MonkeyEntity.createMonkeyAttributes());
         FabricDefaultAttributeRegistry.register(EntityInit.ABSTRACT_BIRD, AbstractBirdEntity.createBirdAttributes());
         if (BlocktopiaConfig.getConfig().villagerConfig.blocktopiaVillagers) {
-            LOGGER.debug("Loading Custom Villagers");
             VillagerInit.load();
         }
         CustomTrades.load(BlocktopiaConfig.getConfig().villagerConfig.maxUses);
         EnchantmentInit.load();
-        LOGGER.debug("Event handling");
         LootHandler.registerListeners();
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST.asItem()));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.addBefore(Items.CHEST, BlockInit.SMALL_CHEST.asItem()));
@@ -94,7 +88,6 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         VillagerInteractionRegistries.registerGiftLootTable(VillagerInit.LEGACY, LootTableInit.LEGACY_VILLAGER_GIFT_GAMEPLAY);
         VillagerInteractionRegistries.registerGiftLootTable(VillagerInit.BEEKEEPER, LootTableInit.BEEKEEPER_VILLAGER_GIFT_GAMEPLAY);
         VillagerInteractionRegistries.registerFood(ItemInit.CHERRY, 8);
-        LOGGER.debug("Loading Creative Tabs");
         ItemGroupInit.load();
 
         CustomPortalBuilder.beginPortal()

@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia.block;
 
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import github.mcdatapack.blocktopia.entity.ChairEntity;
 import github.mcdatapack.blocktopia.init.EntityInit;
 import net.minecraft.block.*;
@@ -22,13 +23,20 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class ChairBlock extends HorizontalFacingBlock {
-    private static final MapCodec<ChairBlock> CODEC = createCodec(settings -> new ChairBlock(Blocks.OAK_PLANKS, settings));
+    private static final MapCodec<ChairBlock> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            instance.group(Block.CODEC.fieldOf("plank").forGetter(ChairBlock::plank),
+                    Settings.CODEC.fieldOf("settings").forGetter(ChairBlock::getSettings))
+                    .apply(instance, ChairBlock::new));
     public final Block plank;
     private static final VoxelShape SHAPE = Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 16.0, 13.0);
 
     public ChairBlock(Block plank, Settings settings) {
         super(settings);
         this.plank = plank;
+    }
+
+    public Block plank() {
+        return plank;
     }
 
     @Override
