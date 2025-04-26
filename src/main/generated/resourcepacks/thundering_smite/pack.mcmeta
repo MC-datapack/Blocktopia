@@ -1,7 +1,7 @@
 {
   "pack": {
     "description": {
-      "translate": "dataPack.thundering_smite.description"
+      "translate": "datapack.thundering_smite.description"
     },
     "pack_format": 48
   }

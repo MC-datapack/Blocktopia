@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing\u003dsouth": {
+      "model": "blocktopia:block/light_blue_jungle_chair",
+      "y": 180
+    },
+    "facing\u003deast": {
+      "model": "blocktopia:block/light_blue_jungle_chair",
+      "y": 90
+    },
+    "facing\u003dnorth": {
+      "model": "blocktopia:block/light_blue_jungle_chair",
+      "y": 0
+    },
+    "facing\u003dwest": {
+      "model": "blocktopia:block/light_blue_jungle_chair",
+      "y": 270
+    }
+  }
+}

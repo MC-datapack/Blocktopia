@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "blocktopia:mahogany_door",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "blocktopia:mahogany_door",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "blocktopia:blocks/mahogany_door"
+}

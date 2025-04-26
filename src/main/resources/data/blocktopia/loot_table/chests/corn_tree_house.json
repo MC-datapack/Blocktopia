@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+	{
+	  "rolls": {
+		"type": "minecraft:uniform",
+		"min": 4,
+		"max": 10
+	  },
+	  "entries": [
+		{
+		  "type": "minecraft:group",
+		  "children": [
+			{
+			  "type": "minecraft:item",
+			  "name": "blocktopia:corn_log",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 1,
+					"max": 16
+				  }
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "name": "blocktopia:corn_sapling",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 1,
+					"max": 9
+				  }
+				}
+			  ]
+			}
+		  ],
+		  "functions": []
+		}
+	  ]
+	}
+  ],
+  "functions": [],
+  "random_sequence": "blocktopia:chests/corn_tree_house"
+}

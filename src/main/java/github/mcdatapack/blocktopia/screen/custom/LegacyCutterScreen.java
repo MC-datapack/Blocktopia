@@ -1,0 +1,54 @@
+package github.mcdatapack.blocktopia.screen.custom;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
+import github.mcdatapack.blocktopia.screen.custom.screenhandler.LegacyCutterScreenHandler;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.render.GameRenderer;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+
+import java.awt.*;
+
+public class LegacyCutterScreen extends HandledScreen<LegacyCutterScreenHandler> {
+    private static final Identifier TEXTURE = Blocktopia.id("textures/gui/container/legacy_cutter.png");
+
+    public LegacyCutterScreen(LegacyCutterScreenHandler handler, PlayerInventory inventory, Text title) {
+        super(handler, inventory, title);
+
+        this.backgroundWidth = 176;
+        this.backgroundHeight = 176;
+        this.playerInventoryTitleY = this.backgroundHeight - 105;
+    }
+
+    @Override
+    protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
+        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
+        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+        RenderSystem.setShaderTexture(0, TEXTURE);
+        int x = (width - backgroundWidth) / 2;
+        int y = (height - backgroundHeight) / 2;
+
+        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
+        renderProgressArrow(context, x, y);
+    }
+
+    private void renderProgressArrow(DrawContext context, int x, int y) {
+        if (handler.isCrafting()) {
+            Color color = BlocktopiaConfig.getConfig().legacyCutterClientConfig.getColor();
+            RenderSystem.setShaderColor(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+            context.drawTexture(TEXTURE, x + 85, y + 30, 176, 0, 8, handler.getScaledProgress());
+            RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+        }
+    }
+
+    @Override
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        super.render(context, mouseX, mouseY, delta);
+        drawMouseoverTooltip(context, mouseX, mouseY);
+    }
+}

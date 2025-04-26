@@ -18,7 +18,7 @@
       "state": {
         "Name": "blocktopia:palm_leaves",
         "Properties": {
-          "distance": "64",
+          "distance": "128",
           "persistent": "false",
           "waterlogged": "false"
         }

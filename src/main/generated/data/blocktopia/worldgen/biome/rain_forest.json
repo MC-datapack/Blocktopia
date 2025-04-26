@@ -59,17 +59,23 @@
       "minecraft:bamboo",
       "minecraft:patch_sugar_cane",
       "minecraft:vines",
+      "blocktopia:tropical_moss_patch",
+      "blocktopia:tropical_moss_patch_bonemeal",
       "blocktopia:giant_3x3_banana_tree",
+      "blocktopia:giant_3x3_mahogany_tree",
       "blocktopia:giant_3x3_corn_tree",
       "blocktopia:giant_3x3_poisoned_tree",
       "blocktopia:giant_3x3_flowering_cherry",
       "blocktopia:mega_jungle_tree",
       "blocktopia:jungle_tree",
+      "blocktopia:azalea_tree",
       "blocktopia:giant_banana_tree",
+      "blocktopia:giant_mahogany_tree",
       "blocktopia:giant_corn_tree",
       "blocktopia:giant_poisoned_tree",
       "blocktopia:giant_flowering_cherry",
       "blocktopia:banana_tree",
+      "blocktopia:mahogany_tree",
       "blocktopia:corn_tree",
       "blocktopia:poisoned_tree",
       "blocktopia:flowering_cherry_tree",
@@ -79,22 +85,22 @@
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [],
-    "axolotls": [],
-    "creature": [
+    "ambient": [
       {
         "type": "blocktopia:monkey",
-        "maxCount": 8,
-        "minCount": 4,
-        "weight": 50
+        "maxCount": 12,
+        "minCount": 8,
+        "weight": 100
       },
       {
         "type": "minecraft:parrot",
         "maxCount": 12,
         "minCount": 8,
-        "weight": 50
+        "weight": 100
       }
     ],
+    "axolotls": [],
+    "creature": [],
     "misc": [],
     "monster": [
       {

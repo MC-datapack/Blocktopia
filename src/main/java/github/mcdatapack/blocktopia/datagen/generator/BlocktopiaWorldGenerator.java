@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.datagen.generator;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.mojang.logging.LogUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.registry.RegistryKeys;
@@ -14,17 +15,24 @@ public class BlocktopiaWorldGenerator extends FabricDynamicRegistryProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, FabricDynamicRegistryProvider.Entries entries) {
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.CONFIGURED_FEATURE));
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.PLACED_FEATURE));
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.BIOME));
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.TEMPLATE_POOL));
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.STRUCTURE));
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.STRUCTURE_SET));
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.DIMENSION_TYPE));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.CONFIGURED_FEATURE))));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.PLACED_FEATURE))));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.BIOME))));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.TEMPLATE_POOL))));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.STRUCTURE))));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.STRUCTURE_SET))));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.DIMENSION_TYPE))));
+        entries.addAll(log(registries.getWrapperOrThrow(log(RegistryKeys.PROCESSOR_LIST))));
+        log("finished");
     }
 
     @Override
     public String getName() {
         return "Blocktopia - World Generator";
+    }
+
+    private <T> T log(T log) {
+        LogUtils.getLogger().info(log.toString());
+        return log;
     }
 }

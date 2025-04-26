@@ -1,8 +1,8 @@
 package github.mcdatapack.blocktopia.datagen.generator;
 
-import github.mcdatapack.blocktopia.datagen.generator.custom.BlocktopiaEnchantmentGenerator;
-import github.mcdatapack.blocktopia.enchantments.effects.LightningEnchantmentEffect;
-import github.mcdatapack.blocktopia.init.EnchantmentInit;
+import github.mcdatapack.blocktopia.datagen.custom.BlocktopiaEnchantmentGenerator;
+import github.mcdatapack.blocktopia.enchantment.effects.LightningEnchantmentEffect;
+import github.mcdatapack.blocktopia.enchantment.ModEnchantments;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
@@ -20,7 +20,7 @@ public class ThunderingSmiteGenerator extends BlocktopiaEnchantmentGenerator {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
-        addEnchantment(entries, EnchantmentInit.THUNDERING_SMITE_KEY, Enchantment.builder(
+        addEnchantment(entries, ModEnchantments.THUNDERING_SMITE_KEY, Enchantment.builder(
                 Enchantment.definition(
                         swordEnchantable,
                         1,

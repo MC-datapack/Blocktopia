@@ -19,7 +19,7 @@
       "state": {
         "Name": "blocktopia:leaves_c0_24st",
         "Properties": {
-          "distance": "7",
+          "distance": "128",
           "persistent": "false",
           "waterlogged": "false"
         }

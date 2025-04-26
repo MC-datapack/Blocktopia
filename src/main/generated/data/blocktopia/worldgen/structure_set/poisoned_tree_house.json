@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "frequency": 0.44,
+    "salt": 14357700,
+    "separation": 12,
+    "spacing": 16
+  },
+  "structures": [
+    {
+      "structure": "blocktopia:poisoned_tree_house",
+      "weight": 1
+    }
+  ]
+}

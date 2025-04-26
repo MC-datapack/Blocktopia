@@ -1,6 +1,6 @@
 package github.mcdatapack.blocktopia.mixin;
 
-import github.mcdatapack.blocktopia.list.TagList;
+import github.mcdatapack.blocktopia.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -36,7 +36,7 @@ public abstract class FluidBlockMixin {
                 BlockPos neighborPos = pos.offset(direction.getOpposite());
                 FluidState neighborFluid = world.getFluidState(neighborPos);
 
-                if (neighborFluid.isIn(TagList.Fluids.TROPICAL_WATER)) {
+                if (neighborFluid.isIn(ModTags.Fluids.TROPICAL_WATER)) {
                     Block block = world.getFluidState(pos).isStill() ? Blocks.CRYING_OBSIDIAN : Blocks.COBBLED_DEEPSLATE;
                     world.setBlockState(pos, block.getDefaultState());
                     playExtinguishSound(world, pos);

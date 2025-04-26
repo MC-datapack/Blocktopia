@@ -3,25 +3,13 @@
   "pools": [
 	{
 	  "rolls": {
+		"type": "minecraft:uniform",
 		"min": 4,
 		"max": 10
 	  },
 	  "entries": [
 		{
-		  "type": "minecraft:item",
-		  "name": "blocktopia:glow_flower",
-		  "functions": [
-			{
-			  "function": "minecraft:set_count",
-			  "count": {
-				"min": 2,
-				"max": 12
-			  }
-			}
-		  ]
-		},
-		{
-		  "type": "minecraft:alternatives",
+		  "type": "minecraft:group",
 		  "children": [
 			{
 			  "type": "minecraft:item",
@@ -30,8 +18,37 @@
 				{
 				  "function": "minecraft:set_count",
 				  "count": {
+					"type": "minecraft:uniform",
 					"min": 1,
 					"max": 16
+				  }
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "name": "blocktopia:banana_log",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 1,
+					"max": 16
+				  }
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "name": "blocktopia:banana_sapling",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 1,
+					"max": 9
 				  }
 				}
 			  ]

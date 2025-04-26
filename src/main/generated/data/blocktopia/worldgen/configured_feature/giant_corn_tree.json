@@ -18,7 +18,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
+      "type": "blocktopia:extreme",
       "height": 10,
       "offset": 0,
       "radius": {
@@ -32,7 +32,7 @@
       "state": {
         "Name": "blocktopia:corn_leaves",
         "Properties": {
-          "distance": "64",
+          "distance": "128",
           "persistent": "false",
           "waterlogged": "false"
         }

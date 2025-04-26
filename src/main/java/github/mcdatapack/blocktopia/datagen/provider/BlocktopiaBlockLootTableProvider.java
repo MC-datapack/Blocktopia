@@ -2,21 +2,19 @@ package github.mcdatapack.blocktopia.datagen.provider;
 
 import java.util.concurrent.CompletableFuture;
 
-import github.mcdatapack.blocktopia.block.BananaCropBlock;
-import github.mcdatapack.blocktopia.init.ItemInit;
-import github.mcdatapack.blocktopia.init.blocks.BlockInit;
+import github.mcdatapack.blocktopia.block.custom.BananaCropBlock;
+import github.mcdatapack.blocktopia.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.predicate.StatePredicate;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
-import static github.mcdatapack.blocktopia.init.ItemInit.BANANA;
-import static github.mcdatapack.blocktopia.init.blocks.BlockInit.*;
-import static github.mcdatapack.blocktopia.init.blocks.LegacyBlocks.*;
+import static github.mcdatapack.blocktopia.item.ModItems.BANANA;
+import static github.mcdatapack.blocktopia.block.ModBlocks.*;
+import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
 
 public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvider {
     public BlocktopiaBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
@@ -28,6 +26,9 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(BANANA_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(BananaCropBlock.AGE, BananaCropBlock.MAX_AGE));
         this.addDrop(BANANA_CROP, this.cropDrops(BANANA_CROP, BANANA, BANANA_CROP.asItem(), builder2));
+
+        addDrop(TROPICAL_MOSS);
+        addDrop(TROPICAL_MOSS_CARPET);
 
         addDrop(PAPER_BLOCK);
         addDrop(GUNPOWDER_BLOCK);
@@ -100,6 +101,20 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(POISONED_PRESSURE_PLATE);
         addDrop(POISONED_BUTTON);
         addDrop(POISONED_TRAPDOOR);
+
+        addDrop(MAHOGANY_LOG);
+        addDrop(STRIPPED_MAHOGANY_LOG);
+        addDrop(MAHOGANY_WOOD);
+        addDrop(STRIPPED_MAHOGANY_WOOD);
+        addDrop(MAHOGANY_SAPLING);
+        addPottedPlantDrops(POTTED_MAHOGANY_SAPLING);
+        addDrop(MAHOGANY_PLANKS);
+        addDrop(MAHOGANY_FENCE);
+        addDrop(MAHOGANY_FENCE_GATE);
+        addDrop(MAHOGANY_STAIRS);
+        addDrop(MAHOGANY_PRESSURE_PLATE);
+        addDrop(MAHOGANY_BUTTON);
+        addDrop(MAHOGANY_TRAPDOOR);
 
         addDrop(COBBLESTONE_RD20090515);
         addDrop(COBBLESTONE_C_0_0_14A);
@@ -193,12 +208,12 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(WOODEN_STAIRS_INF20100629);
         addDrop(WOODEN_STAIRS_B1_9PRE5);
         addDrop(COBBLESTONE_STAIRS_RD20090515);
-        addDrop(COBBLESTONE_STAIRS_C0_0_14A);
+        addDrop(COBBLESTONE_STAIRS_INF20100629);
         addDrop(COBBLESTONE_STAIRS_B1_7);
         addDrop(TORCH_IN20100124_2);
         addDrop(WALL_TORCH_IN20100124_2);
-        addDrop(REDSTONE_TORCH_A1_0_1, ItemInit.REDSTONE_TORCH_A1_0_1);
-        addDrop(REDSTONE_WALL_TORCH_A1_0_1, ItemInit.REDSTONE_TORCH_A1_0_1);
+        addDrop(REDSTONE_TORCH_A1_0_1, REDSTONE_TORCH_A1_0_1);
+        addDrop(REDSTONE_WALL_TORCH_A1_0_1, REDSTONE_TORCH_A1_0_1);
         addDropWithSilkTouch(ICE_A1_0_4);
         addDrop(CLAY_BLOCK_A1_0_11);
         addDrop(WOODEN_FENCE_RD20090515);
@@ -220,19 +235,26 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(XP_TRAP);
         addDrop(SANDY_DIRT, block -> drops(block, Blocks.DIRT));
 
-        addDrop(BlockInit.OAK_CHAIR);
-        addDrop(BlockInit.SPRUCE_CHAIR);
-        addDrop(BlockInit.BIRCH_CHAIR);
-        addDrop(BlockInit.JUNGLE_CHAIR);
-        addDrop(BlockInit.ACACIA_CHAIR);
-        addDrop(BlockInit.DARK_OAK_CHAIR);
-        addDrop(BlockInit.CRIMSON_CHAIR);
-        addDrop(BlockInit.WARPED_CHAIR);
-        addDrop(BlockInit.MANGROVE_CHAIR);
-        addDrop(BlockInit.CHERRY_CHAIR);
-        addDrop(BlockInit.PALM_CHAIR);
-        addDrop(BlockInit.BANANA_CHAIR);
+        addDrop(OAK_CHAIR);
+        addDrop(SPRUCE_CHAIR);
+        addDrop(BIRCH_CHAIR);
+        addDrop(JUNGLE_CHAIR);
+        addDrop(ACACIA_CHAIR);
+        addDrop(DARK_OAK_CHAIR);
+        addDrop(CRIMSON_CHAIR);
+        addDrop(WARPED_CHAIR);
+        addDrop(MANGROVE_CHAIR);
+        addDrop(BAMBOO_CHAIR);
+        addDrop(CHERRY_CHAIR);
+        addDrop(PALM_CHAIR);
+        addDrop(BANANA_CHAIR);
         addDrop(CORN_CHAIR);
         addDrop(POISONED_CHAIR);
+        addDrop(MAHOGANY_CHAIR);
+    }
+
+    private void addDrop(Block[] blocks) {
+        for (Block block : blocks)
+            addDrop(block);
     }
 }

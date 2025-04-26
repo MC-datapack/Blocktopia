@@ -1,7 +1,6 @@
 package github.mcdatapack.blocktopia.fluid;
 
-import github.mcdatapack.blocktopia.init.FluidInit;
-import github.mcdatapack.blocktopia.init.ItemInit;
+import github.mcdatapack.blocktopia.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -58,22 +57,22 @@ public abstract class TropicalWaterFluid extends FlowableFluid {
 
     @Override
     public Fluid getStill() {
-        return FluidInit.TROPICAL_WATER;
+        return ModFluids.TROPICAL_WATER;
     }
 
     @Override
     public Fluid getFlowing() {
-        return FluidInit.FLOWING_TROPICAL_WATER;
+        return ModFluids.FLOWING_TROPICAL_WATER;
     }
 
     @Override
     public Item getBucketItem() {
-        return ItemInit.TROPICAL_WATER_BUCKET;
+        return ModItems.TROPICAL_WATER_BUCKET;
     }
 
     @Override
     protected BlockState toBlockState(FluidState state) {
-        return FluidInit.TROPICAL_WATER_BLOCK.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
+        return ModFluids.TROPICAL_WATER_BLOCK.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 
     @Override

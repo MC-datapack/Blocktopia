@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blocktopia:mahogany_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#blocktopia:mahogany_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:stripped_mahogany_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blocktopia:mahogany_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:stripped_mahogany_wood"
+    ]
+  }
+}

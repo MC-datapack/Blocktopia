@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "frequency": 0.25,
+    "salt": 14357700,
+    "separation": 16,
+    "spacing": 24
+  },
+  "structures": [
+    {
+      "structure": "blocktopia:corn_tree_house",
+      "weight": 1
+    }
+  ]
+}

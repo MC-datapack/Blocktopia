@@ -1,0 +1,1817 @@
+{
+  "processors": [
+    {
+      "processor_type": "blocktopia:random_state_rule",
+      "rules": [
+        {
+          "input_predicate": {
+            "block": "blocktopia:oak_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:spruce_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:birch_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:jungle_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:acacia_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:dark_oak_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:crimson_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:warped_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:mangrove_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:bamboo_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:cherry_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:palm_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:banana_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:corn_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:poisoned_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        },
+        {
+          "input_predicate": {
+            "block": "blocktopia:mahogany_chair",
+            "predicate_type": "minecraft:block_match"
+          },
+          "location_predicate": {
+            "predicate_type": "minecraft:always_true"
+          },
+          "output_states": [
+            {
+              "Name": "blocktopia:mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:white_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:orange_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:magenta_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_blue_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:yellow_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:lime_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:pink_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:gray_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:light_gray_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:cyan_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:purple_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:blue_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:brown_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:green_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:red_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:black_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

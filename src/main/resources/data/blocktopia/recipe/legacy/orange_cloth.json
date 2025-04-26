@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "tag": "minecraft:wool"
-  },
-  "result": {
-    "id": "blocktopia:orange_cloth"
-  }
-}

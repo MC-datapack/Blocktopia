@@ -3,7 +3,7 @@ package github.mcdatapack.blocktopia.mixin;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import github.mcdatapack.blocktopia.init.LootTableInit;
+import github.mcdatapack.blocktopia.loottable.ModLootTables;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.item.Item;
@@ -41,9 +41,9 @@ public abstract class PiglinBrainMixin {
     @Redirect(method = "getBarteredItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/registry/ReloadableRegistries$Lookup;getLootTable(Lnet/minecraft/registry/RegistryKey;)Lnet/minecraft/loot/LootTable;"))
     private static LootTable getLootTable(ReloadableRegistries.Lookup instance, RegistryKey<LootTable> key, PiglinEntity piglin) {
         if (piglin.getOffHandStack().isOf(Items.NETHERITE_INGOT)) {
-            return instance.getLootTable(LootTableInit.NETHERITE_PIGLIN_BARTERING_GAMEPLAY);
+            return instance.getLootTable(ModLootTables.NETHERITE_PIGLIN_BARTERING);
         } else if (piglin.getOffHandStack().isOf(Items.NETHERITE_BLOCK)) {
-            return instance.getLootTable(LootTableInit.NETHERITE_BLOCK_PIGLIN_BARTERING_GAMEPLAY);
+            return instance.getLootTable(ModLootTables.NETHERITE_BLOCK_PIGLIN_BARTERING);
         } else if (piglin.getOffHandStack().isOf(Items.GOLD_INGOT)) {
             return instance.getLootTable(LootTables.PIGLIN_BARTERING_GAMEPLAY);
         }

@@ -1,0 +1,84 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+	{
+	  "rolls": {
+		"type": "minecraft:uniform",
+		"min": 4,
+		"max": 10
+	  },
+	  "entries": [
+		{
+		  "type": "minecraft:group",
+		  "children": [
+			{
+			  "type": "minecraft:item",
+			  "name": "blocktopia:cherry",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 2,
+					"max": 12
+				  }
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "name": "minecraft:cherry_log",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 1,
+					"max": 16
+				  }
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "name": "blocktopia:flowering_cherry_sapling",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 1,
+					"max": 9
+				  }
+				}
+			  ]
+			},
+			{
+			  "type": "minecraft:item",
+			  "name": "blocktopia:golden_cherry",
+			  "functions": [
+				{
+				  "function": "minecraft:set_count",
+				  "count": {
+					"type": "minecraft:uniform",
+					"min": 1,
+					"max": 6
+				  },
+				  "conditions": [
+					{
+					  "condition": "minecraft:random_chance",
+					  "chance": 0.125
+					}
+				  ]
+				}
+			  ]
+			}
+		  ],
+		  "functions": []
+		}
+	  ]
+	}
+  ],
+  "functions": [],
+  "random_sequence": "blocktopia:chests/flowering_cherry_tree_house"
+}

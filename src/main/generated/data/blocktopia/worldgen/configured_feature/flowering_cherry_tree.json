@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
+      "type": "blocktopia:extreme",
       "height": 4,
       "offset": 0,
       "radius": {
@@ -23,7 +23,7 @@
       "state": {
         "Name": "blocktopia:flowering_cherry_leaves",
         "Properties": {
-          "distance": "64",
+          "distance": "128",
           "persistent": "false",
           "waterlogged": "false"
         }

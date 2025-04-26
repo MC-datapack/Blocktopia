@@ -4,9 +4,7 @@
       "element": {
         "element_type": "minecraft:legacy_single_pool_element",
         "location": "blocktopia:banana_tree_house",
-        "processors": {
-          "processors": []
-        },
+        "processors": "blocktopia:random_chair",
         "projection": "rigid"
       },
       "weight": 1

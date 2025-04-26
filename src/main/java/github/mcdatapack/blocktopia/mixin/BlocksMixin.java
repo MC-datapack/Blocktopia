@@ -1,6 +1,6 @@
 package github.mcdatapack.blocktopia.mixin;
 
-import github.mcdatapack.blocktopia.init.EntityInit;
+import github.mcdatapack.blocktopia.entity.ModEntityTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -16,7 +16,7 @@ public class BlocksMixin {
     @Inject(method = "canSpawnOnLeaves", at = @At("RETURN"), cancellable = true)
     private static void canSpawnOnLeaves(BlockState state, BlockView world, BlockPos pos, EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
         if (!cir.getReturnValue()) {
-            cir.setReturnValue(type == EntityInit.MONKEY);
+            cir.setReturnValue(type == ModEntityTypes.MONKEY);
         }
     }
 }

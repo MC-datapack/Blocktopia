@@ -17,15 +17,6 @@ fabricApi {
 loom {
 	accessWidenerPath = file("src/main/resources/blocktopia.accesswidener")
 
-	splitEnvironmentSourceSets()
-
-	mods {
-		"blocktopia" {
-			sourceSet sourceSets.main
-			sourceSet sourceSets.client
-		}
-	}
-
 	runs {
 		datagen {
 			inherit client
@@ -92,7 +83,7 @@ dependencies {
 
 	modRuntimeOnly "maven.modrinth:continuity:${project.continuity_version}"
 
-	modRuntimeOnly "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
+	modRuntimeOnly "mezz.jei:jei-1.21.1-fabric:${jei_version}"
 }
 
 processResources {
@@ -120,7 +111,6 @@ jar {
 	}
 }
 
-// configure the maven publication
 publishing {
 	publications {
 		create("mavenJava", MavenPublication) {

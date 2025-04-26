@@ -9,7 +9,9 @@
 	"FluidBlockMixin",
 	"LivingEntityMixin",
 	"PiglinBrainMixin",
-	"TrunkPlacerMixin"
+	"StructureBlockBlockEntityMixin",
+	"TrunkPlacerMixin",
+	"UpdateStructureBlockC2SPacketMixin"
   ],
   "injectors": {
 	"defaultRequire": 1

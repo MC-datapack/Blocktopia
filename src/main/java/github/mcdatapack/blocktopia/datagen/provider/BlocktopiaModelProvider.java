@@ -3,11 +3,12 @@ package github.mcdatapack.blocktopia.datagen.provider;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.block.BananaCropBlock;
-import github.mcdatapack.blocktopia.block.ChairBlock;
-import github.mcdatapack.blocktopia.init.ItemInit;
-import github.mcdatapack.blocktopia.init.blocks.BlockInit;
-import github.mcdatapack.blocktopia.init.blocks.LegacyBlocks;
+import github.mcdatapack.blocktopia.block.ModBlockFamilies;
+import github.mcdatapack.blocktopia.block.custom.BananaCropBlock;
+import github.mcdatapack.blocktopia.block.custom.ChairBlock;
+import github.mcdatapack.blocktopia.item.ModItems;
+import github.mcdatapack.blocktopia.block.ModBlocks;
+import github.mcdatapack.blocktopia.block.LegacyBlocks;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -18,11 +19,9 @@ import java.util.Optional;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.data.family.BlockFamily;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
@@ -35,113 +34,72 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerCrop(BlockInit.BANANA_CROP, BananaCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+        blockStateModelGenerator.registerCrop(ModBlocks.BANANA_CROP, BananaCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.SPONGE_TNT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPONGE_TNT);
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PAPER_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.GUNPOWDER_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FIREWORK_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.PALM_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.PALM_SAPLING, BlockInit.POTTED_PALM_SAPLING, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerLog(BlockInit.PALM_LOG)
-                .log(BlockInit.PALM_LOG).wood(BlockInit.PALM_WOOD);
-        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_PALM_LOG)
-                .log(BlockInit.STRIPPED_PALM_LOG).wood(BlockInit.STRIPPED_PALM_WOOD);
-        var palmFamily = new BlockFamily.Builder(BlockInit.PALM_PLANKS)
-                .button(BlockInit.PALM_BUTTON)
-                .fence(BlockInit.PALM_FENCE)
-                .fenceGate(BlockInit.PALM_FENCE_GATE)
-                .pressurePlate(BlockInit.PALM_PRESSURE_PLATE)
-                .slab(BlockInit.PALM_SLAB)
-                .stairs(BlockInit.PALM_STAIRS)
-                .door(BlockInit.PALM_DOOR)
-                .trapdoor(BlockInit.PALM_TRAPDOOR)
-                .sign(BlockInit.PALM_SIGN, BlockInit.PALM_WALL_SIGN)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(palmFamily.getBaseBlock())
-                .family(palmFamily);
-        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_PALM_LOG, BlockInit.PALM_HANGING_SIGN, BlockInit.PALM_WALL_HANGING_SIGN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PAPER_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GUNPOWDER_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FIREWORK_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALM_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.PALM_SAPLING, ModBlocks.POTTED_PALM_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.PALM_LOG)
+                .log(ModBlocks.PALM_LOG).wood(ModBlocks.PALM_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PALM_LOG)
+                .log(ModBlocks.STRIPPED_PALM_LOG).wood(ModBlocks.STRIPPED_PALM_WOOD);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.PALM.getBaseBlock())
+                .family(ModBlockFamilies.PALM);
+        blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_PALM_LOG, ModBlocks.PALM_HANGING_SIGN, ModBlocks.PALM_WALL_HANGING_SIGN);
 
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.BANANA_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.BANANA_SAPLING, BlockInit.POTTED_BANANA_SAPLING, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerLog(BlockInit.BANANA_LOG)
-                .log(BlockInit.BANANA_LOG).wood(BlockInit.BANANA_WOOD);
-        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_BANANA_LOG)
-                .log(BlockInit.STRIPPED_BANANA_LOG).wood(BlockInit.STRIPPED_BANANA_WOOD);
-        var bananaFamily = new BlockFamily.Builder(BlockInit.BANANA_PLANKS)
-                .button(BlockInit.BANANA_BUTTON)
-                .fence(BlockInit.BANANA_FENCE)
-                .fenceGate(BlockInit.BANANA_FENCE_GATE)
-                .pressurePlate(BlockInit.BANANA_PRESSURE_PLATE)
-                .slab(BlockInit.BANANA_SLAB)
-                .stairs(BlockInit.BANANA_STAIRS)
-                .door(BlockInit.BANANA_DOOR)
-                .trapdoor(BlockInit.BANANA_TRAPDOOR)
-                .sign(BlockInit.BANANA_SIGN, BlockInit.BANANA_WALL_SIGN)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(bananaFamily.getBaseBlock())
-                .family(bananaFamily);
-        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_BANANA_LOG, BlockInit.BANANA_HANGING_SIGN, BlockInit.BANANA_WALL_HANGING_SIGN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BANANA_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BANANA_SAPLING, ModBlocks.POTTED_BANANA_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.BANANA_LOG)
+                .log(ModBlocks.BANANA_LOG).wood(ModBlocks.BANANA_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_BANANA_LOG)
+                .log(ModBlocks.STRIPPED_BANANA_LOG).wood(ModBlocks.STRIPPED_BANANA_WOOD);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.BANANA.getBaseBlock())
+                .family(ModBlockFamilies.BANANA);
+        blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_BANANA_LOG, ModBlocks.BANANA_HANGING_SIGN, ModBlocks.BANANA_WALL_HANGING_SIGN);
 
 
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.CORN_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.CORN_SAPLING, BlockInit.POTTED_CORN_SAPLING, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerLog(BlockInit.CORN_LOG)
-                .log(BlockInit.CORN_LOG).wood(BlockInit.CORN_WOOD);
-        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_CORN_LOG)
-                .log(BlockInit.STRIPPED_CORN_LOG).wood(BlockInit.STRIPPED_CORN_WOOD);
-        var cornFamily = new BlockFamily.Builder(BlockInit.CORN_PLANKS)
-                .button(BlockInit.CORN_BUTTON)
-                .fence(BlockInit.CORN_FENCE)
-                .fenceGate(BlockInit.CORN_FENCE_GATE)
-                .pressurePlate(BlockInit.CORN_PRESSURE_PLATE)
-                .slab(BlockInit.CORN_SLAB)
-                .stairs(BlockInit.CORN_STAIRS)
-                .door(BlockInit.CORN_DOOR)
-                .trapdoor(BlockInit.CORN_TRAPDOOR)
-                .sign(BlockInit.CORN_SIGN, BlockInit.CORN_WALL_SIGN)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(cornFamily.getBaseBlock())
-                .family(cornFamily);
-        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_CORN_LOG, BlockInit.CORN_HANGING_SIGN, BlockInit.CORN_WALL_HANGING_SIGN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORN_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.CORN_SAPLING, ModBlocks.POTTED_CORN_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.CORN_LOG)
+                .log(ModBlocks.CORN_LOG).wood(ModBlocks.CORN_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CORN_LOG)
+                .log(ModBlocks.STRIPPED_CORN_LOG).wood(ModBlocks.STRIPPED_CORN_WOOD);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.CORN.getBaseBlock())
+                .family(ModBlockFamilies.CORN);
+        blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_CORN_LOG, ModBlocks.CORN_HANGING_SIGN, ModBlocks.CORN_WALL_HANGING_SIGN);
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.POISONED_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.POISONED_SAPLING, BlockInit.POTTED_POISONED_SAPLING, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerLog(BlockInit.POISONED_LOG)
-                .log(BlockInit.POISONED_LOG).wood(BlockInit.POISONED_WOOD);
-        blockStateModelGenerator.registerLog(BlockInit.STRIPPED_POISONED_LOG)
-                .log(BlockInit.STRIPPED_POISONED_LOG).wood(BlockInit.STRIPPED_POISONED_WOOD);
-        var poisonedFamily = new BlockFamily.Builder(BlockInit.POISONED_PLANKS)
-                .button(BlockInit.POISONED_BUTTON)
-                .fence(BlockInit.POISONED_FENCE)
-                .fenceGate(BlockInit.POISONED_FENCE_GATE)
-                .pressurePlate(BlockInit.POISONED_PRESSURE_PLATE)
-                .slab(BlockInit.POISONED_SLAB)
-                .stairs(BlockInit.POISONED_STAIRS)
-                .door(BlockInit.POISONED_DOOR)
-                .trapdoor(BlockInit.POISONED_TRAPDOOR)
-                .sign(BlockInit.POISONED_SIGN, BlockInit.POISONED_WALL_SIGN)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(poisonedFamily.getBaseBlock())
-                .family(poisonedFamily);
-        blockStateModelGenerator.registerHangingSign(BlockInit.STRIPPED_POISONED_LOG, BlockInit.POISONED_HANGING_SIGN, BlockInit.POISONED_WALL_HANGING_SIGN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POISONED_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.POISONED_SAPLING, ModBlocks.POTTED_POISONED_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.POISONED_LOG)
+                .log(ModBlocks.POISONED_LOG).wood(ModBlocks.POISONED_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_POISONED_LOG)
+                .log(ModBlocks.STRIPPED_POISONED_LOG).wood(ModBlocks.STRIPPED_POISONED_WOOD);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.POISONED.getBaseBlock())
+                .family(ModBlockFamilies.POISONED);
+        blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_POISONED_LOG, ModBlocks.POISONED_HANGING_SIGN, ModBlocks.POISONED_WALL_HANGING_SIGN);
 
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.FLOWERING_CHERRY_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.FLOWERING_CHERRY_SAPLING, BlockInit.POTTED_FLOWERING_CHERRY_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MAHOGANY_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.MAHOGANY_SAPLING, ModBlocks.POTTED_MAHOGANY_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerLog(ModBlocks.MAHOGANY_LOG)
+                .log(ModBlocks.MAHOGANY_LOG).wood(ModBlocks.MAHOGANY_WOOD);
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_MAHOGANY_LOG)
+                .log(ModBlocks.STRIPPED_MAHOGANY_LOG).wood(ModBlocks.STRIPPED_MAHOGANY_WOOD);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.MAHOGANY.getBaseBlock())
+                .family(ModBlockFamilies.MAHOGANY);
+        blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_MAHOGANY_LOG, ModBlocks.MAHOGANY_HANGING_SIGN, ModBlocks.MAHOGANY_WALL_HANGING_SIGN);
 
-        blockStateModelGenerator.registerFlowerPotPlant(BlockInit.GLOW_FLOWER, BlockInit.POTTED_GLOW_FLOWER, TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FLOWERING_CHERRY_LEAVES);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.FLOWERING_CHERRY_SAPLING, ModBlocks.POTTED_FLOWERING_CHERRY_SAPLING, TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GLOW_FLOWER, ModBlocks.POTTED_GLOW_FLOWER, TintType.NOT_TINTED);
 
 
 
@@ -209,66 +167,22 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.DIAMOND_ORE_1_14);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.DIAMOND_BLOCK_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.DIAMOND_BLOCK_B1_9PRE5);
-        var legacy_rd20090515 = new BlockFamily.Builder(LegacyBlocks.WOODEN_PLANKS_RD20090515)
-                .stairs(LegacyBlocks.WOODEN_STAIRS_RD20090515)
-                .fence(LegacyBlocks.WOODEN_FENCE_RD20090515)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(legacy_rd20090515.getBaseBlock())
-                .family(legacy_rd20090515);
-        var legacy_rd161348 = new BlockFamily.Builder(LegacyBlocks.WOODEN_PLANKS_RD161348)
-                .stairs(LegacyBlocks.WOODEN_STAIRS_RD161348)
-                .fence(LegacyBlocks.WOODEN_FENCE_RD161348)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(legacy_rd161348.getBaseBlock())
-                .family(legacy_rd161348);
-        var legacy_c0_0_14a = new BlockFamily.Builder(LegacyBlocks.WOODEN_PLANKS_C0_0_14A)
-                .stairs(LegacyBlocks.WOODEN_STAIRS_C0_0_14A)
-                .fence(LegacyBlocks.WOODEN_FENCE_C0_0_14A)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(legacy_c0_0_14a.getBaseBlock())
-                .family(legacy_c0_0_14a);
-        var legacy_c0_0_15a = new BlockFamily.Builder(LegacyBlocks.WOODEN_PLANKS_C0_0_15A)
-                .stairs(LegacyBlocks.WOODEN_STAIRS_INF20100629)
-                .door(LegacyBlocks.WOODEN_DOOR_INF20100607)
-                .fence(LegacyBlocks.WOODEN_FENCE_A1_0_17)
-                .group("wooden")
-                .unlockCriterionName("has_planks").build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(legacy_c0_0_15a.getBaseBlock())
-                .family(legacy_c0_0_15a);
-        var legacy_b1_9pre5 = new BlockFamily.Builder(LegacyBlocks.WOODEN_PLANKS_B1_9PRE5)
-                .stairs(LegacyBlocks.WOODEN_STAIRS_B1_9PRE5)
-                .fence(LegacyBlocks.WOODEN_FENCE_B1_9PRE5)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(legacy_b1_9pre5.getBaseBlock())
-                .family(legacy_b1_9pre5);
-        var cobblestone_rd20090515 = new BlockFamily.Builder(LegacyBlocks.COBBLESTONE_RD20090515)
-                .stairs(LegacyBlocks.COBBLESTONE_STAIRS_RD20090515)
-                .group("cobblestone")
-                .unlockCriterionName("has_cobblestone")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(cobblestone_rd20090515.getBaseBlock())
-                .family(cobblestone_rd20090515);
-        var cobblestone_c0_0_14a = new BlockFamily.Builder(LegacyBlocks.COBBLESTONE_C_0_0_14A)
-                .stairs(LegacyBlocks.COBBLESTONE_STAIRS_C0_0_14A)
-                .group("cobblestone")
-                .unlockCriterionName("has_cobblestone")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(cobblestone_c0_0_14a.getBaseBlock())
-                .family(cobblestone_c0_0_14a);
-        var cobblestone_b1_7 = new BlockFamily.Builder(LegacyBlocks.COBBLESTONE_B1_7)
-                .stairs(LegacyBlocks.COBBLESTONE_STAIRS_B1_7)
-                .group("cobblestone").unlockCriterionName("has_cobblestone")
-                .build();
-        blockStateModelGenerator.registerCubeAllModelTexturePool(cobblestone_b1_7.getBaseBlock())
-                .family(cobblestone_b1_7);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.WOODEN_RD20080515.getBaseBlock())
+                .family(ModBlockFamilies.WOODEN_RD20080515);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.WOODEN_RD161348.getBaseBlock())
+                .family(ModBlockFamilies.WOODEN_RD161348);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.WOODEN_C0_0_14A.getBaseBlock())
+                .family(ModBlockFamilies.WOODEN_C0_0_14A);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.WOODEN_C0_0_15A.getBaseBlock())
+                .family(ModBlockFamilies.WOODEN_C0_0_15A);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.WOODEN_B1_9PRE5.getBaseBlock())
+                .family(ModBlockFamilies.WOODEN_B1_9PRE5);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.COBBLESTONE_RD20090515.getBaseBlock())
+                .family(ModBlockFamilies.COBBLESTONE_RD20090515);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.COBBLESTONE_C0_0_14A.getBaseBlock())
+                .family(ModBlockFamilies.COBBLESTONE_C0_0_14A);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.COBBLESTONE_B1_7.getBaseBlock())
+                .family(ModBlockFamilies.COBBLESTONE_B1_7);
         blockStateModelGenerator.registerTorch(LegacyBlocks.TORCH_IN20100124_2, LegacyBlocks.WALL_TORCH_IN20100124_2);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.REDSTONE_ORE_A1_0_1);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.REDSTONE_ORE_1_14);
@@ -281,7 +195,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.SOUL_SAND_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GLOWSTONE_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GLOWSTONE_B1_9PRE5);
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.DUPER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUPER);
+        blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.TROPICAL_MOSS, ModBlocks.TROPICAL_MOSS_CARPET);
 
         Identifier topTexture = Identifier.ofVanilla("block/sand");
         Identifier sideTexture = Blocktopia.id("block/sandy_dirt");
@@ -292,63 +207,67 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .put(TextureKey.SIDE, sideTexture)
                 .put(TextureKey.BOTTOM, bottomTexture);
 
-        blockStateModelGenerator.registerSingleton(BlockInit.SANDY_DIRT, textures, Models.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSingleton(ModBlocks.SANDY_DIRT, textures, Models.CUBE_BOTTOM_TOP);
 
-        blockStateModelGenerator.registerSimpleCubeAll(BlockInit.XP_TRAP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.XP_TRAP);
 
-        registerChair(BlockInit.OAK_CHAIR);
-        registerChair(BlockInit.SPRUCE_CHAIR);
-        registerChair(BlockInit.BIRCH_CHAIR);
-        registerChair(BlockInit.JUNGLE_CHAIR);
-        registerChair(BlockInit.ACACIA_CHAIR);
-        registerChair(BlockInit.DARK_OAK_CHAIR);
-        registerChair(BlockInit.CRIMSON_CHAIR);
-        registerChair(BlockInit.WARPED_CHAIR);
-        registerChair(BlockInit.MANGROVE_CHAIR);
-        registerChair(BlockInit.CHERRY_CHAIR);
-        registerChair(BlockInit.PALM_CHAIR);
-        registerChair(BlockInit.BANANA_CHAIR);
-        registerChair(BlockInit.CORN_CHAIR);
-        registerChair(BlockInit.POISONED_CHAIR);
+        registerChair(ModBlocks.OAK_CHAIR);
+        registerChair(ModBlocks.SPRUCE_CHAIR);
+        registerChair(ModBlocks.BIRCH_CHAIR);
+        registerChair(ModBlocks.JUNGLE_CHAIR);
+        registerChair(ModBlocks.ACACIA_CHAIR);
+        registerChair(ModBlocks.DARK_OAK_CHAIR);
+        registerChair(ModBlocks.CRIMSON_CHAIR);
+        registerChair(ModBlocks.WARPED_CHAIR);
+        registerChair(ModBlocks.MANGROVE_CHAIR);
+        registerChair(ModBlocks.BAMBOO_CHAIR);
+        registerChair(ModBlocks.CHERRY_CHAIR);
+        registerChair(ModBlocks.PALM_CHAIR);
+        registerChair(ModBlocks.BANANA_CHAIR);
+        registerChair(ModBlocks.CORN_CHAIR);
+        registerChair(ModBlocks.POISONED_CHAIR);
+        registerChair(ModBlocks.MAHOGANY_CHAIR);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ItemInit.DEEPSLATE_EMERALD_CHERRY, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_DEEPSLATE_EMERALD_CHERRY, ItemInit.DEEPSLATE_EMERALD_CHERRY, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.CREATIVE_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.CREATIVE_INGOT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.COCONUT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.GOLDEN_COCONUT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_COCONUT, ItemInit.GOLDEN_COCONUT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_CARROT, Items.GOLDEN_CARROT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.GOLDEN_POTATO, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_POTATO, ItemInit.GOLDEN_POTATO, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.GOLDEN_BAKED_POTATO, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_BAKED_POTATO, ItemInit.GOLDEN_BAKED_POTATO, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.PALM_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.PALM_CHEST_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.BANANA_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.BANANA_CHEST_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.CORN_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.CORN_CHEST_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.POISONED_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.POISONED_CHEST_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.GIANT_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
-        itemModelGenerator.register(ItemInit.ILLUSIONER_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
-        itemModelGenerator.register(ItemInit.CHERRY, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.GOLDEN_CHERRY, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_GOLDEN_CHERRY, ItemInit.GOLDEN_CHERRY,Models.GENERATED);
-        itemModelGenerator.register(ItemInit.DIAMOND_CHERRY, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_DIAMOND_CHERRY, ItemInit.DIAMOND_CHERRY,Models.GENERATED);
-        itemModelGenerator.register(ItemInit.NETHERITE_CHERRY, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.ENCHANTED_NETHERITE_CHERRY, ItemInit.NETHERITE_CHERRY,Models.GENERATED);
-        itemModelGenerator.register(ItemInit.RABBIT_TRINKET, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.FISH_TRINKET, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.CAT_TRINKET, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
-        itemModelGenerator.register(ItemInit.BANANA, Models.GENERATED);
-        itemModelGenerator.register(ItemInit.TROPICAL_WATER_BUCKET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DEEPSLATE_EMERALD_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_DEEPSLATE_EMERALD_CHERRY, ModItems.DEEPSLATE_EMERALD_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CREATIVE_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CREATIVE_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COCONUT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLDEN_COCONUT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_COCONUT, ModItems.GOLDEN_COCONUT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_CARROT, Items.GOLDEN_CARROT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLDEN_POTATO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_POTATO, ModItems.GOLDEN_POTATO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLDEN_BAKED_POTATO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_BAKED_POTATO, ModItems.GOLDEN_BAKED_POTATO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALM_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALM_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BANANA_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BANANA_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CORN_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CORN_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.POISONED_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.POISONED_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAHOGANY_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAHOGANY_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GIANT_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
+        itemModelGenerator.register(ModItems.ILLUSIONER_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
+        itemModelGenerator.register(ModItems.CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GOLDEN_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_CHERRY, ModItems.GOLDEN_CHERRY,Models.GENERATED);
+        itemModelGenerator.register(ModItems.DIAMOND_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_DIAMOND_CHERRY, ModItems.DIAMOND_CHERRY,Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_CHERRY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENCHANTED_NETHERITE_CHERRY, ModItems.NETHERITE_CHERRY,Models.GENERATED);
+        itemModelGenerator.register(ModItems.RABBIT_TRINKET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FISH_TRINKET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CAT_TRINKET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
+        itemModelGenerator.register(ModItems.BANANA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TROPICAL_WATER_BUCKET, Models.GENERATED);
     }
 
     public static final Model TEMPLATE_SPAWN_EGG = item("template_spawn_egg");
@@ -356,23 +275,23 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         return new Model(Optional.of(Identifier.ofVanilla("item/" + parent)), Optional.empty());
     }
 
-    public void registerChair(ChairBlock block) {
-        ChairBlockJsonGenerator.generateJsonFiles(block);
+    public void registerChair(ChairBlock[] blocks) {
+        for (ChairBlock block : blocks) {
+            ChairBlockJsonGenerator.generateJsonFiles(block);
+        }
     }
 
     public static class ChairBlockJsonGenerator {
 
         private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-        public static void generateJsonFiles(ChairBlock... blocks) {
-            for (ChairBlock block : blocks) {
-                Identifier blockId = Registries.BLOCK.getId(block);
-                String blockName = blockId.getPath();
-                System.out.println("Generating JSON for block: " + blockName);
-                generateBlockStateJson(blockName);
-                generateBlockModelJson(blockName, Registries.BLOCK.getId(block.plank).toString());
-                generateItemModelJson(blockName);
-            }
+        public static void generateJsonFiles(ChairBlock block) {
+            Identifier blockId = Registries.BLOCK.getId(block);
+            String blockName = blockId.getPath();
+            System.out.println("Generating JSON for block: " + blockName);
+            generateBlockStateJson(blockName);
+            generateBlockModelJson(blockName, Registries.BLOCK.getId(block.plank).toString(), Registries.BLOCK.getId(block.seat).toString());
+            generateItemModelJson(blockName);
         }
 
         private static void generateBlockStateJson(String blockName) {
@@ -385,9 +304,10 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
             writeJsonToFile("M:/Mods/Blocktopia/src/main/resources/assets/blocktopia/blockstates/" + blockName + ".json", blockStateJson);
         }
 
-        private static void generateBlockModelJson(String blockName, String plankName) {
+        private static void generateBlockModelJson(String blockName, String plankName, String seatName) {
             plankName = plankName.split(":")[0] + ":block/" + plankName.split(":")[1];
-            BlockModelJson blockModelJson = new BlockModelJson("blocktopia:block/chair", plankName);
+            seatName = seatName.split(":")[0] + ":block/" + seatName.split(":")[1];
+            BlockModelJson blockModelJson = new BlockModelJson("blocktopia:block/chair", plankName, seatName);
 
             writeJsonToFile("M:/Mods/Blocktopia/src/main/resources/assets/blocktopia/models/block/" + blockName + ".json", blockModelJson);
         }
@@ -432,9 +352,10 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
             private final String parent;
             private final Map<String, String> textures = new HashMap<>();
 
-            public BlockModelJson(String parent, String texture) {
+            public BlockModelJson(String parent, String texture, String seatTexture) {
                 this.parent = parent;
                 this.textures.put("texture", texture);
+                this.textures.put("seat_texture", seatTexture);
             }
         }
 

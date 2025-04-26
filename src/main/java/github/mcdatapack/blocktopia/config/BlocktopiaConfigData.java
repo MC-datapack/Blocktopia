@@ -64,6 +64,13 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.BoundedDiscrete(max = 15)
     public int glowingPoisonedLeaves = 6;
 
+    @ConfigEntry.Gui.CollapsibleObject
+    @ConfigEntry.Category("server")
+    @Comment("Turn it down to 0 to disable it")
+    @ConfigEntry.BoundedDiscrete(max = 15)
+    public int glowingMahoganyLeaves = 2;
+
+
     @ConfigEntry.Gui.TransitiveObject
     @ConfigEntry.Category("server")
     @ConfigEntry.BoundedDiscrete(min = 20, max = 250)
@@ -74,6 +81,11 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 4, max = 150)
     @Comment("4 is the default Explosion Power of TNT")
     public int spongeTntExplosionPower = 12;
+
+    @ConfigEntry.Gui.TransitiveObject
+    @ConfigEntry.Category("server")
+    @ConfigEntry.BoundedDiscrete(min = 48, max = 120)
+    public int structureBlockMax = 48;
 
     @ConfigEntry.Gui.CollapsibleObject
     @ConfigEntry.Category("client")
@@ -194,6 +206,9 @@ public class BlocktopiaConfigData implements ConfigData {
 
         @ConfigEntry.Gui.RequiresRestart
         public boolean sandy_dirt_in_palm_island = true;
+
+        @ConfigEntry.Gui.RequiresRestart
+        public boolean tropical_moss_in_rainforest = true;
     }
 
     public static class PlacedFeatureConfig {
@@ -313,7 +328,7 @@ public class BlocktopiaConfigData implements ConfigData {
 
         @ConfigEntry.Gui.RequiresRestart
         @Comment("Change the Workstation of the Legacy Villager Profession (requires the id of the block: <namespace>:<block id>)")
-        public String legacyVillagerWorkstation = "blocktopia:crafting_table_in20100131";
+        public String legacyVillagerWorkstation2 = "blocktopia:legacy_cutter";
 
         @ConfigEntry.Gui.RequiresRestart
         @Comment("Change the Workstation of the Beekeeper Villager Profession (requires the id of the block: <namespace>:<block id>)")
