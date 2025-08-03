@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "blocktopia:block/spruce_planks_1_2_4"
+  }
+}

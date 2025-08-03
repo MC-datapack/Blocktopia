@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "blocktopia:block/cobblestone_b1_7"
+  }
+}

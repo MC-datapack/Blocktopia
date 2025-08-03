@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:snow_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:snow_block_a1_0_5"
+  }
+}

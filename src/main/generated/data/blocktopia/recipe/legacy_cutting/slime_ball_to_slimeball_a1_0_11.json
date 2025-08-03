@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:slime_ball"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:slimeball_a1_0_11"
+  }
+}

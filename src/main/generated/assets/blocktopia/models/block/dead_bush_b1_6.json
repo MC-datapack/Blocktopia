@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "blocktopia:block/dead_bush_b1_6"
+  }
+}

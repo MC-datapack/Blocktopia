@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "blocktopia:block/stone_bricks_b1_8",
+    "side": "blocktopia:block/stone_bricks_b1_8",
+    "top": "blocktopia:block/stone_bricks_b1_8"
+  }
+}

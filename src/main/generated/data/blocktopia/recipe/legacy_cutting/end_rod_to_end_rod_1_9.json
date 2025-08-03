@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:end_rod"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:end_rod_1_9"
+  }
+}

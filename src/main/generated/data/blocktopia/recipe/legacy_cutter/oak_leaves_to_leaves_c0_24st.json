@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:oak_leaves"
-  },
-  "result": {
-    "id": "blocktopia:leaves_c0_24st"
-  }
-}

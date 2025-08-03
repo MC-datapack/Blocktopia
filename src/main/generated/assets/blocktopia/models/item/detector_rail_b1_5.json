@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "blocktopia:block/detector_rail_b1_5"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "blocktopia:block/cobblestone_b1_7"
+  }
+}

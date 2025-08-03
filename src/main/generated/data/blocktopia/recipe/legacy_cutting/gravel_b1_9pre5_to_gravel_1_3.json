@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:gravel_b1_9pre5"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:gravel_1_3"
+  }
+}

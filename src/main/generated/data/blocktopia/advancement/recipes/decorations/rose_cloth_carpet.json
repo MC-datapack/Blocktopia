@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rose_cloth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:rose_cloth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:rose_cloth_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rose_cloth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:rose_cloth_carpet"
+    ]
+  }
+}

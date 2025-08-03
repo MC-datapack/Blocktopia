@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:lapis_ore_1_14"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:lapis_ore_b1_2"
+  }
+}

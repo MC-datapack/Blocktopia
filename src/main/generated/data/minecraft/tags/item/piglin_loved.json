@@ -1,6 +1,7 @@
 {
   "values": [
     "minecraft:netherite_ingot",
-    "minecraft:netherite_block"
+    "minecraft:netherite_block",
+    "blocktopia:bedrock_c0_0_12a"
   ]
 }

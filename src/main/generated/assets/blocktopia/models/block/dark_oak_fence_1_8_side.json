@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "blocktopia:block/dark_oak_planks_1_7"
+  }
+}

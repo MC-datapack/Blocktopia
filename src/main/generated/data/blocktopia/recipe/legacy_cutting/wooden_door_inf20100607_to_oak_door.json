@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_door_inf20100607"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_door"
+  }
+}

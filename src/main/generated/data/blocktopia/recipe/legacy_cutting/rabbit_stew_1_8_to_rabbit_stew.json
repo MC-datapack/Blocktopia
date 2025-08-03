@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:rabbit_stew_1_8"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:rabbit_stew"
+  }
+}

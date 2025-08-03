@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:yellow_wool_1_2_4"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:yellow_wool"
+  }
+}

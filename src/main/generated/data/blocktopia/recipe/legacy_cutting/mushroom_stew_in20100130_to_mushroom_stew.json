@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:mushroom_stew_in20100130"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:mushroom_stew"
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:cobblestone_rd20090515"
-  },
-  "result": {
-    "id": "minecraft:cobblestone"
-  }
-}

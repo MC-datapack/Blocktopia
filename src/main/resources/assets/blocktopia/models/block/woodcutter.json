@@ -1,0 +1,10 @@
+{
+  "parent": "block/stonecutter",
+  "textures": {
+	"particle": "blocktopia:block/woodcutter_bottom",
+	"bottom": "blocktopia:block/woodcutter_bottom",
+	"top": "blocktopia:block/woodcutter_top",
+	"side": "blocktopia:block/woodcutter_side",
+	"saw": "blocktopia:block/woodcutter_saw"
+  }
+}

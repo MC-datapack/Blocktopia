@@ -1,0 +1,11 @@
+{
+  "feature": "blocktopia:peony_1_7",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:replaceable"
+      }
+    }
+  ]
+}

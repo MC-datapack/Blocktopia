@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:corn_planks"
+  },
+  "result": {
+    "count": 3,
+    "id": "blocktopia:corn_fence"
+  }
+}

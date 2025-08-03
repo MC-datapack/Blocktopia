@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orange_wool_1_2_4": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:orange_wool_1_2_4"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:orange_carpet_1_2_4"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orange_wool_1_2_4"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:orange_carpet_1_2_4"
+    ]
+  }
+}

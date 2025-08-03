@@ -35,25 +35,25 @@ public interface ModStructureSets {
         structureSetRegisterable.register(
                 MAHOGANY_TREE_HOUSE,
                 new StructureSet(structureLookup.getOrThrow(ModStructures.MAHOGANY_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 1.0F,
+                        new RandomSpreadStructurePlacement(new Vec3i(4, 4, 4), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_1, 1.0F,
                                 14357700, Optional.empty(), 8, 4, SpreadType.LINEAR))
         );
         structureSetRegisterable.register(
                 FLOWERING_CHERRY_TREE_HOUSE,
                 new StructureSet(structureLookup.getOrThrow(ModStructures.FLOWERING_CHERRY_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 0.5F,
+                        new RandomSpreadStructurePlacement(new Vec3i(8, 8, 8), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_2, 0.5F,
                                 14357700, Optional.empty(), 14, 8, SpreadType.LINEAR))
         );
         structureSetRegisterable.register(
                 CORN_TREE_HOUSE,
                 new StructureSet(structureLookup.getOrThrow(ModStructures.CORN_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 0.25F,
+                        new RandomSpreadStructurePlacement(new Vec3i(12, 12, 12), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_3, 0.25F,
                                 14357700,  Optional.empty(), 24, 16, SpreadType.LINEAR))
         );
         structureSetRegisterable.register(
                 POISONED_TREE_HOUSE,
                 new StructureSet(structureLookup.getOrThrow(ModStructures.POISONED_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 0.44F,
+                        new RandomSpreadStructurePlacement(new Vec3i(15, 15, 15), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_3, 0.44F,
                                 14357700, Optional.empty(), 16, 12, SpreadType.LINEAR))
         );
     }

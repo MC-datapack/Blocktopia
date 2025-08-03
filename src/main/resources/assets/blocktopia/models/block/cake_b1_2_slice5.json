@@ -1,0 +1,22 @@
+{
+    "textures": {
+        "particle": "blocktopia:block/cake_b1_2_side",
+        "bottom": "blocktopia:block/cake_b1_2_bottom",
+        "top": "blocktopia:block/cake_b1_2_top",
+        "side": "blocktopia:block/cake_b1_2_side",
+        "inside": "blocktopia:block/cake_b1_2_inner"
+    },
+    "elements": [
+        {   "from": [ 11, 0, 1 ],
+            "to": [ 15, 8, 15 ],
+            "faces": {
+                "down":  { "texture": "#bottom", "cullface": "down" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side" },
+                "south": { "texture": "#side" },
+                "west":  { "texture": "#inside" },
+                "east":  { "texture": "#side" }
+            }
+        }
+    ]
+}

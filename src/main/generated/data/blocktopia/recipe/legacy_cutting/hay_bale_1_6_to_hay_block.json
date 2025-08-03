@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:hay_bale_1_6"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:hay_block"
+  }
+}

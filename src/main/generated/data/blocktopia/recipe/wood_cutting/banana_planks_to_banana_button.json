@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:banana_planks"
+  },
+  "result": {
+    "count": 4,
+    "id": "blocktopia:banana_button"
+  }
+}

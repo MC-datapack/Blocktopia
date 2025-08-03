@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:poppy"
-  },
-  "result": {
-    "id": "blocktopia:rose_c0_0_20a"
-  }
-}

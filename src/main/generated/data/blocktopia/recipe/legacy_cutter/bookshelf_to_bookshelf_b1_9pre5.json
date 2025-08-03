@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:bookshelf"
-  },
-  "result": {
-    "id": "blocktopia:bookshelf_b1_9pre5"
-  }
-}

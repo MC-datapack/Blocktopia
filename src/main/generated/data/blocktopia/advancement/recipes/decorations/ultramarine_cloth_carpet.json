@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:ultramarine_cloth_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine_cloth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:ultramarine_cloth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine_cloth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:ultramarine_cloth_carpet"
+    ]
+  }
+}

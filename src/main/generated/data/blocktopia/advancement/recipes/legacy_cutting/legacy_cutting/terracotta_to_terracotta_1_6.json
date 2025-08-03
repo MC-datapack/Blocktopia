@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_terracotta": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:terracotta"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:legacy_cutting/terracotta_to_terracotta_1_6"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_terracotta"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:legacy_cutting/terracotta_to_terracotta_1_6"
+    ]
+  }
+}

@@ -1,5 +1,18 @@
 {
   "values": [
-    "blocktopia:glow_flower"
+    "blocktopia:glow_flower",
+    "blocktopia:shrub_b1_6",
+    "blocktopia:allium_1_7",
+    "blocktopia:azure_bluet_1_7",
+    "blocktopia:blue_orchid_1_7",
+    "blocktopia:lilac_1_7",
+    "blocktopia:peony_1_7",
+    "blocktopia:rose_bush_1_7",
+    "blocktopia:sunflower_1_7",
+    "blocktopia:oxeye_daisy_1_7",
+    "blocktopia:red_tulip_1_7",
+    "blocktopia:orange_tulip_1_7",
+    "blocktopia:white_tulip_1_7",
+    "blocktopia:pink_tulip_1_7"
   ]
 }

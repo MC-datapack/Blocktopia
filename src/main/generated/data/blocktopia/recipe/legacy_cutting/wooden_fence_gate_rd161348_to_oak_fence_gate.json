@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_fence_gate_rd161348"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_fence_gate"
+  }
+}

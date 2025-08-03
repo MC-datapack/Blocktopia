@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:large_fern"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:large_fern_1_7"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:mossy_stone_bricks_b1_8"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:mossy_stone_bricks"
+  }
+}

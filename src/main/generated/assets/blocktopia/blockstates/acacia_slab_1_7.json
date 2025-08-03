@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/acacia_slab_1_7"
+    },
+    "type=double": {
+      "model": "blocktopia:block/acacia_planks_1_7"
+    },
+    "type=top": {
+      "model": "blocktopia:block/acacia_slab_1_7_top"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:andesite"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:andesite_1_8"
+  }
+}

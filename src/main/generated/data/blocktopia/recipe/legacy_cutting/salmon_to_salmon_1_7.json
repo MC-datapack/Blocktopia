@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:salmon"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:salmon_1_7"
+  }
+}

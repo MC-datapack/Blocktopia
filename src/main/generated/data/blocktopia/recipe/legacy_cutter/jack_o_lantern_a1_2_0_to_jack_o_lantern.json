@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:jack_o_lantern_a1_2_0"
-  },
-  "result": {
-    "id": "minecraft:jack_o_lantern"
-  }
-}

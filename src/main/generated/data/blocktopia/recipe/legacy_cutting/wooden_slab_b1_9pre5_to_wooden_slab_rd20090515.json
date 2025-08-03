@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_slab_b1_9pre5"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:wooden_slab_rd20090515"
+  }
+}

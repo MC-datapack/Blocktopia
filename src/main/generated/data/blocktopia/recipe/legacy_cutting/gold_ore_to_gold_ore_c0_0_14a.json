@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:gold_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:gold_ore_c0_0_14a"
+  }
+}

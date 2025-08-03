@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:pink_tulip"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:pink_tulip_1_7"
+  }
+}

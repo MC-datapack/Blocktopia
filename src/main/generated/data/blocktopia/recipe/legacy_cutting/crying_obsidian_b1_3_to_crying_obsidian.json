@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:crying_obsidian_b1_3"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:crying_obsidian"
+  }
+}

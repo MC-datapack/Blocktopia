@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/banana"
+    },
+    {
+      "item": "blocktopia:rose_cloth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:rose_banana_chair"
+  }
+}

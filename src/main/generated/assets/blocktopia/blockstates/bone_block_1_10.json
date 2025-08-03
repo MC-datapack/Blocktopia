@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "blocktopia:block/bone_block_1_10",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "blocktopia:block/bone_block_1_10"
+    },
+    "axis=z": {
+      "model": "blocktopia:block/bone_block_1_10",
+      "x": 90
+    }
+  }
+}

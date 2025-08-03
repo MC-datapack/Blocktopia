@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/nether_brick_slab_1_4_6"
+    },
+    "type=double": {
+      "model": "blocktopia:block/nether_bricks_b1_9pre"
+    },
+    "type=top": {
+      "model": "blocktopia:block/nether_brick_slab_1_4_6_top"
+    }
+  }
+}

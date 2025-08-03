@@ -9,22 +9,26 @@ import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.CuttingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class LegacyCutterRecipeJSONBuilder implements CraftingRecipeJsonBuilder {
     private final Ingredient input;
     private final Item output;
     private final int count;
+    @Nullable
+    private String group;
 
     private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap<>();
-    private final LegacyCutterRecipe.RecipeFactory recipeFactory;
+    private final CuttingRecipe.RecipeFactory<LegacyCuttingRecipe> recipeFactory;
 
-    public LegacyCutterRecipeJSONBuilder(LegacyCutterRecipe.RecipeFactory factory, Ingredient input, Item output, int count) {
+    public LegacyCutterRecipeJSONBuilder(CuttingRecipe.RecipeFactory<LegacyCuttingRecipe> factory, Ingredient input, Item output, int count) {
         this.recipeFactory = factory;
         this.input = input;
         this.output = output;
@@ -32,7 +36,7 @@ public class LegacyCutterRecipeJSONBuilder implements CraftingRecipeJsonBuilder 
     }
 
     public static LegacyCutterRecipeJSONBuilder create(Ingredient input, Item output, int count) {
-        return new LegacyCutterRecipeJSONBuilder(LegacyCutterRecipe::new, input, output, count);
+        return new LegacyCutterRecipeJSONBuilder(LegacyCuttingRecipe::new, input, output, count);
     }
 
     @Override
@@ -43,7 +47,8 @@ public class LegacyCutterRecipeJSONBuilder implements CraftingRecipeJsonBuilder 
 
     @Override
     public LegacyCutterRecipeJSONBuilder group(@Nullable String group) {
-        throw new UnsupportedOperationException();
+        this.group = group;
+        return this;
     }
 
     @Override
@@ -63,8 +68,8 @@ public class LegacyCutterRecipeJSONBuilder implements CraftingRecipeJsonBuilder 
                 .rewards(AdvancementRewards.Builder.recipe(recipeId))
                 .criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
         this.criteria.forEach(builder::criterion);
-        LegacyCutterRecipe cuttingRecipe = this.recipeFactory.create(this.input, new ItemStack(this.output, this.count));
-        exporter.accept(recipeId, cuttingRecipe, builder.build(recipeId.withPrefixedPath("recipes/legacy_cutter/")));
+        LegacyCuttingRecipe cuttingRecipe = this.recipeFactory.create(Objects.requireNonNullElse(this.group, ""), this.input, new ItemStack(this.output, this.count));
+        exporter.accept(recipeId, cuttingRecipe, builder.build(recipeId.withPrefixedPath("recipes/legacy_cutting/")));
     }
 
     private void validate(Identifier recipeId) {

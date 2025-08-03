@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/pale_oak_slab"
+    },
+    "type=double": {
+      "model": "blocktopia:block/pale_oak_planks"
+    },
+    "type=top": {
+      "model": "blocktopia:block/pale_oak_slab_top"
+    }
+  }
+}

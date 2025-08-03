@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:sandstone_stairs"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:sandstone_stairs_b1_2"
+  }
+}

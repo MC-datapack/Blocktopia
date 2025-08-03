@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:bedrock"
-  },
-  "result": {
-    "id": "blocktopia:bedrock_c0_0_12a"
-  }
-}

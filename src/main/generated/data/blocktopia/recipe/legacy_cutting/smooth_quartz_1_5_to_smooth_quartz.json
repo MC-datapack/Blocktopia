@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:smooth_quartz_1_5"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:smooth_quartz"
+  }
+}

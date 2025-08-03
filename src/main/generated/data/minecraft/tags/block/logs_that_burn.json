@@ -5,6 +5,21 @@
     "#blocktopia:corn_logs",
     "#blocktopia:poisoned_logs",
     "#blocktopia:mahogany_logs",
-    "blocktopia:log_c0_0_14a"
+    "#blocktopia:pale_oak_logs",
+    "blocktopia:log_c0_0_14a",
+    "blocktopia:birch_log_b1_2",
+    "blocktopia:birch_log_1_7",
+    "blocktopia:spruce_log_b1_2",
+    "blocktopia:spruce_log_1_7",
+    "blocktopia:jungle_log_1_2",
+    "blocktopia:jungle_log_1_7",
+    "blocktopia:oak_wood_1_3",
+    "blocktopia:birch_wood_1_3",
+    "blocktopia:spruce_wood_1_3",
+    "blocktopia:jungle_wood_1_3",
+    "blocktopia:acacia_log_1_7",
+    "blocktopia:acacia_wood_1_7",
+    "blocktopia:dark_oak_log_1_7",
+    "blocktopia:dark_oak_wood_1_7"
   ]
 }

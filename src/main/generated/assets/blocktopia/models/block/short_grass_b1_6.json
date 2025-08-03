@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "blocktopia:block/short_grass_b1_6"
+  }
+}

@@ -1,13 +1,17 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "building",
-  "ingredients": [
-    {
-      "item": "minecraft:stonecutter"
+  "key": {
+    "A": {
+      "item": "minecraft:cobblestone"
     },
-    {
-      "item": "minecraft:crafting_table"
+    "B": {
+      "item": "minecraft:iron_ingot"
     }
+  },
+  "pattern": [
+    " B ",
+    "AAA"
   ],
   "result": {
     "count": 1,

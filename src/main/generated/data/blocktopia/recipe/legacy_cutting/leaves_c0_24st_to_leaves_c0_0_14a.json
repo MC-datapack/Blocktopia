@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:leaves_c0_24st"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:leaves_c0_0_14a"
+  }
+}

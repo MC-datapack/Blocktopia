@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "blocktopia:item/ghast_tear_b1_9pre"
+  }
+}

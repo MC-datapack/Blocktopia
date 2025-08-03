@@ -11,12 +11,14 @@ import github.mcdatapack.blocktopia.item.custom.FishTrinket;
 import github.mcdatapack.blocktopia.item.custom.RabbitTrinket;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.vehicle.AbstractMinecartEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Direction;
+import org.jetbrains.annotations.ApiStatus;
 
 public interface ModItems {
     Item COCONUT = register("coconut", new Item(new Item.Settings().food(ModFoodComponents.COCONUT_SETTINGS).rarity(Rarity.UNCOMMON)));
@@ -71,6 +73,17 @@ public interface ModItems {
             .maxCount(99)
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
     ));
+    Item END_DIAMOND_CHERRY = register("end_diamond_cherry", new Item(new Item.Settings()
+            .food(ModFoodComponents.END_DIAMOND_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .maxCount(99)
+    ));
+    Item ENCHANTED_END_DIAMOND_CHERRY = register("enchanted_end_diamond_cherry", new Item(new Item.Settings()
+            .food(ModFoodComponents.ENCHANTED_END_DIAMOND_CHERRY_SETTINGS)
+            .rarity(Rarity.EPIC)
+            .maxCount(99)
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+    ));
     Item PALM_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.PALM_BOAT_ID, ModBoats.PALM_BOAT_KEY, false);
     Item PALM_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.PALM_CHEST_BOAT_ID, ModBoats.PALM_BOAT_KEY, true);
     Item BANANA_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.BANANA_BOAT_ID, ModBoats.BANANA_BOAT_KEY, false);
@@ -84,6 +97,9 @@ public interface ModItems {
 
     SpawnEggItem GIANT_SPAWN_EGG = registerAsVanilla("giant_spawn_egg", new SpawnEggItem(EntityType.GIANT, 44993, 7969900, new Item.Settings().rarity(Rarity.EPIC)));
     SpawnEggItem ILLUSIONER_SPAWN_EGG = registerAsVanilla("illusioner_spawn_egg", new SpawnEggItem(EntityType.ILLUSIONER, 44543, 4500, new Item.Settings().rarity(Rarity.EPIC)));
+
+    MinecartItem SPAWNER_MINECART = register("spawner_minecart", new MinecartItem(AbstractMinecartEntity.Type.SPAWNER, new Item.Settings()));
+
     SpawnEggItem MONKEY_SPAWN_EGG = register("monkey_spawn_egg", new SpawnEggItem(ModEntityTypes.MONKEY, 2626304, 4532741, new Item.Settings()));
 
     RabbitTrinket RABBIT_TRINKET = register("rabbit_trinket", new RabbitTrinket(new Item.Settings()));
@@ -99,6 +115,8 @@ public interface ModItems {
             .fireproof()
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
     ));
+
+    Item FUTURE_INGOT = register("future_ingot", new Item(new Item.Settings()));
 
     BucketItem TROPICAL_WATER_BUCKET = register("tropical_water_bucket", new BucketItem(ModFluids.TROPICAL_WATER, new Item.Settings().maxCount(1)));
 

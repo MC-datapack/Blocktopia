@@ -1,0 +1,128 @@
+{
+  "type": "minecraft:barter",
+  "pools": [
+	{
+	  "rolls": 1,
+	  "entries": [
+		{
+		  "type": "minecraft:item",
+		  "name": "blocktopia:ruby_ore",
+		  "weight": 40,
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"type": "minecraft:uniform",
+				"min": 64,
+				"max": 312
+			  }
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "blocktopia:end_diamond_cherry",
+		  "weight": 10,
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"type": "minecraft:uniform",
+				"min": 1,
+				"max": 2
+			  }
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "blocktopia:creative_nugget",
+		  "weight": 15,
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"type": "minecraft:uniform",
+				"min": 1,
+				"max": 3
+			  }
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "blocktopia:enchanted_deepslate_emerald_cherry",
+		  "weight": 10,
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"type": "minecraft:uniform",
+				"min": 4,
+				"max": 6
+			  }
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:netherite_block",
+		  "weight": 5,
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"type": "minecraft:uniform",
+				"min": 2,
+				"max": 5
+			  }
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "blocktopia:creative_ingot",
+		  "weight": 5,
+		  "functions": []
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:spawner",
+		  "weight": 5,
+		  "functions": []
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:villager_spawn_egg",
+		  "weight": 5,
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"type": "minecraft:uniform",
+				"min": 1,
+				"max": 4
+			  }
+			}
+		  ]
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "blocktopia:legacy_cutter",
+		  "weight": 5,
+		  "functions": [
+			{
+			  "function": "minecraft:set_count",
+			  "count": {
+				"type": "minecraft:uniform",
+				"min": 1,
+				"max": 32
+			  }
+			}
+		  ]
+		}
+	  ]
+	}
+  ],
+  "random_sequence": "blocktopia:gameplay/bedrock_c0_0_12a_piglin_bartering"
+}

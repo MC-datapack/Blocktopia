@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:rabbit_hide"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:rabbit_hide_1_8"
+  }
+}

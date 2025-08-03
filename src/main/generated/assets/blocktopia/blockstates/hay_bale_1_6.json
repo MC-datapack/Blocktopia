@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "blocktopia:block/hay_bale_1_6_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "blocktopia:block/hay_bale_1_6"
+    },
+    "axis=z": {
+      "model": "blocktopia:block/hay_bale_1_6_horizontal",
+      "x": 90
+    }
+  }
+}

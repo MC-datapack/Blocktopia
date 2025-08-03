@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:gravel_b1_9pre5"
-  },
-  "result": {
-    "id": "blocktopia:gravel_c0_0_15a"
-  }
-}

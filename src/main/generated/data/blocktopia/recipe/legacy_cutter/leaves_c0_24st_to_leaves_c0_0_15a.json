@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:leaves_c0_24st"
-  },
-  "result": {
-    "id": "blocktopia:leaves_c0_0_15a"
-  }
-}

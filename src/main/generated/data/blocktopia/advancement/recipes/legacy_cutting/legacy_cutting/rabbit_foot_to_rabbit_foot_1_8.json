@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rabbit_foot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:rabbit_foot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:legacy_cutting/rabbit_foot_to_rabbit_foot_1_8"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rabbit_foot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:legacy_cutting/rabbit_foot_to_rabbit_foot_1_8"
+    ]
+  }
+}

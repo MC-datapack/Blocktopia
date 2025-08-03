@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "blocktopia:allium_1_7"
+      }
+    }
+  }
+}

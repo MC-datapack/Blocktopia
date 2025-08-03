@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nether_quartz_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:nether_quartz_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:legacy_cutting/nether_quartz_ore_to_quartz_ore_1_5"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_nether_quartz_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:legacy_cutting/nether_quartz_ore_to_quartz_ore_1_5"
+    ]
+  }
+}

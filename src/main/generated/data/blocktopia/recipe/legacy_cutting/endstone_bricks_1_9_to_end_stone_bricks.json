@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:endstone_bricks_1_9"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:end_stone_bricks"
+  }
+}

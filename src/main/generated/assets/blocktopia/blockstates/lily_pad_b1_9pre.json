@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "blocktopia:block/lily_pad_b1_9pre"
+      },
+      {
+        "model": "blocktopia:block/lily_pad_b1_9pre",
+        "y": 90
+      },
+      {
+        "model": "blocktopia:block/lily_pad_b1_9pre",
+        "y": 180
+      },
+      {
+        "model": "blocktopia:block/lily_pad_b1_9pre",
+        "y": 270
+      }
+    ]
+  }
+}

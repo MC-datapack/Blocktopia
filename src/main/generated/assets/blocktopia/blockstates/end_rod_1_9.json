@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "blocktopia:block/end_rod_1_9",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "blocktopia:block/end_rod_1_9",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "blocktopia:block/end_rod_1_9",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "blocktopia:block/end_rod_1_9",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "blocktopia:block/end_rod_1_9"
+    },
+    "facing=west": {
+      "model": "blocktopia:block/end_rod_1_9",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:sulphur"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:gunpowder"
+  }
+}

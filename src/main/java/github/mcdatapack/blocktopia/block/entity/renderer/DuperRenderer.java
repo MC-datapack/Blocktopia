@@ -51,9 +51,9 @@ public class DuperRenderer implements BlockEntityRenderer<DuperBlockEntity> {
             ItemStack stack = entity.getStack(i);
             if (stack.isEmpty()) continue;
 
-            LegacyCutterRenderer.ItemTransformation transformation = switch (i) {
-                case 0 -> new LegacyCutterRenderer.ItemTransformation(0.01375, 0.1375, 0);
-                case 1 -> new LegacyCutterRenderer.ItemTransformation(-0.01375, -0.1375, 0);
+            ItemTransformation transformation = switch (i) {
+                case 0 -> new ItemTransformation(0.01375, 0.1375, 0);
+                case 1 -> new ItemTransformation(-0.01375, -0.1375, 0);
                 default -> null;
             };
             matrices.push();

@@ -113,6 +113,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -223,6 +259,42 @@
             },
             {
               "Name": "blocktopia:black_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_spruce_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_spruce_chair",
               "Properties": {
                 "facing": "north"
               }
@@ -339,6 +411,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_birch_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -449,6 +557,42 @@
             },
             {
               "Name": "blocktopia:black_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_jungle_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_jungle_chair",
               "Properties": {
                 "facing": "north"
               }
@@ -565,6 +709,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_acacia_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -675,6 +855,42 @@
             },
             {
               "Name": "blocktopia:black_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_dark_oak_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_dark_oak_chair",
               "Properties": {
                 "facing": "north"
               }
@@ -791,6 +1007,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_crimson_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -901,6 +1153,42 @@
             },
             {
               "Name": "blocktopia:black_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_warped_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_warped_chair",
               "Properties": {
                 "facing": "north"
               }
@@ -1017,6 +1305,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_mangrove_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -1127,6 +1451,42 @@
             },
             {
               "Name": "blocktopia:black_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_bamboo_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_bamboo_chair",
               "Properties": {
                 "facing": "north"
               }
@@ -1243,6 +1603,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_cherry_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -1353,6 +1749,42 @@
             },
             {
               "Name": "blocktopia:black_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_palm_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_palm_chair",
               "Properties": {
                 "facing": "north"
               }
@@ -1469,6 +1901,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_banana_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -1579,6 +2047,42 @@
             },
             {
               "Name": "blocktopia:black_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_corn_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_corn_chair",
               "Properties": {
                 "facing": "north"
               }
@@ -1695,6 +2199,42 @@
               "Properties": {
                 "facing": "north"
               }
+            },
+            {
+              "Name": "blocktopia:chartreuse_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_poisoned_chair",
+              "Properties": {
+                "facing": "north"
+              }
             }
           ]
         },
@@ -1805,6 +2345,42 @@
             },
             {
               "Name": "blocktopia:black_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:chartreuse_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:spring_green_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:capri_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:ultramarine_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:violet_mahogany_chair",
+              "Properties": {
+                "facing": "north"
+              }
+            },
+            {
+              "Name": "blocktopia:rose_mahogany_chair",
               "Properties": {
                 "facing": "north"
               }

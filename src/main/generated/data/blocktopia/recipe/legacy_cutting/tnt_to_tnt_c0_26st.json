@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:tnt"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:tnt_c0_26st"
+  }
+}

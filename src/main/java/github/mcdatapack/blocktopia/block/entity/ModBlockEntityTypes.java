@@ -2,10 +2,7 @@ package github.mcdatapack.blocktopia.block.entity;
 
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.ModBlocks;
-import github.mcdatapack.blocktopia.block.entity.custom.DuperBlockEntity;
-import github.mcdatapack.blocktopia.block.entity.custom.LegacyCutterBlockEntity;
-import github.mcdatapack.blocktopia.block.entity.custom.SmallChestBlockEntity;
-import github.mcdatapack.blocktopia.block.entity.custom.XPTrapBlockEntity;
+import github.mcdatapack.blocktopia.block.entity.custom.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.datafixer.TypeReferences;
@@ -18,10 +15,10 @@ public interface ModBlockEntityTypes {
             BlockEntityType.Builder.create(SmallChestBlockEntity::new, ModBlocks.SMALL_CHEST));
      BlockEntityType<XPTrapBlockEntity> XP_TRAP = register("xp_trap",
             BlockEntityType.Builder.create(XPTrapBlockEntity::new, ModBlocks.XP_TRAP));
-     BlockEntityType<LegacyCutterBlockEntity> LEGACY_CUTTER = register("legacy_cutter",
-            BlockEntityType.Builder.create(LegacyCutterBlockEntity::new, ModBlocks.LEGACY_CUTTER));
      BlockEntityType<DuperBlockEntity> DUPER = register("duper",
             BlockEntityType.Builder.create(DuperBlockEntity::new, ModBlocks.DUPER));
+     BlockEntityType<FluidTankBlockEntity> FLUID_TANK = register("fluid_tank",
+             BlockEntityType.Builder.create(FluidTankBlockEntity::new, ModBlocks.FLUID_TANK));
 
 
     private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType.Builder<T> builder) {

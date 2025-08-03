@@ -1,0 +1,7 @@
+{
+  "parent": "blocktopia:block/chair",
+  "textures": {
+    "seat_texture": "blocktopia:block/chartreuse_cloth",
+    "texture": "blocktopia:block/poisoned_planks"
+  }
+}

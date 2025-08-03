@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_rail_raised_sw",
+  "textures": {
+    "rail": "blocktopia:block/detector_rail_b1_5_on"
+  }
+}

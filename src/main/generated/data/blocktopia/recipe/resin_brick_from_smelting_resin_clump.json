@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "resin_brick",
+  "ingredient": {
+    "item": "blocktopia:resin_clump"
+  },
+  "result": {
+    "id": "blocktopia:resin_brick"
+  }
+}

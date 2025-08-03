@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:dead_bush_b1_6"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:shrub_b1_6"
+  }
+}

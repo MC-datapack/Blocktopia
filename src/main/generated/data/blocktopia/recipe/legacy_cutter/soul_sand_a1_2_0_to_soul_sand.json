@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:soul_sand_a1_2_0"
-  },
-  "result": {
-    "id": "minecraft:soul_sand"
-  }
-}

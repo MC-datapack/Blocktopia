@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "blocktopia:block/sunflower_1_7_bottom"
+    },
+    "half=upper": {
+      "model": "blocktopia:block/sunflower_1_7_top"
+    }
+  }
+}

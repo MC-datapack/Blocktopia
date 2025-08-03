@@ -4,6 +4,12 @@
     "blocktopia:banana_slab",
     "blocktopia:corn_slab",
     "blocktopia:poisoned_slab",
-    "blocktopia:mahogany_slab"
+    "blocktopia:mahogany_slab",
+    "blocktopia:pale_oak_slab",
+    "blocktopia:birch_slab_1_3",
+    "blocktopia:spruce_slab_1_3",
+    "blocktopia:jungle_slab_1_3",
+    "blocktopia:acacia_slab_1_7",
+    "blocktopia:dark_oak_slab_1_7"
   ]
 }

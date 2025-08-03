@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:blue_orchid"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:blue_orchid_1_7"
+  }
+}

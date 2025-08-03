@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:wooden_fence_rd20090515"
-  },
-  "result": {
-    "id": "minecraft:oak_fence"
-  }
-}

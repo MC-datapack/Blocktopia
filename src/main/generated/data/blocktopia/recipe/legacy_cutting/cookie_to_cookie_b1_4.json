@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:cookie"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:cookie_b1_4"
+  }
+}

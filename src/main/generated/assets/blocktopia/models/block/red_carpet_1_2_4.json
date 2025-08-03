@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "blocktopia:block/red_wool_1_2_4"
+  }
+}

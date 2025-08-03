@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:withe_cloth_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_withe_cloth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:withe_cloth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_withe_cloth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:withe_cloth_carpet"
+    ]
+  }
+}

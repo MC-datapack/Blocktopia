@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:quiver_in20091231_2255"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:bow"
+  }
+}

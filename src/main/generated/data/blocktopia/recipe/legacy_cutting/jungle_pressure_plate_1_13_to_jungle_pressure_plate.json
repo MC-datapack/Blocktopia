@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:jungle_pressure_plate_1_13"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:jungle_pressure_plate"
+  }
+}

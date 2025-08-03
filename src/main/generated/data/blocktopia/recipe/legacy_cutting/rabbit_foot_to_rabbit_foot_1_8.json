@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:rabbit_foot"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:rabbit_foot_1_8"
+  }
+}

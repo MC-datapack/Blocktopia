@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/rail_curved",
+  "textures": {
+    "rail": "blocktopia:block/rail_inf20100618_corner"
+  }
+}

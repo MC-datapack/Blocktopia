@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:packed_ice"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:packed_ice_1_7"
+  }
+}

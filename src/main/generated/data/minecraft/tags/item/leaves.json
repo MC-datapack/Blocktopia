@@ -5,9 +5,15 @@
     "blocktopia:corn_leaves",
     "blocktopia:poisoned_leaves",
     "blocktopia:mahogany_leaves",
+    "blocktopia:pale_oak_leaves",
     "blocktopia:flowering_cherry_leaves",
     "blocktopia:leaves_c0_0_14a",
     "blocktopia:leaves_c0_0_15a",
-    "blocktopia:leaves_c0_24st"
+    "blocktopia:leaves_c0_24st",
+    "blocktopia:birch_leaves_b1_2",
+    "blocktopia:spruce_leaves_b1_2",
+    "blocktopia:jungle_leaves_1_2",
+    "blocktopia:acacia_leaves_1_7",
+    "blocktopia:dark_oak_leaves_1_7"
   ]
 }

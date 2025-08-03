@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:pumpkin_pie"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:pumpkin_pie_1_4"
+  }
+}

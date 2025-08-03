@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:nether_wart_block_1_10"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:nether_wart_block"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_up",
+  "textures": {
+    "texture": "blocktopia:block/dark_oak_planks_1_7"
+  }
+}

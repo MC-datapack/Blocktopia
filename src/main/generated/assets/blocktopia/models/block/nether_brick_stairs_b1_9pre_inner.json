@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "blocktopia:block/nether_bricks_b1_9pre",
+    "side": "blocktopia:block/nether_bricks_b1_9pre",
+    "top": "blocktopia:block/nether_bricks_b1_9pre"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "blocktopia:block/smooth_stone_b1_3"
+  }
+}

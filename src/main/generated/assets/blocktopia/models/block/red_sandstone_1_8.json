@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blocktopia:block/red_sandstone_1_8_bottom",
+    "side": "blocktopia:block/red_sandstone_1_8",
+    "top": "blocktopia:block/red_sandstone_1_8_top"
+  }
+}

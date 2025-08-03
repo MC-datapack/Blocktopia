@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/quartz_slab_1_5"
+    },
+    "type=double": {
+      "model": "blocktopia:block/quartz_block_1_5"
+    },
+    "type=top": {
+      "model": "blocktopia:block/quartz_slab_1_5_top"
+    }
+  }
+}

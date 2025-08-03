@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:baked_potato"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:baked_potato_1_4"
+  }
+}

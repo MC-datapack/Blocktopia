@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:dark_oak_fence"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:dark_oak_fence_1_8"
+  }
+}

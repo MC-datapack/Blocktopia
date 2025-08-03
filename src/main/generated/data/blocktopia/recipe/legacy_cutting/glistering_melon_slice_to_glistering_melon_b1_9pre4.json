@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:glistering_melon_slice"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:glistering_melon_b1_9pre4"
+  }
+}

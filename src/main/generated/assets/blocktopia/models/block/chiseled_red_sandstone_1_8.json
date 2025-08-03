@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "blocktopia:block/red_sandstone_1_8_top",
+    "side": "blocktopia:block/chiseled_red_sandstone_1_8"
+  }
+}

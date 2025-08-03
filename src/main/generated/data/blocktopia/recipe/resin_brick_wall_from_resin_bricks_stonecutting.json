@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:resin_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:resin_brick_wall"
+  }
+}

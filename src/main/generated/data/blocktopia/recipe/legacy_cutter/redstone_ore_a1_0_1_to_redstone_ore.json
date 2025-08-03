@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:redstone_ore_a1_0_1"
-  },
-  "result": {
-    "id": "minecraft:redstone_ore"
-  }
-}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/dark_oak"
+    },
+    {
+      "item": "minecraft:light_blue_wool"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:light_blue_dark_oak_chair"
+  }
+}

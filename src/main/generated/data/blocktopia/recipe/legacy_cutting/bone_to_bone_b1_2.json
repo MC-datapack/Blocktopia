@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:bone"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:bone_b1_2"
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:sapling_c0_24st"
-  },
-  "result": {
-    "id": "blocktopia:sapling_c0_0_13a"
-  }
-}

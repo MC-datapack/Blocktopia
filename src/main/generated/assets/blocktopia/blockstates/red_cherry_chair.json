@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "blocktopia:block/red_cherry_chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "blocktopia:block/red_cherry_chair",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "blocktopia:block/red_cherry_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "blocktopia:block/red_cherry_chair",
+      "y": 270
+    }
+  }
+}

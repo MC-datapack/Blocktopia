@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "blocktopia:block/chiseled_quartz_1_5_top",
+    "side": "blocktopia:block/chiseled_quartz_1_5"
+  }
+}

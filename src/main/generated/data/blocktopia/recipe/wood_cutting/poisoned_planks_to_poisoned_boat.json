@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:poisoned_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:poisoned_boat"
+  }
+}

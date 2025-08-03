@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "blocktopia:block/acacia_planks_1_7",
+    "side": "blocktopia:block/acacia_planks_1_7",
+    "top": "blocktopia:block/acacia_planks_1_7"
+  }
+}

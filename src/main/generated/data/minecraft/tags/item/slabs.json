@@ -1,5 +1,19 @@
 {
   "values": [
-    "blocktopia:stone_slab_c0_26st"
+    "blocktopia:stone_slab_c0_26st",
+    "blocktopia:nether_brick_slab_1_4_6",
+    "blocktopia:quartz_slab_1_5",
+    "blocktopia:prismarine_slab_1_13",
+    "blocktopia:cobblestone_slab_rd20090515",
+    "blocktopia:cobblestone_slab_b1_3",
+    "blocktopia:cobblestone_slab_b1_7",
+    "blocktopia:sandstone_slab_b1_3",
+    "blocktopia:sandstone_slab_1_2_4",
+    "blocktopia:brick_slab_c0_26st",
+    "blocktopia:brick_slab_b1_8",
+    "blocktopia:stone_brick_slab_b1_8",
+    "blocktopia:red_sandstone_slab_1_8",
+    "blocktopia:purpur_slab_1_9",
+    "blocktopia:resin_brick_slab"
   ]
 }

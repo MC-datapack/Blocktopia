@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:gold_nugget_1_3"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:gold_nugget"
+  }
+}

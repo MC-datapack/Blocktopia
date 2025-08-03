@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:gold_ingot_in20100129"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:gold_ingot_in20100128"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/end_rod",
+  "textures": {
+	"end_rod": "blocktopia:block/end_rod_1_9",
+	"particle": "blocktopia:block/end_rod_1_9"
+  }
+}

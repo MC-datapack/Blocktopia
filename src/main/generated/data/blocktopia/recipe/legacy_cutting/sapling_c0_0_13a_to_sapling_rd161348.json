@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:sapling_c0_0_13a"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:sapling_rd161348"
+  }
+}

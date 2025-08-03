@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/bamboo"
+    },
+    {
+      "item": "minecraft:light_gray_wool"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:light_gray_bamboo_chair"
+  }
+}

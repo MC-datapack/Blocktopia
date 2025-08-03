@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "blocktopia:block/birch_planks_1_2_4",
+    "side": "blocktopia:block/birch_planks_1_2_4",
+    "top": "blocktopia:block/birch_planks_1_2_4"
+  }
+}

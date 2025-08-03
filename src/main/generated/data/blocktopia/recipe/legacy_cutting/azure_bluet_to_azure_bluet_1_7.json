@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:azure_bluet"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:azure_bluet_1_7"
+  }
+}

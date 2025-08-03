@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:mutton"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:mutton_1_8"
+  }
+}

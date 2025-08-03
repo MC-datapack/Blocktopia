@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "blocktopia:block/dark_oak_log_1_7",
+    "side": "blocktopia:block/dark_oak_log_1_7"
+  }
+}

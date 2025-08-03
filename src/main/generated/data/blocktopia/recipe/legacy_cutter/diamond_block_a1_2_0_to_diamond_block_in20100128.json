@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:diamond_block_a1_2_0"
-  },
-  "result": {
-    "id": "blocktopia:diamond_block_in20100128"
-  }
-}

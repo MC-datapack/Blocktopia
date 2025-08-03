@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:paper"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:paper_a1_0_11"
+  }
+}

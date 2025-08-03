@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:sandstone_slab_1_2_4"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:sandstone_slab_b1_3"
+  }
+}

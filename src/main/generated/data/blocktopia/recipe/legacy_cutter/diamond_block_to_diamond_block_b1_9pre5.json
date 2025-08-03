@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:diamond_block"
-  },
-  "result": {
-    "id": "blocktopia:diamond_block_b1_9pre5"
-  }
-}

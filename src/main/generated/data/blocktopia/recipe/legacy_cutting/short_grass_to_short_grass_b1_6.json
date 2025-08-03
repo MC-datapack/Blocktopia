@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:short_grass"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:short_grass_b1_6"
+  }
+}

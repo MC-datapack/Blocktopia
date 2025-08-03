@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:diamond_ore_in20100128"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:diamond_ore_1_14"
+  }
+}

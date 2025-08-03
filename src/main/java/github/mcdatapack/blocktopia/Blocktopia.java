@@ -1,6 +1,7 @@
 package github.mcdatapack.blocktopia;
 
 import github.mcdatapack.blocktopia.block.entity.ModBlockEntityTypes;
+import github.mcdatapack.blocktopia.block.entity.custom.FluidTankBlockEntity;
 import github.mcdatapack.blocktopia.block.entity.custom.SmallChestBlockEntity;
 import github.mcdatapack.blocktopia.command.LocateMobCommand;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
@@ -15,6 +16,9 @@ import github.mcdatapack.blocktopia.handlers.LootHandler;
 import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.LegacyBlocks;
 import github.mcdatapack.blocktopia.handlers.TradeHandler;
+import github.mcdatapack.blocktopia.item.LegacyItems;
+import github.mcdatapack.blocktopia.api.CustomPiglinTrading;
+import github.mcdatapack.blocktopia.api.VillagerLevelTradeCountRegistry;
 import github.mcdatapack.blocktopia.worldgen.tree.decorator.ModTreeDecoratorTypes;
 import github.mcdatapack.blocktopia.worldgen.tree.foilageplacer.ModFoliagePlacerTypes;
 import github.mcdatapack.blocktopia.worldgen.tree.trunkplacer.ModTrunkPlacerTypes;
@@ -40,8 +44,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.VillagerInteractionRegistries;
-import net.fabricmc.fabric.api.transfer.v1.fluid.CauldronFluidContent;
-import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
+import net.fabricmc.fabric.api.transfer.v1.fluid.*;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
@@ -50,13 +53,18 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.village.VillagerType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import terrablender.api.RegionType;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
+
+import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
+import static github.mcdatapack.blocktopia.block.LegacyBlocks.TALL_GRASS_1_7;
 
 public class Blocktopia implements ModInitializer, TerraBlenderApi {
     public static final Logger LOGGER = LoggerFactory.getLogger("Blocktopia");
@@ -74,6 +82,7 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         ModItems.load();
         ModBlocks.load();
         LegacyBlocks.load();
+        LegacyItems.load();
         ModBoats.load();
         ModStructureProcessorTypes.load();
         ModTrunkPlacerTypes.load();
@@ -100,10 +109,50 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         LootHandler.registerListeners();
         ItemGroupModifyEventHandler.register();
         ItemStorage.SIDED.registerForBlockEntity(SmallChestBlockEntity::getInventoryProvider, ModBlockEntityTypes.SMALL_CHEST_BLOCK_ENTITY);
+        ItemStorage.SIDED.registerForBlockEntity(FluidTankBlockEntity::getInventoryProvider, ModBlockEntityTypes.FLUID_TANK);
+        FluidStorage.SIDED.registerForBlockEntity(FluidTankBlockEntity::getFluidTankProvider, ModBlockEntityTypes.FLUID_TANK);
         CompostingChanceRegistry.INSTANCE.add(ModItems.BANANA, 0.5F);
         CompostingChanceRegistry.INSTANCE.add(ModItems.CHERRY, 1.0F);
         CompostingChanceRegistry.INSTANCE.add(ModBlocks.TROPICAL_MOSS, 0.7F);
         CompostingChanceRegistry.INSTANCE.add(ModBlocks.TROPICAL_MOSS_CARPET, 0.35F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.LEAVES_C0_0_14A, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.LEAVES_C0_0_15A, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.LEAVES_C0_24ST, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.SAPLING_RD161348, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.SAPLING_C0_0_13A, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.SAPLING_C0_24ST, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.DANDELION_C0_0_20A, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.ROSE_C0_0_20A, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.POPPY_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.RED_MUSHROOM_C0_0_20A, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.CARVED_PUMPKIN_A1_2_0, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.BIRCH_LEAVES_B1_2, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.BIRCH_SAPLING_B1_5, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.SPRUCE_LEAVES_B1_2, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.SPRUCE_SAPLING_B1_5, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.SHRUB_B1_6, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.SHORT_GRASS_B1_6, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.FERN_B1_6, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.VINES_B1_8, 0.5F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.MUSHROOM_STEM_B1_8, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.RED_MUSHROOM_BLOCK_B1_8, 0.85F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.BROWN_MUSHROOM_BLOCK_B1_8, 0.85F);
+        CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.MELON_BLOCK_B1_8, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(ALLIUM_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(AZURE_BLUET_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(BLUE_ORCHID_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LILAC_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(PEONY_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(ROSE_BUSH_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(SUNFLOWER_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(OXEYE_DAISY_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(RED_TULIP_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(ORANGE_TULIP_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(WHITE_TULIP_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(PINK_TULIP_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(LARGE_FERN_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(TALL_GRASS_1_7, 0.65F);
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
             registerWithLongAndStrongAndNegative(builder, Items.EXPERIENCE_BOTTLE,
                     ModPotions.XP_BOOST, ModPotions.STRONG_XP_BOOST, ModPotions.LONG_XP_BOOST,
@@ -116,6 +165,12 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         VillagerInteractionRegistries.registerCompostable(ModItems.BANANA);
         VillagerInteractionRegistries.registerCompostable(ModItems.CHERRY);
         ModItemGroups.load();
+        FluidVariantAttributes.register(ModFluids.TROPICAL_WATER, new FluidVariantAttributeHandler() {
+            @Override
+            public Text getName(FluidVariant fluidVariant) {
+                return Text.translatable("fluid.blocktopia.tropical_water");
+            }
+        });
 
         CustomPortalBuilder.beginPortal()
                 .frameBlock(Blocks.JUNGLE_LOG)
@@ -148,6 +203,12 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
                 .tintColor(26, 158, 10)
                 .registerPortal();
         CauldronFluidContent.registerCauldron(ModBlocks.TROPICAL_WATER_CAULDRON, ModFluids.TROPICAL_WATER, FluidConstants.BUCKET, null);
+        VillagerType.BIOME_TO_TYPE.put(ModBiomes.RAIN_FOREST_KEY, VillagerType.JUNGLE);
+
+        VillagerLevelTradeCountRegistry.registerTradeCount(ModVillagers.LEGACY, 5);
+        CustomPiglinTrading.addBarteringItem(Items.NETHERITE_INGOT, ModLootTables.NETHERITE_PIGLIN_BARTERING);
+        CustomPiglinTrading.addBarteringItem(Items.NETHERITE_BLOCK, ModLootTables.NETHERITE_BLOCK_PIGLIN_BARTERING);
+        CustomPiglinTrading.addBarteringItem(LegacyBlocks.BEDROCK_C0_0_12A, ModLootTables.BEDROCK_C0_0_12A_PIGLIN_BARTERING);
 
         LOGGER.info("Loaded Blocktopia");
     }

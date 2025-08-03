@@ -1,0 +1,7 @@
+{
+  "parent": "blocktopia:block/chair",
+  "textures": {
+    "seat_texture": "minecraft:block/acacia_planks",
+    "texture": "minecraft:block/acacia_planks"
+  }
+}

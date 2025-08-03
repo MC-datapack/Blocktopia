@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:vine"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:vines_b1_8"
+  }
+}

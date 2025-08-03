@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:jungle_fence_gate"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:jungle_fence_gate_1_8"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/birch_slab_1_3"
+    },
+    "type=double": {
+      "model": "blocktopia:block/birch_planks_1_2_4"
+    },
+    "type=top": {
+      "model": "blocktopia:block/birch_slab_1_3_top"
+    }
+  }
+}

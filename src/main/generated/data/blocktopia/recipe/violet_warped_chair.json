@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/warped"
+    },
+    {
+      "item": "blocktopia:violet_cloth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:violet_warped_chair"
+  }
+}

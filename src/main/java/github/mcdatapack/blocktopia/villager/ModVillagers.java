@@ -13,6 +13,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerProfession;
+import net.minecraft.village.VillagerType;
 import net.minecraft.world.poi.PointOfInterestType;
 
 public interface ModVillagers {
@@ -24,17 +25,18 @@ public interface ModVillagers {
     PointOfInterestType BEEKEEPER_POI = registerPoi("beekeeper", Registries.BLOCK.get(Identifier.of(BlocktopiaConfig.getConfig().villagerConfig.beekeeperVillagerWorkstation)));
     VillagerProfession BEEKEEPER = registerProfession("beekeeper", BEEKEEPER_KEY, SoundEvents.ENTITY_VILLAGER_WORK_FARMER);
 
-    static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type, SoundEvent soundEvent) {
+
+    private static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type, SoundEvent soundEvent) {
         return Registry.register(Registries.VILLAGER_PROFESSION, Blocktopia.id(name),
                 new VillagerProfession(name, entry -> entry.matchesKey(type), entry -> entry.matchesKey(type),
                         ImmutableSet.of(), ImmutableSet.of(), soundEvent));
     }
 
-    static PointOfInterestType registerPoi(String name, Block block) {
+    private static PointOfInterestType registerPoi(String name, Block block) {
         return PointOfInterestHelper.register(Blocktopia.id(name), 1, 10, block);
     }
 
-    static RegistryKey<PointOfInterestType> poiKey(String name) {
+    private static RegistryKey<PointOfInterestType> poiKey(String name) {
         return RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, Blocktopia.id(name));
     }
 

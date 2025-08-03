@@ -13,6 +13,16 @@ public class ItemGroupModifyEventHandler {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(ItemGroupModifyEventHandler::modifySpawnEggsEntries);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ItemGroupModifyEventHandler::modifyNaturalEntries);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(ItemGroupModifyEventHandler::modifyBuildingBlocksEntries);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(ItemGroupModifyEventHandler::modifyRedstoneEntries);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ItemGroupModifyEventHandler::modifyToolsEntries);
+    }
+
+    private static void modifyToolsEntries(FabricItemGroupEntries entries) {
+        entries.addAfter(Items.FURNACE_MINECART, ModItems.SPAWNER_MINECART);
+    }
+
+    private static void modifyRedstoneEntries(FabricItemGroupEntries entries) {
+        entries.addAfter(Items.FURNACE_MINECART, ModItems.SPAWNER_MINECART);
     }
 
     private static void modifyBuildingBlocksEntries(FabricItemGroupEntries entries) {

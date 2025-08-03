@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/dark_oak_slab_1_7"
+    },
+    "type=double": {
+      "model": "blocktopia:block/dark_oak_planks_1_7"
+    },
+    "type=top": {
+      "model": "blocktopia:block/dark_oak_slab_1_7_top"
+    }
+  }
+}

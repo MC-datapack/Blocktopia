@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_button_rd20090515"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:wooden_button_c0_0_14a"
+  }
+}

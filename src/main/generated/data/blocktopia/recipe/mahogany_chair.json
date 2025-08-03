@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "blocktopia:mahogany_planks"
+    }
+  },
+  "pattern": [
+    "A  ",
+    "AAA",
+    "A A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:mahogany_chair"
+  }
+}

@@ -3,7 +3,9 @@ package github.mcdatapack.blocktopia.entity;
 import com.terraformersmc.terraform.boat.api.TerraformBoatType;
 import com.terraformersmc.terraform.boat.api.TerraformBoatTypeRegistry;
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.FutureBlocks;
 import github.mcdatapack.blocktopia.block.ModBlocks;
+import github.mcdatapack.blocktopia.item.FutureItems;
 import github.mcdatapack.blocktopia.item.ModItems;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -35,6 +37,11 @@ public abstract class ModBoats {
     public static final RegistryKey<TerraformBoatType> MAHOGANY_BOAT_KEY = TerraformBoatTypeRegistry.createKey(MAHOGANY_BOAT_ID);
     public static TerraformBoatType MAHOGANY_TYPE;
 
+    public static final Identifier PALE_OAK_BOAT_ID = Blocktopia.id("pale_oak_boat");
+    public static final Identifier PALE_OAK_CHEST_BOAT_ID = Blocktopia.id("pale_oak_chest_boat");
+    public static final RegistryKey<TerraformBoatType> PALE_OAK_BOAT_KEY = TerraformBoatTypeRegistry.createKey(PALE_OAK_BOAT_ID);
+    public static TerraformBoatType PALE_OAK_TYPE;
+
     public static TerraformBoatType register(RegistryKey<TerraformBoatType> key, TerraformBoatType type) {
         return Registry.register(TerraformBoatTypeRegistry.INSTANCE, key, type);
     }
@@ -52,5 +59,7 @@ public abstract class ModBoats {
                 .planks(ModBlocks.POISONED_PLANKS.asItem()).build());
         MAHOGANY_TYPE = register(MAHOGANY_BOAT_KEY, new TerraformBoatType.Builder().item(ModItems.MAHOGANY_BOAT).chestItem(ModItems.MAHOGANY_CHEST_BOAT)
                 .planks(ModBlocks.MAHOGANY_PLANKS.asItem()).build());
+        PALE_OAK_TYPE = register(PALE_OAK_BOAT_KEY, new TerraformBoatType.Builder().item(FutureItems.PALE_OAK_BOAT).chestItem(FutureItems.PALE_OAK_CHEST_BOAT)
+                .planks(FutureBlocks.PALE_OAK_PLANKS.asItem()).build());
     }
 }

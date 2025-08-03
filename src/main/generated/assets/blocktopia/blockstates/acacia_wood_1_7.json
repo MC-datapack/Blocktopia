@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "blocktopia:block/acacia_wood_1_7",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "blocktopia:block/acacia_wood_1_7"
+    },
+    "axis=z": {
+      "model": "blocktopia:block/acacia_wood_1_7",
+      "x": 90
+    }
+  }
+}

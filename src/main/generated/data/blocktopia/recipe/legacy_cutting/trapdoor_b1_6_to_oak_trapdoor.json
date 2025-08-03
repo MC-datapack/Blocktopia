@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:trapdoor_b1_6"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:oak_trapdoor"
+  }
+}

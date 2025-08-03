@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "blocktopia:dark_oak_log_1_7"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:dark_oak_planks_1_7"
+  }
+}

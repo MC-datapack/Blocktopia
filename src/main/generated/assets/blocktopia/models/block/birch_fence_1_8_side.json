@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "blocktopia:block/birch_planks_1_2_4"
+  }
+}

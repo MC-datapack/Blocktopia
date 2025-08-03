@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "blocktopia:block/redstone_lamp_1_2"
+    },
+    "lit=true": {
+      "model": "blocktopia:block/redstone_lamp_1_2_on"
+    }
+  }
+}

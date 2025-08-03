@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:purpur_stairs"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:purpur_stairs_1_9"
+  }
+}

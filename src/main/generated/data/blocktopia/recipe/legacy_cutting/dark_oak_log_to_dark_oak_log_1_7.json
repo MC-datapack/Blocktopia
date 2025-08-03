@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:dark_oak_log"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:dark_oak_log_1_7"
+  }
+}

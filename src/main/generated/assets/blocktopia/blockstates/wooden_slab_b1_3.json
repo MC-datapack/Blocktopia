@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/wooden_slab_b1_3"
+    },
+    "type=double": {
+      "model": "blocktopia:block/wooden_planks_c0_0_15a"
+    },
+    "type=top": {
+      "model": "blocktopia:block/wooden_slab_b1_3_top"
+    }
+  }
+}

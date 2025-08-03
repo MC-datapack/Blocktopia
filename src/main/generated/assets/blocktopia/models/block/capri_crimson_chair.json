@@ -1,0 +1,7 @@
+{
+  "parent": "blocktopia:block/chair",
+  "textures": {
+    "seat_texture": "blocktopia:block/capri_cloth",
+    "texture": "minecraft:block/crimson_planks"
+  }
+}

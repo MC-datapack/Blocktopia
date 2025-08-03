@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:dandelion"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:dandelion_c0_0_20a"
+  }
+}

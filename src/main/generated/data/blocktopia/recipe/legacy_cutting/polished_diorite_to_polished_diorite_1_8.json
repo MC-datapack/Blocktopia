@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:polished_diorite"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:polished_diorite_1_8"
+  }
+}

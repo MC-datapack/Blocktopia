@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/rail_flat",
+  "textures": {
+    "rail": "blocktopia:block/rail_inf20100618"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:beef"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:beef_1_4"
+  }
+}

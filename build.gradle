@@ -38,7 +38,7 @@ repositories {
 		url = 'https://maven.minecraftforge.net/'
 	}
 	maven {
-		url "https://maven.shedaniel.me/"
+		url = "https://maven.shedaniel.me/"
 	}
 	maven {
 		name = "Modrinth"
@@ -83,6 +83,7 @@ dependencies {
 
 	modRuntimeOnly "maven.modrinth:continuity:${project.continuity_version}"
 
+	modApi "mezz.jei:jei-1.21.1-common-api:${jei_version}"
 	modRuntimeOnly "mezz.jei:jei-1.21.1-fabric:${jei_version}"
 }
 

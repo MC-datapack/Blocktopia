@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:yellow_carpet_1_2_4"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_wool_1_2_4": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:yellow_wool_1_2_4"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_yellow_wool_1_2_4"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:yellow_carpet_1_2_4"
+    ]
+  }
+}

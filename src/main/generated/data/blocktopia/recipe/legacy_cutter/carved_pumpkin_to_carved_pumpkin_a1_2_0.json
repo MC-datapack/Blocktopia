@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:carved_pumpkin"
-  },
-  "result": {
-    "id": "blocktopia:carved_pumpkin_a1_2_0"
-  }
-}

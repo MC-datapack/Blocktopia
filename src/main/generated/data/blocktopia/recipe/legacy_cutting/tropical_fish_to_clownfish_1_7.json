@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:tropical_fish"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:clownfish_1_7"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:oak_wood"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:oak_wood_1_3"
+  }
+}

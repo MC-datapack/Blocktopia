@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:spruce_sapling"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:spruce_sapling_b1_5"
+  }
+}

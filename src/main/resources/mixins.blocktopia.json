@@ -4,16 +4,30 @@
   "package": "github.mcdatapack.blocktopia.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-	"BlocksMixin",
+	"BlockStateModelGeneratorAccessor",
 	"ChunkRegionMixin",
-	"FluidBlockMixin",
-	"LivingEntityMixin",
-	"PiglinBrainMixin",
-	"StructureBlockBlockEntityMixin",
+	"NetherPortalMixin",
 	"TrunkPlacerMixin",
-	"UpdateStructureBlockC2SPacketMixin"
+	"block.BlocksMixin",
+	"block.CocoaBlockMixin",
+	"block.FlowerBlockMixin",
+	"block.PistonBlockEntityMixin",
+	"block.PistonHandlerMixin",
+	"block.StructureBlockBlockEntityMixin",
+	"block.UpdateStructureBlockC2SPacketMixin",
+	"entity.AbstractMinecartEntityMixin",
+	"entity.LivingEntityMixin",
+	"entity.PiglinBrainMixin",
+	"entity.villager.VillagerDataMixin",
+	"entity.villager.VillagerEntityMixin",
+	"fluid.FluidBlockMixin",
+	"fluid.LavaFluidMixin"
   ],
   "injectors": {
 	"defaultRequire": 1
-  }
+  },
+  "client": [
+	"entity.villager.VillagerClothingFeatureRendererMixin",
+	"entity.villager.VillagerScreenMixin"
+  ]
 }

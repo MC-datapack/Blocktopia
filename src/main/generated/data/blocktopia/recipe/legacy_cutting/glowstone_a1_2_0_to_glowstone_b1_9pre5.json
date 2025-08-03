@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:glowstone_a1_2_0"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:glowstone_b1_9pre5"
+  }
+}

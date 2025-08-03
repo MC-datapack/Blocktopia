@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "blocktopia:birch_log_b1_2"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:birch_planks_1_2_4"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/oak"
+    },
+    {
+      "item": "blocktopia:chartreuse_cloth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:chartreuse_oak_chair"
+  }
+}

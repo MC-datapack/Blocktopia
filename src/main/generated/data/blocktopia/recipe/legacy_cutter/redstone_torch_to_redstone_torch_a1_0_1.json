@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:redstone_torch"
-  },
-  "result": {
-    "id": "blocktopia:redstone_torch_a1_0_1"
-  }
-}

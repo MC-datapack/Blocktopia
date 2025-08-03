@@ -1,0 +1,9 @@
+{
+  "parent": "block/sunflower_top",
+  "textures": {
+	"particle": "blocktopia:block/sunflower_1_7_front",
+	"cross": "blocktopia:block/sunflower_1_7_top",
+	"back": "blocktopia:block/sunflower_1_7_back",
+	"front": "blocktopia:block/sunflower_1_7_front"
+  }
+}

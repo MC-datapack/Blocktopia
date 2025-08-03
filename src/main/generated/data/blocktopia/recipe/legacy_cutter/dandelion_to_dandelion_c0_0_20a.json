@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:dandelion"
-  },
-  "result": {
-    "id": "blocktopia:dandelion_c0_0_20a"
-  }
-}

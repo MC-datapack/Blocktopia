@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:dark_oak_planks_1_7"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:dark_oak_planks"
+  }
+}

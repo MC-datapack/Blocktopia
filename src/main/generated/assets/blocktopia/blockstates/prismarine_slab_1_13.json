@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/prismarine_slab_1_13"
+    },
+    "type=double": {
+      "model": "blocktopia:block/prismarine_1_8"
+    },
+    "type=top": {
+      "model": "blocktopia:block/prismarine_slab_1_13_top"
+    }
+  }
+}

@@ -1,214 +1,452 @@
 package github.mcdatapack.blocktopia.item;
 
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.FutureBlocks;
 import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.LegacyBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
+import static github.mcdatapack.blocktopia.block.FutureBlocks.*;
+import static github.mcdatapack.blocktopia.item.FutureItems.*;
+import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
+import static github.mcdatapack.blocktopia.item.LegacyItems.*;
+import static github.mcdatapack.blocktopia.item.ModItems.FUTURE_INGOT;
 
 @SuppressWarnings("unused")
 public interface ModItemGroups {
     RegistryKey<ItemGroup> LEGACY_BLOCKS_GROUP = register("legacy_blocks_group", FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.blocktopia.legacy_blocks"))
             .icon(LegacyBlocks.COBBLESTONE_RD20090515.asItem()::getDefaultStack)
+            .entries((displayContext, entries) -> add(entries, COBBLESTONE_RD20090515, COBBLESTONE_C0_0_14A, COBBLESTONE_B1_7,
+                    WOODEN_PLANKS_RD20090515, WOODEN_PLANKS_RD161348, WOODEN_PLANKS_C0_0_14A, WOODEN_PLANKS_C0_0_15A, WOODEN_PLANKS_B1_9PRE5,
+                    SAPLING_RD161348, SAPLING_C0_0_13A, SAPLING_C0_24ST,
+                    BEDROCK_C0_0_12A,
+                    SAND_C0_0_14A, SAND_C0_0_15A, SAND_B1_9PRE6,
+                    GRAVEL_C0_0_14A, GRAVEL_C0_0_15A, GRAVEL_B1_9PRE5, GRAVEL_1_3,
+                    COAL_ORE_C0_0_14A, COAL_ORE_1_14,
+                    IRON_ORE_C0_0_14A, IRON_ORE_1_14, IRON_ORE_1_14_1,
+                    GOLD_ORE_C0_0_14A, GOLD_ORE_C0_26ST, GOLD_ORE_1_14,
+                    LOG_C0_0_14A,
+                    LEAVES_C0_0_14A, LEAVES_C0_0_15A, LEAVES_C0_24ST,
+                    SPONGE_C0_0_19A, SPONGE_1_8,
+                    WET_SPONGE_1_8,
+                    GLASS_C0_0_19A,
+                    WHITE_CLOTH,
+                    LIGHT_GRAY_CLOTH_C0_0_20A, LIGHT_GRAY_CLOTH_C0_28A,
+                    DARK_GRAY_CLOTH_C0_0_20A, DARK_GRAY_CLOTH_C0_28A,
+                    RED_CLOTH,
+                    ORANGE_CLOTH,
+                    YELLOW_CLOTH,
+                    CHARTREUSE_CLOTH,
+                    SPRING_GREEN_CLOTH,
+                    CYAN_CLOTH,
+                    CAPRI_CLOTH,
+                    ULTRAMARINE_CLOTH,
+                    VIOLET_CLOTH,
+                    PURPLE_CLOTH,
+                    MAGENTA_CLOTH,
+                    ROSE_CLOTH,
+                    GOLD_BLOCK_C0_0_20A, GOLD_BLOCK_C0_26ST, GOLD_BLOCK_A1_2_0, GOLD_BLOCK_B1_9PRE5,
+                    DANDELION_C0_0_20A,
+                    ROSE_C0_0_20A,
+                    POPPY_1_7,
+                    RED_MUSHROOM_C0_0_20A,
+                    BROWN_MUSHROOM_C0_0_20A,
+                    STONE_SLAB_C0_26ST,
+                    IRON_BLOCK_C0_26ST, IRON_BLOCK_A1_2_0, IRON_BLOCK_B1_9PRE5,
+                    TNT_C0_26ST, TNT_C0_28A,
+                    MOSSY_COBBLESTONE_C0_26ST, MOSSY_COBBLESTONE_B1_8,
+                    BRICKS_C0_26ST, BRICKS_A1_0_11,
+                    BOOKSHELF_C0_26ST, BOOKSHELF_B1_9PRE5,
+                    OBSIDIAN_C0_28A,
+                    TORCH_IN20100124_2,
+                    DIAMOND_ORE_IN20100128, DIAMOND_ORE_1_14,
+                    DIAMOND_BLOCK_IN20100128, DIAMOND_BLOCK_A1_2_0, DIAMOND_BLOCK_B1_9PRE5,
+                    CRAFTING_TABLE_IN20100131, CRAFTING_TABLE_1_14,
+                    FURNACE_IN20100219, FURNACE_B1_2,
+                    WOODEN_DOOR_INF20100607,
+                    SIGN_INF20100607,
+                    LADDER_INF20100607, LADDER_INF20100618, RAIL_INF20100618,
+                    WOODEN_STAIRS_RD20090515, WOODEN_STAIRS_RD161348, WOODEN_STAIRS_C0_0_14A, WOODEN_STAIRS_INF20100629, WOODEN_STAIRS_B1_9PRE5,
+                    COBBLESTONE_STAIRS_RD20090515, COBBLESTONE_STAIRS_INF20100629, COBBLESTONE_STAIRS_B1_7,
+                    REDSTONE_ORE_A1_0_1, REDSTONE_ORE_1_14,
+                    REDSTONE_TORCH_A1_0_1,
+                    SNOW_A1_0_4,
+                    ICE_A1_0_4,
+                    SNOW_BLOCK_A1_0_5,
+                    WOODEN_FENCE_RD20090515, WOODEN_FENCE_RD161348, WOODEN_FENCE_C0_0_14A, WOODEN_FENCE_A1_0_17, WOODEN_FENCE_B1_9PRE5,
+                    NETHERRACK_A1_2_0, NETHERRACK_B1_9PRE5,
+                    SOUL_SAND_A1_2_0,
+                    GLOWSTONE_A1_2_0, GLOWSTONE_B1_9PRE5,
+                    CARVED_PUMPKIN_A1_2_0,
+                    JACK_O_LANTERN_A1_2_0,
+                    LIGHT_GRAY_WOOL_B1_2,
+                    GRAY_WOOL_B1_2,
+                    BLACK_WOOL_B1_2,
+                    BROWN_WOOL_B1_2,
+                    RED_WOOL_B1_2,
+                    ORANGE_WOOL_B1_2,
+                    YELLOW_WOOL_B1_2,
+                    LIME_WOOL_B1_2 ,
+                    GREEN_WOOL_B1_2,
+                    CYAN_WOOL_B1_2 ,
+                    LIGHT_BLUE_WOOL_B1_2,
+                    BLUE_WOOL_B1_2 ,
+                    PURPLE_WOOL_B1_2,
+                    MAGENTA_WOOL_B1_2,
+                    PINK_WOOL_B1_2,
+                    LIGHT_GRAY_WOOL_1_2_4,
+                    GRAY_WOOL_1_2_4,
+                    BLACK_WOOL_1_2_4,
+                    BROWN_WOOL_1_2_4,
+                    RED_WOOL_1_2_4,
+                    ORANGE_WOOL_1_2_4,
+                    YELLOW_WOOL_1_2_4,
+                    LIME_WOOL_1_2_4,
+                    GREEN_WOOL_1_2_4,
+                    CYAN_WOOL_1_2_4,
+                    LIGHT_BLUE_WOOL_1_2_4,
+                    BLUE_WOOL_1_2_4,
+                    PURPLE_WOOL_1_2_4,
+                    MAGENTA_WOOL_1_2_4,
+                    PINK_WOOL_1_2_4,
+                    CAKE_B1_2,
+                    LAPIS_ORE_B1_2, LAPIS_ORE_1_14,
+                    LAPIS_BLOCK_B1_2, LAPIS_BLOCK_1_6,
+                    NOTE_BLOCK_B1_2,
+                    SANDSTONE_B1_2, SANDSTONE_1_2_4,
+                    BIRCH_LOG_B1_2, BIRCH_LOG_1_7,
+                    BIRCH_LEAVES_B1_2,
+                    SPRUCE_LOG_B1_2, SPRUCE_LOG_1_7,
+                    SPRUCE_LEAVES_B1_2,
+                    CRYING_OBSIDIAN_B1_3,
+                    COBBLESTONE_SLAB_RD20090515, COBBLESTONE_SLAB_B1_3, COBBLESTONE_SLAB_B1_7,
+                    WOODEN_SLAB_RD20090515, WOODEN_SLAB_RD161348, WOODEN_SLAB_C0_0_14A, WOODEN_SLAB_B1_3, WOODEN_SLAB_B1_9PRE5,
+                    SANDSTONE_SLAB_B1_3, SANDSTONE_SLAB_1_2_4,
+                    SMOOTH_STONE_B1_3,
+                    BIRCH_SAPLING_B1_5,
+                    SPRUCE_SAPLING_B1_5,
+                    POWERED_RAIL_B1_5,
+                    DETECTOR_RAIL_B1_5,
+                    COBWEB_B1_5,
+                    DEAD_BUSH_B1_6,
+                    SHRUB_B1_6,
+                    SHORT_GRASS_B1_6,
+                    FERN_B1_6,
+                    TRAPDOOR_B1_6,
+                    STONE_BRICKS_B1_8,
+                    CRACKED_STONE_BRICKS_B1_8,
+                    MOSSY_STONE_BRICKS_B1_8,
+                    INFESTED_COBBLESTONE_RD20090515,
+                    INFESTED_COBBLESTONE_C0_0_14A,
+                    INFESTED_COBBLESTONE_B1_8,
+                    INFESTED_STONE_BRICKS_B1_8,
+                    BRICK_SLAB_C0_26ST, BRICK_SLAB_B1_8,
+                    STONE_BRICK_SLAB_B1_8,
+                    BRICK_STAIRS_C0_26ST, BRICK_STAIRS_B1_8,
+                    STONE_BRICK_STAIRS_B1_8,
+                    GLASS_PANE_B1_8,
+                    WOODEN_FENCE_GATE_RD20090515, WOODEN_FENCE_GATE_RD161348, WOODEN_FENCE_GATE_C0_0_14A, WOODEN_FENCE_GATE_B1_8, WOODEN_FENCE_GATE_B1_9PRE5,
+                    VINES_B1_8,
+                    MUSHROOM_STEM_B1_8,
+                    RED_MUSHROOM_BLOCK_B1_8, BROWN_MUSHROOM_BLOCK_B1_8,
+                    MELON_BLOCK_B1_8,
+                    NETHER_BRICKS_B1_9PRE,
+                    NETHER_BRICK_STAIRS_B1_9PRE,
+                    NETHER_BRICK_FENCE_B1_9PRE,
+                    LILY_PAD_B1_9PRE,
+                    ENDSTONE_B1_9PRE4,
+                    JUNGLE_LOG_1_2, JUNGLE_LOG_1_7,
+                    JUNGLE_LEAVES_1_2,
+                    JUNGLE_SAPLING_1_2,
+                    REDSTONE_LAMP_1_2,
+                    CHISELED_STONE_BRICKS_1_2,
+                    BIRCH_PLANKS_1_2_4,
+                    SPRUCE_PLANKS_1_2_4,
+                    JUNGLE_PLANKS_1_2_4,
+                    CUT_SANDSTONE_1_2_4,
+                    CHISELED_SANDSTONE_1_2_4,
+                    BIRCH_SLAB_1_3,
+                    SPRUCE_SLAB_1_3,
+                    JUNGLE_SLAB_1_3,
+                    COCOA_1_3,
+                    RUBY_ORE, EMERALD_ORE_1_3, EMERALD_ORE_1_14,
+                    SANDSTONE_STAIRS_B1_2, SANDSTONE_STAIRS_1_3,
+                    EMERALD_BLOCK_1_3,
+                    BIRCH_STAIRS_1_3,
+                    SPRUCE_STAIRS_1_3,
+                    JUNGLE_STAIRS_1_3,
+                    OAK_WOOD_1_3,
+                    BIRCH_WOOD_1_3,
+                    SPRUCE_WOOD_1_3,
+                    JUNGLE_WOOD_1_3,
+                    WOODEN_BUTTON_RD20090515, WOODEN_BUTTON_RD161348, WOODEN_BUTTON_C0_0_14A, WOODEN_BUTTON_C0_0_15A, WOODEN_BUTTON_1_4,
+                    COBBLESTONE_WALL_RD20090515, COBBLESTONE_WALL_C0_0_14A, COBBLESTONE_WALL_1_4,
+                    NETHER_BRICK_SLAB_1_4_6,
+                    QUARTZ_ORE_1_5,
+                    REDSTONE_BLOCK_1_5,
+                    ACTIVATOR_RAIL_1_5,
+                    QUARTZ_BLOCK_1_5,
+                    CHISELED_QUARTZ_BLOCK_1_5,
+                    QUARTZ_PILLAR_1_5,
+                    QUARTZ_SLAB_1_5,
+                    QUARTZ_STAIRS_1_5,
+                    SMOOTH_SANDSTONE_1_5,
+                    SMOOTH_QUARTZ_1_5,
+                    WHITE_CLOTH_CARPET,
+                    LIGHT_GRAY_CLOTH_CARPET_C0_0_20A,
+                    LIGHT_GRAY_CLOTH_CARPET_C0_28A,
+                    DARK_GRAY_CLOTH_CARPET_C0_0_20A,
+                    DARK_GRAY_CLOTH_CARPET_C0_28A,
+                    RED_CLOTH_CARPET,
+                    ORANGE_CLOTH_CARPET,
+                    YELLOW_CLOTH_CARPET,
+                    CHARTREUSE_CLOTH_CARPET,
+                    SPRING_GREEN_CLOTH_CARPET,
+                    CYAN_CLOTH_CARPET,
+                    CAPRI_CLOTH_CARPET,
+                    ULTRAMARINE_CLOTH_CARPET,
+                    VIOLET_CLOTH_CARPET,
+                    PURPLE_CLOTH_CARPET,
+                    MAGENTA_CLOTH_CARPET,
+                    ROSE_CLOTH_CARPET,
+                    GRAY_CARPET_B1_2,
+                    BLACK_CARPET_B1_2,
+                    BROWN_CARPET_B1_2,
+                    RED_CARPET_B1_2,
+                    ORANGE_CARPET_B1_2,
+                    YELLOW_CARPET_B1_2,
+                    LIME_CARPET_B1_2,
+                    GREEN_CARPET_B1_2,
+                    CYAN_CARPET_B1_2,
+                    LIGHT_BLUE_CARPET_B1_2,
+                    BLUE_CARPET_B1_2,
+                    PURPLE_CARPET_B1_2,
+                    MAGENTA_CARPET_B1_2,
+                    PINK_CARPET_B1_2,
+                    LIGHT_GRAY_CARPET_1_2_4,
+                    GRAY_CARPET_1_2_4,
+                    BLACK_CARPET_1_2_4,
+                    BROWN_CARPET_1_2_4,
+                    RED_CARPET_1_2_4,
+                    ORANGE_CARPET_1_2_4,
+                    YELLOW_CARPET_1_2_4,
+                    LIME_CARPET_1_2_4,
+                    GREEN_CARPET_1_2_4,
+                    CYAN_CARPET_1_2_4,
+                    LIGHT_BLUE_CARPET_1_2_4,
+                    BLUE_CARPET_1_2_4,
+                    PURPLE_CARPET_1_2_4,
+                    MAGENTA_CARPET_1_2_4,
+                    PINK_CARPET_1_2_4,
+                    HAY_BALE_1_6,
+                    TERRACOTTA_1_6,
+                    COAL_BLOCK_1_6,
+                    ALLIUM_1_7,
+                    AZURE_BLUET_1_7,
+                    BLUE_ORCHID_1_7,
+                    LILAC_1_7,
+                    PEONY_1_7,
+                    ROSE_BUSH_1_7,
+                    SUNFLOWER_1_7,
+                    OXEYE_DAISY_1_7,
+                    RED_TULIP_1_7,
+                    ORANGE_TULIP_1_7,
+                    WHITE_TULIP_1_7,
+                    PINK_TULIP_1_7,
+                    LARGE_FERN_1_7,
+                    TALL_GRASS_1_7,
+                    PACKED_ICE_1_7,
+                    INFESTED_CRACKED_STONE_BRICKS_1_7,
+                    INFESTED_MOSSY_STONE_BRICKS_1_7,
+                    INFESTED_CHISELED_STONE_BRICKS_1_7,
+                    RED_SAND_1_7,
+                    WHITE_STAINED_GLASS_1_7,
+                    ORANGE_STAINED_GLASS_1_7,
+                    MAGENTA_STAINED_GLASS_1_7,
+                    LIGHT_BLUE_STAINED_GLASS_1_7,
+                    YELLOW_STAINED_GLASS_1_7,
+                    LIME_STAINED_GLASS_1_7,
+                    PINK_STAINED_GLASS_1_7,
+                    GRAY_STAINED_GLASS_1_7,
+                    LIGHT_GRAY_STAINED_GLASS_1_7,
+                    CYAN_STAINED_GLASS_1_7,
+                    PURPLE_STAINED_GLASS_1_7,
+                    BLUE_STAINED_GLASS_1_7,
+                    BROWN_STAINED_GLASS_1_7,
+                    GREEN_STAINED_GLASS_1_7,
+                    RED_STAINED_GLASS_1_7,
+                    BLACK_STAINED_GLASS_1_7,
+                    WHITE_STAINED_GLASS_PANE_1_7,
+                    ORANGE_STAINED_GLASS_PANE_1_7,
+                    MAGENTA_STAINED_GLASS_PANE_1_7,
+                    LIGHT_BLUE_STAINED_GLASS_PANE_1_7,
+                    YELLOW_STAINED_GLASS_PANE_1_7,
+                    LIME_STAINED_GLASS_PANE_1_7,
+                    PINK_STAINED_GLASS_PANE_1_7,
+                    GRAY_STAINED_GLASS_PANE_1_7,
+                    LIGHT_GRAY_STAINED_GLASS_PANE_1_7,
+                    CYAN_STAINED_GLASS_PANE_1_7,
+                    PURPLE_STAINED_GLASS_PANE_1_7,
+                    BLUE_STAINED_GLASS_PANE_1_7,
+                    BROWN_STAINED_GLASS_PANE_1_7,
+                    GREEN_STAINED_GLASS_PANE_1_7,
+                    RED_STAINED_GLASS_PANE_1_7,
+                    BLACK_STAINED_GLASS_PANE_1_7,
+                    ACACIA_LOG_1_7,
+                    ACACIA_WOOD_1_7,
+                    ACACIA_LEAVES_1_7,
+                    ACACIA_SAPLING_1_7,
+                    DARK_OAK_LOG_1_7,
+                    DARK_OAK_WOOD_1_7,
+                    DARK_OAK_LEAVES_1_7,
+                    DARK_OAK_SAPLING_1_7,
+                    ACACIA_PLANKS_1_7,
+                    ACACIA_STAIRS_1_7,
+                    ACACIA_SLAB_1_7,
+                    DARK_OAK_PLANKS_1_7,
+                    DARK_OAK_STAIRS_1_7,
+                    DARK_OAK_SLAB_1_7,
+                    GRANITE_1_8,
+                    POLISHED_GRANITE_1_8,
+                    DIORITE_1_8,
+                    POLISHED_DIORITE_1_8,
+                    ANDESITE_1_8,
+                    POLISHED_ANDESITE_1_8,
+                    SLIME_BLOCK_1_8,
+                    PRISMARINE_1_8,
+                    PRISMARINE_BRICKS_1_8,
+                    DARK_PRISMARINE_1_8,
+                    RED_SANDSTONE_1_8,
+                    CUT_RED_SANDSTONE_1_8,
+                    CHISELED_RED_SANDSTONE_1_8,
+                    SMOOTH_RED_SANDSTONE_1_8,
+                    RED_SANDSTONE_SLAB_1_8,
+                    RED_SANDSTONE_STAIRS_1_8,
+                    BIRCH_FENCE_1_8,
+                    SPRUCE_FENCE_1_8,
+                    JUNGLE_FENCE_1_8,
+                    ACACIA_FENCE_1_8,
+                    DARK_OAK_FENCE_1_8,
+                    BIRCH_FENCE_GATE_1_8,
+                    SPRUCE_FENCE_GATE_1_8,
+                    JUNGLE_FENCE_GATE_1_8,
+                    ACACIA_FENCE_GATE_1_8,
+                    DARK_OAK_FENCE_GATE_1_8,
+                    END_ROD_1_9,
+                    ENDSTONE_BRICKS_1_9,
+                    PURPUR_BLOCK_1_9,
+                    PURPUR_PILLAR_1_9,
+                    PURPUR_SLAB_1_9,
+                    PURPUR_STAIRS_1_9,
+                    BONE_BLOCK_1_10,
+                    MAGMA_BLOCK_1_10,
+                    NETHER_WART_BLOCK_1_10,
+                    NETHER_WART_BLOCK_1_14,
+                    RED_NETHER_BRICKS_1_10,
+                    BIRCH_BUTTON_1_13,
+                    SPRUCE_BUTTON_1_13,
+                    JUNGLE_BUTTON_1_13,
+                    ACACIA_BUTTON_1_13,
+                    DARK_OAK_BUTTON_1_13,
+                    BIRCH_PRESSURE_PLATE_1_13,
+                    SPRUCE_PRESSURE_PLATE_1_13,
+                    JUNGLE_PRESSURE_PLATE_1_13,
+                    ACACIA_PRESSURE_PLATE_1_13,
+                    DARK_OAK_PRESSURE_PLATE_1_13,
+                    PRISMARINE_SLAB_1_13,
+                    PRISMARINE_STAIRS_1_13
+            )).build());
+    RegistryKey<ItemGroup> LEGACY_ITEMS_GROUP = register("legacy_items_group", FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.blocktopia.legacy_items"))
+            .icon(RUBY::getDefaultStack)
+            .entries((displayContext, entries) -> add(entries,
+                    QUIVER_IN20091231_2255, QUIVER_IN20100122_2251,
+                    APPLE_IN20091231_2255, APPLE_1_4,
+                    COAL_IN20100128, COAL_IN20100219, COAL_1_3,
+                    DIAMOND_IN20100128, DIAMOND_1_3,
+                    GOLD_INGOT_IN20100128, GOLD_INGOT_IN20100129,
+                    IRON_INGOT_IN20100128, IRON_INGOT_IN20100129,
+                    BOWL_IN20100130,
+                    MUSHROOM_STEW_IN20100130,
+                    SULPHUR,
+                    STRING_IN20100130,
+                    FEATHER_IN20100130, FEATHER_IN20100206,
+                    BREAD_IN20100206, BREAD_1_4,
+                    WHEAT_IN20100206,
+                    FLINT_IN20100219, FLINT_1_3,
+                    PORKCHOP_IN20100219, PORKCHOP_1_4,
+                    COOKED_PORKCHOP_IN20100219, COOKED_PORKCHOP_B1_8, COOKED_PORKCHOP_1_4,
+                    GOLDEN_APPLE_INF20100227,
+                    LEATHER_A1_0_8,
+                    PAPER_A1_0_11,
+                    BOOK_A1_0_11,
+                    CLAY_BALL_A1_0_11,
+                    BRICK_A1_0_11,
+                    SLIMEBALL_A1_0_11,
+                    GLOWSTONE_DUST_A1_2_0,
+                    FISH_A1_2_0,
+                    COOKED_FISH_A1_2_0,
+                    BONE_B1_2,
+                    BONE_MEAL_B1_2,
+                    BONE_MEAL_1_3,
+                    COOKIE_B1_4,
+                    CHICKEN_B1_8, CHICKEN_1_4,
+                    COOKED_CHICKEN_B1_8, COOKED_CHICKEN_1_4,
+                    BEEF_B1_8, BEEF_1_3, BEEF_1_4,
+                    COOKED_BEEF_B1_8, COOKED_BEEF_1_3, COOKED_BEEF_1_4,
+                    ROTTEN_FLESH_B1_8, ROTTEN_FLESH_1_3,
+                    GHAST_TEAR_B1_9PRE,
+                    GOLD_NUGGET_B1_9PRE,
+                    GOLD_NUGGET_1_3,
+                    BLAZE_POWDER_B1_9PRE2,
+                    FERMENTED_SPIDER_EYE_B1_9PRE2,
+                    MAGMA_CREAM_B1_9PRE2, MAGMA_CREAM_1_3,
+                    SPIDER_EYE_B1_9PRE2,
+                    GLISTERING_MELON_B1_9PRE4,
+                    RUBY,
+                    EMERALD_1_3,
+                    ENCHANTED_GOLDEN_APPLE_1_3,
+                    GOLDEN_CARROT_1_4,
+                    BAKED_POTATO_1_4,
+                    POISONOUS_POTATO_1_4,
+                    NETHER_STAR_1_4,
+                    PUMPKIN_PIE_1_4,
+                    QUARTZ_1_5,
+                    CLOWNFISH_1_7,
+                    SALMON_1_7,
+                    COOKED_SALMON_1_7,
+                    PUFFERFISH_1_7,
+                    PRISMARINE_CRYSTAL_1_8,
+                    PRISMARINE_SHARD_1_8,
+                    MUTTON_1_8,
+                    COOKED_MUTTON_1_8,
+                    RABBIT_1_8,
+                    COOKED_RABBIT_1_8,
+                    RABBIT_FOOT_1_8,
+                    RABBIT_HIDE_1_8,
+                    RABBIT_STEW_1_8
+                ))
+            .build());
+    RegistryKey<ItemGroup> FUTURE_BLOCKS_AND_ITEMS = register("future_blocks_and_items", FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.blocktopia.future_blocks_and_items"))
+            .icon(FutureBlocks.PALE_MOSS.asItem()::getDefaultStack)
             .entries((displayContext, entries) -> {
-                entries.add(LegacyBlocks.COBBLESTONE_RD20090515);
-                entries.add(LegacyBlocks.COBBLESTONE_C_0_0_14A);
-                entries.add(LegacyBlocks.COBBLESTONE_B1_7);
-                entries.add(LegacyBlocks.WOODEN_PLANKS_RD20090515);
-                entries.add(LegacyBlocks.WOODEN_PLANKS_RD161348);
-                entries.add(LegacyBlocks.WOODEN_PLANKS_C0_0_14A);
-                entries.add(LegacyBlocks.WOODEN_PLANKS_C0_0_15A);
-                entries.add(LegacyBlocks.WOODEN_PLANKS_B1_9PRE5);
-                entries.add(LegacyBlocks.SAPLING_RD161348);
-                entries.add(LegacyBlocks.SAPLING_C0_0_13A);
-                entries.add(LegacyBlocks.SAPLING_C0_24ST);
-                entries.add(LegacyBlocks.BEDROCK_C0_0_12A);
-                entries.add(LegacyBlocks.SAND_C0_0_14A);
-                entries.add(LegacyBlocks.SAND_C0_0_15A);
-                entries.add(LegacyBlocks.SAND_B1_9PRE6);
-                entries.add(LegacyBlocks.GRAVEL_C0_0_14A);
-                entries.add(LegacyBlocks.GRAVEL_C0_0_15A);
-                entries.add(LegacyBlocks.GRAVEL_B1_9PRE5);
-                entries.add(LegacyBlocks.GRAVEL_1_3);
-                entries.add(LegacyBlocks.COAL_ORE_C0_0_14A);
-                entries.add(LegacyBlocks.COAL_ORE_1_14);
-                entries.add(LegacyBlocks.IRON_ORE_C0_0_14A);
-                entries.add(LegacyBlocks.IRON_ORE_1_14);
-                entries.add(LegacyBlocks.IRON_ORE_1_14_1);
-                entries.add(LegacyBlocks.GOLD_ORE_C0_0_14A);
-                entries.add(LegacyBlocks.GOLD_ORE_C0_26ST);
-                entries.add(LegacyBlocks.GOLD_ORE_1_14);
-                entries.add(LegacyBlocks.LOG_C0_0_14A);
-                entries.add(LegacyBlocks.LEAVES_C0_0_14A);
-                entries.add(LegacyBlocks.LEAVES_C0_0_15A);
-                entries.add(LegacyBlocks.LEAVES_C0_24ST);
-                entries.add(LegacyBlocks.SPONGE_C0_0_19A);
-                entries.add(LegacyBlocks.SPONGE_1_8);
-                entries.add(LegacyBlocks.WET_SPONGE_1_8);
-                entries.add(LegacyBlocks.GLASS_C0_0_19A);
-                entries.add(LegacyBlocks.WHITE_CLOTH);
-                entries.add(LegacyBlocks.LIGHT_GRAY_CLOTH_C0_0_20A);
-                entries.add(LegacyBlocks.LIGHT_GRAY_CLOTH_C0_28A);
-                entries.add(LegacyBlocks.DARK_GRAY_CLOTH_C0_0_20A);
-                entries.add(LegacyBlocks.DARK_GRAY_CLOTH_C0_28A);
-                entries.add(LegacyBlocks.RED_CLOTH);
-                entries.add(LegacyBlocks.ORANGE_CLOTH);
-                entries.add(LegacyBlocks.YELLOW_CLOTH);
-                entries.add(LegacyBlocks.CHARTREUSE_CLOTH);
-                entries.add(LegacyBlocks.SPRING_GREEN_CLOTH);
-                entries.add(LegacyBlocks.CYAN_CLOTH);
-                entries.add(LegacyBlocks.CAPRI_CLOTH);
-                entries.add(LegacyBlocks.ULTRAMARINE_CLOTH);
-                entries.add(LegacyBlocks.VIOLET_CLOTH);
-                entries.add(LegacyBlocks.PURPLE_CLOTH);
-                entries.add(LegacyBlocks.MAGENTA_CLOTH);
-                entries.add(LegacyBlocks.ROSE_CLOTH);
-                entries.add(LegacyBlocks.GOLD_BLOCK_C0_0_20A);
-                entries.add(LegacyBlocks.GOLD_BLOCK_C0_26ST);
-                entries.add(LegacyBlocks.GOLD_BLOCK_A1_2_0);
-                entries.add(LegacyBlocks.GOLD_BLOCK_B1_9PRE5);
-                entries.add(LegacyBlocks.DANDELION_C0_0_20A);
-                entries.add(LegacyBlocks.ROSE_C0_0_20A);
-                entries.add(LegacyBlocks.POPPY_1_7);
-                entries.add(LegacyBlocks.RED_MUSHROOM_C0_0_20A);
-                entries.add(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A);
-                entries.add(LegacyBlocks.STONE_SLAB_C0_26ST);
-                entries.add(LegacyBlocks.IRON_BLOCK_C0_26ST);
-                entries.add(LegacyBlocks.IRON_BLOCK_A1_2_0);
-                entries.add(LegacyBlocks.IRON_BLOCK_B1_9PRE5);
-                entries.add(LegacyBlocks.TNT_C0_26ST);
-                entries.add(LegacyBlocks.TNT_C0_28A);
-                entries.add(LegacyBlocks.MOSSY_COBBLESTONE_C0_26ST);
-                entries.add(LegacyBlocks.MOSSY_COBBLESTONE_B1_8);
-                entries.add(LegacyBlocks.BRICKS_C0_26ST);
-                entries.add(LegacyBlocks.BRICKS_A1_0_11);
-                entries.add(LegacyBlocks.BOOKSHELF_C0_26ST);
-                entries.add(LegacyBlocks.BOOKSHELF_B1_9PRE5);
-                entries.add(LegacyBlocks.OBSIDIAN_C0_28A);
-                entries.add(LegacyBlocks.TORCH_IN20100124_2);
-                entries.add(LegacyBlocks.DIAMOND_ORE_IN20100128);
-                entries.add(LegacyBlocks.DIAMOND_ORE_1_14);
-                entries.add(LegacyBlocks.DIAMOND_BLOCK_IN20100128);
-                entries.add(LegacyBlocks.DIAMOND_BLOCK_A1_2_0);
-                entries.add(LegacyBlocks.DIAMOND_BLOCK_B1_9PRE5);
-                entries.add(LegacyBlocks.CRAFTING_TABLE_IN20100131);
-                entries.add(LegacyBlocks.CRAFTING_TABLE_1_14);
-                entries.add(LegacyBlocks.FURNACE_IN20100219);
-                entries.add(LegacyBlocks.LIT_FURNACE_IN20100219);
-                entries.add(LegacyBlocks.FURNACE_B1_2);
-                entries.add(LegacyBlocks.LIT_FURNACE_B1_2);
-                entries.add(LegacyBlocks.LADDER_INF20100607);
-                entries.add(LegacyBlocks.LADDER_INF20100618);
-                entries.add(LegacyBlocks.WOODEN_DOOR_INF20100607);
-                entries.add(LegacyBlocks.WOODEN_STAIRS_RD20090515);
-                entries.add(LegacyBlocks.WOODEN_STAIRS_RD161348);
-                entries.add(LegacyBlocks.WOODEN_STAIRS_C0_0_14A);
-                entries.add(LegacyBlocks.WOODEN_STAIRS_INF20100629);
-                entries.add(LegacyBlocks.WOODEN_STAIRS_B1_9PRE5);
-                entries.add(LegacyBlocks.COBBLESTONE_STAIRS_RD20090515);
-                entries.add(LegacyBlocks.COBBLESTONE_STAIRS_INF20100629);
-                entries.add(LegacyBlocks.COBBLESTONE_STAIRS_B1_7);
-                entries.add(LegacyBlocks.REDSTONE_ORE_A1_0_1);
-                entries.add(LegacyBlocks.REDSTONE_ORE_1_14);
-                entries.add(LegacyBlocks.REDSTONE_TORCH_A1_0_1);
-                entries.add(LegacyBlocks.SNOW_A1_0_4);
-                entries.add(LegacyBlocks.ICE_A1_0_4);
-                entries.add(LegacyBlocks.SNOW_BLOCK_A1_0_5);
-                entries.add(LegacyBlocks.WOODEN_FENCE_RD20090515);
-                entries.add(LegacyBlocks.WOODEN_FENCE_RD161348);
-                entries.add(LegacyBlocks.WOODEN_FENCE_C0_0_14A);
-                entries.add(LegacyBlocks.WOODEN_FENCE_A1_0_17);
-                entries.add(LegacyBlocks.WOODEN_FENCE_B1_9PRE5);
-                entries.add(LegacyBlocks.NETHERRACK_A1_2_0);
-                entries.add(LegacyBlocks.NETHERRACK_B1_9PRE5);
-                entries.add(LegacyBlocks.SOUL_SAND_A1_2_0);
-                entries.add(LegacyBlocks.GLOWSTONE_A1_2_0);
-                entries.add(LegacyBlocks.GLOWSTONE_B1_9PRE5);
-                entries.add(LegacyBlocks.CARVED_PUMPKIN_A1_2_0);
-                entries.add(LegacyBlocks.JACK_O_LANTERN_A1_2_0);
-                //entries.add(LIGHT_GRAY_WOOL_B1_2);
-                //entries.add(GRAY_WOOL_B1_2 );
-                //entries.add(BLACK_WOOL_B1_2);
-                //entries.add(BROWN_WOOL_B1_2);
-                //entries.add(RED_WOOL_B1_2);
-                //entries.add(ORANGE_WOOL_B1_2);
-                //entries.add(YELLOW_WOOL_B1_2);
-                //entries.add(LIME_WOOL_B1_2 );
-                //entries.add(GREEN_WOOL_B1_2);
-                //entries.add(CYAN_WOOL_B1_2 );
-                //entries.add(LIGHT_BLUE_WOOL_B1_2);
-                //entries.add(BLUE_WOOL_B1_2 );
-                //entries.add(PURPLE_WOOL_B1_2);
-                //entries.add(MAGENTA_WOOL_B1_2);
-                //entries.add(PINK_WOOL_B1_2 );
-                //entries.add(LIGHT_GRAY_WOOL_1_2_4);
-                //entries.add(GRAY_WOOL_1_2_4);
-                //entries.add(BLACK_WOOL_1_2_4);
-                //entries.add(BROWN_WOOL_1_2_4);
-                //entries.add(RED_WOOL_1_2_4);
-                //entries.add(ORANGE_WOOL_1_2_4);
-                //entries.add(YELLOW_WOOL_1_2_4);
-                //entries.add(LIME_WOOL_1_2_4);
-                //entries.add(GREEN_WOOL_1_2_4);
-                //entries.add(CYAN_WOOL_1_2_4);
-                //entries.add(LIGHT_BLUE_WOOL_1_2_4);
-                //entries.add(BLUE_WOOL_1_2_4);
-                //entries.add(PURPLE_WOOL_1_2_4);
-                //entries.add(MAGENTA_WOOL_1_2_4);
-                //entries.add(PINK_WOOL_1_2_4);
-                //entries.add(CAKE_B1_2);
-                //entries.add(LAPIS_ORE_B1_2);
-                //entries.add(LAPIS_ORE_1_14);
-                //entries.add(LAPIS_BLOCK_B1_2);
-                //entries.add(LAPIS_BLOCK_1_6);
-                //entries.add(NOTE_BLOCK_B1_2);
-                //entries.add(SANDSTONE_B1_2);
-                //entries.add(SANDSTONE_1_2_4);
-                //entries.add(BIRCH_LOG_B1_2);
-                //entries.add(BIRCH_LOG_1_7 );
-                //entries.add(BIRCH_LEAVES_B1_2 );
-                //entries.add(SPRUCE_LOG_B1_2);
-                //entries.add(SPRUCE_LOG_1_7);
-                //entries.add(SPRUCE_LEAVES_B1_2);
-                //entries.add(COBBLESTONE_SLAB_RD20090515 );
-                //entries.add(COBBLESTONE_SLAB_B1_3);
-                //entries.add(COBBLESTONE_SLAB_B1_7);
-                //entries.add(WOODEN_SLAB_RD20090515);
-                //entries.add(WOODEN_SLAB_RD161348);
-                //entries.add(WOODEN_SLAB_C0_0_14A);
-                //entries.add(WOODEN_SLAB_B1_3);
-                //entries.add(WOODEN_SLAB_B1_9PRE5);
-                //entries.add(SANDSTONE_SLAB_B1_2);
-                //entries.add(SANDSTONE_SLAB_1_2_4);
-                //entries.add(SMOOTH_STONE_B1_3);
-                //entries.add(BIRCH_SAPLING_B1_5);
-                //entries.add(SPRUCE_SAPLING_B1_5);
-                //entries.add(RAIL_INF20100618);
-                //entries.add(POWERED_RAIL_B1_5 );
-                //entries.add(DETECTOR_RAIL_B1_5);
-                //entries.add(COBWEB_B1_5);
-                //entries.add(DEAD_BUSH_B1_6);
-                //entries.add(SHRUB_B1_6);
-                //entries.add(SHORT_GRASS_B1_6);
-                //entries.add(FERN_B1_6);
-                //entries.add(TRAPDOOR_B1_6);
-                //entries.add(STONE_BRICKS_B1_8);
-                //entries.add(CRACKED_STONE_BRICKS_B1_8);
-                //entries.add(MOSSY_STONE_BRICKS_B1_8);
-            }).build());
+                add(entries, FUTURE_INGOT, PALE_OAK_LOG, STRIPPED_PALE_OAK_LOG, PALE_OAK_WOOD, STRIPPED_PALE_OAK_WOOD, PALE_OAK_LEAVES, PALE_OAK_SAPLING, PALE_OAK_PLANKS, PALE_OAK_DOOR, PALE_OAK_FENCE,
+                        PALE_OAK_FENCE_GATE, PALE_OAK_STAIRS, PALE_OAK_SLAB, PALE_OAK_PRESSURE_PLATE, PALE_OAK_BUTTON, PALE_OAK_TRAPDOOR, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_BOAT,
+                        PALE_OAK_CHEST_BOAT, PALE_MOSS, PALE_MOSS_CARPET, PALE_HANGING_MOSS, CLOSED_EYEBLOSSOM, OPEN_EYEBLOSSOM, RESIN_CLUMP, RESIN_BRICK, RESIN_BLOCK, RESIN_BRICKS, RESIN_BRICK_STAIRS,
+                        RESIN_BRICK_SLAB, RESIN_BRICK_WALL, CHISELED_RESIN_BRICKS, WILDFLOWERS, LEAF_LITTERS, SHORT_DRY_GRASS);
+            })
+            .build());
     RegistryKey<ItemGroup> NATURAL_BLOCKS_GROUP = register("natural_blocks_group", FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.blocktopia.natural_blocks"))
             .icon(ModBlocks.TROPICAL_MOSS.asItem()::getDefaultStack)
@@ -339,6 +577,8 @@ public interface ModItemGroups {
                 entries.add(ModItems.ENCHANTED_NETHERITE_CHERRY);
                 entries.add(ModItems.DEEPSLATE_EMERALD_CHERRY);
                 entries.add(ModItems.ENCHANTED_DEEPSLATE_EMERALD_CHERRY);
+                entries.add(ModItems.END_DIAMOND_CHERRY);
+                entries.add(ModItems.ENCHANTED_END_DIAMOND_CHERRY);
                 entries.add(ModItems.COCONUT);
                 entries.add(ModItems.GOLDEN_COCONUT);
                 entries.add(ModItems.ENCHANTED_GOLDEN_COCONUT);
@@ -372,6 +612,7 @@ public interface ModItemGroups {
                 add(entries, ModBlocks.CORN_CHAIR);
                 add(entries, ModBlocks.POISONED_CHAIR);
                 add(entries, ModBlocks.MAHOGANY_CHAIR);
+                add(entries, ModBlocks.PALE_OAK_CHAIR);
             })
             .build());
 
@@ -385,6 +626,7 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.SMALL_CHEST);
                 entries.add(ModBlocks.DUPER);
                 entries.add(ModBlocks.LEGACY_CUTTER);
+                entries.add(ModBlocks.WOODCUTTER);
                 entries.add(ModBlocks.XP_TRAP);
                 entries.add(ModBlocks.SPONGE_TNT);
                 entries.add(ModBlocks.EXTENDED_REPEATER_TICK);
@@ -401,7 +643,7 @@ public interface ModItemGroups {
             })
             .build());
 
-    private static void add(ItemGroup.Entries entries, ItemConvertible[] items) {
+    private static void add(ItemGroup.Entries entries, ItemConvertible... items) {
         Arrays.stream(items).forEach(entries::add);
     }
 

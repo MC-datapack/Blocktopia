@@ -16,3 +16,9 @@ extendable method net/minecraft/entity/TntEntity explode ()V
 accessible field net/minecraft/entity/TntEntity FUSE Lnet/minecraft/entity/data/TrackedData;
 accessible field net/minecraft/entity/TntEntity BLOCK_STATE Lnet/minecraft/entity/data/TrackedData;
 accessible field net/minecraft/entity/TntEntity causingEntity Lnet/minecraft/entity/LivingEntity;
+
+accessible field net/minecraft/world/biome/Biome weather Lnet/minecraft/world/biome/Biome$Weather;
+accessible method net/minecraft/world/biome/Biome$Weather downfall ()F
+accessible method net/minecraft/client/color/world/BiomeColors getColor (Lnet/minecraft/world/BlockRenderView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/biome/ColorResolver;)I
+
+accessible method net/minecraft/recipe/CuttingRecipe$Serializer <init> (Lnet/minecraft/recipe/CuttingRecipe$RecipeFactory;)V

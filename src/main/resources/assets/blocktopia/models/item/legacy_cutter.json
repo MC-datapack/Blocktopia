@@ -2,7 +2,7 @@
   "credit": "Created with Blockbench [Exported as resourcepack with the \"resourcepack_packager\" plugin]",
   "texture_size": [128, 128],
   "textures": {
-	"0": "blocktopia:item/legacy_cutter"
+	"0": "blocktopia:block/legacy_cutter"
   },
   "elements": [
 	{

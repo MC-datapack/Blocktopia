@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:pink_stained_glass_pane_1_7"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:pink_stained_glass_pane"
+  }
+}

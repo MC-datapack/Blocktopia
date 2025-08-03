@@ -5,10 +5,16 @@
     "blocktopia:corn_planks",
     "blocktopia:poisoned_planks",
     "blocktopia:mahogany_planks",
+    "blocktopia:pale_oak_planks",
     "blocktopia:wooden_planks_rd20090515",
     "blocktopia:wooden_planks_rd161348",
     "blocktopia:wooden_planks_c0_0_14a",
     "blocktopia:wooden_planks_c0_0_15a",
-    "blocktopia:wooden_planks_b1_9pre5"
+    "blocktopia:wooden_planks_b1_9pre5",
+    "blocktopia:birch_planks_1_2_4",
+    "blocktopia:spruce_planks_1_2_4",
+    "blocktopia:jungle_planks_1_2_4",
+    "blocktopia:acacia_planks_1_7",
+    "blocktopia:dark_oak_planks_1_7"
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:powered_rail_b1_5"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:powered_rail"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fence_gate_open",
+  "textures": {
+    "texture": "blocktopia:block/jungle_planks_1_2_4"
+  }
+}

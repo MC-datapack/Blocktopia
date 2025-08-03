@@ -24,7 +24,7 @@ public abstract class ExtendedSaplingGenerator extends SaplingGenerator {
     public ExtendedSaplingGenerator(String id, float rareChance, Optional<RegistryKey<ConfiguredFeature<?, ?>>> megaVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareMegaVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> regularVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareRegularVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> beesVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareBeesVariant) {super(id, rareChance, megaVariant, rareMegaVariant, regularVariant, rareRegularVariant, beesVariant, rareBeesVariant);}
 
     public static class Builder {
-        private float rareChance = 0;
+        private float rareChance = 0.5F;
         private Optional<RegistryKey<ConfiguredFeature<?, ?>>> regular = Optional.empty();
         private Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareRegular = Optional.empty();
         private Optional<RegistryKey<ConfiguredFeature<?, ?>>> mega = Optional.empty();

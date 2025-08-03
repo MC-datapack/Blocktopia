@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:cooked_rabbit"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:cooked_rabbit_1_8"
+  }
+}

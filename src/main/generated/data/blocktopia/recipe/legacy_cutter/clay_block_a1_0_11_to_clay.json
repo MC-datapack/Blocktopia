@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:clay_block_a1_0_11"
-  },
-  "result": {
-    "id": "minecraft:clay"
-  }
-}

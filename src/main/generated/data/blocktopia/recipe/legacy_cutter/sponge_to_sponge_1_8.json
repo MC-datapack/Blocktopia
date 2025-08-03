@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:sponge"
-  },
-  "result": {
-    "id": "blocktopia:sponge_1_8"
-  }
-}

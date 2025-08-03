@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_green_wool_b1_2": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:green_wool_b1_2"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:green_carpet_b1_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_green_wool_b1_2"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:green_carpet_b1_2"
+    ]
+  }
+}

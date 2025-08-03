@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:prismarine_crystals"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:prismarine_crystal_1_8"
+  }
+}

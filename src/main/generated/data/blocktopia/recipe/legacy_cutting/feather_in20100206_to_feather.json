@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:feather_in20100206"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:feather"
+  }
+}

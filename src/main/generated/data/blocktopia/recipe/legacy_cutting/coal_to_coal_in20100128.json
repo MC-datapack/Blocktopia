@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:coal_in20100128"
+  }
+}

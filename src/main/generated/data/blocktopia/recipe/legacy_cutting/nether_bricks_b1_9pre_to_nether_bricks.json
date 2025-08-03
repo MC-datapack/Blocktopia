@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:nether_bricks_b1_9pre"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:nether_bricks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cocoa_stage0",
+  "textures": {
+	"particle": "blocktopia:block/cocoa_1_3_stage_0",
+	"cocoa": "blocktopia:block/cocoa_1_3_stage_0"
+  }
+}

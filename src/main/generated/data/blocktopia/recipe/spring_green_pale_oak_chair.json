@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/pale_oak"
+    },
+    {
+      "item": "blocktopia:spring_green_cloth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:spring_green_pale_oak_chair"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:melon"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:melon_block_b1_8"
+  }
+}

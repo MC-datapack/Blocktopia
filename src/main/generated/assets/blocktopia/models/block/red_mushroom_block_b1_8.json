@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_single_face",
+  "textures": {
+    "texture": "blocktopia:block/red_mushroom_block_b1_8"
+  }
+}

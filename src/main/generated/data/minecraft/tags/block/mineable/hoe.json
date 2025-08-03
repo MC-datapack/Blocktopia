@@ -6,12 +6,21 @@
     "blocktopia:corn_leaves",
     "blocktopia:poisoned_leaves",
     "blocktopia:mahogany_leaves",
+    "blocktopia:pale_oak_leaves",
     "blocktopia:flowering_cherry_leaves",
     "blocktopia:leaves_c0_0_14a",
     "blocktopia:leaves_c0_0_15a",
     "blocktopia:leaves_c0_24st",
     "blocktopia:sponge_c0_0_19a",
     "blocktopia:sponge_1_8",
-    "blocktopia:wet_sponge_1_8"
+    "blocktopia:wet_sponge_1_8",
+    "blocktopia:hay_bale_1_6",
+    "blocktopia:birch_leaves_b1_2",
+    "blocktopia:spruce_leaves_b1_2",
+    "blocktopia:jungle_leaves_1_2",
+    "blocktopia:acacia_leaves_1_7",
+    "blocktopia:dark_oak_leaves_1_7",
+    "blocktopia:nether_wart_block_1_10",
+    "blocktopia:nether_wart_block_1_14"
   ]
 }

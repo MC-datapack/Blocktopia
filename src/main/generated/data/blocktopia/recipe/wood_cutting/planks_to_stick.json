@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "tag": "minecraft:planks"
+  },
+  "result": {
+    "count": 4,
+    "id": "minecraft:stick"
+  }
+}

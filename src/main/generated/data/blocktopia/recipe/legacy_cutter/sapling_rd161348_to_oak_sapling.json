@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:sapling_rd161348"
-  },
-  "result": {
-    "id": "minecraft:oak_sapling"
-  }
-}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blocktopia:pale_oak_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#blocktopia:pale_oak_logs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:stripped_pale_oak_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blocktopia:pale_oak_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:stripped_pale_oak_wood"
+    ]
+  }
+}

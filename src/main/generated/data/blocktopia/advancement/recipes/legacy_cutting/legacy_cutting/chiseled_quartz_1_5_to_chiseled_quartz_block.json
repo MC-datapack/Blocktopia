@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chiseled_quartz_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:chiseled_quartz_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:legacy_cutting/chiseled_quartz_1_5_to_chiseled_quartz_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chiseled_quartz_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:legacy_cutting/chiseled_quartz_1_5_to_chiseled_quartz_block"
+    ]
+  }
+}

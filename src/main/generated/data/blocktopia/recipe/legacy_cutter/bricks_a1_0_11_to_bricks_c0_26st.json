@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:bricks_a1_0_11"
-  },
-  "result": {
-    "id": "blocktopia:bricks_c0_26st"
-  }
-}

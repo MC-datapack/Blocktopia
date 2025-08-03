@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:gray_stained_glass_pane"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:gray_stained_glass_pane_1_7"
+  }
+}

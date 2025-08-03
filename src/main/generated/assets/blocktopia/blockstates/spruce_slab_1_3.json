@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/spruce_slab_1_3"
+    },
+    "type=double": {
+      "model": "blocktopia:block/spruce_planks_1_2_4"
+    },
+    "type=top": {
+      "model": "blocktopia:block/spruce_slab_1_3_top"
+    }
+  }
+}

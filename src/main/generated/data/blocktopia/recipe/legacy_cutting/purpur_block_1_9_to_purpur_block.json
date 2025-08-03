@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:purpur_block_1_9"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:purpur_block"
+  }
+}

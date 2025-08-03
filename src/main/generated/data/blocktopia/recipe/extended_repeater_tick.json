@@ -9,7 +9,7 @@
       "item": "minecraft:diamond"
     },
     "C": {
-      "tag": "blocktopia:golden_blocks"
+      "item": "minecraft:gold_block"
     }
   },
   "pattern": [

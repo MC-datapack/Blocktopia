@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:rose_bush"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:rose_bush_1_7"
+  }
+}

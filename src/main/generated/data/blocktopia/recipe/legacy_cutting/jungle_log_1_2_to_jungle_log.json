@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:jungle_log_1_2"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:jungle_log"
+  }
+}

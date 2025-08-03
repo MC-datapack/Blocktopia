@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": {
-      "tag": "blocktopia:golden_blocks"
+      "item": "minecraft:gold_block"
     },
     "B": {
       "item": "minecraft:apple"

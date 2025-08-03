@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "blocktopia:block/sandstone_slab_b1_3"
+    },
+    "type=double": {
+      "model": "blocktopia:block/sandstone_b1_2"
+    },
+    "type=top": {
+      "model": "blocktopia:block/sandstone_slab_b1_3_top"
+    }
+  }
+}

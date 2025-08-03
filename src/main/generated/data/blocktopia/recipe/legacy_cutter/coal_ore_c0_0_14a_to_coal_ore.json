@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:coal_ore_c0_0_14a"
-  },
-  "result": {
-    "id": "minecraft:coal_ore"
-  }
-}

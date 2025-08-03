@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "carpet",
+  "key": {
+    "#": {
+      "item": "blocktopia:dark_gray_cloth_c0_0_20a"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "blocktopia:dark_gray_cloth_c0_0_20a_carpet"
+  }
+}

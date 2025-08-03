@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:magenta_wool_b1_2"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:magenta_wool_1_2_4"
+  }
+}

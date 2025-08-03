@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:magma_cream"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:magma_cream_b1_9pre2"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:allium"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:allium_1_7"
+  }
+}

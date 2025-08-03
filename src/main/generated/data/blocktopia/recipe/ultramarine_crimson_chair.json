@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/crimson"
+    },
+    {
+      "item": "blocktopia:ultramarine_cloth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:ultramarine_crimson_chair"
+  }
+}

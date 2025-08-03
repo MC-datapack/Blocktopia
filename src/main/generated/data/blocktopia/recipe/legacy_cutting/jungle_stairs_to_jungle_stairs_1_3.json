@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:jungle_stairs"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:jungle_stairs_1_3"
+  }
+}

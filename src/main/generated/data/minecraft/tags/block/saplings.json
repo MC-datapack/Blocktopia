@@ -5,9 +5,15 @@
     "blocktopia:corn_sapling",
     "blocktopia:poisoned_sapling",
     "blocktopia:mahogany_sapling",
+    "blocktopia:pale_oak_sapling",
     "blocktopia:flowering_cherry_sapling",
     "blocktopia:sapling_rd161348",
     "blocktopia:sapling_c0_0_13a",
-    "blocktopia:sapling_c0_24st"
+    "blocktopia:sapling_c0_24st",
+    "blocktopia:birch_sapling_b1_5",
+    "blocktopia:spruce_sapling_b1_5",
+    "blocktopia:jungle_sapling_1_2",
+    "blocktopia:acacia_sapling_1_7",
+    "blocktopia:dark_oak_sapling_1_7"
   ]
 }

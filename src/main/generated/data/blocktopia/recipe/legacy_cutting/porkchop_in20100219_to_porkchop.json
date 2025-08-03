@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:porkchop_in20100219"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:porkchop"
+  }
+}

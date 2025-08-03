@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:crafting_table_in20100131"
-  },
-  "result": {
-    "id": "minecraft:crafting_table"
-  }
-}

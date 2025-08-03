@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": "blocktopia:white_tulip_1_7",
+    "tries": 32,
+    "xz_spread": 10,
+    "y_spread": 5
+  }
+}

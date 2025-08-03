@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:gold_block_c0_0_20a"
-  },
-  "result": {
-    "id": "minecraft:gold_block"
-  }
-}

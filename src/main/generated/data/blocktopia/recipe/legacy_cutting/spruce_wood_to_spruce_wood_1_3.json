@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:spruce_wood"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:spruce_wood_1_3"
+  }
+}

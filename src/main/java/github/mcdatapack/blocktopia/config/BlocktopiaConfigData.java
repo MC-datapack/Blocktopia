@@ -26,6 +26,11 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.Category("server")
     public LegacyCutterConfig legacyCutterConfig = new LegacyCutterConfig();
 
+    //@ConfigEntry.Gui.TransitiveObject
+    //@ConfigEntry.Category("server")
+    //@Comment("1 Bucket = 81000, 1 Bottle = 27000")
+    public long fluidTankCapacity = 810000;
+
     @ConfigEntry.Gui.RequiresRestart
     @ConfigEntry.Category("server")
     @Comment("Activate or Deactivate Blocktopia Items added to vanilla Loot Tables")
@@ -218,11 +223,35 @@ public class BlocktopiaConfigData implements ConfigData {
         @ConfigEntry.Gui.CollapsibleObject
         public SinglePlacedFeatureConfig tree_c0_24st = new SinglePlacedFeatureConfig(false, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST);
 
-        //@ConfigEntry.Gui.CollapsibleObject
-        //public SinglePlacedFeatureConfig birch_b1_5 = new SinglePlacedFeatureConfig(false, 0,BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig birch_b1_5 = new SinglePlacedFeatureConfig(false, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
 
-        //@ConfigEntry.Gui.CollapsibleObject
-        //public SinglePlacedFeatureConfig spruce_b1_5 = new SinglePlacedFeatureConfig(false, 0, BiomeKeys.TAIGA, BiomeKeys.SNOWY_TAIGA);
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig birch_1_7 = new SinglePlacedFeatureConfig(false, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig spruce_b1_5 = new SinglePlacedFeatureConfig(false, BiomeKeys.TAIGA, BiomeKeys.SNOWY_TAIGA);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig spruce_1_7 = new SinglePlacedFeatureConfig(false, BiomeKeys.TAIGA, BiomeKeys.SNOWY_TAIGA);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig jungle_1_2 = new SinglePlacedFeatureConfig(false, BiomeKeys.JUNGLE, BiomeKeys.SPARSE_JUNGLE);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig jungle_1_7 = new SinglePlacedFeatureConfig(false, BiomeKeys.JUNGLE, BiomeKeys.SPARSE_JUNGLE);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig acacia_1_7 = new SinglePlacedFeatureConfig(false, BiomeKeys.SAVANNA, BiomeKeys.SAVANNA_PLATEAU, BiomeKeys.WINDSWEPT_SAVANNA);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig dark_oak_1_7 = new SinglePlacedFeatureConfig(false, BiomeKeys.DARK_FOREST);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig huge_red_mushroom_b1_8 = new SinglePlacedFeatureConfig(false, BiomeKeys.DARK_FOREST, BiomeKeys.MUSHROOM_FIELDS);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureConfig huge_brown_mushroom_b1_8 = new SinglePlacedFeatureConfig(false, BiomeKeys.DARK_FOREST, BiomeKeys.MUSHROOM_FIELDS);
 
         @ConfigEntry.Gui.CollapsibleObject
         public SingleOrePlacedFeatureConfig legacy_coal_ores = new SingleOrePlacedFeatureConfig(false);
@@ -236,8 +265,14 @@ public class BlocktopiaConfigData implements ConfigData {
         @ConfigEntry.Gui.CollapsibleObject
         public SingleOrePlacedFeatureConfig legacy_diamond_ores = new SingleOrePlacedFeatureConfig(false);
 
-        //@ConfigEntry.Gui.CollapsibleObject
-        //public SingleOrePlacedFeatureConfig legacy_lapis_ores = new SingleOrePlacedFeatureConfig(false, 8, 9, 0, 20);
+        @ConfigEntry.Gui.CollapsibleObject
+        public SingleOrePlacedFeatureConfig legacy_lapis_ores = new SingleOrePlacedFeatureConfig(false);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SingleOrePlacedFeatureConfig ruby_ores = new SingleOrePlacedFeatureConfig(true);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SingleOrePlacedFeatureConfig legacy_emerald_ores = new SingleOrePlacedFeatureConfig(false);
 
         @ConfigEntry.Gui.CollapsibleObject
         public SinglePlacedFeatureChanceConfig dandelion_c0_0_20a = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
@@ -253,69 +288,96 @@ public class BlocktopiaConfigData implements ConfigData {
 
         @ConfigEntry.Gui.CollapsibleObject
         public SinglePlacedFeatureChanceConfig red_mushroom_c0_0_20a = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
-    }
 
-    public static class SinglePlacedFeatureConfig {
-        @SafeVarargs
-        public SinglePlacedFeatureConfig(boolean generate, RegistryKey<Biome>... generateIn) {
-            this.generate = generate;
-            String[] SgenerateIn = new String[generateIn.length];
-            for (int i = 0; i < generateIn.length; i++) {
-                SgenerateIn[i] = generateIn[i].getValue().toString();
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig allium_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FLOWER_FOREST, BiomeKeys.MEADOW);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig azure_bluet_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FLOWER_FOREST, BiomeKeys.MEADOW);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig blue_orchid_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.SWAMP);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig lilac_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FLOWER_FOREST);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig peony_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FLOWER_FOREST);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig rose_bush_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FLOWER_FOREST, BiomeKeys.FOREST);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig sunflower_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.SUNFLOWER_PLAINS);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig oxeye_daisy_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.PLAINS, BiomeKeys.BIRCH_FOREST, BiomeKeys.WINDSWEPT_FOREST);
+
+        @ConfigEntry.Gui.CollapsibleObject
+        public SinglePlacedFeatureChanceConfig tulips_1_7 = new SinglePlacedFeatureChanceConfig(false, BiomeKeys.FLOWER_FOREST);
+
+        public static class SinglePlacedFeatureConfig {
+            @SafeVarargs
+            public SinglePlacedFeatureConfig(boolean generate, RegistryKey<Biome>... generateIn) {
+                this.generate = generate;
+                String[] SgenerateIn = new String[generateIn.length];
+                for (int i = 0; i < generateIn.length; i++) {
+                    SgenerateIn[i] = generateIn[i].getValue().toString();
+                }
+                this.generateIn = SgenerateIn;
             }
-            this.generateIn = SgenerateIn;
-        }
 
-        @ConfigEntry.Gui.RequiresRestart
-        public boolean generate;
+            @ConfigEntry.Gui.RequiresRestart
+            public boolean generate;
 
-        @ConfigEntry.Gui.RequiresRestart
-        public String[] generateIn;
+            @ConfigEntry.Gui.RequiresRestart
+            public String[] generateIn;
 
-        @SuppressWarnings("unchecked")
-        public RegistryKey<Biome>[] getGenerateIn() {
-            RegistryKey<Biome>[] output = new RegistryKey[generateIn.length];
-            for (int i = 0; i < generateIn.length; i++) {
-                output[i] = RegistryKey.of(RegistryKeys.BIOME, Identifier.of(generateIn[i]));
+            @SuppressWarnings("unchecked")
+            public RegistryKey<Biome>[] getGenerateIn() {
+                RegistryKey<Biome>[] output = new RegistryKey[generateIn.length];
+                for (int i = 0; i < generateIn.length; i++) {
+                    output[i] = RegistryKey.of(RegistryKeys.BIOME, Identifier.of(generateIn[i]));
+                }
+                return output;
             }
-            return output;
         }
-    }
 
-    public static class SinglePlacedFeatureChanceConfig {
-        @SafeVarargs
-        public SinglePlacedFeatureChanceConfig(boolean generate, RegistryKey<Biome>... generateIn) {
-            this.generate = generate;
-            String[] SgenerateIn = new String[generateIn.length];
-            for (int i = 0; i < generateIn.length; i++) {
-                SgenerateIn[i] = generateIn[i].getValue().toString();
+        public static class SinglePlacedFeatureChanceConfig {
+            @SafeVarargs
+            public SinglePlacedFeatureChanceConfig(boolean generate, RegistryKey<Biome>... generateIn) {
+                this.generate = generate;
+                String[] SgenerateIn = new String[generateIn.length];
+                for (int i = 0; i < generateIn.length; i++) {
+                    SgenerateIn[i] = generateIn[i].getValue().toString();
+                }
+                this.generateIn = SgenerateIn;
             }
-            this.generateIn = SgenerateIn;
-        }
 
-        @ConfigEntry.Gui.RequiresRestart
-        public boolean generate;
+            @ConfigEntry.Gui.RequiresRestart
+            public boolean generate;
 
-        @ConfigEntry.Gui.RequiresRestart
-        public String[] generateIn;
+            @ConfigEntry.Gui.RequiresRestart
+            public String[] generateIn;
 
-        @SuppressWarnings("unchecked")
-        public RegistryKey<Biome>[] getGenerateIn() {
-            RegistryKey<Biome>[] output = new RegistryKey[generateIn.length];
-            for (int i = 0; i < generateIn.length; i++) {
-                output[i] = RegistryKey.of(RegistryKeys.BIOME, Identifier.of(generateIn[i]));
+            @SuppressWarnings("unchecked")
+            public RegistryKey<Biome>[] getGenerateIn() {
+                RegistryKey<Biome>[] output = new RegistryKey[generateIn.length];
+                for (int i = 0; i < generateIn.length; i++) {
+                    output[i] = RegistryKey.of(RegistryKeys.BIOME, Identifier.of(generateIn[i]));
+                }
+                return output;
             }
-            return output;
-        }
-    }
-
-    public static class SingleOrePlacedFeatureConfig {
-        public SingleOrePlacedFeatureConfig(boolean generate) {
-            this.generate = generate;
         }
 
-        @ConfigEntry.Gui.RequiresRestart
-        public boolean generate;
+        public static class SingleOrePlacedFeatureConfig {
+            public SingleOrePlacedFeatureConfig(boolean generate) {
+                this.generate = generate;
+            }
+
+            @ConfigEntry.Gui.RequiresRestart
+            public boolean generate;
+        }
     }
 
     public static class VillagerConfig {

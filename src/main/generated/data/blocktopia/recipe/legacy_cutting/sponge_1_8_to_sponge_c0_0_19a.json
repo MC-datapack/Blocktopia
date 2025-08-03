@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:sponge_1_8"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:sponge_c0_0_19a"
+  }
+}

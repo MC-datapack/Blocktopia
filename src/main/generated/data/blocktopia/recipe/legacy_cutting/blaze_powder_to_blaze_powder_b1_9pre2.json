@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:blaze_powder"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:blaze_powder_b1_9pre2"
+  }
+}

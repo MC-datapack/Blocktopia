@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_fence_a1_0_17"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:wooden_fence_rd20090515"
+  }
+}

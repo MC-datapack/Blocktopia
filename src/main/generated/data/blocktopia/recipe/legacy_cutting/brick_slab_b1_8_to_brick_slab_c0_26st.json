@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:brick_slab_b1_8"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:brick_slab_c0_26st"
+  }
+}

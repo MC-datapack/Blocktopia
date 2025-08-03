@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:cocoa_beans"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:cocoa_1_3"
+  }
+}

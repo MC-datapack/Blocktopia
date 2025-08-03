@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:nether_star_1_4"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:nether_star"
+  }
+}

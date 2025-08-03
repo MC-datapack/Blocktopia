@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import github.mcdatapack.blocktopia.block.LegacyBlocks;
 import github.mcdatapack.blocktopia.entity.custom.ChairEntity;
 import github.mcdatapack.blocktopia.entity.ModEntityTypes;
 import net.minecraft.block.*;
@@ -21,6 +22,9 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+
+import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
+import static github.mcdatapack.blocktopia.block.LegacyBlocks.ROSE_CLOTH;
 
 public class ChairBlock extends HorizontalFacingBlock {
     private static final MapCodec<ChairBlock> CODEC = RecordCodecBuilder.mapCodec(instance ->
@@ -96,6 +100,12 @@ public class ChairBlock extends HorizontalFacingBlock {
                     new ChairBlock(plank, Blocks.GREEN_WOOL, Settings.copy(plank)),
                     new ChairBlock(plank, Blocks.RED_WOOL, Settings.copy(plank)),
                     new ChairBlock(plank, Blocks.BLACK_WOOL, Settings.copy(plank)),
+                    new ChairBlock(plank,CHARTREUSE_CLOTH, Settings.copy(plank)),
+                    new ChairBlock(plank,SPRING_GREEN_CLOTH, Settings.copy(plank)),
+                    new ChairBlock(plank,CAPRI_CLOTH, Settings.copy(plank)),
+                    new ChairBlock(plank,ULTRAMARINE_CLOTH, Settings.copy(plank)),
+                    new ChairBlock(plank,VIOLET_CLOTH, Settings.copy(plank)),
+                    new ChairBlock(plank,ROSE_CLOTH, Settings.copy(plank)),
             };
         }
     }

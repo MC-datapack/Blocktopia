@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:clay_ball"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:clay_ball_a1_0_11"
+  }
+}

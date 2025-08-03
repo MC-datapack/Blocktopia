@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "blocktopia:diamond_ore_1_14"
-  },
-  "result": {
-    "id": "blocktopia:diamond_ore_in20100128"
-  }
-}

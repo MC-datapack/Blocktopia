@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:purpur_slab"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:purpur_slab_1_9"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:mushroom_stem"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:mushroom_stem_b1_8"
+  }
+}

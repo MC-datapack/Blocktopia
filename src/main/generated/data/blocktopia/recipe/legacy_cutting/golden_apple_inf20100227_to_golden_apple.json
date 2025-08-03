@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:golden_apple_inf20100227"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:golden_apple"
+  }
+}

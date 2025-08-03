@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:mahogany_planks"
+  },
+  "result": {
+    "count": 2,
+    "id": "blocktopia:mahogany_pressure_plate"
+  }
+}

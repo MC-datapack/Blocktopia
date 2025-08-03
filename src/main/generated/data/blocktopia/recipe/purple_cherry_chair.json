@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/cherry"
+    },
+    {
+      "item": "minecraft:purple_wool"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:purple_cherry_chair"
+  }
+}

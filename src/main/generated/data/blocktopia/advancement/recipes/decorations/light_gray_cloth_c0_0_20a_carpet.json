@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_light_gray_cloth_c0_0_20a": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:light_gray_cloth_c0_0_20a"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:light_gray_cloth_c0_0_20a_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_light_gray_cloth_c0_0_20a"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:light_gray_cloth_c0_0_20a_carpet"
+    ]
+  }
+}

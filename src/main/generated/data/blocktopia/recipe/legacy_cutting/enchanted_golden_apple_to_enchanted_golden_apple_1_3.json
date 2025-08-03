@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:enchanted_golden_apple"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:enchanted_golden_apple_1_3"
+  }
+}

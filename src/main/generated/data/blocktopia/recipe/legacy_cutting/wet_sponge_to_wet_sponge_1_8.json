@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:wet_sponge"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:wet_sponge_1_8"
+  }
+}

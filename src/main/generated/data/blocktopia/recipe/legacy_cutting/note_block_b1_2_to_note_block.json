@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:note_block_b1_2"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:note_block"
+  }
+}

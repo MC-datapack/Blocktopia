@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cobblestone_c_0_0_14a": {
+    "has_cobblestone_c0_0_14a": {
       "conditions": {
         "items": [
           {
-            "items": "blocktopia:cobblestone_c_0_0_14a"
+            "items": "blocktopia:cobblestone_c0_0_14a"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cobblestone_c_0_0_14a"
+      "has_cobblestone_c0_0_14a"
     ]
   ],
   "rewards": {

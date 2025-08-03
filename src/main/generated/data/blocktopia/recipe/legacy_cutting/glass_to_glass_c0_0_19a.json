@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:glass"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:glass_c0_0_19a"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:redstone_lamp"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:redstone_lamp_1_2"
+  }
+}

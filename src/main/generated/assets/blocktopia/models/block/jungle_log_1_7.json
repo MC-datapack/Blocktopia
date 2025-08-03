@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "blocktopia:block/jungle_log_1_7_top",
+    "side": "blocktopia:block/jungle_log_1_7"
+  }
+}

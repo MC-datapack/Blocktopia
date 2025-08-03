@@ -5,10 +5,16 @@
     "blocktopia:corn_stairs",
     "blocktopia:poisoned_stairs",
     "blocktopia:mahogany_stairs",
+    "blocktopia:pale_oak_stairs",
     "blocktopia:wooden_stairs_rd20090515",
     "blocktopia:wooden_stairs_rd161348",
     "blocktopia:wooden_stairs_c0_0_14a",
     "blocktopia:wooden_stairs_inf20100629",
-    "blocktopia:wooden_stairs_b1_9pre5"
+    "blocktopia:wooden_stairs_b1_9pre5",
+    "blocktopia:birch_stairs_1_3",
+    "blocktopia:spruce_stairs_1_3",
+    "blocktopia:jungle_stairs_1_3",
+    "blocktopia:acacia_stairs_1_7",
+    "blocktopia:dark_oak_stairs_1_7"
   ]
 }

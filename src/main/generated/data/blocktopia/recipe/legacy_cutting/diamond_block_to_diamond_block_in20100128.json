@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:diamond_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:diamond_block_in20100128"
+  }
+}

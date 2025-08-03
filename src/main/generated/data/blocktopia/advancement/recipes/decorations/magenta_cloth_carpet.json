@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magenta_cloth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:magenta_cloth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:magenta_cloth_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magenta_cloth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:magenta_cloth_carpet"
+    ]
+  }
+}

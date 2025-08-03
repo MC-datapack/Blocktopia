@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:acacia_sapling"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:acacia_sapling_1_7"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:detector_rail"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:detector_rail_b1_5"
+  }
+}

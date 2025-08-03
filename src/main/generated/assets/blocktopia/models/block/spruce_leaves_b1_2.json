@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "blocktopia:block/spruce_leaves_b1_2"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:cooked_chicken"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:cooked_chicken_b1_8"
+  }
+}

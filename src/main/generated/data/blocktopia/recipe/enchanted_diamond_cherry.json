@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": {
-      "tag": "blocktopia:diamond_blocks"
+      "item": "minecraft:diamond_block"
     },
     "B": {
       "item": "blocktopia:diamond_cherry"

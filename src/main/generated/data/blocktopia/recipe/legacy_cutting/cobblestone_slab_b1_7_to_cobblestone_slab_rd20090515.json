@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:cobblestone_slab_b1_7"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:cobblestone_slab_rd20090515"
+  }
+}

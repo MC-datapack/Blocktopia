@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:wheat"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:wheat_in20100206"
+  }
+}

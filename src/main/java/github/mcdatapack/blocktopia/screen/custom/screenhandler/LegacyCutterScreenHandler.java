@@ -1,100 +1,237 @@
 package github.mcdatapack.blocktopia.screen.custom.screenhandler;
 
-import github.mcdatapack.blocktopia.block.entity.custom.LegacyCutterBlockEntity;
+import com.google.common.collect.Lists;
+import github.mcdatapack.blocktopia.block.ModBlocks;
+import github.mcdatapack.blocktopia.recipe.LegacyCuttingRecipe;
+import github.mcdatapack.blocktopia.recipe.ModRecipes;
 import github.mcdatapack.blocktopia.screen.ModScreenHandlerTypes;
-import github.mcdatapack.blocktopia.network.BlockPosPayload;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ArrayPropertyDelegate;
-import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandler;
+import net.minecraft.recipe.RecipeEntry;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.input.SingleStackRecipeInput;
+import net.minecraft.screen.*;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.world.World;
+
+import java.util.List;
 
 public class LegacyCutterScreenHandler extends ScreenHandler {
-    private final Inventory inventory;
-    private final PropertyDelegate propertyDelegate;
-    public final LegacyCutterBlockEntity blockEntity;
+    public static final int INPUT_ID = 0;
+    public static final int OUTPUT_ID = 1;
+    private static final int INVENTORY_START = 2;
+    private static final int INVENTORY_END = 29;
+    private static final int OUTPUT_START = 29;
+    private static final int OUTPUT_END = 38;
+    private final ScreenHandlerContext context;
+    private final Property selectedRecipe = Property.create();
+    private final World world;
+    private List<RecipeEntry<LegacyCuttingRecipe>> availableRecipes = Lists.newArrayList();
+    private ItemStack inputStack = ItemStack.EMPTY;
+    final Slot inputSlot;
+    final Slot outputSlot;
+    Runnable contentsChangedListener = () -> {};
+    public final Inventory input = new SimpleInventory(1) {
+        @Override
+        public void markDirty() {
+            super.markDirty();
+            LegacyCutterScreenHandler.this.onContentChanged(this);
+            LegacyCutterScreenHandler.this.contentsChangedListener.run();
+        }
+    };
+    final CraftingResultInventory output = new CraftingResultInventory();
 
-    public LegacyCutterScreenHandler(int syncId, PlayerInventory inventory, BlockPosPayload buf) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.pos()),
-                new ArrayPropertyDelegate(2));
+    public LegacyCutterScreenHandler(int syncId, PlayerInventory playerInventory) {
+        this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
     }
 
-    public LegacyCutterScreenHandler(int syncId, PlayerInventory playerInventory,
-                                     BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
+    public LegacyCutterScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ModScreenHandlerTypes.LEGACY_CUTTER_INVENTORY_SCREEN_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity), 2);
-        this.inventory = ((Inventory) blockEntity);
-        inventory.onOpen(playerInventory.player);
-        this.propertyDelegate = arrayPropertyDelegate;
-        this.blockEntity = ((LegacyCutterBlockEntity) blockEntity);
-
-        this.addSlot(new Slot(inventory, 0, 80, 11));
-        this.addSlot(new Slot(inventory, 1, 80, 59));
-
-
-        addPlayerInventory(playerInventory);
-        addPlayerHotbar(playerInventory);
-
-        addProperties(arrayPropertyDelegate);
-    }
-
-    public boolean isCrafting() {
-        return propertyDelegate.get(0) > 0;
-    }
-
-    public int getScaledProgress() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);
-        int progressArrowSize = 26;
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
-
-    @Override
-    public ItemStack quickMove(PlayerEntity player, int invSlot) {
-        ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(invSlot);
-        if (slot != null && slot.hasStack()) {
-            ItemStack originalStack = slot.getStack();
-            newStack = originalStack.copy();
-            if (invSlot < this.inventory.size()) {
-                if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
-                    return ItemStack.EMPTY;
-                }
-            } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
-                return ItemStack.EMPTY;
+        this.context = context;
+        this.world = playerInventory.player.getWorld();
+        this.inputSlot = this.addSlot(new Slot(this.input, 0, 20, 33));
+        this.outputSlot = this.addSlot(new Slot(this.output, 1, 143, 33) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
             }
 
-            if (originalStack.isEmpty()) {
-                slot.setStack(ItemStack.EMPTY);
-            } else {
-                slot.markDirty();
+            @Override
+            public void onTakeItem(PlayerEntity player, ItemStack stack) {
+                stack.onCraftByPlayer(player.getWorld(), player, stack.getCount());
+                LegacyCutterScreenHandler.this.output.unlockLastRecipe(player, this.getInputStacks());
+                ItemStack itemStack = LegacyCutterScreenHandler.this.inputSlot.takeStack(1);
+                if (!itemStack.isEmpty()) {
+                    LegacyCutterScreenHandler.this.populateResult();
+                }
+                super.onTakeItem(player, stack);
+            }
+
+            private List<ItemStack> getInputStacks() {
+                return List.of(LegacyCutterScreenHandler.this.inputSlot.getStack());
+            }
+        });
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 9; j++) {
+                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
-        return newStack;
+        for (int i = 0; i < 9; i++) {
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+        }
+
+        this.addProperty(this.selectedRecipe);
+    }
+
+    public int getSelectedRecipe() {
+        return this.selectedRecipe.get();
+    }
+
+    public List<RecipeEntry<LegacyCuttingRecipe>> getAvailableRecipes() {
+        return this.availableRecipes;
+    }
+
+    public int getAvailableRecipeCount() {
+        return this.availableRecipes.size();
+    }
+
+    public boolean canCraft() {
+        return this.inputSlot.hasStack() && !this.availableRecipes.isEmpty();
     }
 
     @Override
     public boolean canUse(PlayerEntity player) {
-        return this.inventory.canPlayerUse(player);
+        return canUse(this.context, player, ModBlocks.LEGACY_CUTTER);
     }
 
-    private void addPlayerInventory(PlayerInventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
+    @Override
+    public boolean onButtonClick(PlayerEntity player, int id) {
+        if (this.isInBounds(id)) {
+            this.selectedRecipe.set(id);
+            this.populateResult();
+        }
+
+        return true;
+    }
+
+    private boolean isInBounds(int id) {
+        return id >= 0 && id < this.availableRecipes.size();
+    }
+
+    @Override
+    public void onContentChanged(Inventory inventory) {
+        ItemStack itemStack = this.inputSlot.getStack();
+        if (!itemStack.isOf(this.inputStack.getItem())) {
+            this.inputStack = itemStack.copy();
+            this.updateInput(inventory, itemStack);
+        }
+    }
+
+    private static SingleStackRecipeInput createRecipeInput(Inventory inventory) {
+        return new SingleStackRecipeInput(inventory.getStack(0));
+    }
+
+    private void updateInput(Inventory input, ItemStack stack) {
+        this.availableRecipes.clear();
+        this.selectedRecipe.set(-1);
+        this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
+        if (!stack.isEmpty()) {
+            this.availableRecipes = this.world.getRecipeManager().getAllMatches(ModRecipes.LEGACY_CUTTING_RECIPE_TYPE, createRecipeInput(input), this.world);
+        }
+    }
+
+    void populateResult() {
+        if (!this.availableRecipes.isEmpty() && this.isInBounds(this.selectedRecipe.get())) {
+            RecipeEntry<LegacyCuttingRecipe> recipeEntry = this.availableRecipes.get(this.selectedRecipe.get());
+            ItemStack itemStack = recipeEntry.value().craft(createRecipeInput(this.input), this.world.getRegistryManager());
+            if (itemStack.isItemEnabled(this.world.getEnabledFeatures())) {
+                this.output.setLastRecipe(recipeEntry);
+                this.outputSlot.setStackNoCallbacks(itemStack);
+            } else {
+                this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
             }
+        } else {
+            this.outputSlot.setStackNoCallbacks(ItemStack.EMPTY);
         }
+
+        this.sendContentUpdates();
     }
 
-    private void addPlayerHotbar(PlayerInventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+    @Override
+    public ScreenHandlerType<?> getType() {
+        return ModScreenHandlerTypes.LEGACY_CUTTER_INVENTORY_SCREEN_HANDLER;
+    }
+
+    public void setContentsChangedListener(Runnable contentsChangedListener) {
+        this.contentsChangedListener = contentsChangedListener;
+    }
+
+    @Override
+    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+        return slot.inventory != this.output && super.canInsertIntoSlot(stack, slot);
+    }
+
+    @Override
+    public ItemStack quickMove(PlayerEntity player, int slot) {
+        ItemStack itemStack = ItemStack.EMPTY;
+        Slot slot2 = this.slots.get(slot);
+        if (slot2 != null && slot2.hasStack()) {
+            ItemStack itemStack2 = slot2.getStack();
+            Item item = itemStack2.getItem();
+            itemStack = itemStack2.copy();
+            if (slot == 1) {
+                item.onCraftByPlayer(itemStack2, player.getWorld(), player);
+                if (!this.insertItem(itemStack2, 2, 38, true)) {
+                    return ItemStack.EMPTY;
+                }
+
+                slot2.onQuickTransfer(itemStack2, itemStack);
+            } else if (slot == 0) {
+                if (!this.insertItem(itemStack2, 2, 38, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (this.world.getRecipeManager().getFirstMatch(ModRecipes.LEGACY_CUTTING_RECIPE_TYPE, new SingleStackRecipeInput(itemStack2), this.world).isPresent()) {
+                if (!this.insertItem(itemStack2, 0, 1, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (slot >= 2 && slot < 29) {
+                if (!this.insertItem(itemStack2, 29, 38, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (slot >= 29 && slot < 38 && !this.insertItem(itemStack2, 2, 29, false)) {
+                return ItemStack.EMPTY;
+            }
+
+            if (itemStack2.isEmpty()) {
+                slot2.setStack(ItemStack.EMPTY);
+            }
+
+            slot2.markDirty();
+            if (itemStack2.getCount() == itemStack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot2.onTakeItem(player, itemStack2);
+            this.sendContentUpdates();
         }
+
+        return itemStack;
+    }
+
+    @Override
+    public void onClosed(PlayerEntity player) {
+        super.onClosed(player);
+        this.output.removeStack(1);
+        this.context.run((world, pos) -> this.dropInventory(player, this.input));
     }
 }

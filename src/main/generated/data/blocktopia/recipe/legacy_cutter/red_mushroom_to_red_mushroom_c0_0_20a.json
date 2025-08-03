@@ -1,9 +1,0 @@
-{
-  "type": "blocktopia:legacy_cutter",
-  "ingredient": {
-    "item": "minecraft:red_mushroom"
-  },
-  "result": {
-    "id": "blocktopia:red_mushroom_c0_0_20a"
-  }
-}

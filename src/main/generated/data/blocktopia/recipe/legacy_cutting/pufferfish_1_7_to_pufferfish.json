@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:pufferfish_1_7"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:pufferfish"
+  }
+}

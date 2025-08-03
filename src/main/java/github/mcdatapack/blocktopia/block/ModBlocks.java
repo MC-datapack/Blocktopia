@@ -6,6 +6,7 @@ import com.terraformersmc.terraform.sign.api.block.TerraformWallHangingSignBlock
 import com.terraformersmc.terraform.sign.api.block.TerraformWallSignBlock;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.custom.*;
+import github.mcdatapack.blocktopia.worldgen.feature.ModConfiguredFeatures;
 import github.mcdatapack.blocktopia.worldgen.tree.sapling.ModSaplingGenerators;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
 import github.mcdatapack.blocktopia.item.ModItems;
@@ -28,8 +29,14 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.biome.Biome;
 
 public interface ModBlocks {
+    LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
+    WoodCutterBlock WOODCUTTER = register("woodcutter", new WoodCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
+
+    FluidTankBlock FLUID_TANK = register("fluid_tank", new FluidTankBlock(AbstractBlock.Settings.copy(Blocks.GLASS)));
+
     CarpetBlock TROPICAL_MOSS_CARPET = register("tropical_moss_carpet", new CarpetBlock(AbstractBlock.Settings.copy(Blocks.MOSS_CARPET)));
-    TropicalMossBlock TROPICAL_MOSS = register("tropical_moss", new TropicalMossBlock(AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK)));
+    CustomMossBlock TROPICAL_MOSS = register("tropical_moss", new CustomMossBlock(ModConfiguredFeatures.TROPICAL_MOSS_PATCH_BONEMEAL_KEY,
+            AbstractBlock.Settings.copy(Blocks.MOSS_BLOCK)));
 
     ColoredFallingBlock PAPER_BLOCK = register("paper_block",
             new ColoredFallingBlock(new ColorCode(16777215), AbstractBlock.Settings.copy(Blocks.SAND).strength(0.2F, 0.0F)));
@@ -48,7 +55,6 @@ public interface ModBlocks {
     ExtendedRepeaterBlockMinute EXTENDED_REPEATER_MINUTE = register("extended_repeater_minute",
             new ExtendedRepeaterBlockMinute(AbstractBlock.Settings.create()
                     .breakInstantly().allowsSpawning(Blocks::never).instrument(NoteBlockInstrument.BASEDRUM).pistonBehavior(PistonBehavior.NORMAL)));
-    LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
     SpongeTNTBlock SPONGE_TNT = register("sponge_tnt", new SpongeTNTBlock(AbstractBlock.Settings.copy(Blocks.TNT)));
     DuperBlock DUPER = register("duper", new DuperBlock(AbstractBlock.Settings.copy(Blocks.BEDROCK).strength(5000)));
 
@@ -229,6 +235,7 @@ public interface ModBlocks {
     ChairBlock[] CORN_CHAIR = register("corn_chair", ChairBlock.ChairBlocks.create(CORN_PLANKS));
     ChairBlock[] POISONED_CHAIR = register("poisoned_chair", ChairBlock.ChairBlocks.create(POISONED_PLANKS));
     ChairBlock[] MAHOGANY_CHAIR = register("mahogany_chair", ChairBlock.ChairBlocks.create(MAHOGANY_PLANKS));
+    ChairBlock[] PALE_OAK_CHAIR = register("pale_oak_chair", ChairBlock.ChairBlocks.create(FutureBlocks.PALE_OAK_PLANKS));
 
     XPTrapBlock XP_TRAP = register("xp_trap", new XPTrapBlock(AbstractBlock.Settings.copy(Blocks.OBSIDIAN)));
 
@@ -290,7 +297,9 @@ public interface ModBlocks {
 
     static ChairBlock[] register(String name, ChairBlock[] blocks) {
         for (ChairBlock block : blocks) {
-            register((block.seat != block.plank ? Registries.BLOCK.getId(block.seat).getPath().split("wool")[0] : "") + name, block);
+            register((block.seat != block.plank ?
+                    (Registries.BLOCK.getId(block.seat).getPath().contains("wool") ? Registries.BLOCK.getId(block.seat).getPath().split("wool")[0]
+                            : Registries.BLOCK.getId(block.seat).getPath().split("cloth")[0]) : "") + name, block);
         }
         return blocks;
     }

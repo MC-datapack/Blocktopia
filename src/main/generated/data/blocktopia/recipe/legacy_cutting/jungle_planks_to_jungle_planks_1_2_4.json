@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "minecraft:jungle_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:jungle_planks_1_2_4"
+  }
+}

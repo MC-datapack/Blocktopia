@@ -1,0 +1,6 @@
+{
+  "parent": "block/template_single_face",
+  "textures": {
+	"texture": "blocktopia:block/mushroom_block_inside_b1_8"
+  }
+}

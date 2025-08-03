@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "blocktopia:block/bone_block_1_10_top",
+    "side": "blocktopia:block/bone_block_1_10_side"
+  }
+}

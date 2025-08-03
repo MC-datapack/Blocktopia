@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "blocktopia:block/birch_pressure_plate_1_13"
+    },
+    "powered=true": {
+      "model": "blocktopia:block/birch_pressure_plate_1_13_down"
+    }
+  }
+}

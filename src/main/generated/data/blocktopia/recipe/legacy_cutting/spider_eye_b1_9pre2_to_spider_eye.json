@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:legacy_cutting",
+  "ingredient": {
+    "item": "blocktopia:spider_eye_b1_9pre2"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:spider_eye"
+  }
+}
