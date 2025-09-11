@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:enchanted_golden_baked_potato_from_smelting_enchanted_golden_potato"
+        "recipe": "blocktopia:enchanted_golden_baked_potato_from_smelting_enchanted_golden_potato"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:enchanted_golden_baked_potato_from_smelting_enchanted_golden_potato"
+      "blocktopia:enchanted_golden_baked_potato_from_smelting_enchanted_golden_potato"
     ]
   }
 }

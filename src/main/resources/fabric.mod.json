@@ -32,9 +32,6 @@
     ],
     "modmenu": [
       "github.mcdatapack.blocktopia.compat.ModMenuIntegration"
-    ],
-    "jei_mod_plugin": [
-      "github.mcdatapack.blocktopia.compat.BlocktopiaJeiPlugin"
     ]
   },
   "mixins": [

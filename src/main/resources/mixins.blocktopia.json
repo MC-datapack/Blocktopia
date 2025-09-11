@@ -15,16 +15,16 @@
 	"block.PistonHandlerMixin",
 	"block.StructureBlockBlockEntityMixin",
 	"block.UpdateStructureBlockC2SPacketMixin",
+	"compat.SimpleCopperPipesImplementation",
 	"entity.AbstractMinecartEntityMixin",
 	"entity.LivingEntityMixin",
 	"entity.PiglinBrainMixin",
 	"entity.villager.VillagerDataMixin",
 	"entity.villager.VillagerEntityMixin",
-	"fluid.FluidBlockMixin",
-	"fluid.LavaFluidMixin"
+	"fluid.FluidBlockMixin"
   ],
   "injectors": {
-	"defaultRequire": 1
+	"defaultRequire": 0
   },
   "client": [
 	"entity.villager.VillagerClothingFeatureRendererMixin",

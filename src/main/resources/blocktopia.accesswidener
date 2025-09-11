@@ -22,3 +22,5 @@ accessible method net/minecraft/world/biome/Biome$Weather downfall ()F
 accessible method net/minecraft/client/color/world/BiomeColors getColor (Lnet/minecraft/world/BlockRenderView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/biome/ColorResolver;)I
 
 accessible method net/minecraft/recipe/CuttingRecipe$Serializer <init> (Lnet/minecraft/recipe/CuttingRecipe$RecipeFactory;)V
+
+accessible method net/minecraft/client/gui/DrawContext drawTexturedQuad (Lnet/minecraft/util/Identifier;IIIIIFFFFFFFF)V

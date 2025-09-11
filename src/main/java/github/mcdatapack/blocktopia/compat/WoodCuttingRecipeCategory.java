@@ -1,4 +1,4 @@
-package github.mcdatapack.blocktopia.compat;
+/*package github.mcdatapack.blocktopia.compat;
 
 import com.mojang.serialization.Codec;
 import github.mcdatapack.blocktopia.block.ModBlocks;
@@ -77,3 +77,4 @@ public class WoodCuttingRecipeCategory extends AbstractRecipeCategory<RecipeEntr
         return codecHelper.getRecipeHolderCodec();
     }
 }
+*/

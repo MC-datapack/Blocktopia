@@ -27,10 +27,19 @@ public abstract class FluidBlockMixin {
 
     @Shadow protected abstract void playExtinguishSound(WorldAccess world, BlockPos pos);
 
+    @Shadow protected abstract boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction);
+
     @Inject(method = "receiveNeighborFluids", at = @At("HEAD"), cancellable = true)
     private void onReceiveNeighborFluids(World world, BlockPos pos, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
         if (fluid.isIn(FluidTags.LAVA)) {
-            boolean soulSoilUnder = world.getBlockState(pos.down()).isOf(Blocks.SOUL_SOIL);
+            boolean basaltCondition = world.getBlockState(pos.down()).isOf(Blocks.SOUL_SOIL);
+            boolean dioriteCondition = world.getBlockState(pos.down()).isOf(Blocks.QUARTZ_BLOCK);
+            boolean graniteCondition = world.getBlockState(pos.down()).isOf(Blocks.RED_SANDSTONE);
+            boolean andesiteCondition = world.getBlockState(pos.down()).isOf(Blocks.POLISHED_DIORITE);
+            boolean tuffCondition = world.getBlockState(pos.down()).isOf(Blocks.POLISHED_ANDESITE);
+            boolean blackstoneCondition = world.getBlockState(pos.down()).isOf(Blocks.NETHER_BRICKS);
+            boolean netherrackCondition = world.getBlockState(pos.down()).isOf(Blocks.RED_NETHER_BRICKS);
+            boolean endstoneCondition = world.getBlockState(pos.down()).isOf(Blocks.PURPUR_BLOCK);
 
             for (Direction direction : FLOW_DIRECTIONS) {
                 BlockPos neighborPos = pos.offset(direction.getOpposite());
@@ -52,11 +61,52 @@ public abstract class FluidBlockMixin {
                     return;
                 }
 
-                if (soulSoilUnder && world.getBlockState(neighborPos).isOf(Blocks.BLUE_ICE)) {
-                    world.setBlockState(pos, Blocks.BASALT.getDefaultState());
-                    playExtinguishSound(world, pos);
-                    cir.setReturnValue(false);
-                    return;
+                if (world.getBlockState(neighborPos).isOf(Blocks.BLUE_ICE)) {
+                    if (basaltCondition) {
+                        world.setBlockState(pos, Blocks.BASALT.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    } else if (blackstoneCondition) {
+                        world.setBlockState(pos, Blocks.BLACKSTONE.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    } else if (netherrackCondition) {
+                        world.setBlockState(pos, Blocks.NETHERRACK.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    }
+                } else if (world.getBlockState(neighborPos).isOf(Blocks.PACKED_ICE)) {
+                    if (dioriteCondition) {
+                        world.setBlockState(pos, Blocks.DIORITE.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    } else if (graniteCondition) {
+                        world.setBlockState(pos, Blocks.GRANITE.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    } else if (andesiteCondition) {
+                        world.setBlockState(pos, Blocks.ANDESITE.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    } else if (tuffCondition) {
+                        world.setBlockState(pos, Blocks.TUFF.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    }
+                } else if (world.getBlockState(neighborPos).isOf(Blocks.ICE)) {
+                    if (endstoneCondition) {
+                        world.setBlockState(pos, Blocks.END_STONE.getDefaultState());
+                        playExtinguishSound(world, pos);
+                        cir.setReturnValue(false);
+                        return;
+                    }
                 }
             }
         }

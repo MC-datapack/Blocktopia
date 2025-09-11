@@ -1,0 +1,33 @@
+{
+  "variants": {
+	"connection_axis=x,segment_type=start":  {
+	  "model": "blocktopia:block/fluid_tank_x",
+	  "y": 180
+	},
+	"connection_axis=x,segment_type=middle": {
+	  "model": "blocktopia:block/fluid_tank_x_middle"
+	},
+	"connection_axis=x,segment_type=end":    {
+	  "model": "blocktopia:block/fluid_tank_x"
+	},
+	"connection_axis=z,segment_type=start":  {
+	  "model": "blocktopia:block/fluid_tank_z",
+	  "y": 180
+	},
+	"connection_axis=z,segment_type=middle": {
+	  "model": "blocktopia:block/fluid_tank_z_middle"
+	},
+	"connection_axis=z,segment_type=end":    {
+	  "model": "blocktopia:block/fluid_tank_z"
+	},
+	"connection_axis=x,segment_type=single": {
+	  "model": "blocktopia:block/fluid_tank"
+	},
+	"connection_axis=y,segment_type=single": {
+	  "model": "blocktopia:block/fluid_tank"
+	},
+	"connection_axis=z,segment_type=single": {
+	  "model": "blocktopia:block/fluid_tank"
+	}
+  }
+}

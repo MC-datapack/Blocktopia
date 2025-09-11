@@ -632,6 +632,7 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.EXTENDED_REPEATER_TICK);
                 entries.add(ModBlocks.EXTENDED_REPEATER_SECOND);
                 entries.add(ModBlocks.EXTENDED_REPEATER_MINUTE);
+                entries.add(ModBlocks.FLUID_TANK);
                 entries.add(ModItems.CREATIVE_INGOT);
                 entries.add(ModItems.CREATIVE_NUGGET);
                 entries.add(ModItems.GIANT_SPAWN_EGG);

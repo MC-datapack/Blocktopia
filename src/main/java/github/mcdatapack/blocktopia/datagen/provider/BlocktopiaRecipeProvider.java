@@ -72,7 +72,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         chairRecipe(ModBlocks.MAHOGANY_CHAIR, MAHOGANY_CHAIRS, exporter);
         chairRecipe(ModBlocks.PALE_OAK_CHAIR, PALE_OAK_CHAIRS, exporter);
 
-        /*ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FLUID_TANK)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FLUID_TANK)
                 .input('G', ConventionalItemTags.GLASS_PANES)
                 .input('B', ConventionalItemTags.EMPTY_BUCKETS)
                 .input('I', ConventionalItemTags.IRON_INGOTS)
@@ -82,7 +82,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasTag(ConventionalItemTags.GLASS_PANES), conditionsFromTag(ConventionalItemTags.GLASS_PANES))
                 .criterion(hasTag(ConventionalItemTags.EMPTY_BUCKETS), conditionsFromTag(ConventionalItemTags.EMPTY_BUCKETS))
                 .criterion(hasTag(ConventionalItemTags.IRON_INGOTS), conditionsFromTag(ConventionalItemTags.IRON_INGOTS))
-                .offerTo(exporter);*/
+                .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, FUTURE_INGOT)
                 .input(ItemTags.LOGS)

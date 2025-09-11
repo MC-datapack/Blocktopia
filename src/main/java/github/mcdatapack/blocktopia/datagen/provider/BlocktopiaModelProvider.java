@@ -75,7 +75,6 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                         .textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(CHISELED_RED_SANDSTONE_1_8)))
         );
 
-        blockStateModelGenerator.registerSimpleState(ModBlocks.FLUID_TANK);
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.FLUID_TANK, Blocktopia.id("block/fluid_tank"));
 
         blockStateModelGenerator.registerCrop(ModBlocks.BANANA_CROP, BananaCropBlock.AGE, 0, 1, 2, 3, 4, 5);

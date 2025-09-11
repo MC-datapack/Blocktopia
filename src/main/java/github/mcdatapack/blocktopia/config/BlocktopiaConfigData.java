@@ -26,9 +26,9 @@ public class BlocktopiaConfigData implements ConfigData {
     @ConfigEntry.Category("server")
     public LegacyCutterConfig legacyCutterConfig = new LegacyCutterConfig();
 
-    //@ConfigEntry.Gui.TransitiveObject
-    //@ConfigEntry.Category("server")
-    //@Comment("1 Bucket = 81000, 1 Bottle = 27000")
+    @ConfigEntry.Gui.TransitiveObject
+    @ConfigEntry.Category("server")
+    @Comment("1 Bucket = 81000, 1 Bottle = 27000")
     public long fluidTankCapacity = 810000;
 
     @ConfigEntry.Gui.RequiresRestart

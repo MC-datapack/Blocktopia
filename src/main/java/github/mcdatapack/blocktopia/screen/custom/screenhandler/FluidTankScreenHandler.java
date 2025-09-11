@@ -6,6 +6,7 @@ import github.mcdatapack.blocktopia.network.BlockPosPayload;
 import github.mcdatapack.blocktopia.screen.ModScreenHandlerTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
@@ -27,7 +28,7 @@ public class FluidTankScreenHandler extends ScreenHandler {
         this.blockEntity = blockEntity;
         this.context = ScreenHandlerContext.create(blockEntity.getWorld(), blockEntity.getPos());
 
-        SimpleInventory inventory = blockEntity.getInventory();
+        Inventory inventory = blockEntity.getInventory();
         checkSize(inventory, 1);
         inventory.onOpen(playerInventory.player);
 

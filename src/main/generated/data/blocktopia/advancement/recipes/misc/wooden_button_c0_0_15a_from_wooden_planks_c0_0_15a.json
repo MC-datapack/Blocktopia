@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:wooden_button_c0_0_15a_from_wooden_planks_c0_0_15a"
+        "recipe": "blocktopia:wooden_button_c0_0_15a_from_wooden_planks_c0_0_15a"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:wooden_button_c0_0_15a_from_wooden_planks_c0_0_15a"
+      "blocktopia:wooden_button_c0_0_15a_from_wooden_planks_c0_0_15a"
     ]
   }
 }

@@ -11,6 +11,7 @@ import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 
 public class FluidTankBlockEntityRenderer implements BlockEntityRenderer<FluidTankBlockEntity> {
@@ -47,46 +48,41 @@ public class FluidTankBlockEntityRenderer implements BlockEntityRenderer<FluidTa
 
         MatrixStack.Entry entry = matrices.peek();
 
-        // front face
-        drawQuad(vertexConsumer, entry, 5f / 16f, y1, 5.001f / 16f, 11f / 16f, y2, 5.001f / 16f, minU, minV, maxU, maxV, color, light, overlay);
+        float minX = entity.isConnected(Direction.WEST) ? 0f : 5f / 16f;
+        float maxX = entity.isConnected(Direction.EAST) ? 1f : 11f / 16f;
+        float minZ = entity.isConnected(Direction.NORTH) ? 0f : 5f / 16f;
+        float maxZ = entity.isConnected(Direction.SOUTH) ? 1f : 11f / 16f;
 
-        // back face
-        drawQuad(vertexConsumer, entry, 5f / 16f, y1, 10.999f / 16f, 11f / 16f, y2, 10.999f / 16f, minU, minV, maxU, maxV, color, light, overlay);
+        drawQuad(vertexConsumer, entry, minX, y1, minZ, maxX, y2, minZ, minU, minV, maxU, maxV, color, light, overlay); // front
+        drawQuad(vertexConsumer, entry, minX, y1, maxZ, maxX, y2, maxZ, minU, minV, maxU, maxV, color, light, overlay); // back
+        drawQuad(vertexConsumer, entry, minX, y1, minZ, minX, y2, maxZ, minU, minV, maxU, maxV, color, light, overlay); // left
+        drawQuad(vertexConsumer, entry, maxX, y1, minZ, maxX, y2, maxZ, minU, minV, maxU, maxV, color, light, overlay); // right
 
-        // left face
-        drawQuad(vertexConsumer, entry, 5.001f / 16f, y1, 5f / 16f, 5.001f / 16f, y2, 11f / 16f, minU, minV, maxU, maxV, color, light, overlay);
-
-        // right face
-        drawQuad(vertexConsumer, entry, 10.999f / 16f, y1, 5f / 16f, 10.999f / 16f, y2, 11f / 16f, minU, minV, maxU, maxV, color, light, overlay);
-
-        if(fillPercentage < 1f) {
+        if (fillPercentage < 1f) {
             minU = sprite.getFrameU(5f / 16f);
             maxU = sprite.getFrameU(11f / 16f);
             minV = sprite.getFrameV(5f / 16f);
             maxV = sprite.getFrameV(11f / 16f);
 
-            vertexConsumer.vertex(entry, 5f / 16f, y2, 5f / 16f)
+            vertexConsumer.vertex(entry, minX, y2, minZ)
                     .color(color)
                     .texture(minU, maxV)
                     .light(light)
                     .overlay(overlay)
                     .normal(0.0F, 1.0F, 0.0F);
-
-            vertexConsumer.vertex(entry, 5f / 16f, y2, 11f / 16f)
+            vertexConsumer.vertex(entry, minX, y2, maxZ)
                     .color(color)
                     .texture(minU, minV)
                     .light(light)
                     .overlay(overlay)
                     .normal(0.0F, 1.0F, 0.0F);
-
-            vertexConsumer.vertex(entry, 11f / 16f, y2, 11f / 16f)
+            vertexConsumer.vertex(entry, maxX, y2, maxZ)
                     .color(color)
                     .texture(maxU, minV)
                     .light(light)
                     .overlay(overlay)
                     .normal(0.0F, 1.0F, 0.0F);
-
-            vertexConsumer.vertex(entry, 11f / 16f, y2, 5f / 16f)
+            vertexConsumer.vertex(entry, maxX, y2, minZ)
                     .color(color)
                     .texture(maxU, maxV)
                     .light(light)

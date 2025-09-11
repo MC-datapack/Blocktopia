@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firework_block_2"
+        "recipe": "blocktopia:firework_block_2"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firework_block_2"
+      "blocktopia:firework_block_2"
     ]
   }
 }

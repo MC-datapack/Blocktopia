@@ -1,4 +1,4 @@
-package github.mcdatapack.blocktopia.compat;
+/*package github.mcdatapack.blocktopia.compat;
 
 import com.mojang.serialization.Codec;
 import github.mcdatapack.blocktopia.block.ModBlocks;
@@ -76,4 +76,4 @@ public class LegacyCuttingRecipeCategory extends AbstractRecipeCategory<RecipeEn
     public Codec<RecipeEntry<LegacyCuttingRecipe>> getCodec(ICodecHelper codecHelper, IRecipeManager recipeManager) {
         return codecHelper.getRecipeHolderCodec();
     }
-}
+}*/
