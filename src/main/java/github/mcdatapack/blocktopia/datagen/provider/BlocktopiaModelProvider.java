@@ -1,7 +1,5 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.ModBlockFamilies;
 import github.mcdatapack.blocktopia.block.custom.BananaCropBlock;
@@ -11,11 +9,7 @@ import github.mcdatapack.blocktopia.item.ModItems;
 import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.LegacyBlocks;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -24,15 +18,12 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.impl.content.registry.util.ImmutableCollectionUtils;
 import net.minecraft.block.Block;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.registry.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.Direction;
 
 import static github.mcdatapack.blocktopia.block.FutureBlocks.*;
@@ -561,6 +552,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TROPICAL_WATER_BUCKET, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWNER_MINECART, Models.GENERATED);
         itemModelGenerator.register(ModItems.FUTURE_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.THERMORGANIC_FUEL, Models.GENERATED);
     }
 
     public final void registerHangingMoss(BlockStateModelGenerator generator, Block block) {

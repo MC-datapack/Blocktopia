@@ -2,7 +2,6 @@ package github.mcdatapack.blocktopia.item;
 
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.block.LegacyBlocks;
 import github.mcdatapack.blocktopia.entity.ModBoats;
 import github.mcdatapack.blocktopia.entity.ModEntityTypes;
 import github.mcdatapack.blocktopia.fluid.ModFluids;
@@ -17,8 +16,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import net.minecraft.util.math.Direction;
-import org.jetbrains.annotations.ApiStatus;
 
 public interface ModItems {
     Item COCONUT = register("coconut", new Item(new Item.Settings().food(ModFoodComponents.COCONUT_SETTINGS).rarity(Rarity.UNCOMMON)));
@@ -117,6 +114,8 @@ public interface ModItems {
     ));
 
     Item FUTURE_INGOT = register("future_ingot", new Item(new Item.Settings()));
+    Item THERMORGANIC_FUEL = register("thermorganic_fuel", new Item(new Item.Settings()
+            .rarity(Rarity.RARE)));
 
     BucketItem TROPICAL_WATER_BUCKET = register("tropical_water_bucket", new BucketItem(ModFluids.TROPICAL_WATER, new Item.Settings().maxCount(1)));
 

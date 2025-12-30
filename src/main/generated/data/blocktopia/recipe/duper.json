@@ -6,13 +6,13 @@
       "item": "blocktopia:creative_ingot"
     },
     "B": {
-      "item": "blocktopia:small_chest"
+      "item": "more_tools_and_armor:ancient_ingot"
     }
   },
   "pattern": [
-    " A ",
+    "AAA",
     "ABA",
-    " A "
+    "AAA"
   ],
   "result": {
     "count": 1,

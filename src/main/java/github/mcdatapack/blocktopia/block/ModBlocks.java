@@ -32,7 +32,8 @@ public interface ModBlocks {
     LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
     WoodCutterBlock WOODCUTTER = register("woodcutter", new WoodCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
 
-    FluidTankBlock FLUID_TANK = register("fluid_tank", new FluidTankBlock(AbstractBlock.Settings.copy(Blocks.GLASS)));
+    FluidTankBlock FLUID_TANK = register("fluid_tank", new FluidTankBlock(AbstractBlock.Settings.copy(Blocks.GLASS)
+            .strength(2.5f)));
 
     CarpetBlock TROPICAL_MOSS_CARPET = register("tropical_moss_carpet", new CarpetBlock(AbstractBlock.Settings.copy(Blocks.MOSS_CARPET)));
     CustomMossBlock TROPICAL_MOSS = register("tropical_moss", new CustomMossBlock(ModConfiguredFeatures.TROPICAL_MOSS_PATCH_BONEMEAL_KEY,

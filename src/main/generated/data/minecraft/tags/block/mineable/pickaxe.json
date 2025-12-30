@@ -125,6 +125,7 @@
     "blocktopia:resin_brick_slab",
     "blocktopia:resin_brick_stairs",
     "blocktopia:resin_brick_wall",
-    "blocktopia:chiseled_resin_bricks"
+    "blocktopia:chiseled_resin_bricks",
+    "blocktopia:fluid_tank"
   ]
 }

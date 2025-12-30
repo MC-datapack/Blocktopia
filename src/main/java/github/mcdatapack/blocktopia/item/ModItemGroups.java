@@ -623,6 +623,7 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.GUNPOWDER_BLOCK);
                 entries.add(ModBlocks.PAPER_BLOCK);
                 entries.add(ModBlocks.FIREWORK_BLOCK);
+                entries.add(ModItems.THERMORGANIC_FUEL);
                 entries.add(ModBlocks.SMALL_CHEST);
                 entries.add(ModBlocks.DUPER);
                 entries.add(ModBlocks.LEGACY_CUTTER);

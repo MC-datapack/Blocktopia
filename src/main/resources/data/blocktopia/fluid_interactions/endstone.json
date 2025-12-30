@@ -1,0 +1,6 @@
+{
+  "fluid": "minecraft:lava",
+  "neighbor_block": "minecraft:packed_ice",
+  "base_block": "minecraft:purpur_block",
+  "result": "minecraft:end_stone"
+}

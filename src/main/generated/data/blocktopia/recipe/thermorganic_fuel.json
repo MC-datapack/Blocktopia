@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:dried_kelp"
+    },
+    "B": {
+      "item": "minecraft:netherrack"
+    },
+    "C": {
+      "tag": "minecraft:coals"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BBB",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:thermorganic_fuel"
+  }
+}

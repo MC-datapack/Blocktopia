@@ -102,8 +102,7 @@ public class BlocktopiaClient implements ClientModInitializer {
                 new SimpleFluidRenderHandler(
                         id("block/tropical_water_still"),
                         id("block/tropical_water_flow"),
-                        id("block/tropical_water_overlay"),
-                        new Color(0, 255, 234).getRGB()
+                        id("block/tropical_water_overlay")
                 ));
 
         ColorProviderRegistry.BLOCK.register(

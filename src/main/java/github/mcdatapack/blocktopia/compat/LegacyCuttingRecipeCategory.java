@@ -1,79 +1,56 @@
-/*package github.mcdatapack.blocktopia.compat;
+package github.mcdatapack.blocktopia.compat;
 
-import com.mojang.serialization.Codec;
+import com.google.common.collect.Lists;
+import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.block.ModBlocks;
-import github.mcdatapack.blocktopia.recipe.LegacyCuttingRecipe;
-import github.mcdatapack.blocktopia.recipe.ModRecipes;
-import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
-import mezz.jei.api.helpers.ICodecHelper;
-import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.IRecipeManager;
-import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.AbstractRecipeCategory;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.registry.DynamicRegistryManager;
+import me.shedaniel.math.Point;
+import me.shedaniel.math.Rectangle;
+import me.shedaniel.rei.api.client.gui.Renderer;
+import me.shedaniel.rei.api.client.gui.widgets.Widget;
+import me.shedaniel.rei.api.client.gui.widgets.Widgets;
+import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
+import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
+import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 
-public class LegacyCuttingRecipeCategory extends AbstractRecipeCategory<RecipeEntry<LegacyCuttingRecipe>> {
-    public static final RecipeType<RecipeEntry<LegacyCuttingRecipe>> TYPE = mezz.jei.api.recipe.RecipeType.createFromVanilla(ModRecipes.LEGACY_CUTTING_RECIPE_TYPE);
-    public static final int width = 82;
-    public static final int height = 34;
+import java.util.List;
 
-    public LegacyCuttingRecipeCategory(IGuiHelper guiHelper) {
-        super(
-                TYPE,
-                Text.translatable("container.blocktopia.legacy_cutter"),
-                guiHelper.createDrawableItemLike(ModBlocks.LEGACY_CUTTER),
-                82,
-                34
-        );
+public class LegacyCuttingRecipeCategory implements DisplayCategory<BasicDisplay> {
+
+    @Override
+    public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {
+        return CategoryIdentifier.of(Blocktopia.id("legacy_cutting"));
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, RecipeEntry<LegacyCuttingRecipe> recipeEntry, IFocusGroup focuses) {
-        LegacyCuttingRecipe recipe = recipeEntry.value();
-
-        builder.addInputSlot(1, 9)
-                .setStandardSlotBackground()
-                .addIngredients(recipe.getIngredients().getFirst());
-
-        MinecraftClient minecraft = MinecraftClient.getInstance();
-        ClientWorld world = minecraft.world;
-        if (world == null) {
-            throw new NullPointerException("world must not be null.");
-        }
-        DynamicRegistryManager registryManager = world.getRegistryManager();
-        ItemStack output = recipe.getResult(registryManager);
-
-        builder.addOutputSlot(61,  9)
-                .setOutputSlotBackground()
-                .addItemStack(output);
+    public Text getTitle() {
+        return Text.translatable("container.blocktopia.legacy_cutter");
     }
 
     @Override
-    public void createRecipeExtras(IRecipeExtrasBuilder builder, RecipeEntry<LegacyCuttingRecipe> recipe, IFocusGroup focuses) {
-        builder.addRecipeArrow().setPosition(26, 9);
+    public Renderer getIcon() {
+        return EntryStacks.of(ModBlocks.LEGACY_CUTTER.asItem().getDefaultStack());
     }
 
     @Override
-    public boolean isHandled(RecipeEntry<LegacyCuttingRecipe> recipeHolder) {
-        LegacyCuttingRecipe recipe = recipeHolder.value();
-        return !recipe.isIgnoredInRecipeBook();
+    public List<Widget> setupDisplay(BasicDisplay display, Rectangle bounds) {
+        Point startPoint = new Point(bounds.getCenterX() - 41, bounds.getCenterY() - 13);
+        List<Widget> widgets = Lists.newArrayList();
+        widgets.add(Widgets.createRecipeBase(bounds));
+        widgets.add(Widgets.createArrow(new Point(startPoint.x + 27, startPoint.y + 4)));
+        widgets.add(Widgets.createResultSlotBackground(new Point(startPoint.x + 61, startPoint.y + 5)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 61, startPoint.y + 5))
+                .entries(display.getOutputEntries().getFirst())
+                .disableBackground()
+                .markOutput());
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 4, startPoint.y + 5))
+                .entries(display.getInputEntries().getFirst()).markInput());
+        return widgets;
     }
 
     @Override
-    public Identifier getRegistryName(RecipeEntry<LegacyCuttingRecipe> recipe) {
-        return recipe.id();
+    public int getDisplayHeight() {
+        return 40;
     }
-
-    @Override
-    public Codec<RecipeEntry<LegacyCuttingRecipe>> getCodec(ICodecHelper codecHelper, IRecipeManager recipeManager) {
-        return codecHelper.getRecipeHolderCodec();
-    }
-}*/
+}

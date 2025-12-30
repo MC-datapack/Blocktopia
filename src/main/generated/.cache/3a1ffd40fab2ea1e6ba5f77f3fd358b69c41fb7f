@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-07T21:59:22.2326631	Blocktopia/Tags for minecraft:block
+// 1.21.1	2025-12-30T13:08:19.1604603	Blocktopia/Tags for minecraft:block
 dbe0dbfc6c602f6d5a3479f4ccd1a3dfdb1a1bc3 data\blocktopia\tags\block\chairs\birch.json
 211e6b88ecebd7ff4425f21ddc3559d15e3abf1f data\minecraft\tags\block\wooden_trapdoors.json
 bbc813e13d9a74e61529cea1d55abcc60b6fdd12 data\minecraft\tags\block\planks.json
@@ -31,7 +31,6 @@ edb7e26d89a46ec3bedf21892d5d4a5395b3893a data\blocktopia\tags\block\chairs\warpe
 31a90e60aa2bd738ef71583f2c4476c15af0c985 data\blocktopia\tags\block\chairs\dark_oak.json
 f9ddeefd6ed7be3ccb093756ce135856d568f8ca data\minecraft\tags\block\enchantment_power_provider.json
 5c84755c94b37e149e21f89fb2ef2f8dcf24d2ce data\minecraft\tags\block\fence_gates.json
-d17b56697555bb7ec158d2248c4fe9a8c5b739e5 data\c\tags\block\player_workstations\furnaces.json
 c61cac91425c74702fc9eef92524a0f3c94d25e5 data\blocktopia\tags\block\legacy_blocks.json
 cf53abc8f8d93c73f9c5055d491e145e148f8994 data\minecraft\tags\block\slabs.json
 3041e4ab105db9ae25b59b1bb5f15fbb9d5d0cc4 data\minecraft\tags\block\wooden_buttons.json
@@ -44,12 +43,12 @@ e2d32ca801af7e8e49c681e056a32d59f4dcb182 data\minecraft\tags\block\needs_diamond
 ec2cf18476dc2a44275d9b93ea97d09a614decdc data\c\tags\block\ores\gold.json
 24ec475e9644b9d5dba2bb105362ca82eb719fa7 data\blocktopia\tags\block\chairs\mangrove.json
 c1fa86185e1e46618a4cbebc01e81d92ead6c5d5 data\blocktopia\tags\block\chairs\mahogany.json
-f8d1cfd6a88c3a2a93ec73baf28f9ee958475b4c data\minecraft\tags\block\mineable\axe.json
 dd2f6e4b1a7d797747da4896c33c1fdf8fe9d50c data\minecraft\tags\block\needs_stone_tool.json
+f8d1cfd6a88c3a2a93ec73baf28f9ee958475b4c data\minecraft\tags\block\mineable\axe.json
 77f825bbcd2a3228d008e2fd758cc78b2fb0fb51 data\minecraft\tags\block\wooden_fences.json
 ba4700de8f6ea748f3c3c33f16877812e849dd05 data\minecraft\tags\block\logs_that_burn.json
 14b6753d226e7a0af81630656d2ef90de945575a data\minecraft\tags\block\climbable.json
-c95d69793de2f5c35aafdffdf8a8afedc8e40126 data\minecraft\tags\block\mineable\pickaxe.json
+b07093eaf12012010414b544fbc91de57e0e6582 data\minecraft\tags\block\mineable\pickaxe.json
 3dca155d944288f55476f0484ea59ad29db9c998 data\blocktopia\tags\block\chairs\oak.json
 61c98db298da1e57bf01a903fb28516f67957736 data\minecraft\tags\block\sword_efficient.json
 ed0ce9da3297a8dff6532ade51853c5317ce674a data\minecraft\tags\block\dragon_immune.json

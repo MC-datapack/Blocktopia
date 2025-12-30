@@ -1,10 +1,13 @@
 package github.mcdatapack.blocktopia;
 
+import com.google.gson.Gson;
 import github.mcdatapack.blocktopia.block.entity.ModBlockEntityTypes;
 import github.mcdatapack.blocktopia.block.entity.custom.FluidTankBlockEntity;
 import github.mcdatapack.blocktopia.block.entity.custom.SmallChestBlockEntity;
 import github.mcdatapack.blocktopia.command.LocateMobCommand;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
+import github.mcdatapack.blocktopia.data.FluidInteractionLoader;
+import github.mcdatapack.blocktopia.data.FluidInteractionRegistry;
 import github.mcdatapack.blocktopia.enchantment.ModEnchantments;
 import github.mcdatapack.blocktopia.entity.ModBoats;
 import github.mcdatapack.blocktopia.entity.ModEntityTypes;
@@ -43,7 +46,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.VillagerInteractionRegistries;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.transfer.v1.fluid.*;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
@@ -53,6 +58,7 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerType;
@@ -76,6 +82,9 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
+
+        FluidInteractionRegistry.init();
+
         LocateMobCommand.register();
         ModRecipes.load();
         ModFluids.load();
@@ -153,6 +162,7 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         CompostingChanceRegistry.INSTANCE.add(PINK_TULIP_1_7, 0.65F);
         CompostingChanceRegistry.INSTANCE.add(LARGE_FERN_1_7, 0.65F);
         CompostingChanceRegistry.INSTANCE.add(TALL_GRASS_1_7, 0.65F);
+        FuelRegistry.INSTANCE.add(ModItems.THERMORGANIC_FUEL, 160 * 200);
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
             registerWithLongAndStrongAndNegative(builder, Items.EXPERIENCE_BOTTLE,
                     ModPotions.XP_BOOST, ModPotions.STRONG_XP_BOOST, ModPotions.LONG_XP_BOOST,
@@ -208,7 +218,6 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         VillagerLevelTradeCountRegistry.registerTradeCount(ModVillagers.LEGACY, 5);
         CustomPiglinTrading.addBarteringItem(Items.NETHERITE_INGOT, ModLootTables.NETHERITE_PIGLIN_BARTERING);
         CustomPiglinTrading.addBarteringItem(Items.NETHERITE_BLOCK, ModLootTables.NETHERITE_BLOCK_PIGLIN_BARTERING);
-        CustomPiglinTrading.addBarteringItem(LegacyBlocks.BEDROCK_C0_0_12A, ModLootTables.BEDROCK_C0_0_12A_PIGLIN_BARTERING);
 
         LOGGER.info("Loaded Blocktopia");
     }

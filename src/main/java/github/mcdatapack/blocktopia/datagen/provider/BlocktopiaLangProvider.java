@@ -10,7 +10,6 @@ import github.mcdatapack.blocktopia.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;
 import org.jetbrains.annotations.NotNull;
@@ -28,6 +27,7 @@ import static github.mcdatapack.blocktopia.item.FutureItems.RESIN_BRICK;
 import static github.mcdatapack.blocktopia.item.LegacyItems.*;
 import static github.mcdatapack.blocktopia.item.LegacyItems.RABBIT_STEW_1_8;
 import static github.mcdatapack.blocktopia.item.ModItems.FUTURE_INGOT;
+import static github.mcdatapack.blocktopia.item.ModItems.THERMORGANIC_FUEL;
 
 public class BlocktopiaLangProvider extends FabricLanguageProvider {
     public BlocktopiaLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
@@ -495,6 +495,7 @@ public class BlocktopiaLangProvider extends FabricLanguageProvider {
         builder.add(WOODCUTTER, "Woodcutter");
         builder.add(ModItemGroups.FUTURE_BLOCKS_AND_ITEMS, "§2§lBlocktopia: §rFuture Blocks and Items");
         addText(builder, WoodCutterBlock.TITLE, "Woodcutter");
+        builder.add(THERMORGANIC_FUEL, "Thermorganic Fuel");
     }
 
     private void addChairs(TranslationBuilder builder, ChairBlock[] blocks, String baseName) {

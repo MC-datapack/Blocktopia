@@ -1,0 +1,6 @@
+{
+  "fluid": "minecraft:lava",
+  "neighbor_block": "minecraft:blue_ice",
+  "base_block": "minecraft:red_nether_bricks",
+  "result": "minecraft:netherrack"
+}

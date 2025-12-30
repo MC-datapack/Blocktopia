@@ -1,0 +1,6 @@
+{
+    "fluid": "minecraft:water",
+    "neighbor_block": "minecraft:ice",
+    "base_block": "minecraft:dirt",
+    "result": "minecraft:dirt"
+}

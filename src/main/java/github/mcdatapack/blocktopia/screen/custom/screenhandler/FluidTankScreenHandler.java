@@ -87,7 +87,7 @@ public class FluidTankScreenHandler extends ScreenHandler {
 
     @Override
     public boolean canUse(PlayerEntity player) {
-        return canUse(this.context, player, ModBlocks.FLUID_TANK);
+        return context.get((world, pos) -> world.getBlockState(pos).isOf(ModBlocks.FLUID_TANK)).orElse(false);
     }
 
     public FluidTankBlockEntity getBlockEntity() {

@@ -71,7 +71,7 @@ public class BlocktopiaTagProvider {
                             GRANITE_1_8, POLISHED_GRANITE_1_8, DIORITE_1_8, POLISHED_DIORITE_1_8, ANDESITE_1_8, POLISHED_ANDESITE_1_8, PRISMARINE_1_8, PRISMARINE_BRICKS_1_8, DARK_PRISMARINE_1_8,
                             RED_SANDSTONE_1_8, CUT_RED_SANDSTONE_1_8, CHISELED_RED_SANDSTONE_1_8, SMOOTH_RED_SANDSTONE_1_8, RED_SANDSTONE_SLAB_1_8, RED_SANDSTONE_STAIRS_1_8, ENDSTONE_BRICKS_1_9,
                             PURPUR_BLOCK_1_9, PURPUR_PILLAR_1_9, PURPUR_SLAB_1_9, PURPUR_STAIRS_1_9, BONE_BLOCK_1_10, MAGMA_BLOCK_1_10, RED_NETHER_BRICKS_1_10, PRISMARINE_SLAB_1_13, PRISMARINE_STAIRS_1_13,
-                            WOODCUTTER, RESIN_BRICKS, RESIN_BRICK_SLAB, RESIN_BRICK_STAIRS, RESIN_BRICK_WALL, CHISELED_RESIN_BRICKS);
+                            WOODCUTTER, RESIN_BRICKS, RESIN_BRICK_SLAB, RESIN_BRICK_STAIRS, RESIN_BRICK_WALL, CHISELED_RESIN_BRICKS, FLUID_TANK);
             getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                     .add(SANDY_DIRT, GUNPOWDER_BLOCK, FIREWORK_BLOCK, SAND_C0_0_14A, SAND_C0_0_15A, SAND_B1_9PRE6, GRAVEL_C0_0_14A, GRAVEL_C0_0_15A, GRAVEL_B1_9PRE5, GRAVEL_1_3, SNOW_A1_0_4,
                             SNOW_BLOCK_A1_0_5, CLAY_BLOCK_A1_0_11, SOUL_SAND_A1_2_0, RED_SAND_1_7);
@@ -304,8 +304,6 @@ public class BlocktopiaTagProvider {
                     .add(SANDY_DIRT, TROPICAL_MOSS);
             getOrCreateTagBuilder(BlockTags.RAILS)
                     .add(RAIL_INF20100618, POWERED_RAIL_B1_5, DETECTOR_RAIL_B1_5, ACTIVATOR_RAIL_1_5);
-            getOrCreateTagBuilder(ConventionalBlockTags.PLAYER_WORKSTATIONS_FURNACES)
-                    .add(FURNACE_IN20100219, FURNACE_B1_2);
 
             getOrCreateTagBuilder(ModTags.Blocks.COCOA_BEANS_PLACEABLE)
                     .addTag(ModTags.Blocks.BANANA_LOGS)
@@ -341,7 +339,7 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(ConventionalItemTags.BUCKETS)
                     .add(TROPICAL_WATER_BUCKET);
             getOrCreateTagBuilder(ItemTags.PIGLIN_LOVED)
-                    .add(NETHERITE_INGOT, Items.NETHERITE_BLOCK, BEDROCK_C0_0_12A.asItem());
+                    .add(NETHERITE_INGOT, Items.NETHERITE_BLOCK);
             getOrCreateTagBuilder(ItemTags.EQUIPPABLE_ENCHANTABLE)
                     .add(asItem(CARVED_PUMPKIN_A1_2_0));
             getOrCreateTagBuilder(ItemTags.VANISHING_ENCHANTABLE)

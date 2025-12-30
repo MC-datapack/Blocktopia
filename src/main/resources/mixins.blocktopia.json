@@ -3,6 +3,9 @@
   "minVersion": "0.8",
   "package": "github.mcdatapack.blocktopia.mixin",
   "compatibilityLevel": "JAVA_21",
+  "mixinextras": {
+	"minVersion": "0.5.0"
+  },
   "mixins": [
 	"BlockStateModelGeneratorAccessor",
 	"ChunkRegionMixin",

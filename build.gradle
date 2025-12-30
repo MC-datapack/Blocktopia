@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.11-SNAPSHOT'
+	id 'fabric-loom' version '1.14-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -68,25 +68,47 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}"
-	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
-	modImplementation "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
-	modImplementation "maven.modrinth:more_tools_and_armor:${project.more_tools_and_armor_version}"
-	modCompileOnly "maven.modrinth:simple-copper-pipes:2.0.6-mc1.21.1"
-	modRuntimeOnly "maven.modrinth:frozenlib:2.1.7-mc1.21.1"
-	modRuntimeOnly "maven.modrinth:fabric-language-kotlin:1.13.5+kotlin.2.2.10"
+	modImplementation ("dev.emi:trinkets:${project.trinkets_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modImplementation ("com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modImplementation ("com.terraformersmc:modmenu:${project.mod_menu_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modImplementation ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modImplementation ("maven.modrinth:more_tools_and_armor:${project.more_tools_and_armor_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modCompileOnly ("maven.modrinth:simple-copper-pipes:2.0.6-mc1.21.1") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 
-	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_wood_api_version}"
+	modImplementation ("com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_wood_api_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_wood_api_version}"
 
-	modImplementation "net.kyrptonaught:customportalapi:${project.custom_portal_api_version}"
+	modImplementation ("net.kyrptonaught:customportalapi:${project.custom_portal_api_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 	include "net.kyrptonaught:customportalapi:${project.custom_portal_api_version}"
 
 	modRuntimeOnly "maven.modrinth:continuity:${project.continuity_version}"
 
-	//modImplementation "mezz.jei:jei-1.21.1-common-api:${jei_version}"
-	//modRuntimeOnly "mezz.jei:jei-1.21.1-fabric:${jei_version}"
+	modCompileOnly ("me.shedaniel:RoughlyEnoughItems-api-fabric:16.0.799") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	modRuntimeOnly ("me.shedaniel:RoughlyEnoughItems-fabric:16.0.799") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+
+	modApi ("dev.architectury:architectury-fabric:11.0.8") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 }
 
 processResources {

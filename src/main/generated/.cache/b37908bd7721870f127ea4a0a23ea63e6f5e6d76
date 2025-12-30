@@ -1,10 +1,10 @@
-// 1.21.1	2025-09-07T21:59:22.2390433	Blocktopia/Tags for minecraft:item
+// 1.21.1	2025-12-30T13:08:19.1675838	Blocktopia/Tags for minecraft:item
 c037a82f3f225397912943691cd626b849a4357f data\blocktopia\tags\item\chairs\jungle.json
 beb229f2e17bdddc617ff4c1e9a4aaa9957433ca data\minecraft\tags\item\wooden_doors.json
 043d749080e35d52bb7605de4458730e2a7a6589 data\blocktopia\tags\item\chairs\banana.json
 2cd80ce271205abd47cfd43f4a27a7793c9ebdfa data\minecraft\tags\item\chest_boats.json
 b246306e2b5d72033a09f6d70bd09b3671fb6733 data\minecraft\tags\item\stairs.json
-07fd1c4d7d1a1765e5f04b0e500695daf68cd29c data\minecraft\tags\item\piglin_loved.json
+f3f5af2b33dd2ede7e778c2e56aeb3fd30ef355e data\minecraft\tags\item\piglin_loved.json
 cd4d32cd57260447071158f0459fb1ce6fd16d92 data\blocktopia\tags\item\chairs\acacia.json
 376f2bf853c6605d2f86932f038a780ab8566324 data\minecraft\tags\item\wool.json
 d765ce436bf99d3e4077663ec34c222a22266275 data\minecraft\tags\item\enchantable\vanishing.json

@@ -1,0 +1,6 @@
+{
+  "fluid": "minecraft:lava",
+  "neighbor_block": "minecraft:packed_ice",
+  "base_block": "minecraft:quartz_block",
+  "result": "minecraft:diorite"
+}

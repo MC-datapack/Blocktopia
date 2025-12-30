@@ -1,0 +1,6 @@
+{
+    "fluid": "minecraft:water",
+    "neighbor_block": "minecraft:packed_ice",
+    "base_block": "minecraft:diorite",
+    "result": "minecraft:sand"
+}

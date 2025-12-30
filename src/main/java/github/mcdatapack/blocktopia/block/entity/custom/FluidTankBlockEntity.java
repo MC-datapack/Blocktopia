@@ -230,6 +230,8 @@ public class FluidTankBlockEntity extends BlockEntity implements TickableBlockEn
     }
 
     public FluidTankBlockEntity getController() {
+        if (world == null) return null;
+
         Direction.Axis axis = getConnectionAxis();
         BlockPos current = this.pos;
 

@@ -83,6 +83,17 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasTag(ConventionalItemTags.EMPTY_BUCKETS), conditionsFromTag(ConventionalItemTags.EMPTY_BUCKETS))
                 .criterion(hasTag(ConventionalItemTags.IRON_INGOTS), conditionsFromTag(ConventionalItemTags.IRON_INGOTS))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, THERMORGANIC_FUEL)
+                .input('A', DRIED_KELP)
+                .input('B', NETHERRACK)
+                .input('C', ItemTags.COALS)
+                .pattern("BBB")
+                .pattern("BBB")
+                .pattern("ACA")
+                .criterion(hasItem(DRIED_KELP), conditionsFromItem(DRIED_KELP))
+                .criterion(hasItem(NETHERRACK), conditionsFromItem(NETHERRACK))
+                .criterion(hasTag(ItemTags.COALS), conditionsFromTag(ItemTags.COALS))
+                .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, FUTURE_INGOT)
                 .input(ItemTags.LOGS)
@@ -111,10 +122,10 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DUPER)
                 .input('A', ModItems.CREATIVE_INGOT)
-                .input('B', ModBlocks.SMALL_CHEST)
-                .pattern(" A ")
+                .input('B', ItemInit.ANCIENT_INGOT)
+                .pattern("AAA")
                 .pattern("ABA")
-                .pattern(" A ")
+                .pattern("AAA")
                 .criterion(hasItem(ModItems.CREATIVE_INGOT), conditionsFromItem(ModItems.CREATIVE_INGOT))
                 .offerTo(exporter);
 

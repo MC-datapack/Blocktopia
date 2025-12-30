@@ -32,6 +32,9 @@
     ],
     "modmenu": [
       "github.mcdatapack.blocktopia.compat.ModMenuIntegration"
+    ],
+    "rei_client": [
+      "github.mcdatapack.blocktopia.compat.ReiPlugin"
     ]
   },
   "mixins": [
