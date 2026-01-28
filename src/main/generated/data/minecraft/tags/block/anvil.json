@@ -1,0 +1,13 @@
+{
+  "values": [
+    "blocktopia:gold_anvil",
+    "blocktopia:chipped_gold_anvil",
+    "blocktopia:damaged_gold_anvil",
+    "blocktopia:diamond_anvil",
+    "blocktopia:chipped_diamond_anvil",
+    "blocktopia:damaged_diamond_anvil",
+    "blocktopia:netherite_anvil",
+    "blocktopia:chipped_netherite_anvil",
+    "blocktopia:damaged_netherite_anvil"
+  ]
+}

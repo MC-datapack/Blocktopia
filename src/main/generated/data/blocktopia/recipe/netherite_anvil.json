@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:ingots/netherite"
+    },
+    "B": {
+      "item": "minecraft:netherite_block"
+    }
+  },
+  "pattern": [
+    "BBB",
+    " A ",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:netherite_anvil"
+  }
+}

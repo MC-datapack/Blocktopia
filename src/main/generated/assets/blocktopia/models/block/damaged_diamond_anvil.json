@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_anvil",
+  "textures": {
+    "body": "blocktopia:block/diamond_anvil_side",
+    "particle": "blocktopia:block/diamond_anvil_side",
+    "top": "blocktopia:block/damaged_diamond_anvil"
+  }
+}

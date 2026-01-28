@@ -8,14 +8,17 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntryList;
+import net.minecraft.registry.tag.EnchantmentTags;
 import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
 public abstract class BlocktopiaEnchantmentGenerator extends FabricDynamicRegistryProvider {
     protected RegistryEntryList<Item> swordEnchantable, axeEnchantable, pickaxeEnchantable, shovelEnchantable, hoeEnchantable, armorEnchantable, helmetEnchantable, chestplateEnchantable, leggingsEnchantable, bootEnchantable, weaponEnchantable,
-            sharpWeaponEnchantable, miningToolEnchantable, bowEnchantable;
+            sharpWeaponEnchantable, miningToolEnchantable, bowEnchantable, tridentEnchantable, fishingEnchantable, durabilityEnchantable;
+    protected RegistryEntryList<Enchantment> armorSet, bootSet, bowSet;
     protected RegistryWrapper<Item> wrapper;
+    protected RegistryWrapper<Enchantment> wrapper2;
 
     public BlocktopiaEnchantmentGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
@@ -35,6 +38,14 @@ public abstract class BlocktopiaEnchantmentGenerator extends FabricDynamicRegist
             sharpWeaponEnchantable = wrapper.getOrThrow(ItemTags.SHARP_WEAPON_ENCHANTABLE);
             miningToolEnchantable = wrapper.getOrThrow(ItemTags.MINING_ENCHANTABLE);
             bowEnchantable = wrapper.getOrThrow(ItemTags.BOW_ENCHANTABLE);
+            tridentEnchantable = wrapper.getOrThrow(ItemTags.TRIDENT_ENCHANTABLE);
+            fishingEnchantable = wrapper.getOrThrow(ItemTags.FISHING_ENCHANTABLE);
+            durabilityEnchantable = wrapper.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE);
+
+            wrapper2 = registries.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+            armorSet = wrapper2.getOrThrow(EnchantmentTags.ARMOR_EXCLUSIVE_SET);
+            bootSet = wrapper2.getOrThrow(EnchantmentTags.BOOTS_EXCLUSIVE_SET);
+            bowSet = wrapper2.getOrThrow(EnchantmentTags.BOW_EXCLUSIVE_SET);
         });
     }
 

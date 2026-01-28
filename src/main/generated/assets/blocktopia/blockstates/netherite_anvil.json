@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "blocktopia:block/netherite_anvil",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "blocktopia:block/netherite_anvil",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "blocktopia:block/netherite_anvil"
+    },
+    "facing=west": {
+      "model": "blocktopia:block/netherite_anvil",
+      "y": 90
+    }
+  }
+}

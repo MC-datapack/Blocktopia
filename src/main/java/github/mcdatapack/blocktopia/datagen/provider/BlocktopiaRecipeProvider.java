@@ -54,6 +54,31 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, GOLD_ANVIL)
+                .input('A', ConventionalItemTags.GOLD_INGOTS)
+                .input('B', GOLD_BLOCK)
+                .pattern("BBB")
+                .pattern(" A ")
+                .pattern("AAA")
+                .criterion(hasTag(ConventionalItemTags.GOLD_INGOTS), conditionsFromTag(ConventionalItemTags.GOLD_INGOTS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, DIAMOND_ANVIL)
+                .input('A', ConventionalItemTags.DIAMOND_GEMS)
+                .input('B', DIAMOND_BLOCK)
+                .pattern("BBB")
+                .pattern(" A ")
+                .pattern("AAA")
+                .criterion(hasTag(ConventionalItemTags.DIAMOND_GEMS), conditionsFromTag(ConventionalItemTags.DIAMOND_GEMS))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, NETHERITE_ANVIL)
+                .input('A', ConventionalItemTags.NETHERITE_INGOTS)
+                .input('B', NETHERITE_BLOCK)
+                .pattern("BBB")
+                .pattern(" A ")
+                .pattern("AAA")
+                .criterion(hasTag(ConventionalItemTags.NETHERITE_INGOTS), conditionsFromTag(ConventionalItemTags.NETHERITE_INGOTS))
+                .offerTo(exporter);
+
         chairRecipe(ModBlocks.OAK_CHAIR, OAK_CHAIRS, exporter);
         chairRecipe(ModBlocks.SPRUCE_CHAIR, SPRUCE_CHAIRS, exporter);
         chairRecipe(ModBlocks.BIRCH_CHAIR, BIRCH_CHAIRS, exporter);
@@ -1606,8 +1631,8 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 POISONED_FENCE_GATE,
                 POISONED_PRESSURE_PLATE,
                 POISONED_BUTTON,
-                POISONED_SIGN,
-                POISONED_HANGING_SIGN,
+                null,
+                null,
                 POISONED_BOAT,
                 POISONED_CHEST_BOAT);
         offerWoodcutterRecipe(exporter, MAHOGANY_PLANKS,
@@ -1674,8 +1699,10 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         offerWRecipe(exporter, plank, fenceGate, 1);
         offerWRecipe(exporter, plank, pressurePlate, 2);
         offerWRecipe(exporter, plank, button, 4);
-        offerWRecipe(exporter, plank, sign, 2);
-        offerWRecipe(exporter, plank, hangingSign, 1);
+        if (sign != null)
+            offerWRecipe(exporter, plank, sign, 2);
+        if (hangingSign != null)
+            offerWRecipe(exporter, plank, hangingSign, 1);
         offerWRecipe(exporter, plank, boat, 1);
         offerWRecipe(exporter, plank, chestBoat, 1);
     }
@@ -1700,8 +1727,10 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         offerWRecipe(exporter, plank, fenceGate, 1);
         offerWRecipe(exporter, plank, pressurePlate, 2);
         offerWRecipe(exporter, plank, button, 4);
-        offerWRecipe(exporter, plank, sign, 2);
-        offerWRecipe(exporter, plank, hangingSign, 1);
+        if (sign != null)
+            offerWRecipe(exporter, plank, sign, 2);
+        if (hangingSign != null)
+            offerWRecipe(exporter, plank, hangingSign, 1);
     }
 
     private static void offerLegacyCutterRecipe(RecipeExporter exporter, ItemConvertible base, ItemConvertible... legacyVariants) {

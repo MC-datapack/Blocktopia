@@ -22,6 +22,9 @@ public interface ModScreenHandlerTypes {
             register("duper_inventory", DuperScreenHandler::new, BlockPosPayload.PACKET_CODEC);
     ScreenHandlerType<FluidTankScreenHandler> FLUID_TANK =
             register("fluid_tank", FluidTankScreenHandler::new, BlockPosPayload.PACKET_CODEC);
+    ScreenHandlerType<GoldAnvilScreenHandler> GOLD_ANVIL = register("gold_anvil", GoldAnvilScreenHandler::new);
+    ScreenHandlerType<DiamondAnvilScreenHandler> DIAMOND_ANVIL = register("diamond_anvil", DiamondAnvilScreenHandler::new);
+    ScreenHandlerType<NetheriteAnvilScreenHandler> NETHERITE_ANVIL = register("netherite_anvil", NetheriteAnvilScreenHandler::new);
 
 
     private static <T extends ScreenHandler, D extends CustomPayload> ExtendedScreenHandlerType<T, D> register(String name, ExtendedScreenHandlerType.ExtendedFactory<T, D> factory, PacketCodec<? super RegistryByteBuf, D> codec) {

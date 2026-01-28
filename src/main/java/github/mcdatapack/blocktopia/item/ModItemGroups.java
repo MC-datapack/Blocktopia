@@ -544,8 +544,8 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.POISONED_CHAIR[0]);
                 entries.add(ModItems.POISONED_BOAT);
                 entries.add(ModItems.POISONED_CHEST_BOAT);
-                entries.add(ModBlocks.POISONED_SIGN);
-                entries.add(ModBlocks.POISONED_HANGING_SIGN);
+                //entries.add(ModBlocks.POISONED_SIGN);
+                //entries.add(ModBlocks.POISONED_HANGING_SIGN);
                 entries.add(ModBlocks.MAHOGANY_LEAVES);
                 entries.add(ModBlocks.MAHOGANY_SAPLING);
                 entries.add(ModBlocks.MAHOGANY_LOG);
@@ -634,6 +634,15 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.EXTENDED_REPEATER_SECOND);
                 entries.add(ModBlocks.EXTENDED_REPEATER_MINUTE);
                 entries.add(ModBlocks.FLUID_TANK);
+                entries.add(ModBlocks.GOLD_ANVIL);
+                entries.add(ModBlocks.CHIPPED_GOLD_ANVIL);
+                entries.add(ModBlocks.DAMAGED_GOLD_ANVIL);
+                entries.add(ModBlocks.DIAMOND_ANVIL);
+                entries.add(ModBlocks.CHIPPED_DIAMOND_ANVIL);
+                entries.add(ModBlocks.DAMAGED_DIAMOND_ANVIL);
+                entries.add(ModBlocks.NETHERITE_ANVIL);
+                entries.add(ModBlocks.CHIPPED_NETHERITE_ANVIL);
+                entries.add(ModBlocks.DAMAGED_NETHERITE_ANVIL);
                 entries.add(ModItems.CREATIVE_INGOT);
                 entries.add(ModItems.CREATIVE_NUGGET);
                 entries.add(ModItems.GIANT_SPAWN_EGG);

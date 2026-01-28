@@ -32,6 +32,16 @@ public interface ModBlocks {
     LegacyCutterBlock LEGACY_CUTTER = register("legacy_cutter", new LegacyCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
     WoodCutterBlock WOODCUTTER = register("woodcutter", new WoodCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER)));
 
+    GoldAnvilBlock GOLD_ANVIL = register("gold_anvil", new GoldAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    GoldAnvilBlock CHIPPED_GOLD_ANVIL = register("chipped_gold_anvil", new GoldAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    GoldAnvilBlock DAMAGED_GOLD_ANVIL = register("damaged_gold_anvil", new GoldAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    DiamondAnvilBlock DIAMOND_ANVIL = register("diamond_anvil", new DiamondAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    DiamondAnvilBlock CHIPPED_DIAMOND_ANVIL = register("chipped_diamond_anvil", new DiamondAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    DiamondAnvilBlock DAMAGED_DIAMOND_ANVIL = register("damaged_diamond_anvil", new DiamondAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    NetheriteAnvilBlock NETHERITE_ANVIL = register("netherite_anvil", new NetheriteAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    NetheriteAnvilBlock CHIPPED_NETHERITE_ANVIL = register("chipped_netherite_anvil", new NetheriteAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+    NetheriteAnvilBlock DAMAGED_NETHERITE_ANVIL = register("damaged_netherite_anvil", new NetheriteAnvilBlock(AbstractBlock.Settings.copy(Blocks.ANVIL)));
+
     FluidTankBlock FLUID_TANK = register("fluid_tank", new FluidTankBlock(AbstractBlock.Settings.copy(Blocks.GLASS)
             .strength(2.5f)));
 
@@ -249,9 +259,9 @@ public interface ModBlocks {
     WallSignBlock CORN_WALL_SIGN = registerWithoutItem("corn_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/corn"), ModWoodSetTypes.PALM, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
     SignBlock CORN_SIGN = register("corn_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/corn"), ModWoodSetTypes.CORN, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
             new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, CORN_WALL_SIGN));
-    WallSignBlock POISONED_WALL_SIGN = registerWithoutItem("poisoned_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
-    SignBlock POISONED_SIGN = register("poisoned_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
-            new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, POISONED_WALL_SIGN));
+    //WallSignBlock POISONED_WALL_SIGN = registerWithoutItem("poisoned_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
+    //SignBlock POISONED_SIGN = register("poisoned_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
+    //        new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, POISONED_WALL_SIGN));
     WallSignBlock MAHOGANY_WALL_SIGN = registerWithoutItem("mahogany_wall_sign", new TerraformWallSignBlock(Blocktopia.id("entity/signs/mahogany"), ModWoodSetTypes.MAHOGANY, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)));
     SignBlock MAHOGANY_SIGN = register("mahogany_sign", new TerraformSignBlock(Blocktopia.id("entity/signs/mahogany"), ModWoodSetTypes.MAHOGANY, AbstractBlock.Settings.copy(Blocks.OAK_SIGN)),
             new Item.Settings().maxCount(16), (block, settings) -> new SignItem(settings, block, MAHOGANY_WALL_SIGN));
@@ -265,11 +275,21 @@ public interface ModBlocks {
     WallHangingSignBlock CORN_WALL_HANGING_SIGN = registerWithoutItem("corn_wall_hanging_sign", new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/corn"), Blocktopia.id("textures/gui/hanging_signs/corn"), ModWoodSetTypes.CORN, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
     HangingSignBlock CORN_HANGING_SIGN = register("corn_hanging_sign", new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/corn"), Blocktopia.id("textures/gui/hanging_signs/corn"), ModWoodSetTypes.CORN, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
             new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, CORN_WALL_HANGING_SIGN, settings));
-    WallHangingSignBlock POISONED_WALL_HANGING_SIGN = registerWithoutItem("poisoned_wall_hanging_sign", new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/poisoned"), Blocktopia.id("textures/gui/hanging_signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
-    HangingSignBlock POISONED_HANGING_SIGN = register("poisoned_hanging_sign", new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/poisoned"), Blocktopia.id("textures/gui/hanging_signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
-            new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, POISONED_WALL_HANGING_SIGN, settings));
-    WallHangingSignBlock MAHOGANY_WALL_HANGING_SIGN = registerWithoutItem("mahogany_wall_hanging_sign", new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/mahogany"), Blocktopia.id("textures/gui/hanging_signs/mahogany"), ModWoodSetTypes.MAHOGANY, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
-    HangingSignBlock MAHOGANY_HANGING_SIGN = register("mahogany_hanging_sign", new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/mahogany"), Blocktopia.id("textures/gui/hanging_signs/mahogany"), ModWoodSetTypes.MAHOGANY, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
+
+    //WallHangingSignBlock POISONED_WALL_HANGING_SIGN = registerWithoutItem("poisoned_wall_hanging_sign",
+    //        new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/poisoned"),
+    //                Blocktopia.id("textures/gui/hanging_signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    //HangingSignBlock POISONED_HANGING_SIGN = register("poisoned_hanging_sign",
+    //        new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/poisoned"),
+    //                Blocktopia.id("textures/gui/hanging_signs/poisoned"), ModWoodSetTypes.POISONED, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
+    //        new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, POISONED_WALL_HANGING_SIGN, settings));
+
+    WallHangingSignBlock MAHOGANY_WALL_HANGING_SIGN = registerWithoutItem("mahogany_wall_hanging_sign",
+            new TerraformWallHangingSignBlock(Blocktopia.id("entity/signs/hanging/mahogany"),
+                    Blocktopia.id("textures/gui/hanging_signs/mahogany"), ModWoodSetTypes.MAHOGANY, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)));
+    HangingSignBlock MAHOGANY_HANGING_SIGN = register("mahogany_hanging_sign",
+            new TerraformHangingSignBlock(Blocktopia.id("entity/signs/hanging/mahogany"),
+                    Blocktopia.id("textures/gui/hanging_signs/mahogany"), ModWoodSetTypes.MAHOGANY, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN)),
             new Item.Settings().maxCount(16), (block, settings) -> new HangingSignItem(block, MAHOGANY_WALL_HANGING_SIGN, settings));
 
 

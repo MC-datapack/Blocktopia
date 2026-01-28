@@ -22,6 +22,7 @@ import net.minecraft.data.client.*;
 import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -65,6 +66,16 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                         .get(RED_SANDSTONE_1_8)
                         .textures(textureMap -> textureMap.put(TextureKey.SIDE, TextureMap.getId(CHISELED_RED_SANDSTONE_1_8)))
         );
+
+        registerAnvil(blockStateModelGenerator, ModBlocks.GOLD_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.CHIPPED_GOLD_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.DAMAGED_GOLD_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.DIAMOND_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.CHIPPED_DIAMOND_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.DAMAGED_DIAMOND_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.NETHERITE_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.CHIPPED_NETHERITE_ANVIL);
+        registerAnvil(blockStateModelGenerator, ModBlocks.DAMAGED_NETHERITE_ANVIL);
 
         blockStateModelGenerator.registerParentedItemModel(ModBlocks.FLUID_TANK, Blocktopia.id("block/fluid_tank"));
 
@@ -116,7 +127,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .log(ModBlocks.STRIPPED_POISONED_LOG).wood(ModBlocks.STRIPPED_POISONED_WOOD);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.POISONED.getBaseBlock())
                 .family(ModBlockFamilies.POISONED);
-        blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_POISONED_LOG, ModBlocks.POISONED_HANGING_SIGN, ModBlocks.POISONED_WALL_HANGING_SIGN);
+        //blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_POISONED_LOG, ModBlocks.POISONED_HANGING_SIGN, ModBlocks.POISONED_WALL_HANGING_SIGN);
 
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MAHOGANY_LEAVES);
@@ -681,6 +692,24 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 );
     }
 
+    public final void registerAnvil(BlockStateModelGenerator generator, Block anvil) {
+        generator.registerParentedItemModel(anvil, TextureMap.getId(anvil));
+        String temp = Registries.BLOCK.getId(anvil).getPath();
+        String stripped;
+        if (temp.startsWith("chipped_"))
+            stripped = temp.substring(8);
+        else if (temp.startsWith("damaged_"))
+            stripped = temp.substring(8);
+        else
+            stripped = temp;
+        Identifier side = Blocktopia.id("block/" + stripped + "_side");
+        Identifier identifier = generator.createSubModel(anvil, "", ANVIL, id -> new TextureMap()
+                .put(TextureKey.TOP, TextureMap.getId(anvil))
+                .put(BODY, side)
+                .put(TextureKey.PARTICLE, side));
+        generator.blockStateCollector.accept(createSingletonBlockState(anvil, identifier).coordinate(createSouthDefaultHorizontalRotationStates()));
+    }
+
 
     public static final Model TEMPLATE_SPAWN_EGG = item("template_spawn_egg");
     private static Model item(String parent) {
@@ -689,11 +718,16 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
     public static final TextureKey SEAT_TEXTURE = TextureKey.of("seat_texture");
     public static final TextureKey TEXTURE = TextureKey.of("texture");
+    public static final TextureKey BODY = TextureKey.of("body");
 
     public static final Model CHAIR = block("chair", SEAT_TEXTURE, TEXTURE);
+    public static final Model ANVIL = vanillaBlock("template_anvil", TextureKey.TOP, BODY, TextureKey.PARTICLE);
 
     private static Model block(String parent, TextureKey... requiredKeys) {
         return new Model(Optional.of(Blocktopia.id("block/" + parent)), Optional.empty(), requiredKeys);
+    }
+    private static Model vanillaBlock(String parent, TextureKey... requiredKeys) {
+        return new Model(Optional.of(Identifier.ofVanilla("block/" + parent)), Optional.empty(), requiredKeys);
     }
 
     public void registerChair(BlockStateModelGenerator generator, ChairBlock[] blocks) {

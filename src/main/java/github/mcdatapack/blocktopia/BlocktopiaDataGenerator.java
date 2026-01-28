@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia;
 
 import github.mcdatapack.blocktopia.datagen.generator.*;
 import github.mcdatapack.blocktopia.datagen.provider.*;
+import github.mcdatapack.blocktopia.enchantment.ModEnchantments;
 import github.mcdatapack.blocktopia.worldgen.biome.ModBiomes;
 import github.mcdatapack.blocktopia.worldgen.dimension.ModDimensions;
 import github.mcdatapack.blocktopia.worldgen.feature.*;
@@ -15,6 +16,8 @@ import net.minecraft.text.Text;
 
 public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+        ModEnchantments.load();
+
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(BlocktopiaLangProvider::new);
         pack.addProvider(BlocktopiaModelProvider::new);
@@ -28,6 +31,7 @@ public class BlocktopiaDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(BlocktopiaRecipeProvider::new);
         //pack.addProvider(BlocktopiaAdvancementProvider::new);
         pack.addProvider(BlocktopiaWorldGenerator::new);
+        pack.addProvider(EnchantmentGenerator::new);
 
         FabricDataGenerator.Pack thunderingSmitePack = fabricDataGenerator.createBuiltinResourcePack(Blocktopia.id("thundering_smite"));
         thunderingSmitePack.addProvider((FabricDataGenerator.Pack.Factory<MetadataProvider>)

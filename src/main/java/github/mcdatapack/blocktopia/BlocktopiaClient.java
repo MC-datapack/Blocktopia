@@ -159,5 +159,8 @@ public class BlocktopiaClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlerTypes.WOOD_CUTTER_INVENTORY_SCREEN_HANDLER, WoodCutterScreen::new);
         HandledScreens.register(ModScreenHandlerTypes.DUPER_INVENTORY_SCREEN_HANDLER, DuperScreen::new);
         HandledScreens.register(ModScreenHandlerTypes.FLUID_TANK, FluidTankScreen::new);
+        HandledScreens.register(ModScreenHandlerTypes.GOLD_ANVIL, GoldAnvilScreen::new);
+        HandledScreens.register(ModScreenHandlerTypes.DIAMOND_ANVIL, DiamondAnvilScreen::new);
+        HandledScreens.register(ModScreenHandlerTypes.NETHERITE_ANVIL, NetheriteAnvilScreen::new);
     }
 }

@@ -65,7 +65,7 @@ public interface ModBlockFamilies {
             .stairs(ModBlocks.POISONED_STAIRS)
             .door(ModBlocks.POISONED_DOOR)
             .trapdoor(ModBlocks.POISONED_TRAPDOOR)
-            .sign(ModBlocks.POISONED_SIGN, ModBlocks.POISONED_WALL_SIGN)
+            //.sign(ModBlocks.POISONED_SIGN, ModBlocks.POISONED_WALL_SIGN)
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();

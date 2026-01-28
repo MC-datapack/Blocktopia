@@ -45,6 +45,9 @@ public class BlocktopiaTagProvider {
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+            getOrCreateTagBuilder(BlockTags.ANVIL)
+                    .add(GOLD_ANVIL, CHIPPED_GOLD_ANVIL, DAMAGED_GOLD_ANVIL, DIAMOND_ANVIL, CHIPPED_DIAMOND_ANVIL, DAMAGED_DIAMOND_ANVIL, NETHERITE_ANVIL, CHIPPED_NETHERITE_ANVIL, DAMAGED_NETHERITE_ANVIL);
+
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                     .addTag(ModTags.Blocks.CHAIRS)
                     .add(SMALL_CHEST, BOOKSHELF_C0_26ST, BOOKSHELF_B1_9PRE5, CRAFTING_TABLE_IN20100131, CRAFTING_TABLE_1_14, LADDER_INF20100607, LADDER_INF20100618, CARVED_PUMPKIN_A1_2_0,

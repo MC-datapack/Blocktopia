@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_poisoned_planks": {
+    "has_c:ingots/netherite": {
       "conditions": {
         "items": [
           {
-            "items": "blocktopia:poisoned_planks"
+            "items": "#c:ingots/netherite"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blocktopia:wood_cutting/poisoned_planks_to_poisoned_hanging_sign"
+        "recipe": "blocktopia:netherite_anvil"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_poisoned_planks"
+      "has_c:ingots/netherite"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blocktopia:wood_cutting/poisoned_planks_to_poisoned_hanging_sign"
+      "blocktopia:netherite_anvil"
     ]
   }
 }

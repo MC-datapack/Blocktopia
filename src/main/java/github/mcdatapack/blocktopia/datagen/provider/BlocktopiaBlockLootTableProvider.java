@@ -31,6 +31,16 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
 
     @Override
     public void generate() {
+        addDrop(GOLD_ANVIL);
+        addDrop(CHIPPED_GOLD_ANVIL);
+        addDrop(DAMAGED_GOLD_ANVIL);
+        addDrop(DIAMOND_ANVIL);
+        addDrop(CHIPPED_DIAMOND_ANVIL);
+        addDrop(DAMAGED_DIAMOND_ANVIL);
+        addDrop(NETHERITE_ANVIL);
+        addDrop(CHIPPED_NETHERITE_ANVIL);
+        addDrop(DAMAGED_NETHERITE_ANVIL);
+
         BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(BANANA_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(BananaCropBlock.AGE, BananaCropBlock.MAX_AGE));
         this.addDrop(BANANA_CROP, this.cropDrops(BANANA_CROP, BANANA, BANANA_CROP.asItem(), builder2));

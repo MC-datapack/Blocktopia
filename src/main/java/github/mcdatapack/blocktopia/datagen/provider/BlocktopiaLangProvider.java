@@ -41,6 +41,15 @@ public class BlocktopiaLangProvider extends FabricLanguageProvider {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        builder.add(ModBlocks.GOLD_ANVIL, "Gold Anvil");
+        builder.add(ModBlocks.CHIPPED_GOLD_ANVIL, "Chipped Gold Anvil");
+        builder.add(ModBlocks.DAMAGED_GOLD_ANVIL, "Damaged Gold Anvil");
+        builder.add(ModBlocks.DIAMOND_ANVIL, "Diamond Anvil");
+        builder.add(ModBlocks.CHIPPED_DIAMOND_ANVIL, "Chipped Diamond Anvil");
+        builder.add(ModBlocks.DAMAGED_DIAMOND_ANVIL, "Damaged Diamond Anvil");
+        builder.add(ModBlocks.NETHERITE_ANVIL, "Netherite Anvil");
+        builder.add(ModBlocks.CHIPPED_NETHERITE_ANVIL, "Chipped Netherite Anvil");
+        builder.add(ModBlocks.DAMAGED_NETHERITE_ANVIL, "Damaged Netherite Anvil");
         builder.add(ModBlocks.FLUID_TANK, "Fluid Tank");
         addText(builder, FluidTankBlockEntity.NAME, "Fluid Tank");
         builder.add(ModItemGroups.COLORED_BLOCKS_GROUP, "§2§lBlocktopia: §rColored Blocks");
