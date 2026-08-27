@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/palm_planks"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_palm_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/palm_planks"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_palm_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/palm_planks"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_palm_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/palm_planks"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_palm_slab_west"
+    }
+  }
+}

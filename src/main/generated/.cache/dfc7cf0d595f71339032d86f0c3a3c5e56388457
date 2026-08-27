@@ -1,6 +1,2 @@
-// 1.21.1	2026-01-25T20:29:07.6470548	Blocktopia/Tags for minecraft:worldgen/biome
-8f994382ab854690e6a330041d09026a45da3d9e data\blocktopia\tags\worldgen\biome\has_poisoned_tree_house.json
-8f994382ab854690e6a330041d09026a45da3d9e data\blocktopia\tags\worldgen\biome\has_corn_tree_house.json
-8f994382ab854690e6a330041d09026a45da3d9e data\blocktopia\tags\worldgen\biome\has_mahogany_tree_house.json
-8f994382ab854690e6a330041d09026a45da3d9e data\blocktopia\tags\worldgen\biome\has_banana_tree_house.json
-8f994382ab854690e6a330041d09026a45da3d9e data\blocktopia\tags\worldgen\biome\has_flowering_cherry_tree_house.json
+// 1.21.1	2026-08-27T14:25:14.1305483	Blocktopia/Tags for minecraft:worldgen/biome
+8f994382ab854690e6a330041d09026a45da3d9e data\blocktopia\tags\worldgen\biome\has_tree_houses.json

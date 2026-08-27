@@ -24,9 +24,6 @@ public interface ModPlacedFeatures {
     RegistryKey<PlacedFeature> TROPICAL_MOSS_PATCH_KEY = registerKey("tropical_moss_patch");
     RegistryKey<PlacedFeature> TROPICAL_MOSS_PATCH_BONEMEAL_KEY = registerKey("tropical_moss_patch_bonemeal");
 
-    RegistryKey<PlacedFeature> PALE_MOSS_PATCH_KEY = registerKey("pale_moss_patch");
-    RegistryKey<PlacedFeature> PALE_MOSS_PATCH_BONEMEAL_KEY = registerKey("pale_moss_patch_bonemeal");
-
     RegistryKey<PlacedFeature> PALM_TREE_KEY = registerKey("palm_tree");
     RegistryKey<PlacedFeature> GIANT_3x3BANANA_TREE_KEY = registerKey("giant_3x3_banana_tree");
     RegistryKey<PlacedFeature> GIANT_3x3CORN_TREE_KEY = registerKey("giant_3x3_corn_tree");
@@ -141,23 +138,6 @@ public interface ModPlacedFeatures {
                         RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(1)),
                         BiomePlacementModifier.of()));
 
-
-        register(context, PALE_MOSS_PATCH_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.PALE_MOSS_PATCH_KEY),
-                List.of(CountPlacementModifier.of(125),
-                        SquarePlacementModifier.of(),
-                        PlacedFeatures.BOTTOM_TO_120_RANGE,
-                        EnvironmentScanPlacementModifier.of(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.IS_AIR, 12),
-                        RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(1)),
-                        BiomePlacementModifier.of()));
-
-        register(context, PALE_MOSS_PATCH_BONEMEAL_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.PALE_MOSS_PATCH_BONEMEAL_KEY),
-                List.of(CountPlacementModifier.of(125),
-                        SquarePlacementModifier.of(),
-                        PlacedFeatures.BOTTOM_TO_120_RANGE,
-                        EnvironmentScanPlacementModifier.of(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.IS_AIR, 12),
-                        RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(1)),
-                        BiomePlacementModifier.of()));
-
         register(context, PALM_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.PALM_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(12, 0.1F, 6), ModBlocks.PALM_SAPLING));
@@ -183,43 +163,43 @@ public interface ModPlacedFeatures {
         );
         register(context, GIANT_BANANA_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.GIANT_BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.BANANA_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.BANANA_SAPLING)
         );
         register(context, GIANT_CORN_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.GIANT_CORN_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.CORN_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.CORN_SAPLING)
         );
         register(context, GIANT_POISONED_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.GIANT_POISONED_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.POISONED_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.POISONED_SAPLING)
         );
         register(context, GIANT_FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.GIANT_FLOWERING_CHERRY_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.FLOWERING_CHERRY_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.FLOWERING_CHERRY_SAPLING)
         );
         register(context, GIANT_MAHOGANY_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.GIANT_MAHOGANY_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.MAHOGANY_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.MAHOGANY_SAPLING)
         );
         register(context, BANANA_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.BANANA_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.BANANA_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.BANANA_SAPLING)
         );
         register(context, CORN_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.CORN_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.CORN_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.CORN_SAPLING)
         );
         register(context, POISONED_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.POISONED_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.POISONED_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.POISONED_SAPLING)
         );
         register(context, FLOWERING_CHERRY_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.FLOWERING_CHERRY_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.FLOWERING_CHERRY_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.FLOWERING_CHERRY_SAPLING)
         );
         register(context, MAHOGANY_TREE_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.MAHOGANY_TREE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(48, 0.1F, 32), ModBlocks.MAHOGANY_SAPLING)
+                        PlacedFeatures.createCountExtraModifier(16, 0.1F, 32), ModBlocks.MAHOGANY_SAPLING)
         );
 
 

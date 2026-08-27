@@ -21,9 +21,8 @@ import java.util.concurrent.CompletableFuture;
 
 import static github.mcdatapack.blocktopia.block.FutureBlocks.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
-import static github.mcdatapack.blocktopia.block.ModBlocks.WOODCUTTER;
+import static github.mcdatapack.blocktopia.block.ModBlocks.*;
 import static github.mcdatapack.blocktopia.item.FutureItems.*;
-import static github.mcdatapack.blocktopia.item.FutureItems.RESIN_BRICK;
 import static github.mcdatapack.blocktopia.item.LegacyItems.*;
 import static github.mcdatapack.blocktopia.item.LegacyItems.RABBIT_STEW_1_8;
 import static github.mcdatapack.blocktopia.item.ModItems.FUTURE_INGOT;
@@ -52,7 +51,7 @@ public class BlocktopiaLangProvider extends FabricLanguageProvider {
         builder.add(ModBlocks.DAMAGED_NETHERITE_ANVIL, "Damaged Netherite Anvil");
         builder.add(ModBlocks.FLUID_TANK, "Fluid Tank");
         addText(builder, FluidTankBlockEntity.NAME, "Fluid Tank");
-        builder.add(ModItemGroups.COLORED_BLOCKS_GROUP, "§2§lBlocktopia: §rColored Blocks");
+        builder.add(ModItemGroups.BUILDING_BLOCKS_GROUP, "§2§lBlocktopia: §rBuilding Blocks");
         builder.add(ModItemGroups.LEGACY_ITEMS_GROUP, "§2§lBlocktopia: §rLegacy Items");
         addChairs(builder, ModBlocks.OAK_CHAIR, "Oak Chair");
         addChairs(builder, ModBlocks.BIRCH_CHAIR, "Birch Chair");
@@ -71,6 +70,16 @@ public class BlocktopiaLangProvider extends FabricLanguageProvider {
         addChairs(builder, ModBlocks.POISONED_CHAIR, "Poisoned Chair");
         addChairs(builder, ModBlocks.MAHOGANY_CHAIR, "Mahogany Chair");
         addChairs(builder, ModBlocks.PALE_OAK_CHAIR, "Pale Oak Chair");
+        addChairs(builder, WOODEN_CHAIR_RD20090515, "Wooden Chair");
+        addChairs(builder, WOODEN_CHAIR_RD161348, "Wooden Chair");
+        addChairs(builder, WOODEN_CHAIR_C0_0_14A, "Wooden Chair");
+        addChairs(builder, WOODEN_CHAIR_C0_0_15A, "Wooden Chair");
+        addChairs(builder, WOODEN_CHAIR_B1_9PRE5, "Wooden Chair");
+        addChairs(builder, BIRCH_CHAIR_1_2_4, "Birch Chair");
+        addChairs(builder, SPRUCE_CHAIR_1_2_4, "Spruce Chair");
+        addChairs(builder, JUNGLE_CHAIR_1_2_4, "Jungle Chair");
+        addChairs(builder, ACACIA_CHAIR_1_7, "Acacia Chair");
+        addChairs(builder, DARK_OAK_CHAIR_1_7, "Dark Oak Chair");
         builder.add(QUIVER_IN20091231_2255, "Quiver");
         builder.add(QUIVER_IN20100122_2251, "Quiver");
         builder.add(APPLE_IN20091231_2255, "Apple");
@@ -505,6 +514,154 @@ public class BlocktopiaLangProvider extends FabricLanguageProvider {
         builder.add(ModItemGroups.FUTURE_BLOCKS_AND_ITEMS, "§2§lBlocktopia: §rFuture Blocks and Items");
         addText(builder, WoodCutterBlock.TITLE, "Woodcutter");
         builder.add(THERMORGANIC_FUEL, "Thermorganic Fuel");
+
+
+        for (int i = 11; i < 256; i++) {
+            addText(builder, Text.translatable("enchantment.level." + i), toRoman(i));
+        }
+
+        builder.add(BANANA_HANGING_MOSS, "Banana Hanging Moss");
+        builder.add(CORN_HANGING_MOSS, "Corn Hanging Moss");
+        builder.add(POISONED_HANGING_MOSS, "Poisoned Hanging Moss");
+        builder.add(MAHOGANY_HANGING_MOSS, "Mahogany Hanging Moss");
+        builder.add(FLOWERING_CHERRY_HANGING_MOSS, "Flowering Cherry Hanging Moss");
+
+        builder.add(COPPER_TORCH, "Copper Torch");
+        builder.add(COPPER_LANTERN, "Copper Lantern");
+        builder.add(WAXED_COPPER_LANTERN, "Waxed Copper Lantern");
+        builder.add(WEATHERED_COPPER_LANTERN, "Weathered Copper Lantern");
+        builder.add(WAXED_WEATHERED_COPPER_LANTERN, "Waxed Weathered Copper Lantern");
+        builder.add(EXPOSED_COPPER_LANTERN, "Exposed Copper Lantern");
+        builder.add(WAXED_EXPOSED_COPPER_LANTERN, "Waxed Exposed Copper Lantern");
+        builder.add(OXIDIZED_COPPER_LANTERN, "Oxidized Copper Lantern");
+        builder.add(WAXED_OXIDIZED_COPPER_LANTERN, "Waxed Oxidized Copper Lantern");
+        builder.add(COPPER_BARS, "Copper Bars");
+        builder.add(WAXED_COPPER_BARS, "Waxed Copper Bars");
+        builder.add(WEATHERED_COPPER_BARS, "Weathered Copper Bars");
+        builder.add(WAXED_WEATHERED_COPPER_BARS, "Waxed Weathered Copper Bars");
+        builder.add(EXPOSED_COPPER_BARS, "Exposed Copper Bars");
+        builder.add(WAXED_EXPOSED_COPPER_BARS, "Waxed Exposed Copper Bars");
+        builder.add(OXIDIZED_COPPER_BARS, "Oxidized Copper Bars");
+        builder.add(WAXED_OXIDIZED_COPPER_BARS, "Waxed Oxidized Copper Bars");
+        builder.add(COPPER_CHAIN, "Copper Chain");
+        builder.add(WAXED_COPPER_CHAIN, "Waxed Copper Chain");
+        builder.add(WEATHERED_COPPER_CHAIN, "Weathered Copper Chain");
+        builder.add(WAXED_WEATHERED_COPPER_CHAIN, "Waxed Weathered Copper Chain");
+        builder.add(EXPOSED_COPPER_CHAIN, "Exposed Copper Chain");
+        builder.add(WAXED_EXPOSED_COPPER_CHAIN, "Waxed Exposed Copper Chain");
+        builder.add(OXIDIZED_COPPER_CHAIN, "Oxidized Copper Chain");
+        builder.add(WAXED_OXIDIZED_COPPER_CHAIN, "Waxed Oxidized Copper Chain");
+        builder.add(WAXED_LIGHTNING_ROD, "Waxed Lightning Rod");
+        builder.add(WEATHERED_LIGHTNING_ROD, "Weathered Lightning Rod");
+        builder.add(WAXED_WEATHERED_LIGHTNING_ROD, "Waxed Weathered Lightning Rod");
+        builder.add(EXPOSED_LIGHTNING_ROD, "Exposed Lightning Rod");
+        builder.add(WAXED_EXPOSED_LIGHTNING_ROD, "Waxed Exposed Lightning Rod");
+        builder.add(OXIDIZED_LIGHTNING_ROD, "Oxidized Lightning Rod");
+        builder.add(WAXED_OXIDIZED_LIGHTNING_ROD, "Waxed Oxidized Lightning Rod");
+        builder.add(COPPER_NUGGET, "Copper Nugget");
+        builder.add(RAIL_INF20100618, "Rail");
+        builder.add(LIGHT_GRAY_CARPET_B1_2, "Light Gray Carpet");
+        builder.add(GOLDEN_DANDELION, "Golden Dandelion");
+        builder.add(TROPICAL_FARM_LAND, "Tropical Farmland");
+
+
+        builder.add(ModBlocks.VERTICAL_OAK_SLAB, capital("VERTICAL_OAK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SPRUCE_SLAB, capital("VERTICAL_SPRUCE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BIRCH_SLAB, capital("VERTICAL_BIRCH_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_JUNGLE_SLAB, capital("VERTICAL_JUNGLE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_ACACIA_SLAB, capital("VERTICAL_ACACIA_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_DARK_OAK_SLAB, capital("VERTICAL_DARK_OAK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_MANGROVE_SLAB, capital("VERTICAL_MANGROVE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_CHERRY_SLAB, capital("VERTICAL_CHERRY_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BAMBOO_SLAB, capital("VERTICAL_BAMBOO_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BAMBO_MOSAIC_SLAB, capital("VERTICAL_BAMBO_MOSAIC_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_CRIMSON_SLAB, capital("VERTICAL_CRIMSON_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_WARPED_SLAB, capital("VERTICAL_WARPED_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_STONE_SLAB, capital("VERTICAL_STONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_COBBLESTONE_SLAB, capital("VERTICAL_COBBLESTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_MOSSY_COBBLESTONE_SLAB, capital("VERTICAL_MOSSY_COBBLESTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SMOOTH_STONE_SLAB, capital("VERTICAL_SMOOTH_STONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_STONE_BRICK_SLAB, capital("VERTICAL_STONE_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_MOSSY_STONE_BRICK_SLAB, capital("VERTICAL_MOSSY_STONE_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_GRANITE_SLAB, capital("VERTICAL_GRANITE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POLISHED_GRANITE_SLAB, capital("VERTICAL_POLISHED_GRANITE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_DIORITE_SLAB, capital("VERTICAL_DIORITE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POLISHED_DIORITE_SLAB, capital("VERTICAL_POLISHED_DIORITE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_ANDESITE_SLAB, capital("VERTICAL_ANDESITE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POLISHED_ANDESITE_SLAB, capital("VERTICAL_POLISHED_ANDESITE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_COBBLED_DEEPSLATE_SLAB, capital("VERTICAL_COBBLED_DEEPSLATE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POLISHED_DEEPSLATE_SLAB, capital("VERTICAL_POLISHED_DEEPSLATE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_DEEPSLATE_BRICK_SLAB, capital("VERTICAL_DEEPSLATE_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_DEEPSLATE_TILE_SLAB, capital("VERTICAL_DEEPSLATE_TILE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_TUFF_SLAB, capital("VERTICAL_TUFF_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POLISHED_TUFF_SLAB, capital("VERTICAL_POLISHED_TUFF_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_TUFF_BRICK_SLAB, capital("VERTICAL_TUFF_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BRICK_SLAB, capital("VERTICAL_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_MUD_BRICK_SLAB, capital("VERTICAL_MUD_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SANDSTONE_SLAB, capital("VERTICAL_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SMOOTH_SANDSTONE_SLAB, capital("VERTICAL_SMOOTH_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_CUT_SANDSTONE_SLAB, capital("VERTICAL_CUT_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_RED_SANDSTONE_SLAB, capital("VERTICAL_RED_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SMOOTH_RED_SANDSTONE_SLAB, capital("VERTICAL_SMOOTH_RED_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_CUT_RED_SANDSTONE_SLAB, capital("VERTICAL_CUT_RED_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_PRISMARINE_SLAB, capital("VERTICAL_PRISMARINE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BRISMARINE_BRICK_SLAB, capital("VERTICAL_BRISMARINE_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_DARK_PRISMARINE_SLAB, capital("VERTICAL_DARK_PRISMARINE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_NETHER_BRICK_SLAB, capital("VERTICAL_NETHER_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_RED_NETHER_BRICK_SLAB, capital("VERTICAL_RED_NETHER_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BLACKSTONE_SLAB, capital("VERTICAL_BLACKSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POLISHED_BLACKSTONE_SLAB, capital("VERTICAL_POLISHED_BLACKSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POLISHED_BLACKSTONE_BRICK_SLAB, capital("VERTICAL_POLISHED_BLACKSTONE_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_ENDSTONE_BRICK_SLAB, capital("VERTICAL_ENDSTONE_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_PURPUR_SLAB, capital("VERTICAL_PURPUR_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_QUARTZ_SLAB, capital("VERTICAL_QUARTZ_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SMOOTH_QUARTZ_SLAB, capital("VERTICAL_SMOOTH_QUARTZ_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_CUT_COPPER_SLAB, capital("VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB, capital("EXPOSED_VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB, capital("WEATHERED_VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB, capital("OXIDIZED_VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.WAXED_VERTICAL_CUT_COPPER_SLAB, capital("WAXED_VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB, capital("WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB, capital("WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB, capital("WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_COBBLESTONE_SLAB_RD20090515, capital("VERTICAL_COBBLESTONE_SLAB_RD20090515".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_3, capital("VERTICAL_COBBLESTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_7, capital("VERTICAL_COBBLESTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_WOODEN_SLAB_RD20090515, capital("VERTICAL_WOODEN_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_WOODEN_SLAB_RD161348, capital("VERTICAL_WOODEN_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_WOODEN_SLAB_C0_0_14A, capital("VERTICAL_WOODEN_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_WOODEN_SLAB_B1_3, capital("VERTICAL_WOODEN_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_WOODEN_SLAB_B1_9PRE5, capital("VERTICAL_WOODEN_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SANDSTONE_SLAB_B1_3, capital("VERTICAL_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SANDSTONE_SLAB_1_2_4, capital("VERTICAL_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BRICK_SLAB_C0_26ST, capital("VERTICAL_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BRICK_SLAB_B1_8, capital("VERTICAL_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_STONE_BRICK_SLAB_B1_8, capital("VERTICAL_STONE_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BIRCH_SLAB_1_3, capital("VERTICAL_BIRCH_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_SPRUCE_SLAB_1_3, capital("VERTICAL_SPRUCE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_JUNGLE_SLAB_1_3, capital("VERTICAL_JUNGLE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_NETHER_BRICK_SLAB_1_4_6, capital("VERTICAL_NETHER_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_RED_SANDSTONE_SLAB_1_8, capital("VERTICAL_RED_SANDSTONE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_PURPUR_SLAB_1_9, capital("VERTICAL_PURPUR_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_PRISMARINE_SLAB_1_13, capital("VERTICAL_PRISMARINE_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_PALE_OAK_SLAB, capital("VERTICAL_PALE_OAK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_RESIN_BRICK_SLAB, capital("VERTICAL_RESIN_BRICK_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_PALM_SLAB, capital("VERTICAL_PALM_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_BANANA_SLAB, capital("VERTICAL_BANANA_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_CORN_SLAB, capital("VERTICAL_CORN_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_POISONED_SLAB, capital("VERTICAL_POISONED_SLAB".toLowerCase().replace("_", " ")));
+        builder.add(ModBlocks.VERTICAL_MAHOGANY_SLAB, capital("VERTICAL_MAHOGANY_SLAB".toLowerCase().replace("_", " ")));
+    }
+
+    private String capital(String s) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (i == 0 || s.charAt(i - 1) == ' ')
+                builder.append(s.toUpperCase().charAt(i));
+            else
+                builder.append(s.charAt(i));
+        }
+        return builder.toString();
     }
 
     private void addChairs(TranslationBuilder builder, ChairBlock[] blocks, String baseName) {
@@ -540,4 +697,20 @@ public class BlocktopiaLangProvider extends FabricLanguageProvider {
             Blocktopia.LOGGER.warn("Failed to add translation for text: {}", text.getString());
         }
     }
+
+    private static String toRoman(int number) {
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40,  10, 9, 5, 4, 1};
+        String[] numerals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < values.length; i++) {
+            while (number >= values[i]) {
+                number -= values[i];
+                result.append(numerals[i]);
+            }
+        }
+        return result.toString();
+    }
+
 }

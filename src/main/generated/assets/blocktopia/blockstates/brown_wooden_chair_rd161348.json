@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "blocktopia:block/brown_wooden_chair_rd161348",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "blocktopia:block/brown_wooden_chair_rd161348",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "blocktopia:block/brown_wooden_chair_rd161348",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "blocktopia:block/brown_wooden_chair_rd161348",
+      "y": 270
+    }
+  }
+}

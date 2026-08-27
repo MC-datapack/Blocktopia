@@ -1,0 +1,8 @@
+{
+  "parent": "blocktopia:block/vertical_slab_north",
+  "textures": {
+    "bottom": "blocktopia:block/sandstone_1_2_4_bottom",
+    "side": "blocktopia:block/sandstone_1_2_4",
+    "top": "blocktopia:block/sandstone_1_2_4_top"
+  }
+}

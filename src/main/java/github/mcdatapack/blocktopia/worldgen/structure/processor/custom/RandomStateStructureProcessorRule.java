@@ -10,6 +10,7 @@ import net.minecraft.structure.rule.blockentity.RuleBlockEntityModifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia.recipe;
 
+
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementCriterion;
 import net.minecraft.advancement.AdvancementRequirements;
@@ -8,6 +9,7 @@ import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.CuttingRecipe;
 import net.minecraft.recipe.Ingredient;
@@ -28,14 +30,18 @@ public class LegacyCutterRecipeJSONBuilder implements CraftingRecipeJsonBuilder 
     private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap<>();
     private final CuttingRecipe.RecipeFactory<LegacyCuttingRecipe> recipeFactory;
 
-    public LegacyCutterRecipeJSONBuilder(CuttingRecipe.RecipeFactory<LegacyCuttingRecipe> factory, Ingredient input, Item output, int count) {
+    public LegacyCutterRecipeJSONBuilder(CuttingRecipe.RecipeFactory<LegacyCuttingRecipe> factory, Ingredient input, ItemConvertible output, int count) {
         this.recipeFactory = factory;
+        this.output = output.asItem();
         this.input = input;
-        this.output = output;
         this.count = count;
     }
 
-    public static LegacyCutterRecipeJSONBuilder create(Ingredient input, Item output, int count) {
+    public static LegacyCutterRecipeJSONBuilder create(Ingredient input, ItemConvertible output) {
+        return new LegacyCutterRecipeJSONBuilder(LegacyCuttingRecipe::new, input, output, 1);
+    }
+
+    public static LegacyCutterRecipeJSONBuilder create(Ingredient input, ItemConvertible output, int count) {
         return new LegacyCutterRecipeJSONBuilder(LegacyCuttingRecipe::new, input, output, count);
     }
 

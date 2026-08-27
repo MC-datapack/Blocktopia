@@ -20,7 +20,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
     @Shadow protected abstract void drop(ServerWorld world, DamageSource damageSource);
-
     @Shadow protected abstract void dropXp(@Nullable Entity attacker);
 
     @Redirect(method = "onDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;drop(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/damage/DamageSource;)V"))

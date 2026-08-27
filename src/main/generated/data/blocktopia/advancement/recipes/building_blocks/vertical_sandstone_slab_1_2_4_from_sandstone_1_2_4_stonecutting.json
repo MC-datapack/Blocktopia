@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sandstone_1_2_4": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:sandstone_1_2_4"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:vertical_sandstone_slab_1_2_4_from_sandstone_1_2_4_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sandstone_1_2_4"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:vertical_sandstone_slab_1_2_4_from_sandstone_1_2_4_stonecutting"
+    ]
+  }
+}

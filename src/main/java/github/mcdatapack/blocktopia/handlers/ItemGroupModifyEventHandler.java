@@ -26,17 +26,17 @@ public class ItemGroupModifyEventHandler {
     }
 
     private static void modifyBuildingBlocksEntries(FabricItemGroupEntries entries) {
-        entries.addAfter(Items.OAK_BUTTON, ModBlocks.OAK_CHAIR[0]);
-        entries.addAfter(Items.SPRUCE_BUTTON, ModBlocks.SPRUCE_CHAIR[0]);
-        entries.addAfter(Items.BIRCH_BUTTON, ModBlocks.BIRCH_CHAIR[0]);
-        entries.addAfter(Items.JUNGLE_BUTTON, ModBlocks.JUNGLE_CHAIR[0]);
-        entries.addAfter(Items.ACACIA_BUTTON, ModBlocks.ACACIA_CHAIR[0]);
-        entries.addAfter(Items.DARK_OAK_BUTTON, ModBlocks.DARK_OAK_CHAIR[0]);
-        entries.addAfter(Items.CRIMSON_BUTTON, ModBlocks.CRIMSON_CHAIR[0]);
-        entries.addAfter(Items.WARPED_BUTTON, ModBlocks.WARPED_CHAIR[0]);
-        entries.addAfter(Items.MANGROVE_BUTTON, ModBlocks.MANGROVE_CHAIR[0]);
-        entries.addAfter(Items.BAMBOO_BUTTON, ModBlocks.BAMBOO_CHAIR[0]);
-        entries.addAfter(Items.CHERRY_BUTTON, ModBlocks.CHERRY_CHAIR[0]);
+        //entries.addAfter(Items.OAK_BUTTON, ModBlocks.OAK_CHAIR[0]);
+        //entries.addAfter(Items.SPRUCE_BUTTON, ModBlocks.SPRUCE_CHAIR[0]);
+        //entries.addAfter(Items.BIRCH_BUTTON, ModBlocks.BIRCH_CHAIR[0]);
+        //entries.addAfter(Items.JUNGLE_BUTTON, ModBlocks.JUNGLE_CHAIR[0]);
+        //entries.addAfter(Items.ACACIA_BUTTON, ModBlocks.ACACIA_CHAIR[0]);
+        //entries.addAfter(Items.DARK_OAK_BUTTON, ModBlocks.DARK_OAK_CHAIR[0]);
+        //entries.addAfter(Items.CRIMSON_BUTTON, ModBlocks.CRIMSON_CHAIR[0]);
+        //entries.addAfter(Items.WARPED_BUTTON, ModBlocks.WARPED_CHAIR[0]);
+        //entries.addAfter(Items.MANGROVE_BUTTON, ModBlocks.MANGROVE_CHAIR[0]);
+        //entries.addAfter(Items.BAMBOO_BUTTON, ModBlocks.BAMBOO_CHAIR[0]);
+        //entries.addAfter(Items.CHERRY_BUTTON, ModBlocks.CHERRY_CHAIR[0]);
     }
 
     private static void modifySpawnEggsEntries(FabricItemGroupEntries entries) {

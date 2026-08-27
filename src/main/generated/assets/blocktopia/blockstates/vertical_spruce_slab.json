@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/spruce_planks"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_spruce_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/spruce_planks"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_spruce_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/spruce_planks"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_spruce_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/spruce_planks"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_spruce_slab_west"
+    }
+  }
+}

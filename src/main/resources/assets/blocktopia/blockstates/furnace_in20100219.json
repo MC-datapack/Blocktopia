@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "blocktopia:block/furnace_in20100219"
+    },
+    "facing=east": {
+      "model": "blocktopia:block/furnace_in20100219",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "blocktopia:block/furnace_in20100219",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "blocktopia:block/furnace_in20100219",
+      "y": 270
     }
   }
 }

@@ -1,12 +1,11 @@
 package github.mcdatapack.blocktopia;
 
-import com.google.gson.Gson;
+import github.mcdatapack.blocktopia.block.FutureBlocks;
 import github.mcdatapack.blocktopia.block.entity.ModBlockEntityTypes;
 import github.mcdatapack.blocktopia.block.entity.custom.FluidTankBlockEntity;
 import github.mcdatapack.blocktopia.block.entity.custom.SmallChestBlockEntity;
 import github.mcdatapack.blocktopia.command.LocateMobCommand;
 import github.mcdatapack.blocktopia.config.BlocktopiaConfig;
-import github.mcdatapack.blocktopia.data.FluidInteractionLoader;
 import github.mcdatapack.blocktopia.data.FluidInteractionRegistry;
 import github.mcdatapack.blocktopia.enchantment.ModEnchantments;
 import github.mcdatapack.blocktopia.entity.ModBoats;
@@ -19,6 +18,7 @@ import github.mcdatapack.blocktopia.handlers.LootHandler;
 import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.LegacyBlocks;
 import github.mcdatapack.blocktopia.handlers.TradeHandler;
+import github.mcdatapack.blocktopia.item.FutureItems;
 import github.mcdatapack.blocktopia.item.LegacyItems;
 import github.mcdatapack.blocktopia.api.CustomPiglinTrading;
 import github.mcdatapack.blocktopia.api.VillagerLevelTradeCountRegistry;
@@ -44,24 +44,25 @@ import github.mcdatapack.blocktopia.worldgen.structure.ModStructureSets;
 import github.mcdatapack.blocktopia.worldgen.structure.processor.ModStructureProcessorTypes;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.fabricmc.fabric.api.registry.VillagerInteractionRegistries;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.registry.*;
 import net.fabricmc.fabric.api.transfer.v1.fluid.*;
+import net.fabricmc.fabric.api.transfer.v1.fluid.base.EmptyItemFluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
+import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.resource.ResourceType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.VillagerType;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import terrablender.api.RegionType;
@@ -69,8 +70,10 @@ import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
 
+import static github.mcdatapack.blocktopia.block.FutureBlocks.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.TALL_GRASS_1_7;
+import static github.mcdatapack.blocktopia.item.LegacyItems.*;
 
 public class Blocktopia implements ModInitializer, TerraBlenderApi {
     public static final Logger LOGGER = LoggerFactory.getLogger("Blocktopia");
@@ -82,16 +85,20 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
     @Override
     public void onInitialize() {
         LOGGER.info("Loading Blocktopia");
+        long start = System.currentTimeMillis();
 
         FluidInteractionRegistry.init();
+
+        ModBlocks.load();
+        LegacyBlocks.load();
+        FutureBlocks.load();
+        ModItems.load();
+        LegacyItems.load();
+        FutureItems.load();
 
         LocateMobCommand.register();
         ModRecipes.load();
         ModFluids.load();
-        ModItems.load();
-        ModBlocks.load();
-        LegacyBlocks.load();
-        LegacyItems.load();
         ModBoats.load();
         ModStructureProcessorTypes.load();
         ModTrunkPlacerTypes.load();
@@ -122,8 +129,10 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         FluidStorage.SIDED.registerForBlockEntity(FluidTankBlockEntity::getFluidTankProvider, ModBlockEntityTypes.FLUID_TANK);
         CompostingChanceRegistry.INSTANCE.add(ModItems.BANANA, 0.5F);
         CompostingChanceRegistry.INSTANCE.add(ModItems.CHERRY, 1.0F);
+        CompostingChanceRegistry.INSTANCE.add(ModItems.COCONUT, 1.0F);
         CompostingChanceRegistry.INSTANCE.add(ModBlocks.TROPICAL_MOSS, 0.7F);
         CompostingChanceRegistry.INSTANCE.add(ModBlocks.TROPICAL_MOSS_CARPET, 0.35F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.GLOW_FLOWER, 0.65F);
         CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.LEAVES_C0_0_14A, 0.3F);
         CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.LEAVES_C0_0_15A, 0.3F);
         CompostingChanceRegistry.INSTANCE.add(LegacyBlocks.LEAVES_C0_24ST, 0.3F);
@@ -162,6 +171,39 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         CompostingChanceRegistry.INSTANCE.add(PINK_TULIP_1_7, 0.65F);
         CompostingChanceRegistry.INSTANCE.add(LARGE_FERN_1_7, 0.65F);
         CompostingChanceRegistry.INSTANCE.add(TALL_GRASS_1_7, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(JUNGLE_SAPLING_1_2, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(JUNGLE_LEAVES_1_2, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LILY_PAD_B1_9PRE, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(COCOA_1_3, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(ACACIA_LEAVES_1_7, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ACACIA_SAPLING_1_7, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(DARK_OAK_LEAVES_1_7, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(DARK_OAK_SAPLING_1_7, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.BANANA_CROP, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.PALM_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.PALM_SAPLING, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.BANANA_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.BANANA_SAPLING, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.MAHOGANY_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.MAHOGANY_SAPLING, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.CORN_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.CORN_SAPLING, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.POISONED_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.POISONED_SAPLING, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.FLOWERING_CHERRY_LEAVES, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(ModBlocks.FLOWERING_CHERRY_SAPLING, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(WILDFLOWERS, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(LEAF_LITTERS, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(SHORT_DRY_GRASS, 0.3F);
+        CompostingChanceRegistry.INSTANCE.add(HAY_BALE_1_6, 0.85F);
+        CompostingChanceRegistry.INSTANCE.add(APPLE_IN20091231_2255, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(APPLE_1_4, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(BREAD_IN20100206, 0.85F);
+        CompostingChanceRegistry.INSTANCE.add(BREAD_1_4, 0.85F);
+        CompostingChanceRegistry.INSTANCE.add(WHEAT_IN20100206, 0.65F);
+        CompostingChanceRegistry.INSTANCE.add(COOKIE_B1_4, 0.85F);
+        CompostingChanceRegistry.INSTANCE.add(BAKED_POTATO_1_4, 0.85F);
+        CompostingChanceRegistry.INSTANCE.add(PUMPKIN_PIE_1_4, 1.0F);
         FuelRegistry.INSTANCE.add(ModItems.THERMORGANIC_FUEL, 160 * 200);
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
             registerWithLongAndStrongAndNegative(builder, Items.EXPERIENCE_BOTTLE,
@@ -171,7 +213,7 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
         VillagerInteractionRegistries.registerGiftLootTable(ModVillagers.LEGACY, ModLootTables.LEGACY_VILLAGER_GIFT);
         VillagerInteractionRegistries.registerGiftLootTable(ModVillagers.BEEKEEPER, ModLootTables.BEEKEEPER_VILLAGER_GIFT);
         VillagerInteractionRegistries.registerFood(ModItems.BANANA, 1);
-        VillagerInteractionRegistries.registerFood(ModItems.CHERRY, 8);
+        VillagerInteractionRegistries.registerFood(ModItems.CHERRY, 4);
         VillagerInteractionRegistries.registerCompostable(ModItems.BANANA);
         VillagerInteractionRegistries.registerCompostable(ModItems.CHERRY);
         ModItemGroups.load();
@@ -179,6 +221,11 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
             @Override
             public Text getName(FluidVariant fluidVariant) {
                 return Text.translatable("fluid.blocktopia.tropical_water");
+            }
+
+            @Override
+            public int getTemperature(FluidVariant variant) {
+                return 350/*K*/;
             }
         });
 
@@ -212,14 +259,66 @@ public class Blocktopia implements ModInitializer, TerraBlenderApi {
                 .destDimID(id("tropics1"))
                 .tintColor(26, 158, 10)
                 .registerPortal();
-        CauldronFluidContent.registerCauldron(ModBlocks.TROPICAL_WATER_CAULDRON, ModFluids.TROPICAL_WATER, FluidConstants.BUCKET, null);
         VillagerType.BIOME_TO_TYPE.put(ModBiomes.RAIN_FOREST_KEY, VillagerType.JUNGLE);
 
         VillagerLevelTradeCountRegistry.registerTradeCount(ModVillagers.LEGACY, 5);
         CustomPiglinTrading.addBarteringItem(Items.NETHERITE_INGOT, ModLootTables.NETHERITE_PIGLIN_BARTERING);
         CustomPiglinTrading.addBarteringItem(Items.NETHERITE_BLOCK, ModLootTables.NETHERITE_BLOCK_PIGLIN_BARTERING);
 
-        LOGGER.info("Loaded Blocktopia");
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.COPPER_LANTERN, FutureBlocks.WAXED_COPPER_LANTERN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.EXPOSED_COPPER_LANTERN, FutureBlocks.WAXED_EXPOSED_COPPER_LANTERN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.WEATHERED_COPPER_LANTERN, FutureBlocks.WAXED_WEATHERED_COPPER_LANTERN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.OXIDIZED_COPPER_LANTERN, FutureBlocks.WAXED_OXIDIZED_COPPER_LANTERN);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.COPPER_LANTERN, FutureBlocks.EXPOSED_COPPER_LANTERN);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.EXPOSED_COPPER_LANTERN, FutureBlocks.WEATHERED_COPPER_LANTERN);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.WEATHERED_COPPER_LANTERN, FutureBlocks.OXIDIZED_COPPER_LANTERN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.COPPER_BARS, FutureBlocks.WAXED_COPPER_BARS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.EXPOSED_COPPER_BARS, FutureBlocks.WAXED_EXPOSED_COPPER_BARS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.WEATHERED_COPPER_BARS, FutureBlocks.WAXED_WEATHERED_COPPER_BARS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.OXIDIZED_COPPER_BARS, FutureBlocks.WAXED_OXIDIZED_COPPER_BARS);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.COPPER_BARS, FutureBlocks.EXPOSED_COPPER_BARS);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.EXPOSED_COPPER_BARS, FutureBlocks.WEATHERED_COPPER_BARS);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.WEATHERED_COPPER_BARS, FutureBlocks.OXIDIZED_COPPER_BARS);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.COPPER_CHAIN, FutureBlocks.WAXED_COPPER_CHAIN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.EXPOSED_COPPER_CHAIN, FutureBlocks.WAXED_EXPOSED_COPPER_CHAIN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.WEATHERED_COPPER_CHAIN, FutureBlocks.WAXED_WEATHERED_COPPER_CHAIN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.OXIDIZED_COPPER_CHAIN, FutureBlocks.WAXED_OXIDIZED_COPPER_CHAIN);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.COPPER_CHAIN, FutureBlocks.EXPOSED_COPPER_CHAIN);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.EXPOSED_COPPER_CHAIN, FutureBlocks.WEATHERED_COPPER_CHAIN);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.WEATHERED_COPPER_CHAIN, FutureBlocks.OXIDIZED_COPPER_CHAIN);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(Blocks.LIGHTNING_ROD, FutureBlocks.WAXED_LIGHTNING_ROD);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.EXPOSED_LIGHTNING_ROD, FutureBlocks.WAXED_EXPOSED_LIGHTNING_ROD);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.WEATHERED_LIGHTNING_ROD, FutureBlocks.WAXED_WEATHERED_LIGHTNING_ROD);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(FutureBlocks.OXIDIZED_LIGHTNING_ROD, FutureBlocks.WAXED_OXIDIZED_LIGHTNING_ROD);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(Blocks.LIGHTNING_ROD, FutureBlocks.EXPOSED_LIGHTNING_ROD);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.EXPOSED_LIGHTNING_ROD, FutureBlocks.WEATHERED_LIGHTNING_ROD);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(FutureBlocks.WEATHERED_LIGHTNING_ROD, FutureBlocks.OXIDIZED_LIGHTNING_ROD);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.VERTICAL_CUT_COPPER_SLAB, ModBlocks.WAXED_VERTICAL_CUT_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB, ModBlocks.WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB, ModBlocks.WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB, ModBlocks.WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.VERTICAL_CUT_COPPER_SLAB, ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB, ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB, ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB);
+
+        TillableBlockRegistry.register(ModBlocks.TROPICAL_MOSS, itemUsageContext ->
+                ModBlocks.TROPICAL_FARM_LAND.canPlaceAt(itemUsageContext.getWorld().getBlockState(itemUsageContext.getBlockPos()), itemUsageContext.getWorld(), itemUsageContext.getBlockPos()),
+                ModBlocks.TROPICAL_FARM_LAND.getDefaultState());
+
+        StrippableBlockRegistry.register(ModBlocks.PALM_LOG, ModBlocks.STRIPPED_PALM_LOG);
+        StrippableBlockRegistry.register(ModBlocks.PALM_WOOD, ModBlocks.STRIPPED_PALM_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.BANANA_LOG, ModBlocks.STRIPPED_BANANA_LOG);
+        StrippableBlockRegistry.register(ModBlocks.BANANA_WOOD, ModBlocks.STRIPPED_BANANA_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.CORN_LOG, ModBlocks.STRIPPED_CORN_LOG);
+        StrippableBlockRegistry.register(ModBlocks.CORN_WOOD, ModBlocks.STRIPPED_CORN_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.POISONED_LOG, ModBlocks.STRIPPED_POISONED_LOG);
+        StrippableBlockRegistry.register(ModBlocks.POISONED_WOOD, ModBlocks.STRIPPED_POISONED_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.MAHOGANY_LOG, ModBlocks.STRIPPED_MAHOGANY_LOG);
+        StrippableBlockRegistry.register(ModBlocks.MAHOGANY_WOOD, ModBlocks.STRIPPED_MAHOGANY_WOOD);
+        StrippableBlockRegistry.register(PALE_OAK_LOG, STRIPPED_PALE_OAK_LOG);
+        StrippableBlockRegistry.register(PALE_OAK_WOOD, STRIPPED_PALE_OAK_WOOD);
+
+        LOGGER.info("Loaded Blocktopia, took: {}ms", System.currentTimeMillis() - start);
     }
 
     @Override

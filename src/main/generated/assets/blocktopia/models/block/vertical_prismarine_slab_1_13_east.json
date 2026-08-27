@@ -1,0 +1,8 @@
+{
+  "parent": "blocktopia:block/vertical_slab_east",
+  "textures": {
+    "bottom": "blocktopia:block/prismarine_1_8",
+    "side": "blocktopia:block/prismarine_1_8",
+    "top": "blocktopia:block/prismarine_1_8"
+  }
+}

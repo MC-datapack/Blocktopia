@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:acacia_planks_1_7"
+  },
+  "result": {
+    "count": 3,
+    "id": "blocktopia:acacia_fence_1_8"
+  }
+}

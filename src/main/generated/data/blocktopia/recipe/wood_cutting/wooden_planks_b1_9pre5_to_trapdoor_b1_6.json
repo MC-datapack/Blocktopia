@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_planks_b1_9pre5"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:trapdoor_b1_6"
+  }
+}

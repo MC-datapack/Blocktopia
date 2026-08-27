@@ -17,6 +17,6 @@ public class LegacyCuttingRecipe extends CuttingRecipe {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ModBlocks.LEGACY_CUTTER);
+        return new ItemStack(ModBlocks.WOODCUTTER);
     }
 }

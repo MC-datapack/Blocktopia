@@ -2,6 +2,7 @@ package github.mcdatapack.blocktopia;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import github.mcdatapack.blocktopia.block.custom.ExtendedRepeaterBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +40,7 @@ public class ExtendedRepeaterAssetsGenerator {
     private static final String[] units = {
             "T", "S", "M"
     };
-    private static final int states = 256;
+    private static final int states = 60;
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static void main(String[] args){

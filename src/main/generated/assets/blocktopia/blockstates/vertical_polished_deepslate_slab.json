@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/polished_deepslate"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_polished_deepslate_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/polished_deepslate"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_polished_deepslate_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/polished_deepslate"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_polished_deepslate_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/polished_deepslate"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_polished_deepslate_slab_west"
+    }
+  }
+}

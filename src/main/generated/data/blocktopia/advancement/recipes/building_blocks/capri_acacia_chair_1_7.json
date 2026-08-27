@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_acacia_planks_1_7": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:acacia_planks_1_7"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:capri_acacia_chair_1_7"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_acacia_planks_1_7"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:capri_acacia_chair_1_7"
+    ]
+  }
+}

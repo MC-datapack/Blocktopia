@@ -3,16 +3,13 @@ package github.mcdatapack.blocktopia.worldgen.feature;
 import com.google.common.collect.ImmutableList;
 import github.mcdatapack.blocktopia.Blocktopia;
 
-import static github.mcdatapack.blocktopia.block.FutureBlocks.PALE_MOSS;
-import static github.mcdatapack.blocktopia.block.FutureBlocks.PALE_MOSS_CARPET;
 import static github.mcdatapack.blocktopia.block.ModBlocks.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
 
 import github.mcdatapack.blocktopia.block.FutureBlocks;
-import github.mcdatapack.blocktopia.block.LegacyBlocks;
 import github.mcdatapack.blocktopia.block.custom.ExtendedLeavesBlock;
 import github.mcdatapack.blocktopia.worldgen.tree.decorator.LeavesTreeDecorator;
-import github.mcdatapack.blocktopia.worldgen.tree.decorator.PaleMossTreeDecorator;
+import github.mcdatapack.blocktopia.worldgen.tree.decorator.HangingMossTreeDecorator;
 import github.mcdatapack.blocktopia.worldgen.tree.foilageplacer.ExtremeFoliagePlacer;
 import github.mcdatapack.blocktopia.worldgen.tree.trunkplacer.ExtremeTrunkPlacer;
 import net.minecraft.block.BlockState;
@@ -20,6 +17,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.state.property.Properties;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.collection.DataPool;
@@ -55,6 +53,7 @@ public interface ModConfiguredFeatures {
     RegistryKey<ConfiguredFeature<?, ?>> PALM_TREE_KEY = registerKey("palm_tree");
     RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3BANANA_TREE_KEY = registerKey("giant_3x3_banana_tree");
     RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3CORN_TREE_KEY = registerKey("giant_3x3_corn_tree");
+    RegistryKey<ConfiguredFeature<?, ?>> BIGGEST_CORN_TREE_KEY = registerKey("biggest_corn_tree");
     RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3FLOWERING_CHERRY_KEY = registerKey("giant_3x3_flowering_cherry");
     RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3POISONED_TREE_KEY = registerKey("giant_3x3_poisoned_tree");
     RegistryKey<ConfiguredFeature<?, ?>> GIANT_3x3MAHOGANY_TREE_KEY = registerKey("giant_3x3_mahogany_tree");
@@ -184,13 +183,13 @@ public interface ModConfiguredFeatures {
         register(context, PALE_MOSS_VEGETATION_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
                 new WeightedBlockStateProvider(
                         DataPool.<BlockState>builder()
-                                .add(PALE_MOSS_CARPET.getDefaultState(), 25)
+                                .add(FutureBlocks.PALE_MOSS_CARPET.getDefaultState(), 25)
                                 .build()
                 )
         ));
         register(context, PALE_MOSS_PATCH_KEY, Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(
                 BlockTags.MOSS_REPLACEABLE,
-                BlockStateProvider.of(PALE_MOSS),
+                BlockStateProvider.of(FutureBlocks.PALE_MOSS),
                 PlacedFeatures.createEntry(configuredFeatureLookup.getOrThrow(PALE_MOSS_VEGETATION_KEY)),
                 VerticalSurfaceType.FLOOR,
                 ConstantIntProvider.create(1),
@@ -202,7 +201,7 @@ public interface ModConfiguredFeatures {
         ));
         register(context, PALE_MOSS_PATCH_BONEMEAL_KEY, Feature.VEGETATION_PATCH, new VegetationPatchFeatureConfig(
                 BlockTags.MOSS_REPLACEABLE,
-                BlockStateProvider.of(PALE_MOSS),
+                BlockStateProvider.of(FutureBlocks.PALE_MOSS),
                 PlacedFeatures.createEntry(configuredFeatureLookup.getOrThrow(PALE_MOSS_VEGETATION_KEY)),
                 VerticalSurfaceType.FLOOR,
                 ConstantIntProvider.create(1),
@@ -224,53 +223,70 @@ public interface ModConfiguredFeatures {
                 SimpleBlockStateProvider.of(BANANA_LOG),
                 new ExtremeTrunkPlacer(48, 24, 24),
                 SimpleBlockStateProvider.of(BANANA_LEAVES),
-                new ExtremeFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
+                new ExtremeFoliagePlacer(UniformIntProvider.create(7, 11), ConstantIntProvider.create(0), 16),
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
-                        new LeavesVineTreeDecorator(0.8F),
-                        new LeavesTreeDecorator(BANANA_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                        new LeavesVineTreeDecorator(0.05F),
+                        new LeavesTreeDecorator(BANANA_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE)),
+                        new HangingMossTreeDecorator(BANANA_HANGING_MOSS.getDefaultState(), 0.8F, 1F, 0.15)))
                 .build());
         register(context, GIANT_3x3CORN_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(CORN_LOG),
                 new ExtremeTrunkPlacer(32, 24, 24),
                 SimpleBlockStateProvider.of(CORN_LEAVES),
-                new ExtremeFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
+                new ExtremeFoliagePlacer(UniformIntProvider.create(7, 11), ConstantIntProvider.create(0), 16),
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
                         new LeavesVineTreeDecorator(0.01F),
-                        new LeavesTreeDecorator(CORN_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                        new LeavesTreeDecorator(CORN_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE)),
+                        new HangingMossTreeDecorator(CORN_HANGING_MOSS.getDefaultState(), 0.8F, 1F, 0.15)))
+                .build());
+        register(context, BIGGEST_CORN_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                SimpleBlockStateProvider.of(CORN_LOG),
+                new ExtremeTrunkPlacer(32, 24, 24, true),
+                SimpleBlockStateProvider.of(CORN_LEAVES),
+                new ExtremeFoliagePlacer(ConstantIntProvider.create(11), ConstantIntProvider.create(0), 16),
+                new TwoLayersFeatureSize(1, 1, 1))
+                .decorators(List.of(
+                        new CocoaBeansTreeDecorator(0.5F),
+                        new LeavesVineTreeDecorator(0.01F),
+                        new LeavesTreeDecorator(CORN_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE)),
+                        new HangingMossTreeDecorator(CORN_HANGING_MOSS.getDefaultState(), 0.8F, 1F, 0.15)))
                 .build());
         register(context, GIANT_3x3POISONED_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(POISONED_LOG),
                 new ExtremeTrunkPlacer(32, 24, 24),
                 SimpleBlockStateProvider.of(POISONED_LEAVES),
-                new ExtremeFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
+                new ExtremeFoliagePlacer(UniformIntProvider.create(7, 11), ConstantIntProvider.create(0), 16),
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
                         new LeavesVineTreeDecorator(0.5F),
-                        new LeavesTreeDecorator(POISONED_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                        new LeavesTreeDecorator(POISONED_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE)),
+                        new HangingMossTreeDecorator(POISONED_HANGING_MOSS.getDefaultState(), 0.8F, 1F, 0.15)))
                 .build());
         register(context, GIANT_3x3FLOWERING_CHERRY_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(Blocks.CHERRY_LOG),
-                new ExtremeTrunkPlacer(24, 20, 20),
+                new ExtremeTrunkPlacer(32, 20, 20),
                 SimpleBlockStateProvider.of(FLOWERING_CHERRY_LEAVES),
-                new ExtremeFoliagePlacer(UniformIntProvider.create(3, 7), ConstantIntProvider.create(0), 14),
+                new ExtremeFoliagePlacer(UniformIntProvider.create(7, 11), ConstantIntProvider.create(0), 14),
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
-                        new LeavesTreeDecorator(FLOWERING_CHERRY_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE))))
+                        new LeavesTreeDecorator(FLOWERING_CHERRY_LEAVES.getDefaultState().with(ExtendedLeavesBlock.PERSISTENT, Boolean.FALSE)),
+                        new HangingMossTreeDecorator(FLOWERING_CHERRY_HANGING_MOSS.getDefaultState(), 0.8F, 1F, 0.15)))
                 .build());
         register(context, GIANT_3x3MAHOGANY_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(MAHOGANY_LOG),
                 new ExtremeTrunkPlacer(48, 24, 24),
                 SimpleBlockStateProvider.of(MAHOGANY_LEAVES),
-                new ExtremeFoliagePlacer(UniformIntProvider.create(5, 9), ConstantIntProvider.create(0), 16),
+                new ExtremeFoliagePlacer(UniformIntProvider.create(7, 11), ConstantIntProvider.create(0), 16),
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
-                        new LeavesVineTreeDecorator(0.8F)))
+                        new LeavesVineTreeDecorator(0.05F),
+                        new HangingMossTreeDecorator(MAHOGANY_HANGING_MOSS.getDefaultState(), 0.8F, 1F, 0.15)))
                 .build());
         register(context, GIANT_BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(BANANA_LOG),
@@ -280,7 +296,7 @@ public interface ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
-                        new LeavesVineTreeDecorator(0.8F)))
+                        new LeavesVineTreeDecorator(0.05F)))
                 .build());
         register(context, GIANT_CORN_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(CORN_LOG),
@@ -317,7 +333,7 @@ public interface ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
-                        new LeavesVineTreeDecorator(0.8F)))
+                        new LeavesVineTreeDecorator(0.05F)))
                 .build());
         register(context, BANANA_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(BANANA_LOG),
@@ -327,7 +343,7 @@ public interface ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
-                        new LeavesVineTreeDecorator(0.8F)))
+                        new LeavesVineTreeDecorator(0.05F)))
                 .build());
         register(context, CORN_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 SimpleBlockStateProvider.of(CORN_LOG),
@@ -364,10 +380,10 @@ public interface ModConfiguredFeatures {
                 new TwoLayersFeatureSize(1, 1, 1))
                 .decorators(List.of(
                         new CocoaBeansTreeDecorator(0.5F),
-                        new LeavesVineTreeDecorator(0.8F)))
+                        new LeavesVineTreeDecorator(0.05F)))
                 .build());
         register(context, GLOW_FLOWER_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
-                BlockStateProvider.of(GLOW_FLOWER)
+                BlockStateProvider.of(GLOW_FLOWER.getDefaultState().with(Properties.WATERLOGGED, false))
         ));
         register(context, GLOW_FLOWER_PATCH_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(
                 500, 64, 40, registryLookup.getOrThrow(ModPlacedFeatures.GLOW_FLOWER_KEY)
@@ -576,7 +592,7 @@ public interface ModConfiguredFeatures {
                         BlockStateProvider.of(FutureBlocks.PALE_OAK_LEAVES),
                         new DarkOakFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)),
                         new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty())
-                ).decorators(ImmutableList.of(new PaleMossTreeDecorator(0.15F, 0.4F, 0.8F))).ignoreVines().build()
+                ).decorators(ImmutableList.of(new HangingMossTreeDecorator(FutureBlocks.PALE_HANGING_MOSS.getDefaultState(), 0.15F, 0.4F, 0.5, 0.8F))).ignoreVines().build()
         );
         ConfiguredFeatures.register(context, PALE_OAK_BONEMEAL_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                         BlockStateProvider.of(FutureBlocks.PALE_OAK_LOG),

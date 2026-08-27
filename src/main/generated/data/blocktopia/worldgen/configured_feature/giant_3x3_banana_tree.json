@@ -8,18 +8,31 @@
       },
       {
         "type": "minecraft:leave_vine",
-        "probability": 0.8
+        "probability": 0.05
       },
       {
         "type": "blocktopia:leaves_tree_decorator",
         "blockstate": {
           "Name": "blocktopia:banana_leaves",
           "Properties": {
-            "distance": "128",
+            "distance": "256",
             "persistent": "false",
             "waterlogged": "false"
           }
         }
+      },
+      {
+        "type": "blocktopia:hanging_moss_tree_decorator",
+        "groundProbability": 0.0,
+        "leaves_probability": 0.8,
+        "state": {
+          "Name": "blocktopia:banana_hanging_moss",
+          "Properties": {
+            "tip": "true"
+          }
+        },
+        "stopChance": 0.15,
+        "trunk_probability": 1.0
       }
     ],
     "dirt_provider": {
@@ -34,8 +47,8 @@
       "offset": 0,
       "radius": {
         "type": "minecraft:uniform",
-        "max_inclusive": 9,
-        "min_inclusive": 5
+        "max_inclusive": 11,
+        "min_inclusive": 7
       }
     },
     "foliage_provider": {
@@ -43,7 +56,7 @@
       "state": {
         "Name": "blocktopia:banana_leaves",
         "Properties": {
-          "distance": "128",
+          "distance": "256",
           "persistent": "false",
           "waterlogged": "false"
         }
@@ -60,6 +73,7 @@
     "trunk_placer": {
       "type": "blocktopia:extreme_trunk_placer",
       "base_height": 48,
+      "biggest": false,
       "height_rand_a": 24,
       "height_rand_b": 24
     },

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:palm_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:palm_hanging_sign"
+  }
+}

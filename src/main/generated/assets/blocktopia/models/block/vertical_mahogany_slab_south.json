@@ -1,0 +1,8 @@
+{
+  "parent": "blocktopia:block/vertical_slab_south",
+  "textures": {
+    "bottom": "blocktopia:block/mahogany_planks",
+    "side": "blocktopia:block/mahogany_planks",
+    "top": "blocktopia:block/mahogany_planks"
+  }
+}

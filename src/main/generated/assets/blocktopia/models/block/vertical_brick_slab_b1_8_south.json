@@ -1,0 +1,8 @@
+{
+  "parent": "blocktopia:block/vertical_slab_south",
+  "textures": {
+    "bottom": "blocktopia:block/bricks_a1_0_11",
+    "side": "blocktopia:block/bricks_a1_0_11",
+    "top": "blocktopia:block/bricks_a1_0_11"
+  }
+}

@@ -15,6 +15,7 @@ import net.minecraft.loot.condition.EntityPropertiesLootCondition;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.EntityTypePredicate;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -43,7 +44,8 @@ public class BowLootingGenerator extends BlocktopiaEnchantmentGenerator {
                         EnchantmentEffectTarget.VICTIM,
                         new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(0.01F)),
                         EntityPropertiesLootCondition.builder(
-                                LootContext.EntityTarget.ATTACKER, EntityPredicate.Builder.create().type(EntityTypePredicate.create(EntityType.PLAYER))
+                                LootContext.EntityTarget.ATTACKER, EntityPredicate.Builder.create()
+                                        .type(EntityTypePredicate.create(EntityType.PLAYER))
                         )
                 ));
     }

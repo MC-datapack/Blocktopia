@@ -1,0 +1,8 @@
+{
+  "parent": "blocktopia:block/vertical_slab_east",
+  "textures": {
+    "bottom": "blocktopia:block/palm_planks",
+    "side": "blocktopia:block/palm_planks",
+    "top": "blocktopia:block/palm_planks"
+  }
+}

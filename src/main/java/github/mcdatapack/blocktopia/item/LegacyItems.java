@@ -57,13 +57,13 @@ public interface LegacyItems {
     Item FISH_A1_2_0 = register("fish_a1_2_0", settings -> settings.food(ModFoodComponents.FISH_A1_2_0), A1_2_0, _1_12_2);
     Item COOKED_FISH_A1_2_0 = register("cooked_fish_a1_2_0", settings -> settings.food(ModFoodComponents.COOKED_FISH_A1_2_0), A1_2_0, _1_12_2);
     Item BONE_B1_2 = register("bone_b1_2", B1_2, _1_13_2);
-    BoneMealItem BONE_MEAL_B1_2 = ModItems.register("bone_meal_b1_2", new BoneMealItem(new Item.Settings()) {
+    BoneMealItem BONE_MEAL_B1_2 = ModItems.register("bone_meal_b1_2", settings -> new BoneMealItem(settings) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             addLegacyTooltip(tooltip, B1_2, _1_2_5);
         }
     });
-    BoneMealItem BONE_MEAL_1_3 = ModItems.register("bone_meal_1_3", new BoneMealItem(new Item.Settings()) {
+    BoneMealItem BONE_MEAL_1_3 = ModItems.register("bone_meal_1_3", settings -> new BoneMealItem(settings) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             addLegacyTooltip(tooltip, B1_2, _1_2_5);
@@ -91,7 +91,7 @@ public interface LegacyItems {
     Item MAGMA_CREAM_1_3 = register("magma_cream_1_3", _1_3, _1_13_2);
     Item SPIDER_EYE_B1_9PRE2 = register("spider_eye_b1_9pre2", B1_9PRE2, _1_13_2);
     Item GLISTERING_MELON_B1_9PRE4 = register("glistering_melon_b1_9pre4", B1_9PRE4, _1_13_2);
-    Item RUBY = ModItems.register("ruby", new Item(new Item.Settings()));
+    Item RUBY = ModItems.register("ruby", Item::new);
     Item EMERALD_1_3 = register("emerald_1_3", _1_3, _1_13_2);
     Item ENCHANTED_GOLDEN_APPLE_1_3 = register("enchanted_golden_apple_1_3", settings ->
             settings.food(ModFoodComponents.ENCHANTED_GOLDEN_APPLE_1_3).component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true), _1_3, _1_13_2);
@@ -114,8 +114,7 @@ public interface LegacyItems {
     Item RABBIT_FOOT_1_8 = register("rabbit_foot_1_8", _1_8, _1_13_2);
     Item RABBIT_HIDE_1_8 = register("rabbit_hide_1_8", _1_8, _1_13_2);
     Item RABBIT_STEW_1_8 = register("rabbit_stew_1_8", settings -> settings.food(FoodComponents.RABBIT_STEW), _1_8, _1_13_2);
-
-
+    
     private static Item register(String name, MinecraftVersion from, MinecraftVersion to) {
         return register(name, settings -> settings, from, to);
     }
@@ -125,7 +124,7 @@ public interface LegacyItems {
     }
 
     private static Item register(String name, Function<Item.Settings, Item.Settings> settings, MinecraftVersion from, MinecraftVersion to) {
-        return ModItems.register(name, new Item(settings.apply(new Item.Settings())) {
+        return ModItems.register(name, settings.apply(new Item.Settings()), itemSettings -> new Item(itemSettings) {
             @Override
             public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
                 addLegacyTooltip(tooltip, from, to);
@@ -134,7 +133,7 @@ public interface LegacyItems {
     }
 
     private static Item register(String name, Function<Item.Settings, Item.Settings> settings, MinecraftVersion only) {
-        return ModItems.register(name, new Item(settings.apply(new Item.Settings())) {
+        return ModItems.register(name, settings.apply(new Item.Settings()), itemSettings -> new Item(itemSettings) {
             @Override
             public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
                 tooltip.add(Text.translatable("blocktopia.tooltip.legacy"));

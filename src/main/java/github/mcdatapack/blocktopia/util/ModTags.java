@@ -18,6 +18,8 @@ public interface ModTags {
         TagKey<Block> MAHOGANY_LOGS = block("mahogany_logs");
         TagKey<Block> LEGACY_COBBLESTONE = block("legacy_cobblestone");
 
+        TagKey<Block> HANGING_MOSS = block("hanging_moss");
+
         TagKey<Block> PALE_OAK_LOGS = block("pale_oak_logs");
 
         TagKey<Block> CHAIRS = block("chairs");
@@ -39,10 +41,24 @@ public interface ModTags {
         TagKey<Block> POISONED_CHAIRS = block("chairs/poisoned");
         TagKey<Block> MAHOGANY_CHAIRS = block("chairs/mahogany");
         TagKey<Block> PALE_OAK_CHAIRS = block("chairs/pale_oak");
+        TagKey<Block> WOODEN_CHAIRS_RD20090515 = block("chairs/wooden_chairs_rd20090515");
+        TagKey<Block> WOODEN_CHAIRS_RD161348 = block("chairs/wooden_chairs_rd161348");
+        TagKey<Block> WOODEN_CHAIRS_C0_0_14A = block("chairs/wooden_chairs_c0_0_14a");
+        TagKey<Block> WOODEN_CHAIRS_C0_0_15A = block("chairs/wooden_chairs_c0_0_15a");
+        TagKey<Block> WOODEN_CHAIRS_B1_9PRE5 = block("chairs/wooden_chairs_b1_9pre5");
+        TagKey<Block> BIRCH_CHAIRS_1_2_4 = block("chairs/birch_chairs_1_2_4");
+        TagKey<Block> SPRUCE_CHAIRS_1_2_4 = block("chairs/spruce_chairs_1_2_4");
+        TagKey<Block> JUNGLE_CHAIRS_1_2_4 = block("chairs/jungle_chairs_1_2_4");
+        TagKey<Block> ACACIA_CHAIRS_1_7 = block("chairs/acacia_chairs_1_7");
+        TagKey<Block> DARK_OAK_CHAIRS_1_7 = block("chairs/dark_oak_chairs_1_7");
 
         TagKey<Block> CLASSIC_SPONGE_REPLACEABLE = block("classic_sponge_replaceable");
 
         TagKey<Block> COCOA_BEANS_PLACEABLE = block("cocoa_beans_placeable");
+
+        TagKey<Block> VERTICAL_WOODEN_SLABS = block("vertical_wooden_slabs");
+        TagKey<Block> VERTICAL_PICKAXE_MINABLE_SLABS = block("vertical_pickaxe_minable_slabs");
+        TagKey<Block> VERTICAL_SLABS = block("vertical_slabs");
     }
 
     interface Items {
@@ -75,6 +91,16 @@ public interface ModTags {
         TagKey<Item> POISONED_CHAIRS = item("chairs/poisoned");
         TagKey<Item> MAHOGANY_CHAIRS = item("chairs/mahogany");
         TagKey<Item> PALE_OAK_CHAIRS = item("chairs/pale_oak");
+        TagKey<Item> WOODEN_CHAIRS_RD20090515 = item("chairs/wooden_chairs_rd20090515");
+        TagKey<Item> WOODEN_CHAIRS_RD161348 = item("chairs/wooden_chairs_rd161348");
+        TagKey<Item> WOODEN_CHAIRS_C0_0_14A = item("chairs/wooden_chairs_c0_0_14a");
+        TagKey<Item> WOODEN_CHAIRS_C0_0_15A = item("chairs/wooden_chairs_c0_0_15a");
+        TagKey<Item> WOODEN_CHAIRS_B1_9PRE5 = item("chairs/wooden_chairs_b1_9pre5");
+        TagKey<Item> BIRCH_CHAIRS_1_2_4 = item("chairs/birch_chairs_1_2_4");
+        TagKey<Item> SPRUCE_CHAIRS_1_2_4 = item("chairs/spruce_chairs_1_2_4");
+        TagKey<Item> JUNGLE_CHAIRS_1_2_4 = item("chairs/jungle_chairs_1_2_4");
+        TagKey<Item> ACACIA_CHAIRS_1_7 = item("chairs/acacia_chairs_1_7");
+        TagKey<Item> DARK_OAK_CHAIRS_1_7 = item("chairs/dark_oak_chairs_1_7");
 
         TagKey<Item> MONKEY_BREEDING_ITEMS = item("monkey_breeding_items");
 
@@ -87,11 +113,7 @@ public interface ModTags {
     }
 
     interface Biomes {
-        TagKey<Biome> HAS_BANANA_TREE_HOUSE = biome("has_banana_tree_house");
-        TagKey<Biome> HAS_MAHOGANY_TREE_HOUSE = biome("has_mahogany_tree_house");
-        TagKey<Biome> HAS_FLOWERING_TREE_CHERRY_HOUSE = biome("has_flowering_cherry_tree_house");
-        TagKey<Biome> HAS_CORN_TREE_HOUSE = biome("has_corn_tree_house");
-        TagKey<Biome> HAS_POISONED_TREE_HOUSE = biome("has_poisoned_tree_house");
+        TagKey<Biome> HAS_TREE_HOUSES = biome("has_tree_houses");
     }
 
 

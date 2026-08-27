@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/smooth_quartz"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_smooth_quartz_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/smooth_quartz"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_smooth_quartz_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/smooth_quartz"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_smooth_quartz_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/smooth_quartz"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_smooth_quartz_slab_west"
+    }
+  }
+}

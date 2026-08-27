@@ -9,6 +9,13 @@
     "blocktopia:lapis_ore_b1_2",
     "blocktopia:lapis_ore_1_14",
     "blocktopia:lapis_block_b1_2",
-    "blocktopia:lapis_block_1_6"
+    "blocktopia:lapis_block_1_6",
+    "blocktopia:waxed_lightning_rod",
+    "blocktopia:exposed_lightning_rod",
+    "blocktopia:waxed_exposed_lightning_rod",
+    "blocktopia:weathered_lightning_rod",
+    "blocktopia:waxed_weathered_lightning_rod",
+    "blocktopia:oxidized_lightning_rod",
+    "blocktopia:waxed_oxidized_lightning_rod"
   ]
 }

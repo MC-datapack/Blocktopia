@@ -71,9 +71,9 @@ public class FluidTankScreenHandler extends ScreenHandler {
             newStack = inSlot.copy();
 
             if (slotIndex == 0) {
-                if (!insertItem(inSlot, 0, this.slots.size(), false))
+                if (!insertItem(inSlot, 0, 1, false))
                     return ItemStack.EMPTY;
-            } else if (!insertItem(inSlot, 0, 0, true))
+            } else if (!insertItem(inSlot, 0, 36, true))
                 return ItemStack.EMPTY;
 
             if (inSlot.isEmpty())

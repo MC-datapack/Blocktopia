@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/prismarine_1_8"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_prismarine_slab_1_13_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/prismarine_1_8"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_prismarine_slab_1_13_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/prismarine_1_8"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_prismarine_slab_1_13_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/prismarine_1_8"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_prismarine_slab_1_13_west"
+    }
+  }
+}

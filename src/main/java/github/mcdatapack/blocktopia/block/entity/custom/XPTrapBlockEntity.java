@@ -5,7 +5,9 @@ import github.mcdatapack.blocktopia.block.entity.ModBlockEntityTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtHelper;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -28,14 +30,13 @@ public class XPTrapBlockEntity extends BlockEntity {
     @Override
     public void writeNbt(NbtCompound tag, RegistryWrapper.WrapperLookup lookup) {
         super.writeNbt(tag, lookup);
-        tag.putString("CopiedBlock", Registries.BLOCK.getId(copiedBlockState.getBlock()).toString());
+        tag.put("state", NbtHelper.fromBlockState(copiedBlockState));
     }
 
     @Override
     public void readNbt(NbtCompound tag, RegistryWrapper.WrapperLookup lookup) {
         super.readNbt(tag, lookup);
-        Identifier blockId = Identifier.of(tag.getString("CopiedBlock"));
-        copiedBlockState = Registries.BLOCK.get(blockId).getDefaultState();
+        copiedBlockState = NbtHelper.toBlockState(lookup.getWrapperOrThrow(RegistryKeys.BLOCK), tag.getCompound("state"));
     }
 
     @Override

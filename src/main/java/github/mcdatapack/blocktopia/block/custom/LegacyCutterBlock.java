@@ -10,7 +10,7 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
@@ -35,7 +35,7 @@ public class LegacyCutterBlock extends Block {
             VoxelShapes.cuboid(0.6875, 0.4375, 0.1875, 0.8125, 0.6875, 0.8125)
     );
     public static final MapCodec<LegacyCutterBlock> CODEC = LegacyCutterBlock.createCodec(LegacyCutterBlock::new);
-    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalFacingBlock.FACING;
     private static final Text TITLE = Text.translatable("container.blocktopia.legacy_cutter");
 
     @Override
@@ -72,7 +72,7 @@ public class LegacyCutterBlock extends Block {
     }
 
     @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
 

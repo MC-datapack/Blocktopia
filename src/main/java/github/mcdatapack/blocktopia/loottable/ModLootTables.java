@@ -16,6 +16,7 @@ public interface ModLootTables {
     RegistryKey<LootTable> NETHERITE_PIGLIN_BARTERING = of("gameplay/netherite_piglin_bartering");
     RegistryKey<LootTable> NETHERITE_BLOCK_PIGLIN_BARTERING = of("gameplay/netherite_block_piglin_bartering");
     RegistryKey<LootTable> BEDROCK_C0_0_12A_PIGLIN_BARTERING = of("gameplay/bedrock_c0_0_12a_piglin_bartering");
+    RegistryKey<LootTable> TROPICAL_FISHING = of("gameplay/tropical_fishing");
 
     private static RegistryKey<LootTable> of(String path) {
         return RegistryKey.of(RegistryKeys.LOOT_TABLE, Blocktopia.id(path));

@@ -7,7 +7,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
@@ -37,7 +37,7 @@ public class SmallChestBlock extends Block implements BlockEntityProvider {
                 VoxelShapes.cuboid(0.125, 0, 0.125, 0.875, 0.0625, 0.875)
         ).simplify();
     }
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final Map<Direction, VoxelShape> Shapes = new HashMap<>();
 
     public SmallChestBlock(Settings settings) {
@@ -49,7 +49,7 @@ public class SmallChestBlock extends Block implements BlockEntityProvider {
     }
 
     @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
         return Shapes.get(state.get(FACING));
     }
 

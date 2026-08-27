@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:wood_cutting/wooden_planks_rd161348_to_sign_inf20100607"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_planks_rd161348": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:wooden_planks_rd161348"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wooden_planks_rd161348"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:wood_cutting/wooden_planks_rd161348_to_sign_inf20100607"
+    ]
+  }
+}

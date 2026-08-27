@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "blocktopia:block/tropical_moss",
+    "top": "blocktopia:block/tropical_farm_land"
+  }
+}

@@ -16,45 +16,17 @@ import net.minecraft.world.gen.structure.Structure;
 import java.util.Optional;
 
 public interface ModStructureSets {
-    RegistryKey<StructureSet> BANANA_TREE_HOUSE = RegistryKey.of(RegistryKeys.STRUCTURE_SET, Blocktopia.id("banana_tree_house"));
-    RegistryKey<StructureSet> MAHOGANY_TREE_HOUSE = RegistryKey.of(RegistryKeys.STRUCTURE_SET, Blocktopia.id("mahogany_tree_house"));
-    RegistryKey<StructureSet> FLOWERING_CHERRY_TREE_HOUSE = RegistryKey.of(RegistryKeys.STRUCTURE_SET, Blocktopia.id("flowering_cherry_tree_house"));
-    RegistryKey<StructureSet> CORN_TREE_HOUSE = RegistryKey.of(RegistryKeys.STRUCTURE_SET, Blocktopia.id("corn_tree_house"));
-    RegistryKey<StructureSet> POISONED_TREE_HOUSE = RegistryKey.of(RegistryKeys.STRUCTURE_SET, Blocktopia.id("poisoned_tree_house"));
+    RegistryKey<StructureSet> TREE_HOUSE = RegistryKey.of(RegistryKeys.STRUCTURE_SET, Blocktopia.id("tree_house"));
 
     static void bootstrap(Registerable<StructureSet> structureSetRegisterable) {
         RegistryEntryLookup<Structure> structureLookup = structureSetRegisterable.getRegistryLookup(RegistryKeys.STRUCTURE);
         RegistryEntryLookup<Biome> biomeLookup = structureSetRegisterable.getRegistryLookup(RegistryKeys.BIOME);
 
         structureSetRegisterable.register(
-                BANANA_TREE_HOUSE,
-                new StructureSet(structureLookup.getOrThrow(ModStructures.BANANA_TREE_HOUSE_KEY),
+                TREE_HOUSE,
+                new StructureSet(structureLookup.getOrThrow(ModStructures.TREE_HOUSE_KEY),
                         new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 1.0F,
                                 14357700, Optional.empty(),12, 8, SpreadType.LINEAR))
-        );
-        structureSetRegisterable.register(
-                MAHOGANY_TREE_HOUSE,
-                new StructureSet(structureLookup.getOrThrow(ModStructures.MAHOGANY_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(new Vec3i(4, 4, 4), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_1, 1.0F,
-                                14357700, Optional.empty(), 8, 4, SpreadType.LINEAR))
-        );
-        structureSetRegisterable.register(
-                FLOWERING_CHERRY_TREE_HOUSE,
-                new StructureSet(structureLookup.getOrThrow(ModStructures.FLOWERING_CHERRY_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(new Vec3i(8, 8, 8), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_2, 0.5F,
-                                14357700, Optional.empty(), 14, 8, SpreadType.LINEAR))
-        );
-        structureSetRegisterable.register(
-                CORN_TREE_HOUSE,
-                new StructureSet(structureLookup.getOrThrow(ModStructures.CORN_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(new Vec3i(12, 12, 12), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_3, 0.25F,
-                                14357700,  Optional.empty(), 24, 16, SpreadType.LINEAR))
-        );
-        structureSetRegisterable.register(
-                POISONED_TREE_HOUSE,
-                new StructureSet(structureLookup.getOrThrow(ModStructures.POISONED_TREE_HOUSE_KEY),
-                        new RandomSpreadStructurePlacement(new Vec3i(15, 15, 15), StructurePlacement.FrequencyReductionMethod.LEGACY_TYPE_3, 0.44F,
-                                14357700, Optional.empty(), 16, 12, SpreadType.LINEAR))
         );
     }
 

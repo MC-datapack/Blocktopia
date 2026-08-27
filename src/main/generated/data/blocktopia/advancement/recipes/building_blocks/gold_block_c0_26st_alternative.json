@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gold_ingot_in20100129": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blocktopia:gold_ingot_in20100129"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blocktopia:gold_block_c0_26st_alternative"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gold_ingot_in20100129"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blocktopia:gold_block_c0_26st_alternative"
+    ]
+  }
+}

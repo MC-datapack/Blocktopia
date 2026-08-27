@@ -3,17 +3,22 @@ package github.mcdatapack.blocktopia.compat;
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.recipe.LegacyCuttingRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.display.Display;
+import me.shedaniel.rei.api.common.display.DisplaySerializer;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.recipe.RecipeEntry;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class LegacyCuttingDisplay extends BasicDisplay {
+    public static final CategoryIdentifier<LegacyCuttingDisplay> IDENTIFIER = CategoryIdentifier.of(Blocktopia.id("legacy_cutting"));
+
     public LegacyCuttingDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs) {
         super(inputs, outputs);
     }
@@ -31,6 +36,6 @@ public class LegacyCuttingDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return CategoryIdentifier.of(Blocktopia.id("legacy_cutting"));
+        return IDENTIFIER;
     }
 }

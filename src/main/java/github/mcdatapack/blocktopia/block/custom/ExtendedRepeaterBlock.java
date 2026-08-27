@@ -21,7 +21,7 @@ import net.minecraft.world.WorldView;
 public class ExtendedRepeaterBlock extends AbstractRedstoneGateBlock {
     public static final MapCodec<ExtendedRepeaterBlock> CODEC = createCodec(ExtendedRepeaterBlock::new);
     public static final BooleanProperty LOCKED = Properties.LOCKED;
-    public static final IntProperty DELAY = IntProperty.of("delay", 1, 256);
+    public static final IntProperty DELAY = IntProperty.of("delay", 1, 60);
 
     @Override
     public MapCodec<ExtendedRepeaterBlock> getCodec() {
@@ -46,7 +46,7 @@ public class ExtendedRepeaterBlock extends AbstractRedstoneGateBlock {
             return ActionResult.PASS;
         } else {
             world.setBlockState(pos, state.cycle(DELAY), Block.NOTIFY_ALL);
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS;
         }
     }
 
@@ -62,14 +62,12 @@ public class ExtendedRepeaterBlock extends AbstractRedstoneGateBlock {
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(
-            BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos
-    ) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (direction == Direction.DOWN && !this.canPlaceAbove(world, neighborPos, neighborState)) {
             return Blocks.AIR.getDefaultState();
         } else {
             return !world.isClient() && direction.getAxis() != state.get(FACING).getAxis()
-                    ? state.with(LOCKED, Boolean.valueOf(this.isLocked(world, pos, state)))
+                    ? state.with(LOCKED, this.isLocked(world, pos, state))
                     : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
         }
     }

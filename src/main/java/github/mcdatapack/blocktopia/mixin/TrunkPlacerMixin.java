@@ -14,9 +14,9 @@ public class TrunkPlacerMixin {
     @Inject(method = "fillTrunkPlacerFields", at = @At("RETURN"), cancellable = true)
     private static <P extends TrunkPlacer> void fillTrunkPlacerFields(RecordCodecBuilder.Instance<P> instance, CallbackInfoReturnable<Products.P3<RecordCodecBuilder.Mu<P>, Integer, Integer, Integer>> cir) {
         cir.setReturnValue(instance.group(
-                Codec.intRange(0, 128).fieldOf("base_height").forGetter(placer -> placer.baseHeight),
-                Codec.intRange(0, 128).fieldOf("height_rand_a").forGetter(placer -> placer.firstRandomHeight),
-                Codec.intRange(0, 128).fieldOf("height_rand_b").forGetter(placer -> placer.secondRandomHeight)
+                Codec.intRange(0, 256).fieldOf("base_height").forGetter(placer -> placer.baseHeight),
+                Codec.intRange(0, 256).fieldOf("height_rand_a").forGetter(placer -> placer.firstRandomHeight),
+                Codec.intRange(0, 256).fieldOf("height_rand_b").forGetter(placer -> placer.secondRandomHeight)
         ));
     }
 }

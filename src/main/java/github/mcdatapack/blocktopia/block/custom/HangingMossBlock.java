@@ -1,16 +1,13 @@
 package github.mcdatapack.blocktopia.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import github.mcdatapack.blocktopia.block.FutureBlocks;
+import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.util.ModTags;
+import github.mcdatapack.more_tools_and_armor.list.TagList;
 import net.minecraft.block.*;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -50,7 +47,7 @@ public class HangingMossBlock extends Block implements Fertilizable {
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.offset(Direction.UP);
         BlockState blockState = world.getBlockState(blockPos);
-        return canGrowOn(world, Direction.UP, blockPos, blockState) || blockState.isOf(FutureBlocks.PALE_HANGING_MOSS);
+        return canGrowOn(world, Direction.UP, blockPos, blockState) || blockState.isIn(ModTags.Blocks.HANGING_MOSS);
     }
 
     public static boolean canGrowOn(BlockView world, BlockPos pos, Direction direction) {
@@ -66,7 +63,12 @@ public class HangingMossBlock extends Block implements Fertilizable {
 
     @Override
     protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        return state.with(TIP, !world.getBlockState(pos.down()).isOf(this));
+        if (!canGrowOn(world, pos, Direction.UP)) {
+            world.scheduleBlockTick(pos, this, 1);
+        }
+
+
+        return state.with(TIP, !world.getBlockState(pos.down()).isIn(ModTags.Blocks.HANGING_MOSS));
     }
 
     @Override

@@ -1,9 +1,9 @@
 package github.mcdatapack.blocktopia.item;
 
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.block.FutureBlocks;
 import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.LegacyBlocks;
+import github.mcdatapack.blocktopia.fluid.ModFluids;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
@@ -11,7 +11,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
 
@@ -20,6 +19,7 @@ import static github.mcdatapack.blocktopia.item.FutureItems.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
 import static github.mcdatapack.blocktopia.item.LegacyItems.*;
 import static github.mcdatapack.blocktopia.item.ModItems.FUTURE_INGOT;
+import static net.minecraft.item.Items.LIGHTNING_ROD;
 
 @SuppressWarnings("unused")
 public interface ModItemGroups {
@@ -439,12 +439,16 @@ public interface ModItemGroups {
             .build());
     RegistryKey<ItemGroup> FUTURE_BLOCKS_AND_ITEMS = register("future_blocks_and_items", FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.blocktopia.future_blocks_and_items"))
-            .icon(FutureBlocks.PALE_MOSS.asItem()::getDefaultStack)
+            .icon(PALE_MOSS.asItem()::getDefaultStack)
             .entries((displayContext, entries) -> {
                 add(entries, FUTURE_INGOT, PALE_OAK_LOG, STRIPPED_PALE_OAK_LOG, PALE_OAK_WOOD, STRIPPED_PALE_OAK_WOOD, PALE_OAK_LEAVES, PALE_OAK_SAPLING, PALE_OAK_PLANKS, PALE_OAK_DOOR, PALE_OAK_FENCE,
                         PALE_OAK_FENCE_GATE, PALE_OAK_STAIRS, PALE_OAK_SLAB, PALE_OAK_PRESSURE_PLATE, PALE_OAK_BUTTON, PALE_OAK_TRAPDOOR, PALE_OAK_SIGN, PALE_OAK_HANGING_SIGN, PALE_OAK_BOAT,
                         PALE_OAK_CHEST_BOAT, PALE_MOSS, PALE_MOSS_CARPET, PALE_HANGING_MOSS, CLOSED_EYEBLOSSOM, OPEN_EYEBLOSSOM, RESIN_CLUMP, RESIN_BRICK, RESIN_BLOCK, RESIN_BRICKS, RESIN_BRICK_STAIRS,
-                        RESIN_BRICK_SLAB, RESIN_BRICK_WALL, CHISELED_RESIN_BRICKS, WILDFLOWERS, LEAF_LITTERS, SHORT_DRY_GRASS);
+                        RESIN_BRICK_SLAB, RESIN_BRICK_WALL, CHISELED_RESIN_BRICKS, WILDFLOWERS, LEAF_LITTERS, SHORT_DRY_GRASS, COPPER_NUGGET, COPPER_TORCH,
+                        COPPER_LANTERN, WAXED_COPPER_LANTERN, EXPOSED_COPPER_LANTERN, WAXED_EXPOSED_COPPER_LANTERN, WEATHERED_COPPER_LANTERN, WAXED_WEATHERED_COPPER_LANTERN, OXIDIZED_COPPER_LANTERN, WAXED_OXIDIZED_COPPER_LANTERN,
+                        COPPER_BARS, WAXED_COPPER_BARS, EXPOSED_COPPER_BARS, WAXED_EXPOSED_COPPER_BARS, WEATHERED_COPPER_BARS, WAXED_WEATHERED_COPPER_BARS, OXIDIZED_COPPER_BARS, WAXED_OXIDIZED_COPPER_BARS,
+                        COPPER_CHAIN, WAXED_COPPER_CHAIN, EXPOSED_COPPER_CHAIN, WAXED_EXPOSED_COPPER_CHAIN, WEATHERED_COPPER_CHAIN, WAXED_WEATHERED_COPPER_CHAIN, OXIDIZED_COPPER_CHAIN, WAXED_OXIDIZED_COPPER_CHAIN,
+                        LIGHTNING_ROD, WAXED_LIGHTNING_ROD, EXPOSED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD, OXIDIZED_LIGHTNING_ROD, WAXED_OXIDIZED_LIGHTNING_ROD);
             })
             .build());
     RegistryKey<ItemGroup> NATURAL_BLOCKS_GROUP = register("natural_blocks_group", FabricItemGroup.builder()
@@ -453,19 +457,9 @@ public interface ModItemGroups {
             .entries((displayContext, entries) -> {
                 entries.add(ModBlocks.TROPICAL_MOSS);
                 entries.add(ModBlocks.TROPICAL_MOSS_CARPET);
+                entries.add(ModBlocks.TROPICAL_FARM_LAND);
                 entries.add(ModBlocks.SANDY_DIRT);
-                entries.add(ModItems.TROPICAL_WATER_BUCKET);
-                entries.add(ModBlocks.OAK_CHAIR[0]);
-                entries.add(ModBlocks.SPRUCE_CHAIR[0]);
-                entries.add(ModBlocks.BIRCH_CHAIR[0]);
-                entries.add(ModBlocks.JUNGLE_CHAIR[0]);
-                entries.add(ModBlocks.ACACIA_CHAIR[0]);
-                entries.add(ModBlocks.DARK_OAK_CHAIR[0]);
-                entries.add(ModBlocks.CRIMSON_CHAIR[0]);
-                entries.add(ModBlocks.WARPED_CHAIR[0]);
-                entries.add(ModBlocks.MANGROVE_CHAIR[0]);
-                entries.add(ModBlocks.BAMBOO_CHAIR[0]);
-                entries.add(ModBlocks.CHERRY_CHAIR[0]);
+                entries.add(ModFluids.TROPICAL_WATER_BUCKET);
                 entries.add(ModBlocks.PALM_LEAVES);
                 entries.add(ModBlocks.PALM_SAPLING);
                 entries.add(ModBlocks.PALM_LOG);
@@ -481,13 +475,13 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.PALM_BUTTON);
                 entries.add(ModBlocks.PALM_DOOR);
                 entries.add(ModBlocks.PALM_TRAPDOOR);
-                entries.add(ModBlocks.PALM_CHAIR[0]);
                 entries.add(ModItems.PALM_BOAT);
                 entries.add(ModItems.PALM_CHEST_BOAT);
                 entries.add(ModBlocks.PALM_SIGN);
                 entries.add(ModBlocks.PALM_HANGING_SIGN);
                 entries.add(ModBlocks.BANANA_LEAVES);
                 entries.add(ModBlocks.BANANA_SAPLING);
+                entries.add(ModBlocks.BANANA_HANGING_MOSS);
                 entries.add(ModBlocks.BANANA_LOG);
                 entries.add(ModBlocks.STRIPPED_BANANA_LOG);
                 entries.add(ModBlocks.BANANA_WOOD);
@@ -501,13 +495,13 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.BANANA_BUTTON);
                 entries.add(ModBlocks.BANANA_DOOR);
                 entries.add(ModBlocks.BANANA_TRAPDOOR);
-                entries.add(ModBlocks.BANANA_CHAIR[0]);
                 entries.add(ModItems.BANANA_BOAT);
                 entries.add(ModItems.BANANA_CHEST_BOAT);
                 entries.add(ModBlocks.BANANA_SIGN);
                 entries.add(ModBlocks.BANANA_HANGING_SIGN);
                 entries.add(ModBlocks.CORN_LEAVES);
                 entries.add(ModBlocks.CORN_SAPLING);
+                entries.add(ModBlocks.CORN_HANGING_MOSS);
                 entries.add(ModBlocks.CORN_LOG);
                 entries.add(ModBlocks.STRIPPED_CORN_LOG);
                 entries.add(ModBlocks.CORN_WOOD);
@@ -521,13 +515,13 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.CORN_BUTTON);
                 entries.add(ModBlocks.CORN_DOOR);
                 entries.add(ModBlocks.CORN_TRAPDOOR);
-                entries.add(ModBlocks.CORN_CHAIR[0]);
                 entries.add(ModItems.CORN_BOAT);
                 entries.add(ModItems.CORN_CHEST_BOAT);
                 entries.add(ModBlocks.CORN_SIGN);
                 entries.add(ModBlocks.CORN_HANGING_SIGN);
                 entries.add(ModBlocks.POISONED_LEAVES);
                 entries.add(ModBlocks.POISONED_SAPLING);
+                entries.add(ModBlocks.POISONED_HANGING_MOSS);
                 entries.add(ModBlocks.POISONED_LOG);
                 entries.add(ModBlocks.STRIPPED_POISONED_LOG);
                 entries.add(ModBlocks.POISONED_WOOD);
@@ -541,13 +535,13 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.POISONED_BUTTON);
                 entries.add(ModBlocks.POISONED_DOOR);
                 entries.add(ModBlocks.POISONED_TRAPDOOR);
-                entries.add(ModBlocks.POISONED_CHAIR[0]);
                 entries.add(ModItems.POISONED_BOAT);
                 entries.add(ModItems.POISONED_CHEST_BOAT);
                 //entries.add(ModBlocks.POISONED_SIGN);
                 //entries.add(ModBlocks.POISONED_HANGING_SIGN);
                 entries.add(ModBlocks.MAHOGANY_LEAVES);
                 entries.add(ModBlocks.MAHOGANY_SAPLING);
+                entries.add(ModBlocks.MAHOGANY_HANGING_MOSS);
                 entries.add(ModBlocks.MAHOGANY_LOG);
                 entries.add(ModBlocks.STRIPPED_MAHOGANY_LOG);
                 entries.add(ModBlocks.MAHOGANY_WOOD);
@@ -561,13 +555,13 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.MAHOGANY_BUTTON);
                 entries.add(ModBlocks.MAHOGANY_DOOR);
                 entries.add(ModBlocks.MAHOGANY_TRAPDOOR);
-                entries.add(ModBlocks.MAHOGANY_CHAIR[0]);
                 entries.add(ModItems.MAHOGANY_BOAT);
                 entries.add(ModItems.MAHOGANY_CHEST_BOAT);
                 entries.add(ModBlocks.MAHOGANY_SIGN);
                 entries.add(ModBlocks.MAHOGANY_HANGING_SIGN);
                 entries.add(ModBlocks.FLOWERING_CHERRY_LEAVES);
                 entries.add(ModBlocks.FLOWERING_CHERRY_SAPLING);
+                entries.add(ModBlocks.FLOWERING_CHERRY_HANGING_MOSS);
                 entries.add(ModItems.CHERRY);
                 entries.add(ModItems.GOLDEN_CHERRY);
                 entries.add(ModItems.ENCHANTED_GOLDEN_CHERRY);
@@ -592,10 +586,96 @@ public interface ModItemGroups {
                 entries.add(ModBlocks.GLOW_FLOWER);
             }).build());
 
-    RegistryKey<ItemGroup> COLORED_BLOCKS_GROUP = register("colored_blocks", FabricItemGroup.builder()
-            .displayName(Text.translatable("itemGroup.blocktopia.colored_blocks"))
+    RegistryKey<ItemGroup> BUILDING_BLOCKS_GROUP = register("building_blocks", FabricItemGroup.builder()
+            .displayName(Text.translatable("itemGroup.blocktopia.building_blocks"))
             .icon(ModBlocks.OAK_CHAIR[1].asItem()::getDefaultStack)
             .entries((displayContext, entries) -> {
+                add(entries, ModBlocks.VERTICAL_OAK_SLAB);
+                add(entries, ModBlocks.VERTICAL_SPRUCE_SLAB);
+                add(entries, ModBlocks.VERTICAL_BIRCH_SLAB);
+                add(entries, ModBlocks.VERTICAL_JUNGLE_SLAB);
+                add(entries, ModBlocks.VERTICAL_ACACIA_SLAB);
+                add(entries, ModBlocks.VERTICAL_DARK_OAK_SLAB);
+                add(entries, ModBlocks.VERTICAL_MANGROVE_SLAB);
+                add(entries, ModBlocks.VERTICAL_CHERRY_SLAB);
+                add(entries, ModBlocks.VERTICAL_BAMBOO_SLAB);
+                add(entries, ModBlocks.VERTICAL_BAMBO_MOSAIC_SLAB);
+                add(entries, ModBlocks.VERTICAL_CRIMSON_SLAB);
+                add(entries, ModBlocks.VERTICAL_WARPED_SLAB);
+                add(entries, ModBlocks.VERTICAL_STONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_COBBLESTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_MOSSY_COBBLESTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_SMOOTH_STONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_STONE_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_MOSSY_STONE_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_GRANITE_SLAB);
+                add(entries, ModBlocks.VERTICAL_POLISHED_GRANITE_SLAB);
+                add(entries, ModBlocks.VERTICAL_DIORITE_SLAB);
+                add(entries, ModBlocks.VERTICAL_POLISHED_DIORITE_SLAB);
+                add(entries, ModBlocks.VERTICAL_ANDESITE_SLAB);
+                add(entries, ModBlocks.VERTICAL_POLISHED_ANDESITE_SLAB);
+                add(entries, ModBlocks.VERTICAL_COBBLED_DEEPSLATE_SLAB);
+                add(entries, ModBlocks.VERTICAL_POLISHED_DEEPSLATE_SLAB);
+                add(entries, ModBlocks.VERTICAL_DEEPSLATE_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_DEEPSLATE_TILE_SLAB);
+                add(entries, ModBlocks.VERTICAL_TUFF_SLAB);
+                add(entries, ModBlocks.VERTICAL_POLISHED_TUFF_SLAB);
+                add(entries, ModBlocks.VERTICAL_TUFF_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_MUD_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_SANDSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_SMOOTH_SANDSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_CUT_SANDSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_RED_SANDSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_SMOOTH_RED_SANDSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_CUT_RED_SANDSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_PRISMARINE_SLAB);
+                add(entries, ModBlocks.VERTICAL_BRISMARINE_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_DARK_PRISMARINE_SLAB);
+                add(entries, ModBlocks.VERTICAL_NETHER_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_RED_NETHER_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_BLACKSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_POLISHED_BLACKSTONE_SLAB);
+                add(entries, ModBlocks.VERTICAL_POLISHED_BLACKSTONE_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_ENDSTONE_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_PURPUR_SLAB);
+                add(entries, ModBlocks.VERTICAL_QUARTZ_SLAB);
+                add(entries, ModBlocks.VERTICAL_SMOOTH_QUARTZ_SLAB);
+                add(entries, ModBlocks.VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.WAXED_VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB);
+                add(entries, ModBlocks.VERTICAL_COBBLESTONE_SLAB_RD20090515);
+                add(entries, ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_3);
+                add(entries, ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_7);
+                add(entries, ModBlocks.VERTICAL_WOODEN_SLAB_RD20090515);
+                add(entries, ModBlocks.VERTICAL_WOODEN_SLAB_RD161348);
+                add(entries, ModBlocks.VERTICAL_WOODEN_SLAB_C0_0_14A);
+                add(entries, ModBlocks.VERTICAL_WOODEN_SLAB_B1_3);
+                add(entries, ModBlocks.VERTICAL_WOODEN_SLAB_B1_9PRE5);
+                add(entries, ModBlocks.VERTICAL_SANDSTONE_SLAB_B1_3);
+                add(entries, ModBlocks.VERTICAL_SANDSTONE_SLAB_1_2_4);
+                add(entries, ModBlocks.VERTICAL_BRICK_SLAB_C0_26ST);
+                add(entries, ModBlocks.VERTICAL_BRICK_SLAB_B1_8);
+                add(entries, ModBlocks.VERTICAL_STONE_BRICK_SLAB_B1_8);
+                add(entries, ModBlocks.VERTICAL_BIRCH_SLAB_1_3);
+                add(entries, ModBlocks.VERTICAL_SPRUCE_SLAB_1_3);
+                add(entries, ModBlocks.VERTICAL_JUNGLE_SLAB_1_3);
+                add(entries, ModBlocks.VERTICAL_NETHER_BRICK_SLAB_1_4_6);
+                add(entries, ModBlocks.VERTICAL_RED_SANDSTONE_SLAB_1_8);
+                add(entries, ModBlocks.VERTICAL_PURPUR_SLAB_1_9);
+                add(entries, ModBlocks.VERTICAL_PRISMARINE_SLAB_1_13);
+                add(entries, ModBlocks.VERTICAL_PALE_OAK_SLAB);
+                add(entries, ModBlocks.VERTICAL_RESIN_BRICK_SLAB);
+                add(entries, ModBlocks.VERTICAL_PALM_SLAB);
+                add(entries, ModBlocks.VERTICAL_BANANA_SLAB);
+                add(entries, ModBlocks.VERTICAL_CORN_SLAB);
+                add(entries, ModBlocks.VERTICAL_POISONED_SLAB);
+                add(entries, ModBlocks.VERTICAL_MAHOGANY_SLAB);
                 add(entries, ModBlocks.OAK_CHAIR);
                 add(entries, ModBlocks.SPRUCE_CHAIR);
                 add(entries, ModBlocks.BIRCH_CHAIR);
@@ -613,6 +693,16 @@ public interface ModItemGroups {
                 add(entries, ModBlocks.POISONED_CHAIR);
                 add(entries, ModBlocks.MAHOGANY_CHAIR);
                 add(entries, ModBlocks.PALE_OAK_CHAIR);
+                add(entries, ModBlocks.WOODEN_CHAIR_RD20090515);
+                add(entries, ModBlocks.WOODEN_CHAIR_RD161348);
+                add(entries, ModBlocks.WOODEN_CHAIR_C0_0_14A);
+                add(entries, ModBlocks.WOODEN_CHAIR_C0_0_15A);
+                add(entries, ModBlocks.WOODEN_CHAIR_B1_9PRE5);
+                add(entries, ModBlocks.BIRCH_CHAIR_1_2_4);
+                add(entries, ModBlocks.SPRUCE_CHAIR_1_2_4);
+                add(entries, ModBlocks.JUNGLE_CHAIR_1_2_4);
+                add(entries, ModBlocks.ACACIA_CHAIR_1_7);
+                add(entries, ModBlocks.DARK_OAK_CHAIR_1_7);
             })
             .build());
 

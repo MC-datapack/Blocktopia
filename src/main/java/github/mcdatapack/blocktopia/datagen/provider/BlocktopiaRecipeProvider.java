@@ -1,6 +1,8 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.FutureBlocks;
+import github.mcdatapack.blocktopia.block.LegacyBlocks;
 import github.mcdatapack.blocktopia.block.ModBlockFamilies;
 import github.mcdatapack.blocktopia.block.custom.ChairBlock;
 import github.mcdatapack.blocktopia.item.ModItems;
@@ -19,9 +21,9 @@ import github.mcdatapack.more_tools_and_armor.init.ItemInit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Item;
@@ -41,19 +43,22 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 import org.jetbrains.annotations.NotNull;
 
 public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
+    private RecipeExporter exporter = null;
+    
     public BlocktopiaRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
+    public void generate(RecipeExporter recipeExporter) {
+        exporter = recipeExporter;
+        
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, GOLD_ANVIL)
                 .input('A', ConventionalItemTags.GOLD_INGOTS)
                 .input('B', GOLD_BLOCK)
@@ -96,6 +101,103 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         chairRecipe(ModBlocks.POISONED_CHAIR, POISONED_CHAIRS, exporter);
         chairRecipe(ModBlocks.MAHOGANY_CHAIR, MAHOGANY_CHAIRS, exporter);
         chairRecipe(ModBlocks.PALE_OAK_CHAIR, PALE_OAK_CHAIRS, exporter);
+        chairRecipe(WOODEN_CHAIR_RD20090515, WOODEN_CHAIRS_RD20090515, exporter);
+        chairRecipe(WOODEN_CHAIR_RD161348, WOODEN_CHAIRS_RD161348, exporter);
+        chairRecipe(WOODEN_CHAIR_C0_0_14A, WOODEN_CHAIRS_C0_0_14A, exporter);
+        chairRecipe(WOODEN_CHAIR_C0_0_15A, WOODEN_CHAIRS_C0_0_15A, exporter);
+        chairRecipe(WOODEN_CHAIR_B1_9PRE5, WOODEN_CHAIRS_B1_9PRE5, exporter);
+        chairRecipe(BIRCH_CHAIR_1_2_4, BIRCH_CHAIRS_1_2_4, exporter);
+        chairRecipe(SPRUCE_CHAIR_1_2_4, SPRUCE_CHAIRS_1_2_4, exporter);
+        chairRecipe(JUNGLE_CHAIR_1_2_4, JUNGLE_CHAIRS_1_2_4, exporter);
+        chairRecipe(ACACIA_CHAIR_1_7, ACACIA_CHAIRS_1_7, exporter);
+        chairRecipe(DARK_OAK_CHAIR_1_7, DARK_OAK_CHAIRS_1_7, exporter);
+
+        verticalSlabRecipe(ModBlocks.VERTICAL_OAK_SLAB, Blocks.OAK_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SPRUCE_SLAB, Blocks.SPRUCE_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BIRCH_SLAB, Blocks.BIRCH_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_JUNGLE_SLAB, Blocks.JUNGLE_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_ACACIA_SLAB, Blocks.ACACIA_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_DARK_OAK_SLAB, Blocks.DARK_OAK_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_MANGROVE_SLAB, Blocks.MANGROVE_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_CHERRY_SLAB, Blocks.CHERRY_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BAMBOO_SLAB, Blocks.BAMBOO_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BAMBO_MOSAIC_SLAB, Blocks.BAMBOO_MOSAIC, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_CRIMSON_SLAB, Blocks.CRIMSON_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_WARPED_SLAB, Blocks.WARPED_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_STONE_SLAB, Blocks.STONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_COBBLESTONE_SLAB, Blocks.COBBLESTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_MOSSY_COBBLESTONE_SLAB, Blocks.MOSSY_COBBLESTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SMOOTH_STONE_SLAB, Blocks.SMOOTH_STONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_STONE_BRICK_SLAB, Blocks.STONE_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_MOSSY_STONE_BRICK_SLAB, Blocks.MOSSY_STONE_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_GRANITE_SLAB, Blocks.GRANITE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POLISHED_GRANITE_SLAB, Blocks.POLISHED_GRANITE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_DIORITE_SLAB, Blocks.DIORITE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POLISHED_DIORITE_SLAB, Blocks.POLISHED_DIORITE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_ANDESITE_SLAB, Blocks.ANDESITE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POLISHED_ANDESITE_SLAB, Blocks.POLISHED_ANDESITE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_COBBLED_DEEPSLATE_SLAB, Blocks.COBBLED_DEEPSLATE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POLISHED_DEEPSLATE_SLAB, Blocks.POLISHED_DEEPSLATE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_DEEPSLATE_BRICK_SLAB, Blocks.DEEPSLATE_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_DEEPSLATE_TILE_SLAB, Blocks.DEEPSLATE_TILES);
+        verticalSlabRecipe(ModBlocks.VERTICAL_TUFF_SLAB, Blocks.TUFF);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POLISHED_TUFF_SLAB, Blocks.POLISHED_TUFF);
+        verticalSlabRecipe(ModBlocks.VERTICAL_TUFF_BRICK_SLAB, Blocks.TUFF_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BRICK_SLAB, Blocks.BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_MUD_BRICK_SLAB, Blocks.MUD_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SANDSTONE_SLAB, Blocks.SANDSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SMOOTH_SANDSTONE_SLAB, Blocks.SMOOTH_SANDSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_CUT_SANDSTONE_SLAB, Blocks.CUT_SANDSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_RED_SANDSTONE_SLAB, Blocks.RED_SANDSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SMOOTH_RED_SANDSTONE_SLAB, Blocks.SMOOTH_RED_SANDSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_CUT_RED_SANDSTONE_SLAB, Blocks.CUT_RED_SANDSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_PRISMARINE_SLAB, Blocks.PRISMARINE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BRISMARINE_BRICK_SLAB, Blocks.PRISMARINE_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_DARK_PRISMARINE_SLAB, Blocks.DARK_PRISMARINE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_NETHER_BRICK_SLAB, Blocks.NETHER_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_RED_NETHER_BRICK_SLAB, Blocks.RED_NETHER_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BLACKSTONE_SLAB, Blocks.BLACKSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POLISHED_BLACKSTONE_SLAB, Blocks.POLISHED_BLACKSTONE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POLISHED_BLACKSTONE_BRICK_SLAB, Blocks.POLISHED_BLACKSTONE_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_ENDSTONE_BRICK_SLAB, Blocks.END_STONE_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_PURPUR_SLAB, Blocks.PURPUR_BLOCK);
+        verticalSlabRecipe(ModBlocks.VERTICAL_QUARTZ_SLAB, Blocks.QUARTZ_BLOCK);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SMOOTH_QUARTZ_SLAB, Blocks.SMOOTH_QUARTZ);
+        verticalSlabRecipe(ModBlocks.VERTICAL_CUT_COPPER_SLAB, Blocks.CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB, Blocks.EXPOSED_CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB, Blocks.WEATHERED_CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB, Blocks.OXIDIZED_CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.WAXED_VERTICAL_CUT_COPPER_SLAB, Blocks.CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB, Blocks.EXPOSED_CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB, Blocks.WEATHERED_CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB, Blocks.OXIDIZED_CUT_COPPER);
+        verticalSlabRecipe(ModBlocks.VERTICAL_COBBLESTONE_SLAB_RD20090515, LegacyBlocks.COBBLESTONE_RD20090515);
+        verticalSlabRecipe(ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_3, LegacyBlocks.COBBLESTONE_C0_0_14A);
+        verticalSlabRecipe(ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_7, LegacyBlocks.COBBLESTONE_B1_7);
+        verticalSlabRecipe(ModBlocks.VERTICAL_WOODEN_SLAB_RD20090515, LegacyBlocks.WOODEN_PLANKS_RD20090515, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_WOODEN_SLAB_RD161348, LegacyBlocks.WOODEN_PLANKS_RD161348, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_WOODEN_SLAB_C0_0_14A, LegacyBlocks.WOODEN_PLANKS_C0_0_14A, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_WOODEN_SLAB_B1_3, LegacyBlocks.WOODEN_PLANKS_C0_0_15A, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_WOODEN_SLAB_B1_9PRE5, LegacyBlocks.WOODEN_PLANKS_B1_9PRE5, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SANDSTONE_SLAB_B1_3, LegacyBlocks.SANDSTONE_B1_2);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SANDSTONE_SLAB_1_2_4, LegacyBlocks.SANDSTONE_1_2_4);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BRICK_SLAB_C0_26ST, LegacyBlocks.BRICKS_C0_26ST);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BRICK_SLAB_B1_8, LegacyBlocks.BRICKS_A1_0_11);
+        verticalSlabRecipe(ModBlocks.VERTICAL_STONE_BRICK_SLAB_B1_8, LegacyBlocks.STONE_BRICKS_B1_8);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BIRCH_SLAB_1_3, LegacyBlocks.BIRCH_PLANKS_1_2_4, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_SPRUCE_SLAB_1_3, LegacyBlocks.SPRUCE_PLANKS_1_2_4, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_JUNGLE_SLAB_1_3, LegacyBlocks.JUNGLE_PLANKS_1_2_4, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_NETHER_BRICK_SLAB_1_4_6, LegacyBlocks.NETHER_BRICKS_B1_9PRE);
+        verticalSlabRecipe(ModBlocks.VERTICAL_RED_SANDSTONE_SLAB_1_8, LegacyBlocks.RED_SANDSTONE_1_8);
+        verticalSlabRecipe(ModBlocks.VERTICAL_PURPUR_SLAB_1_9, LegacyBlocks.PURPUR_BLOCK_1_9);
+        verticalSlabRecipe(ModBlocks.VERTICAL_PRISMARINE_SLAB_1_13, LegacyBlocks.PRISMARINE_1_8);
+        verticalSlabRecipe(ModBlocks.VERTICAL_PALE_OAK_SLAB, FutureBlocks.PALE_OAK_PLANKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_RESIN_BRICK_SLAB, FutureBlocks.RESIN_BRICKS);
+        verticalSlabRecipe(ModBlocks.VERTICAL_PALM_SLAB, ModBlocks.PALM_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_BANANA_SLAB, ModBlocks.BANANA_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_CORN_SLAB, ModBlocks.CORN_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_POISONED_SLAB, ModBlocks.POISONED_PLANKS, false);
+        verticalSlabRecipe(ModBlocks.VERTICAL_MAHOGANY_SLAB, ModBlocks.MAHOGANY_PLANKS, false);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FLUID_TANK)
                 .input('G', ConventionalItemTags.GLASS_PANES)
@@ -155,6 +257,49 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         offerSingleOutputShapelessRecipe(exporter, PURPLE_DYE, ModBlocks.GLOW_FLOWER, "purple_dye");
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, COPPER_NUGGET, 9)
+                .input(COPPER_INGOT)
+                .criterion(hasItem(COPPER_INGOT), conditionsFromItem(COPPER_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, COPPER_INGOT, 1)
+                .input('A', COPPER_NUGGET)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .criterion(hasItem(COPPER_INGOT), conditionsFromItem(COPPER_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, COPPER_TORCH, 4)
+                .input('A', COPPER_NUGGET)
+                .input('B', ItemTags.COALS)
+                .input('C', STICK)
+                .pattern("A")
+                .pattern("B")
+                .pattern("C")
+                .criterion(hasItem(COPPER_NUGGET), conditionsFromItem(COPPER_NUGGET))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, COPPER_LANTERN)
+                .input('A', COPPER_NUGGET)
+                .input('B', COPPER_TORCH)
+                .pattern("AAA")
+                .pattern("ABA")
+                .pattern("AAA")
+                .criterion(hasItem(COPPER_NUGGET), conditionsFromItem(COPPER_NUGGET))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, COPPER_BARS, 16)
+                .input('A', COPPER_INGOT)
+                .pattern("AAA")
+                .pattern("AAA")
+                .criterion(hasItem(COPPER_INGOT), conditionsFromItem(COPPER_INGOT))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, COPPER_CHAIN)
+                .input('A', COPPER_NUGGET)
+                .input('B', COPPER_INGOT)
+                .pattern("A")
+                .pattern("B")
+                .pattern("A")
+                .criterion(hasItem(COPPER_NUGGET), conditionsFromItem(COPPER_NUGGET))
+                .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SPONGE_TNT, 2)
                 .input(SPONGE_C0_0_19A).input(TNT)
@@ -341,8 +486,8 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
         List<ItemConvertible> golden_potato = List.of(ModItems.GOLDEN_POTATO);
         List<ItemConvertible> enchanted_golden_potato = List.of(ModItems.ENCHANTED_GOLDEN_POTATO);
-        RecipeProvider.offerSmelting(exporter, golden_potato, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POTATO, 1.0F, 200, "golden_baked_potato");
-        RecipeProvider.offerSmelting(exporter, enchanted_golden_potato, RecipeCategory.FOOD, ModItems.ENCHANTED_GOLDEN_BAKED_POTATO, 1.0F, 200, "enchanted_golden_baked_potato");
+        offerSmelting(exporter, golden_potato, RecipeCategory.FOOD, ModItems.GOLDEN_BAKED_POTATO, 1.0F, 200, "golden_baked_potato");
+        offerSmelting(exporter, enchanted_golden_potato, RecipeCategory.FOOD, ModItems.ENCHANTED_GOLDEN_BAKED_POTATO, 1.0F, 200, "enchanted_golden_baked_potato");
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.GOLDEN_CHERRY)
                 .input('A', GOLD_INGOT)
                 .input('B', ModItems.CHERRY)
@@ -844,8 +989,8 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
 
 
         //Legacy Recipes
-        offerLegacyCutterRecipe(exporter, Blocks.COBBLESTONE, COBBLESTONE_B1_7, COBBLESTONE_C0_0_14A, COBBLESTONE_RD20090515);
-        offerLegacyCutterRecipe(exporter, Blocks.OAK_PLANKS, WOODEN_PLANKS_B1_9PRE5, WOODEN_PLANKS_C0_0_15A, WOODEN_PLANKS_C0_0_14A, WOODEN_PLANKS_RD161348, WOODEN_PLANKS_RD20090515);
+        offerLegacyCutterRecipe(Blocks.COBBLESTONE, COBBLESTONE_B1_7, COBBLESTONE_C0_0_14A, COBBLESTONE_RD20090515);
+        offerLegacyCutterRecipe(Blocks.OAK_PLANKS, WOODEN_PLANKS_B1_9PRE5, WOODEN_PLANKS_C0_0_15A, WOODEN_PLANKS_C0_0_14A, WOODEN_PLANKS_RD161348, WOODEN_PLANKS_RD20090515);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_PLANKS_C0_0_14A, 4)
                 .input(LOG_C0_0_14A)
                 .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
@@ -861,34 +1006,34 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .input(LOG_C0_0_14A)
                 .criterion(hasItem(LOG_C0_0_14A), conditionsFromItem(LOG_C0_0_14A))
                 .offerTo(exporter);
-        offerLegacyCutterRecipe(exporter, OAK_LOG, LOG_C0_0_14A);
-        offerLegacyCutterRecipe(exporter, OAK_LEAVES, LEAVES_C0_24ST, LEAVES_C0_0_15A, LEAVES_C0_0_14A);
-        offerLegacyCutterRecipe(exporter, OAK_SAPLING, SAPLING_C0_24ST, SAPLING_C0_0_13A, SAPLING_RD161348);
-        offerLegacyCutterRecipe(exporter, BEDROCK, BEDROCK_C0_0_12A);
-        offerLegacyCutterRecipe(exporter, SAND, SAND_B1_9PRE6, SAND_C0_0_15A, SAND_C0_0_14A);
-        offerLegacyCutterRecipe(exporter, GRAVEL, GRAVEL_1_3, GRAVEL_B1_9PRE5, GRAVEL_C0_0_15A, GRAVEL_C0_0_14A);
-        offerLegacyCutterRecipe(exporter, COAL_ORE, COAL_ORE_1_14, COAL_ORE_C0_0_14A);
-        offerLegacyCutterRecipe(exporter, IRON_ORE, IRON_ORE_1_14_1, IRON_ORE_1_14, IRON_ORE_C0_0_14A);
-        offerLegacyCutterRecipe(exporter, GOLD_ORE, GOLD_ORE_1_14, GOLD_ORE_C0_26ST, GOLD_ORE_C0_0_14A);
-        offerLegacyCutterRecipe(exporter, SPONGE, SPONGE_1_8, SPONGE_C0_0_19A);
-        offerLegacyCutterRecipe(exporter, WET_SPONGE, WET_SPONGE_1_8);
-        offerLegacyCutterRecipe(exporter, GLASS, GLASS_C0_0_19A);
-        offerLegacyCutterRecipe(exporter, GOLD_BLOCK, GOLD_BLOCK_B1_9PRE5, GOLD_BLOCK_A1_2_0, GOLD_BLOCK_C0_26ST, GOLD_BLOCK_C0_0_20A);
-        offerLegacyCutterRecipe(exporter, DANDELION, DANDELION_C0_0_20A);
-        offerLegacyCutterRecipe(exporter, POPPY, ROSE_C0_0_20A, POPPY_1_7);
-        offerLegacyCutterRecipe(exporter, BROWN_MUSHROOM, BROWN_MUSHROOM_C0_0_20A);
-        offerLegacyCutterRecipe(exporter, RED_MUSHROOM, RED_MUSHROOM_C0_0_20A);
-        offerLegacyCutterRecipe(exporter, IRON_BLOCK, IRON_BLOCK_B1_9PRE5, IRON_BLOCK_A1_2_0, IRON_BLOCK_C0_26ST);
-        offerLegacyCutterRecipe(exporter, TNT, TNT_C0_28A, TNT_C0_26ST);
-        offerLegacyCutterRecipe(exporter, MOSSY_COBBLESTONE, MOSSY_COBBLESTONE_C0_26ST, MOSSY_COBBLESTONE_C0_26ST);
-        offerLegacyCutterRecipe(exporter, BRICKS, BRICKS_A1_0_11, BRICKS_C0_26ST);
-        offerLegacyCutterRecipe(exporter, BOOKSHELF, BOOKSHELF_B1_9PRE5, BOOKSHELF_C0_26ST);
-        offerLegacyCutterRecipe(exporter, OBSIDIAN, OBSIDIAN_C0_28A);
-        offerLegacyCutterRecipe(exporter, DIAMOND_ORE, DIAMOND_ORE_1_14, DIAMOND_ORE_IN20100128);
-        offerLegacyCutterRecipe(exporter, DIAMOND_BLOCK, DIAMOND_BLOCK_B1_9PRE5, DIAMOND_BLOCK_A1_2_0, DIAMOND_BLOCK_IN20100128);
-        offerLegacyCutterRecipe(exporter, CRAFTING_TABLE, CRAFTING_TABLE_1_14, CRAFTING_TABLE_IN20100131);
-        offerLegacyCutterRecipe(exporter, FURNACE, FURNACE_B1_2, FURNACE_IN20100219);
-        offerLegacyCutterRecipe(exporter, LADDER, LADDER_INF20100607, LADDER_INF20100618);
+        offerLegacyCutterRecipe(OAK_LOG, LOG_C0_0_14A);
+        offerLegacyCutterRecipe(OAK_LEAVES, LEAVES_C0_24ST, LEAVES_C0_0_15A, LEAVES_C0_0_14A);
+        offerLegacyCutterRecipe(OAK_SAPLING, SAPLING_C0_24ST, SAPLING_C0_0_13A, SAPLING_RD161348);
+        offerLegacyCutterRecipe(BEDROCK, BEDROCK_C0_0_12A);
+        offerLegacyCutterRecipe(SAND, SAND_B1_9PRE6, SAND_C0_0_15A, SAND_C0_0_14A);
+        offerLegacyCutterRecipe(GRAVEL, GRAVEL_1_3, GRAVEL_B1_9PRE5, GRAVEL_C0_0_15A, GRAVEL_C0_0_14A);
+        offerLegacyCutterRecipe(COAL_ORE, COAL_ORE_1_14, COAL_ORE_C0_0_14A);
+        offerLegacyCutterRecipe(IRON_ORE, IRON_ORE_1_14_1, IRON_ORE_1_14, IRON_ORE_C0_0_14A);
+        offerLegacyCutterRecipe(GOLD_ORE, GOLD_ORE_1_14, GOLD_ORE_C0_26ST, GOLD_ORE_C0_0_14A);
+        offerLegacyCutterRecipe(SPONGE, SPONGE_1_8, SPONGE_C0_0_19A);
+        offerLegacyCutterRecipe(WET_SPONGE, WET_SPONGE_1_8);
+        offerLegacyCutterRecipe(GLASS, GLASS_C0_0_19A);
+        offerLegacyCutterRecipe(GOLD_BLOCK, GOLD_BLOCK_B1_9PRE5, GOLD_BLOCK_A1_2_0, GOLD_BLOCK_C0_26ST, GOLD_BLOCK_C0_0_20A);
+        offerLegacyCutterRecipe(DANDELION, DANDELION_C0_0_20A);
+        offerLegacyCutterRecipe(POPPY, ROSE_C0_0_20A, POPPY_1_7);
+        offerLegacyCutterRecipe(BROWN_MUSHROOM, BROWN_MUSHROOM_C0_0_20A);
+        offerLegacyCutterRecipe(RED_MUSHROOM, RED_MUSHROOM_C0_0_20A);
+        offerLegacyCutterRecipe(IRON_BLOCK, IRON_BLOCK_B1_9PRE5, IRON_BLOCK_A1_2_0, IRON_BLOCK_C0_26ST);
+        offerLegacyCutterRecipe(TNT, TNT_C0_28A, TNT_C0_26ST);
+        offerLegacyCutterRecipe(MOSSY_COBBLESTONE, MOSSY_COBBLESTONE_C0_26ST, MOSSY_COBBLESTONE_C0_26ST);
+        offerLegacyCutterRecipe(BRICKS, BRICKS_A1_0_11, BRICKS_C0_26ST);
+        offerLegacyCutterRecipe(BOOKSHELF, BOOKSHELF_B1_9PRE5, BOOKSHELF_C0_26ST);
+        offerLegacyCutterRecipe(OBSIDIAN, OBSIDIAN_C0_28A);
+        offerLegacyCutterRecipe(DIAMOND_ORE, DIAMOND_ORE_1_14, DIAMOND_ORE_IN20100128);
+        offerLegacyCutterRecipe(DIAMOND_BLOCK, DIAMOND_BLOCK_B1_9PRE5, DIAMOND_BLOCK_A1_2_0, DIAMOND_BLOCK_IN20100128);
+        offerLegacyCutterRecipe(CRAFTING_TABLE, CRAFTING_TABLE_1_14, CRAFTING_TABLE_IN20100131);
+        offerLegacyCutterRecipe(FURNACE, FURNACE_B1_2, FURNACE_IN20100219);
+        offerLegacyCutterRecipe(LADDER, LADDER_INF20100607, LADDER_INF20100618);
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_STAIRS_RD20090515)
                 .input('A', WOODEN_PLANKS_RD20090515)
                 .pattern("A  ")
@@ -943,8 +1088,8 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AAA")
                 .criterion(hasItem(COBBLESTONE_B1_7), conditionsFromItem(COBBLESTONE_B1_7))
                 .offerTo(exporter);
-        offerLegacyCutterRecipe(exporter, TORCH, TORCH_IN20100124_2);
-        offerLegacyCutterRecipe(exporter, OAK_DOOR, WOODEN_DOOR_INF20100607);
+        offerLegacyCutterRecipe(TORCH, TORCH_IN20100124_2);
+        offerLegacyCutterRecipe(OAK_DOOR, WOODEN_DOOR_INF20100607);
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_DOOR_INF20100607)
                 .input('A', WOODEN_PLANKS_C0_0_15A)
                 .pattern("AA")
@@ -952,13 +1097,13 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("AA")
                 .criterion(hasItem(WOODEN_PLANKS_C0_0_15A), conditionsFromItem(WOODEN_PLANKS_C0_0_15A))
                 .offerTo(exporter);
-        offerLegacyCutterRecipe(exporter, REDSTONE_ORE, REDSTONE_ORE_1_14, REDSTONE_ORE_A1_0_1);
-        offerLegacyCutterRecipe(exporter, REDSTONE_TORCH, REDSTONE_TORCH_A1_0_1);
-        offerLegacyCutterRecipe(exporter, SNOW, SNOW_A1_0_4);
-        offerLegacyCutterRecipe(exporter, SNOW_BLOCK, SNOW_BLOCK_A1_0_5);
-        offerLegacyCutterRecipe(exporter, ICE, ICE_A1_0_4);
-        offerLegacyCutterRecipe(exporter, CLAY, CLAY_BLOCK_A1_0_11);
-        offerLegacyCutterRecipe(exporter, OAK_FENCE, WOODEN_FENCE_B1_9PRE5, WOODEN_FENCE_A1_0_17, WOODEN_FENCE_C0_0_14A, WOODEN_FENCE_RD161348, WOODEN_FENCE_RD20090515);
+        offerLegacyCutterRecipe(REDSTONE_ORE, REDSTONE_ORE_1_14, REDSTONE_ORE_A1_0_1);
+        offerLegacyCutterRecipe(REDSTONE_TORCH, REDSTONE_TORCH_A1_0_1);
+        offerLegacyCutterRecipe(SNOW, SNOW_A1_0_4);
+        offerLegacyCutterRecipe(SNOW_BLOCK, SNOW_BLOCK_A1_0_5);
+        offerLegacyCutterRecipe(ICE, ICE_A1_0_4);
+        offerLegacyCutterRecipe(CLAY, CLAY_BLOCK_A1_0_11);
+        offerLegacyCutterRecipe(OAK_FENCE, WOODEN_FENCE_B1_9PRE5, WOODEN_FENCE_A1_0_17, WOODEN_FENCE_C0_0_14A, WOODEN_FENCE_RD161348, WOODEN_FENCE_RD20090515);
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, WOODEN_FENCE_RD20090515)
                 .input('A', WOODEN_PLANKS_RD20090515)
                 .input('B', ConventionalItemTags.WOODEN_RODS)
@@ -994,151 +1139,151 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 .pattern("ABA")
                 .criterion(hasItem(WOODEN_PLANKS_B1_9PRE5), conditionsFromItem(WOODEN_PLANKS_B1_9PRE5))
                 .offerTo(exporter);
-        offerLegacyCutterRecipe(exporter, NETHERRACK, NETHERRACK_B1_9PRE5, NETHERRACK_A1_2_0);
-        offerLegacyCutterRecipe(exporter, SOUL_SAND, SOUL_SAND_A1_2_0);
-        offerLegacyCutterRecipe(exporter, GLOWSTONE, GLOWSTONE_B1_9PRE5, GLOWSTONE_A1_2_0);
-        offerLegacyCutterRecipe(exporter, CARVED_PUMPKIN, CARVED_PUMPKIN_A1_2_0);
-        offerLegacyCutterRecipe(exporter, JACK_O_LANTERN, JACK_O_LANTERN_A1_2_0);
-        offerLegacyCutterRecipe(exporter, LIGHT_GRAY_WOOL, LIGHT_GRAY_WOOL_1_2_4, LIGHT_GRAY_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, GRAY_WOOL, GRAY_WOOL_1_2_4, GRAY_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, BLACK_WOOL, BLACK_WOOL_1_2_4, BLACK_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, BROWN_WOOL, BROWN_WOOL_1_2_4, BROWN_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, RED_WOOL, RED_WOOL_1_2_4, RED_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, ORANGE_WOOL, ORANGE_WOOL_1_2_4, ORANGE_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, YELLOW_WOOL, YELLOW_WOOL_1_2_4, YELLOW_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, LIME_WOOL, LIME_WOOL_1_2_4, LIME_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, GREEN_WOOL, GREEN_WOOL_1_2_4, GREEN_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, CYAN_WOOL, CYAN_WOOL_1_2_4, CYAN_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, LIGHT_BLUE_WOOL, LIGHT_BLUE_WOOL_1_2_4, LIGHT_BLUE_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, BLUE_WOOL, BLUE_WOOL_1_2_4, BLUE_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, PURPLE_WOOL, PURPLE_WOOL_1_2_4, PURPLE_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, MAGENTA_WOOL, MAGENTA_WOOL_1_2_4, MAGENTA_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, PINK_WOOL, PINK_WOOL_1_2_4, PINK_WOOL_B1_2);
-        offerLegacyCutterRecipe(exporter, CAKE, CAKE_B1_2);
-        offerLegacyCutterRecipe(exporter, LAPIS_ORE, LAPIS_ORE_1_14, LAPIS_ORE_B1_2);
-        offerLegacyCutterRecipe(exporter, LAPIS_BLOCK, LAPIS_BLOCK_1_6, LAPIS_BLOCK_B1_2);
-        offerLegacyCutterRecipe(exporter, NOTE_BLOCK, NOTE_BLOCK_B1_2);
-        offerLegacyCutterRecipe(exporter, SANDSTONE, SANDSTONE_1_2_4, SANDSTONE_B1_2);
-        offerLegacyCutterRecipe(exporter, BIRCH_LOG, BIRCH_LOG_B1_2, BIRCH_LOG_1_7);
-        offerLegacyCutterRecipe(exporter, BIRCH_LEAVES, BIRCH_LEAVES_B1_2);
-        offerLegacyCutterRecipe(exporter, SPRUCE_LOG, SPRUCE_LOG_B1_2, SPRUCE_LOG_1_7);
-        offerLegacyCutterRecipe(exporter, SPRUCE_LEAVES, SPRUCE_LEAVES_B1_2);
-        offerLegacyCutterRecipe(exporter, CRYING_OBSIDIAN, CRYING_OBSIDIAN_B1_3);
-        offerLegacyCutterRecipe(exporter, COBBLESTONE_SLAB, COBBLESTONE_SLAB_B1_7, COBBLESTONE_SLAB_B1_3, COBBLESTONE_SLAB_RD20090515);
-        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_B1_7, COBBLESTONE_B1_7);
+        offerLegacyCutterRecipe(NETHERRACK, NETHERRACK_B1_9PRE5, NETHERRACK_A1_2_0);
+        offerLegacyCutterRecipe(SOUL_SAND, SOUL_SAND_A1_2_0);
+        offerLegacyCutterRecipe(GLOWSTONE, GLOWSTONE_B1_9PRE5, GLOWSTONE_A1_2_0);
+        offerLegacyCutterRecipe(CARVED_PUMPKIN, CARVED_PUMPKIN_A1_2_0);
+        offerLegacyCutterRecipe(JACK_O_LANTERN, JACK_O_LANTERN_A1_2_0);
+        offerLegacyCutterRecipe(LIGHT_GRAY_WOOL, LIGHT_GRAY_WOOL_1_2_4, LIGHT_GRAY_WOOL_B1_2);
+        offerLegacyCutterRecipe(GRAY_WOOL, GRAY_WOOL_1_2_4, GRAY_WOOL_B1_2);
+        offerLegacyCutterRecipe(BLACK_WOOL, BLACK_WOOL_1_2_4, BLACK_WOOL_B1_2);
+        offerLegacyCutterRecipe(BROWN_WOOL, BROWN_WOOL_1_2_4, BROWN_WOOL_B1_2);
+        offerLegacyCutterRecipe(RED_WOOL, RED_WOOL_1_2_4, RED_WOOL_B1_2);
+        offerLegacyCutterRecipe(ORANGE_WOOL, ORANGE_WOOL_1_2_4, ORANGE_WOOL_B1_2);
+        offerLegacyCutterRecipe(YELLOW_WOOL, YELLOW_WOOL_1_2_4, YELLOW_WOOL_B1_2);
+        offerLegacyCutterRecipe(LIME_WOOL, LIME_WOOL_1_2_4, LIME_WOOL_B1_2);
+        offerLegacyCutterRecipe(GREEN_WOOL, GREEN_WOOL_1_2_4, GREEN_WOOL_B1_2);
+        offerLegacyCutterRecipe(CYAN_WOOL, CYAN_WOOL_1_2_4, CYAN_WOOL_B1_2);
+        offerLegacyCutterRecipe(LIGHT_BLUE_WOOL, LIGHT_BLUE_WOOL_1_2_4, LIGHT_BLUE_WOOL_B1_2);
+        offerLegacyCutterRecipe(BLUE_WOOL, BLUE_WOOL_1_2_4, BLUE_WOOL_B1_2);
+        offerLegacyCutterRecipe(PURPLE_WOOL, PURPLE_WOOL_1_2_4, PURPLE_WOOL_B1_2);
+        offerLegacyCutterRecipe(MAGENTA_WOOL, MAGENTA_WOOL_1_2_4, MAGENTA_WOOL_B1_2);
+        offerLegacyCutterRecipe(PINK_WOOL, PINK_WOOL_1_2_4, PINK_WOOL_B1_2);
+        offerLegacyCutterRecipe(CAKE, CAKE_B1_2);
+        offerLegacyCutterRecipe(LAPIS_ORE, LAPIS_ORE_1_14, LAPIS_ORE_B1_2);
+        offerLegacyCutterRecipe(LAPIS_BLOCK, LAPIS_BLOCK_1_6, LAPIS_BLOCK_B1_2);
+        offerLegacyCutterRecipe(NOTE_BLOCK, NOTE_BLOCK_B1_2);
+        offerLegacyCutterRecipe(SANDSTONE, SANDSTONE_1_2_4, SANDSTONE_B1_2);
+        offerLegacyCutterRecipe(BIRCH_LOG, BIRCH_LOG_B1_2, BIRCH_LOG_1_7);
+        offerLegacyCutterRecipe(BIRCH_LEAVES, BIRCH_LEAVES_B1_2);
+        offerLegacyCutterRecipe(SPRUCE_LOG, SPRUCE_LOG_B1_2, SPRUCE_LOG_1_7);
+        offerLegacyCutterRecipe(SPRUCE_LEAVES, SPRUCE_LEAVES_B1_2);
+        offerLegacyCutterRecipe(CRYING_OBSIDIAN, CRYING_OBSIDIAN_B1_3);
+        offerLegacyCutterRecipe(COBBLESTONE_SLAB, COBBLESTONE_SLAB_B1_7, COBBLESTONE_SLAB_B1_3, COBBLESTONE_SLAB_RD20090515);
+        offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_B1_7, COBBLESTONE_SLAB_B1_7);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_SLAB_B1_3, COBBLESTONE_C0_0_14A);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_SLAB_RD20090515, COBBLESTONE_RD20090515);
-        offerLegacyCutterRecipe(exporter, OAK_SLAB, WOODEN_SLAB_B1_9PRE5, WOODEN_SLAB_B1_3, WOODEN_SLAB_C0_0_14A, WOODEN_SLAB_RD161348, WOODEN_SLAB_RD20090515);
+        offerLegacyCutterRecipe(OAK_SLAB, WOODEN_SLAB_B1_9PRE5, WOODEN_SLAB_B1_3, WOODEN_SLAB_C0_0_14A, WOODEN_SLAB_RD161348, WOODEN_SLAB_RD20090515);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_SLAB_B1_9PRE5, WOODEN_PLANKS_B1_9PRE5);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_SLAB_B1_3, WOODEN_PLANKS_C0_0_15A);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_SLAB_C0_0_14A, WOODEN_PLANKS_C0_0_14A);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_SLAB_RD161348, WOODEN_PLANKS_RD161348);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, WOODEN_SLAB_RD20090515, WOODEN_PLANKS_RD20090515);
-        offerLegacyCutterRecipe(exporter, SANDSTONE_SLAB, SANDSTONE_SLAB_1_2_4, SANDSTONE_SLAB_B1_3);
+        offerLegacyCutterRecipe(SANDSTONE_SLAB, SANDSTONE_SLAB_1_2_4, SANDSTONE_SLAB_B1_3);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SANDSTONE_SLAB_1_2_4, SANDSTONE_1_2_4);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SANDSTONE_SLAB_B1_3, SANDSTONE_B1_2);
-        offerLegacyCutterRecipe(exporter, SMOOTH_STONE, SMOOTH_STONE_B1_3);
-        offerLegacyCutterRecipe(exporter, BIRCH_SAPLING, BIRCH_SAPLING_B1_5);
-        offerLegacyCutterRecipe(exporter, SPRUCE_SAPLING, SPRUCE_SAPLING_B1_5);
-        offerLegacyCutterRecipe(exporter, POWERED_RAIL, POWERED_RAIL_B1_5);
-        offerLegacyCutterRecipe(exporter, DETECTOR_RAIL, DETECTOR_RAIL_B1_5);
-        offerLegacyCutterRecipe(exporter, COBWEB, COBWEB_B1_5);
-        offerLegacyCutterRecipe(exporter, DEAD_BUSH, DEAD_BUSH_B1_6, SHRUB_B1_6);
-        offerLegacyCutterRecipe(exporter, SHORT_GRASS, SHORT_GRASS_B1_6);
-        offerLegacyCutterRecipe(exporter, FERN, FERN_B1_6);
-        offerLegacyCutterRecipe(exporter, OAK_TRAPDOOR, TRAPDOOR_B1_6);
-        offerLegacyCutterRecipe(exporter, STONE_BRICKS, STONE_BRICKS_B1_8);
-        offerLegacyCutterRecipe(exporter, CRACKED_STONE_BRICKS, CRACKED_STONE_BRICKS_B1_8);
-        offerLegacyCutterRecipe(exporter, MOSSY_STONE_BRICKS, MOSSY_STONE_BRICKS_B1_8);
-        offerLegacyCutterRecipe(exporter, BRICK_SLAB, BRICK_SLAB_B1_8, BRICK_SLAB_C0_26ST);
+        offerLegacyCutterRecipe(SMOOTH_STONE, SMOOTH_STONE_B1_3);
+        offerLegacyCutterRecipe(BIRCH_SAPLING, BIRCH_SAPLING_B1_5);
+        offerLegacyCutterRecipe(SPRUCE_SAPLING, SPRUCE_SAPLING_B1_5);
+        offerLegacyCutterRecipe(POWERED_RAIL, POWERED_RAIL_B1_5);
+        offerLegacyCutterRecipe(DETECTOR_RAIL, DETECTOR_RAIL_B1_5);
+        offerLegacyCutterRecipe(COBWEB, COBWEB_B1_5);
+        offerLegacyCutterRecipe(DEAD_BUSH, DEAD_BUSH_B1_6, SHRUB_B1_6);
+        offerLegacyCutterRecipe(SHORT_GRASS, SHORT_GRASS_B1_6);
+        offerLegacyCutterRecipe(FERN, FERN_B1_6);
+        offerLegacyCutterRecipe(OAK_TRAPDOOR, TRAPDOOR_B1_6);
+        offerLegacyCutterRecipe(STONE_BRICKS, STONE_BRICKS_B1_8);
+        offerLegacyCutterRecipe(CRACKED_STONE_BRICKS, CRACKED_STONE_BRICKS_B1_8);
+        offerLegacyCutterRecipe(MOSSY_STONE_BRICKS, MOSSY_STONE_BRICKS_B1_8);
+        offerLegacyCutterRecipe(BRICK_SLAB, BRICK_SLAB_B1_8, BRICK_SLAB_C0_26ST);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BRICK_SLAB_B1_8, BRICKS_A1_0_11);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BRICK_SLAB_C0_26ST, BRICKS_C0_26ST);
-        offerLegacyCutterRecipe(exporter, STONE_BRICK_SLAB, STONE_BRICK_SLAB_B1_8);
+        offerLegacyCutterRecipe(STONE_BRICK_SLAB, STONE_BRICK_SLAB_B1_8);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, STONE_BRICK_SLAB_B1_8, STONE_BRICKS_B1_8);
-        offerLegacyCutterRecipe(exporter, BRICK_STAIRS, BRICK_STAIRS_B1_8, BRICK_STAIRS_C0_26ST);
-        offerStairsRecipe(exporter, BRICK_STAIRS_B1_8, BRICKS_A1_0_11);
-        offerStairsRecipe(exporter, BRICK_STAIRS_C0_26ST, BRICKS_C0_26ST);
-        offerLegacyCutterRecipe(exporter, STONE_BRICK_STAIRS, STONE_BRICK_STAIRS_B1_8);
-        offerStairsRecipe(exporter, STONE_BRICK_STAIRS_B1_8, STONE_BRICKS_B1_8);
-        offerLegacyCutterRecipe(exporter, GLASS_PANE, GLASS_PANE_B1_8);
-        offerLegacyCutterRecipe(exporter, OAK_FENCE_GATE, WOODEN_FENCE_GATE_B1_9PRE5, WOODEN_FENCE_GATE_B1_8,
+        offerLegacyCutterRecipe(BRICK_STAIRS, BRICK_STAIRS_B1_8, BRICK_STAIRS_C0_26ST);
+        offerStairsRecipe(BRICK_STAIRS_B1_8, BRICKS_A1_0_11);
+        offerStairsRecipe(BRICK_STAIRS_C0_26ST, BRICKS_C0_26ST);
+        offerLegacyCutterRecipe(STONE_BRICK_STAIRS, STONE_BRICK_STAIRS_B1_8);
+        offerStairsRecipe(STONE_BRICK_STAIRS_B1_8, STONE_BRICKS_B1_8);
+        offerLegacyCutterRecipe(GLASS_PANE, GLASS_PANE_B1_8);
+        offerLegacyCutterRecipe(OAK_FENCE_GATE, WOODEN_FENCE_GATE_B1_9PRE5, WOODEN_FENCE_GATE_B1_8,
                 WOODEN_FENCE_GATE_C0_0_14A, WOODEN_FENCE_GATE_RD161348, WOODEN_FENCE_GATE_RD20090515);
-        offerFenceGateRecipe(exporter, WOODEN_FENCE_GATE_B1_9PRE5, WOODEN_PLANKS_B1_9PRE5);
-        offerFenceGateRecipe(exporter, WOODEN_FENCE_GATE_B1_8, WOODEN_PLANKS_C0_0_15A);
-        offerFenceGateRecipe(exporter, WOODEN_FENCE_GATE_C0_0_14A, WOODEN_PLANKS_C0_0_14A);
-        offerFenceGateRecipe(exporter, WOODEN_FENCE_GATE_RD161348, WOODEN_PLANKS_RD161348);
-        offerFenceGateRecipe(exporter, WOODEN_FENCE_GATE_RD20090515, WOODEN_PLANKS_RD20090515);
-        offerLegacyCutterRecipe(exporter, VINE, VINES_B1_8);
-        offerLegacyCutterRecipe(exporter, MUSHROOM_STEM, MUSHROOM_STEM_B1_8);
-        offerLegacyCutterRecipe(exporter, RED_MUSHROOM_BLOCK, RED_MUSHROOM_BLOCK_B1_8);
-        offerLegacyCutterRecipe(exporter, BROWN_MUSHROOM_BLOCK, BROWN_MUSHROOM_BLOCK_B1_8);
-        offerLegacyCutterRecipe(exporter, MELON, MELON_BLOCK_B1_8);
-        offerLegacyCutterRecipe(exporter, NETHER_BRICKS, NETHER_BRICKS_B1_9PRE);
-        offerLegacyCutterRecipe(exporter, NETHER_BRICK_STAIRS, NETHER_BRICK_STAIRS_B1_9PRE);
-        offerStairsRecipe(exporter, NETHER_BRICK_STAIRS_B1_9PRE, NETHER_BRICKS_B1_9PRE);
-        offerLegacyCutterRecipe(exporter, NETHER_BRICK_FENCE, NETHER_BRICK_FENCE_B1_9PRE);
-        offerLegacyCutterRecipe(exporter, LILY_PAD, LILY_PAD_B1_9PRE);
-        offerLegacyCutterRecipe(exporter, END_STONE, ENDSTONE_B1_9PRE4);
-        offerLegacyCutterRecipe(exporter, JUNGLE_LOG, JUNGLE_LOG_1_7, JUNGLE_LOG_1_2);
-        offerLegacyCutterRecipe(exporter, JUNGLE_LEAVES, JUNGLE_LEAVES_1_2);
-        offerLegacyCutterRecipe(exporter, JUNGLE_SAPLING, JUNGLE_SAPLING_1_2);
-        offerLegacyCutterRecipe(exporter, REDSTONE_LAMP, REDSTONE_LAMP_1_2);
-        offerLegacyCutterRecipe(exporter, CHISELED_STONE_BRICKS, CHISELED_STONE_BRICKS_1_2);
-        offerLegacyCutterRecipe(exporter, BIRCH_PLANKS, BIRCH_PLANKS_1_2_4);
+        offerFenceGateRecipe(WOODEN_FENCE_GATE_B1_9PRE5, WOODEN_PLANKS_B1_9PRE5);
+        offerFenceGateRecipe(WOODEN_FENCE_GATE_B1_8, WOODEN_PLANKS_C0_0_15A);
+        offerFenceGateRecipe(WOODEN_FENCE_GATE_C0_0_14A, WOODEN_PLANKS_C0_0_14A);
+        offerFenceGateRecipe(WOODEN_FENCE_GATE_RD161348, WOODEN_PLANKS_RD161348);
+        offerFenceGateRecipe(WOODEN_FENCE_GATE_RD20090515, WOODEN_PLANKS_RD20090515);
+        offerLegacyCutterRecipe(VINE, VINES_B1_8);
+        offerLegacyCutterRecipe(MUSHROOM_STEM, MUSHROOM_STEM_B1_8);
+        offerLegacyCutterRecipe(RED_MUSHROOM_BLOCK, RED_MUSHROOM_BLOCK_B1_8);
+        offerLegacyCutterRecipe(BROWN_MUSHROOM_BLOCK, BROWN_MUSHROOM_BLOCK_B1_8);
+        offerLegacyCutterRecipe(MELON, MELON_BLOCK_B1_8);
+        offerLegacyCutterRecipe(NETHER_BRICKS, NETHER_BRICKS_B1_9PRE);
+        offerLegacyCutterRecipe(NETHER_BRICK_STAIRS, NETHER_BRICK_STAIRS_B1_9PRE);
+        offerStairsRecipe(NETHER_BRICK_STAIRS_B1_9PRE, NETHER_BRICKS_B1_9PRE);
+        offerLegacyCutterRecipe(NETHER_BRICK_FENCE, NETHER_BRICK_FENCE_B1_9PRE);
+        offerLegacyCutterRecipe(LILY_PAD, LILY_PAD_B1_9PRE);
+        offerLegacyCutterRecipe(END_STONE, ENDSTONE_B1_9PRE4);
+        offerLegacyCutterRecipe(JUNGLE_LOG, JUNGLE_LOG_1_7, JUNGLE_LOG_1_2);
+        offerLegacyCutterRecipe(JUNGLE_LEAVES, JUNGLE_LEAVES_1_2);
+        offerLegacyCutterRecipe(JUNGLE_SAPLING, JUNGLE_SAPLING_1_2);
+        offerLegacyCutterRecipe(REDSTONE_LAMP, REDSTONE_LAMP_1_2);
+        offerLegacyCutterRecipe(CHISELED_STONE_BRICKS, CHISELED_STONE_BRICKS_1_2);
+        offerLegacyCutterRecipe(BIRCH_PLANKS, BIRCH_PLANKS_1_2_4);
         offerSingleOutputShapelessRecipe(exporter, BIRCH_PLANKS_1_2_4, BIRCH_LOG_1_7, "planks");
         offerSingleOutputShapelessRecipe(exporter, BIRCH_PLANKS_1_2_4, BIRCH_LOG_B1_2, "planks");
-        offerLegacyCutterRecipe(exporter, SPRUCE_PLANKS, SPRUCE_PLANKS_1_2_4);
+        offerLegacyCutterRecipe(SPRUCE_PLANKS, SPRUCE_PLANKS_1_2_4);
         offerSingleOutputShapelessRecipe(exporter, SPRUCE_PLANKS_1_2_4, SPRUCE_LOG_1_7, "planks");
         offerSingleOutputShapelessRecipe(exporter, SPRUCE_PLANKS_1_2_4, SPRUCE_LOG_B1_2, "planks");
-        offerLegacyCutterRecipe(exporter, JUNGLE_PLANKS, JUNGLE_PLANKS_1_2_4);
+        offerLegacyCutterRecipe(JUNGLE_PLANKS, JUNGLE_PLANKS_1_2_4);
         offerSingleOutputShapelessRecipe(exporter, JUNGLE_PLANKS_1_2_4, JUNGLE_LOG_1_7, "planks");
         offerSingleOutputShapelessRecipe(exporter, JUNGLE_PLANKS_1_2_4, JUNGLE_LOG_1_2, "planks");
-        offerLegacyCutterRecipe(exporter, CUT_SANDSTONE, CUT_SANDSTONE_1_2_4);
-        offerLegacyCutterRecipe(exporter, CHISELED_SANDSTONE, CHISELED_SANDSTONE_1_2_4);
-        offerLegacyCutterRecipe(exporter, BIRCH_SLAB, BIRCH_SLAB_1_3);
+        offerLegacyCutterRecipe(CUT_SANDSTONE, CUT_SANDSTONE_1_2_4);
+        offerLegacyCutterRecipe(CHISELED_SANDSTONE, CHISELED_SANDSTONE_1_2_4);
+        offerLegacyCutterRecipe(BIRCH_SLAB, BIRCH_SLAB_1_3);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BIRCH_SLAB_1_3, BIRCH_PLANKS_1_2_4);
-        offerLegacyCutterRecipe(exporter, SPRUCE_SLAB, SPRUCE_SLAB_1_3);
+        offerLegacyCutterRecipe(SPRUCE_SLAB, SPRUCE_SLAB_1_3);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, SPRUCE_SLAB_1_3, SPRUCE_PLANKS_1_2_4);
-        offerLegacyCutterRecipe(exporter, JUNGLE_SLAB, JUNGLE_SLAB_1_3);
+        offerLegacyCutterRecipe(JUNGLE_SLAB, JUNGLE_SLAB_1_3);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, JUNGLE_SLAB_1_3, JUNGLE_PLANKS_1_2_4);
-        offerLegacyCutterRecipe(exporter, COCOA_BEANS, COCOA_1_3);
-        offerLegacyCutterRecipe(exporter, EMERALD_ORE, EMERALD_ORE_1_14, EMERALD_ORE_1_3, RUBY_ORE);
-        offerLegacyCutterRecipe(exporter, SANDSTONE_STAIRS, SANDSTONE_STAIRS_1_3, SANDSTONE_STAIRS_B1_2);
-        offerStairsRecipe(exporter, SANDSTONE_STAIRS_1_3, SANDSTONE_1_2_4);
-        offerStairsRecipe(exporter, SANDSTONE_STAIRS_B1_2, SANDSTONE_B1_2);
-        offerLegacyCutterRecipe(exporter, EMERALD_BLOCK, EMERALD_BLOCK_1_3);
-        offerLegacyCutterRecipe(exporter, BIRCH_STAIRS, BIRCH_STAIRS_1_3);
-        offerStairsRecipe(exporter, BIRCH_STAIRS_1_3, BIRCH_PLANKS_1_2_4);
-        offerLegacyCutterRecipe(exporter, SPRUCE_STAIRS, SPRUCE_STAIRS_1_3);
-        offerStairsRecipe(exporter, SPRUCE_STAIRS_1_3, SPRUCE_PLANKS_1_2_4);
-        offerLegacyCutterRecipe(exporter, JUNGLE_STAIRS, JUNGLE_STAIRS_1_3);
-        offerStairsRecipe(exporter, JUNGLE_STAIRS_1_3, JUNGLE_PLANKS_1_2_4);
-        offerLegacyCutterRecipe(exporter, OAK_WOOD, OAK_WOOD_1_3);
-        offerLegacyCutterRecipe(exporter, BIRCH_WOOD, BIRCH_WOOD_1_3);
-        offerLegacyCutterRecipe(exporter, SPRUCE_WOOD, SPRUCE_WOOD_1_3);
-        offerLegacyCutterRecipe(exporter, JUNGLE_WOOD, JUNGLE_WOOD_1_3);
-        offerLegacyCutterRecipe(exporter, OAK_BUTTON, WOODEN_BUTTON_1_4, WOODEN_BUTTON_C0_0_15A, WOODEN_BUTTON_C0_0_14A, WOODEN_BUTTON_RD161348, WOODEN_BUTTON_RD20090515);
-        offerButtonRecipe(exporter, WOODEN_BUTTON_1_4, WOODEN_PLANKS_B1_9PRE5);
-        offerButtonRecipe(exporter, WOODEN_BUTTON_C0_0_15A, WOODEN_PLANKS_C0_0_15A);
-        offerButtonRecipe(exporter, WOODEN_BUTTON_C0_0_14A, WOODEN_PLANKS_C0_0_14A);
-        offerButtonRecipe(exporter, WOODEN_BUTTON_RD161348, WOODEN_PLANKS_RD161348);
-        offerButtonRecipe(exporter, WOODEN_BUTTON_RD20090515, WOODEN_PLANKS_RD20090515);
-        offerLegacyCutterRecipe(exporter, COBBLESTONE_WALL, COBBLESTONE_WALL_1_4, COBBLESTONE_WALL_C0_0_14A, COBBLESTONE_WALL_RD20090515);
+        offerLegacyCutterRecipe(COCOA_BEANS, COCOA_1_3);
+        offerLegacyCutterRecipe(EMERALD_ORE, EMERALD_ORE_1_14, EMERALD_ORE_1_3, RUBY_ORE);
+        offerLegacyCutterRecipe(SANDSTONE_STAIRS, SANDSTONE_STAIRS_1_3, SANDSTONE_STAIRS_B1_2);
+        offerStairsRecipe(SANDSTONE_STAIRS_1_3, SANDSTONE_1_2_4);
+        offerStairsRecipe(SANDSTONE_STAIRS_B1_2, SANDSTONE_B1_2);
+        offerLegacyCutterRecipe(EMERALD_BLOCK, EMERALD_BLOCK_1_3);
+        offerLegacyCutterRecipe(BIRCH_STAIRS, BIRCH_STAIRS_1_3);
+        offerStairsRecipe(BIRCH_STAIRS_1_3, BIRCH_PLANKS_1_2_4);
+        offerLegacyCutterRecipe(SPRUCE_STAIRS, SPRUCE_STAIRS_1_3);
+        offerStairsRecipe(SPRUCE_STAIRS_1_3, SPRUCE_PLANKS_1_2_4);
+        offerLegacyCutterRecipe(JUNGLE_STAIRS, JUNGLE_STAIRS_1_3);
+        offerStairsRecipe(JUNGLE_STAIRS_1_3, JUNGLE_PLANKS_1_2_4);
+        offerLegacyCutterRecipe(OAK_WOOD, OAK_WOOD_1_3);
+        offerLegacyCutterRecipe(BIRCH_WOOD, BIRCH_WOOD_1_3);
+        offerLegacyCutterRecipe(SPRUCE_WOOD, SPRUCE_WOOD_1_3);
+        offerLegacyCutterRecipe(JUNGLE_WOOD, JUNGLE_WOOD_1_3);
+        offerLegacyCutterRecipe(OAK_BUTTON, WOODEN_BUTTON_1_4, WOODEN_BUTTON_C0_0_15A, WOODEN_BUTTON_C0_0_14A, WOODEN_BUTTON_RD161348, WOODEN_BUTTON_RD20090515);
+        offerButtonRecipe(WOODEN_BUTTON_1_4, WOODEN_PLANKS_B1_9PRE5);
+        offerButtonRecipe(WOODEN_BUTTON_C0_0_15A, WOODEN_PLANKS_C0_0_15A);
+        offerButtonRecipe(WOODEN_BUTTON_C0_0_14A, WOODEN_PLANKS_C0_0_14A);
+        offerButtonRecipe(WOODEN_BUTTON_RD161348, WOODEN_PLANKS_RD161348);
+        offerButtonRecipe(WOODEN_BUTTON_RD20090515, WOODEN_PLANKS_RD20090515);
+        offerLegacyCutterRecipe(COBBLESTONE_WALL, COBBLESTONE_WALL_1_4, COBBLESTONE_WALL_C0_0_14A, COBBLESTONE_WALL_RD20090515);
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_WALL_1_4, COBBLESTONE_B1_7);
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_WALL_C0_0_14A, COBBLESTONE_C0_0_14A);
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, COBBLESTONE_WALL_RD20090515, COBBLESTONE_RD20090515);
-        offerLegacyCutterRecipe(exporter, NETHER_BRICK_SLAB, NETHER_BRICK_SLAB_1_4_6);
+        offerLegacyCutterRecipe(NETHER_BRICK_SLAB, NETHER_BRICK_SLAB_1_4_6);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, NETHER_BRICK_SLAB_1_4_6, NETHER_BRICKS_B1_9PRE);
-        offerLegacyCutterRecipe(exporter, NETHER_QUARTZ_ORE, QUARTZ_ORE_1_5);
-        offerLegacyCutterRecipe(exporter, REDSTONE_BLOCK, REDSTONE_BLOCK_1_5);
-        offerLegacyCutterRecipe(exporter, ACTIVATOR_RAIL, ACTIVATOR_RAIL_1_5);
-        offerLegacyCutterRecipe(exporter, QUARTZ_BLOCK, QUARTZ_BLOCK_1_5);
-        offerLegacyCutterRecipe(exporter, CHISELED_QUARTZ_BLOCK, CHISELED_QUARTZ_BLOCK_1_5);
-        offerLegacyCutterRecipe(exporter, QUARTZ_PILLAR, QUARTZ_PILLAR_1_5);
-        offerLegacyCutterRecipe(exporter, QUARTZ_SLAB, QUARTZ_SLAB_1_5);
-        offerLegacyCutterRecipe(exporter, QUARTZ_STAIRS, QUARTZ_STAIRS_1_5);
-        offerLegacyCutterRecipe(exporter, SMOOTH_SANDSTONE, SMOOTH_SANDSTONE_1_5);
-        offerLegacyCutterRecipe(exporter, SMOOTH_QUARTZ, SMOOTH_QUARTZ_1_5);
+        offerLegacyCutterRecipe(NETHER_QUARTZ_ORE, QUARTZ_ORE_1_5);
+        offerLegacyCutterRecipe(REDSTONE_BLOCK, REDSTONE_BLOCK_1_5);
+        offerLegacyCutterRecipe(ACTIVATOR_RAIL, ACTIVATOR_RAIL_1_5);
+        offerLegacyCutterRecipe(QUARTZ_BLOCK, QUARTZ_BLOCK_1_5);
+        offerLegacyCutterRecipe(CHISELED_QUARTZ_BLOCK, CHISELED_QUARTZ_BLOCK_1_5);
+        offerLegacyCutterRecipe(QUARTZ_PILLAR, QUARTZ_PILLAR_1_5);
+        offerLegacyCutterRecipe(QUARTZ_SLAB, QUARTZ_SLAB_1_5);
+        offerLegacyCutterRecipe(QUARTZ_STAIRS, QUARTZ_STAIRS_1_5);
+        offerLegacyCutterRecipe(SMOOTH_SANDSTONE, SMOOTH_SANDSTONE_1_5);
+        offerLegacyCutterRecipe(SMOOTH_QUARTZ, SMOOTH_QUARTZ_1_5);
         offerCarpetRecipe(exporter, WHITE_CLOTH_CARPET, WHITE_CLOTH);
         offerCarpetRecipe(exporter, LIGHT_GRAY_CLOTH_CARPET_C0_0_20A, LIGHT_GRAY_CLOTH_C0_0_20A);
         offerCarpetRecipe(exporter, LIGHT_GRAY_CLOTH_CARPET_C0_28A, LIGHT_GRAY_CLOTH_C0_28A);
@@ -1185,266 +1330,219 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         offerCarpetRecipe(exporter, PURPLE_CARPET_1_2_4, PURPLE_WOOL_1_2_4);
         offerCarpetRecipe(exporter, MAGENTA_CARPET_1_2_4, MAGENTA_WOOL_1_2_4);
         offerCarpetRecipe(exporter, PINK_CARPET_1_2_4, PINK_WOOL_1_2_4);
-        offerLegacyCutterRecipe(exporter, HAY_BLOCK, HAY_BALE_1_6);
-        offerLegacyCutterRecipe(exporter, TERRACOTTA, TERRACOTTA_1_6);
-        offerLegacyCutterRecipe(exporter, COAL_BLOCK, COAL_BLOCK_1_6);
-        offerLegacyCutterRecipe(exporter, ALLIUM, ALLIUM_1_7);
-        offerLegacyCutterRecipe(exporter, AZURE_BLUET, AZURE_BLUET_1_7);
-        offerLegacyCutterRecipe(exporter, BLUE_ORCHID, BLUE_ORCHID_1_7);
-        offerLegacyCutterRecipe(exporter, LILAC, LILAC_1_7);
-        offerLegacyCutterRecipe(exporter, PEONY, PEONY_1_7);
-        offerLegacyCutterRecipe(exporter, ROSE_BUSH, ROSE_BUSH_1_7);
-        offerLegacyCutterRecipe(exporter, SUNFLOWER, SUNFLOWER_1_7);
-        offerLegacyCutterRecipe(exporter, OXEYE_DAISY, OXEYE_DAISY_1_7);
-        offerLegacyCutterRecipe(exporter, RED_TULIP, RED_TULIP_1_7);
-        offerLegacyCutterRecipe(exporter, ORANGE_TULIP, ORANGE_TULIP_1_7);
-        offerLegacyCutterRecipe(exporter, WHITE_TULIP, WHITE_TULIP_1_7);
-        offerLegacyCutterRecipe(exporter, PINK_TULIP, PINK_TULIP_1_7);
-        offerLegacyCutterRecipe(exporter, LARGE_FERN, LARGE_FERN_1_7);
-        offerLegacyCutterRecipe(exporter, TALL_GRASS, TALL_GRASS_1_7);
-        offerLegacyCutterRecipe(exporter, PACKED_ICE, PACKED_ICE_1_7);
-        offerLegacyCutterRecipe(exporter, RED_SAND, RED_SAND_1_7);
-        offerLegacyCutterRecipe(exporter, WHITE_STAINED_GLASS, WHITE_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, ORANGE_STAINED_GLASS, ORANGE_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, MAGENTA_STAINED_GLASS, MAGENTA_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, LIGHT_BLUE_STAINED_GLASS, LIGHT_BLUE_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, YELLOW_STAINED_GLASS, YELLOW_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, LIME_STAINED_GLASS, LIME_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, PINK_STAINED_GLASS, PINK_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, GRAY_STAINED_GLASS, GRAY_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, LIGHT_GRAY_STAINED_GLASS, LIGHT_GRAY_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, CYAN_STAINED_GLASS, CYAN_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, PURPLE_STAINED_GLASS, PURPLE_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, BLUE_STAINED_GLASS, BLUE_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, BROWN_STAINED_GLASS, BROWN_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, GREEN_STAINED_GLASS, GREEN_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, RED_STAINED_GLASS, RED_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, BLACK_STAINED_GLASS, BLACK_STAINED_GLASS_1_7);
-        offerLegacyCutterRecipe(exporter, WHITE_STAINED_GLASS_PANE, WHITE_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, ORANGE_STAINED_GLASS_PANE, ORANGE_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, MAGENTA_STAINED_GLASS_PANE, MAGENTA_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, LIGHT_BLUE_STAINED_GLASS_PANE, LIGHT_BLUE_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, YELLOW_STAINED_GLASS_PANE, YELLOW_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, LIME_STAINED_GLASS_PANE, LIME_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, PINK_STAINED_GLASS_PANE, PINK_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, GRAY_STAINED_GLASS_PANE, GRAY_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, LIGHT_GRAY_STAINED_GLASS_PANE, LIGHT_GRAY_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, CYAN_STAINED_GLASS_PANE, CYAN_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, PURPLE_STAINED_GLASS_PANE, PURPLE_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, BLUE_STAINED_GLASS_PANE, BLUE_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, BROWN_STAINED_GLASS_PANE, BROWN_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, GREEN_STAINED_GLASS_PANE, GREEN_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, RED_STAINED_GLASS_PANE, RED_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, BLACK_STAINED_GLASS_PANE, BLACK_STAINED_GLASS_PANE_1_7);
-        offerLegacyCutterRecipe(exporter, ACACIA_LOG, ACACIA_LOG_1_7);
-        offerLegacyCutterRecipe(exporter, ACACIA_WOOD, ACACIA_WOOD_1_7);
-        offerLegacyCutterRecipe(exporter, ACACIA_LEAVES, ACACIA_LEAVES_1_7);
-        offerLegacyCutterRecipe(exporter, ACACIA_SAPLING, ACACIA_SAPLING_1_7);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_LOG, DARK_OAK_LOG_1_7);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_WOOD, DARK_OAK_WOOD_1_7);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_LEAVES, DARK_OAK_LEAVES_1_7);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_SAPLING, DARK_OAK_SAPLING_1_7);
-        offerLegacyCutterRecipe(exporter, ACACIA_PLANKS, ACACIA_PLANKS_1_7);
+        offerLegacyCutterRecipe(HAY_BLOCK, HAY_BALE_1_6);
+        offerLegacyCutterRecipe(TERRACOTTA, TERRACOTTA_1_6);
+        offerLegacyCutterRecipe(COAL_BLOCK, COAL_BLOCK_1_6);
+        offerLegacyCutterRecipe(ALLIUM, ALLIUM_1_7);
+        offerLegacyCutterRecipe(AZURE_BLUET, AZURE_BLUET_1_7);
+        offerLegacyCutterRecipe(BLUE_ORCHID, BLUE_ORCHID_1_7);
+        offerLegacyCutterRecipe(LILAC, LILAC_1_7);
+        offerLegacyCutterRecipe(PEONY, PEONY_1_7);
+        offerLegacyCutterRecipe(ROSE_BUSH, ROSE_BUSH_1_7);
+        offerLegacyCutterRecipe(SUNFLOWER, SUNFLOWER_1_7);
+        offerLegacyCutterRecipe(OXEYE_DAISY, OXEYE_DAISY_1_7);
+        offerLegacyCutterRecipe(RED_TULIP, RED_TULIP_1_7);
+        offerLegacyCutterRecipe(ORANGE_TULIP, ORANGE_TULIP_1_7);
+        offerLegacyCutterRecipe(WHITE_TULIP, WHITE_TULIP_1_7);
+        offerLegacyCutterRecipe(PINK_TULIP, PINK_TULIP_1_7);
+        offerLegacyCutterRecipe(LARGE_FERN, LARGE_FERN_1_7);
+        offerLegacyCutterRecipe(TALL_GRASS, TALL_GRASS_1_7);
+        offerLegacyCutterRecipe(PACKED_ICE, PACKED_ICE_1_7);
+        offerLegacyCutterRecipe(RED_SAND, RED_SAND_1_7);
+        offerLegacyCutterRecipe(WHITE_STAINED_GLASS, WHITE_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(ORANGE_STAINED_GLASS, ORANGE_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(MAGENTA_STAINED_GLASS, MAGENTA_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(LIGHT_BLUE_STAINED_GLASS, LIGHT_BLUE_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(YELLOW_STAINED_GLASS, YELLOW_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(LIME_STAINED_GLASS, LIME_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(PINK_STAINED_GLASS, PINK_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(GRAY_STAINED_GLASS, GRAY_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(LIGHT_GRAY_STAINED_GLASS, LIGHT_GRAY_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(CYAN_STAINED_GLASS, CYAN_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(PURPLE_STAINED_GLASS, PURPLE_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(BLUE_STAINED_GLASS, BLUE_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(BROWN_STAINED_GLASS, BROWN_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(GREEN_STAINED_GLASS, GREEN_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(RED_STAINED_GLASS, RED_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(BLACK_STAINED_GLASS, BLACK_STAINED_GLASS_1_7);
+        offerLegacyCutterRecipe(WHITE_STAINED_GLASS_PANE, WHITE_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(ORANGE_STAINED_GLASS_PANE, ORANGE_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(MAGENTA_STAINED_GLASS_PANE, MAGENTA_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(LIGHT_BLUE_STAINED_GLASS_PANE, LIGHT_BLUE_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(YELLOW_STAINED_GLASS_PANE, YELLOW_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(LIME_STAINED_GLASS_PANE, LIME_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(PINK_STAINED_GLASS_PANE, PINK_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(GRAY_STAINED_GLASS_PANE, GRAY_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(LIGHT_GRAY_STAINED_GLASS_PANE, LIGHT_GRAY_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(CYAN_STAINED_GLASS_PANE, CYAN_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(PURPLE_STAINED_GLASS_PANE, PURPLE_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(BLUE_STAINED_GLASS_PANE, BLUE_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(BROWN_STAINED_GLASS_PANE, BROWN_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(GREEN_STAINED_GLASS_PANE, GREEN_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(RED_STAINED_GLASS_PANE, RED_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(BLACK_STAINED_GLASS_PANE, BLACK_STAINED_GLASS_PANE_1_7);
+        offerLegacyCutterRecipe(ACACIA_LOG, ACACIA_LOG_1_7);
+        offerLegacyCutterRecipe(ACACIA_WOOD, ACACIA_WOOD_1_7);
+        offerLegacyCutterRecipe(ACACIA_LEAVES, ACACIA_LEAVES_1_7);
+        offerLegacyCutterRecipe(ACACIA_SAPLING, ACACIA_SAPLING_1_7);
+        offerLegacyCutterRecipe(DARK_OAK_LOG, DARK_OAK_LOG_1_7);
+        offerLegacyCutterRecipe(DARK_OAK_WOOD, DARK_OAK_WOOD_1_7);
+        offerLegacyCutterRecipe(DARK_OAK_LEAVES, DARK_OAK_LEAVES_1_7);
+        offerLegacyCutterRecipe(DARK_OAK_SAPLING, DARK_OAK_SAPLING_1_7);
+        offerLegacyCutterRecipe(ACACIA_PLANKS, ACACIA_PLANKS_1_7);
         offerSingleOutputShapelessRecipe(exporter, ACACIA_PLANKS_1_7, ACACIA_LOG_1_7, "planks");
-        offerLegacyCutterRecipe(exporter, ACACIA_STAIRS, ACACIA_STAIRS_1_7);
-        offerStairsRecipe(exporter, ACACIA_STAIRS_1_7, ACACIA_PLANKS_1_7);
-        offerLegacyCutterRecipe(exporter, ACACIA_SLAB, ACACIA_SLAB_1_7);
+        offerLegacyCutterRecipe(ACACIA_STAIRS, ACACIA_STAIRS_1_7);
+        offerStairsRecipe(ACACIA_STAIRS_1_7, ACACIA_PLANKS_1_7);
+        offerLegacyCutterRecipe(ACACIA_SLAB, ACACIA_SLAB_1_7);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ACACIA_SLAB_1_7, ACACIA_PLANKS_1_7);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_PLANKS, DARK_OAK_PLANKS_1_7);
+        offerLegacyCutterRecipe(DARK_OAK_PLANKS, DARK_OAK_PLANKS_1_7);
         offerSingleOutputShapelessRecipe(exporter, DARK_OAK_PLANKS_1_7, DARK_OAK_LOG_1_7, "planks");
-        offerLegacyCutterRecipe(exporter, DARK_OAK_STAIRS, DARK_OAK_STAIRS_1_7);
-        offerStairsRecipe(exporter, DARK_OAK_STAIRS_1_7, DARK_OAK_PLANKS_1_7);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_SLAB, DARK_OAK_SLAB_1_7);
+        offerLegacyCutterRecipe(DARK_OAK_STAIRS, DARK_OAK_STAIRS_1_7);
+        offerStairsRecipe(DARK_OAK_STAIRS_1_7, DARK_OAK_PLANKS_1_7);
+        offerLegacyCutterRecipe(DARK_OAK_SLAB, DARK_OAK_SLAB_1_7);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, DARK_OAK_SLAB_1_7, DARK_OAK_PLANKS_1_7);
-        offerLegacyCutterRecipe(exporter, GRANITE, GRANITE_1_8);
-        offerLegacyCutterRecipe(exporter, POLISHED_GRANITE, POLISHED_GRANITE_1_8);
-        offerLegacyCutterRecipe(exporter, DIORITE, DIORITE_1_8);
-        offerLegacyCutterRecipe(exporter, POLISHED_DIORITE, POLISHED_DIORITE_1_8);
-        offerLegacyCutterRecipe(exporter, ANDESITE, ANDESITE_1_8);
-        offerLegacyCutterRecipe(exporter, POLISHED_ANDESITE, POLISHED_ANDESITE_1_8);
-        offerLegacyCutterRecipe(exporter, SLIME_BLOCK, SLIME_BLOCK_1_8);
-        offerLegacyCutterRecipe(exporter, PRISMARINE, PRISMARINE_1_8);
-        offerLegacyCutterRecipe(exporter, PRISMARINE_BRICKS, PRISMARINE_BRICKS_1_8);
-        offerLegacyCutterRecipe(exporter, DARK_PRISMARINE, DARK_PRISMARINE_1_8);
-        offerLegacyCutterRecipe(exporter, RED_SANDSTONE, RED_SANDSTONE_1_8);
-        offerLegacyCutterRecipe(exporter, CUT_RED_SANDSTONE, CUT_RED_SANDSTONE_1_8);
-        offerLegacyCutterRecipe(exporter, CHISELED_RED_SANDSTONE, CHISELED_RED_SANDSTONE_1_8);
-        offerLegacyCutterRecipe(exporter, SMOOTH_RED_SANDSTONE, SMOOTH_RED_SANDSTONE_1_8);
-        offerLegacyCutterRecipe(exporter, RED_SANDSTONE_SLAB, RED_SANDSTONE_SLAB_1_8);
-        offerLegacyCutterRecipe(exporter, RED_SANDSTONE_STAIRS, RED_SANDSTONE_STAIRS_1_8);
-        offerLegacyCutterRecipe(exporter, BIRCH_FENCE, BIRCH_FENCE_1_8);
-        offerLegacyCutterRecipe(exporter, SPRUCE_FENCE, SPRUCE_FENCE_1_8);
-        offerLegacyCutterRecipe(exporter, JUNGLE_FENCE, JUNGLE_FENCE_1_8);
-        offerLegacyCutterRecipe(exporter, ACACIA_FENCE, ACACIA_FENCE_1_8);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_FENCE, DARK_OAK_FENCE_1_8);
-        offerLegacyCutterRecipe(exporter, BIRCH_FENCE_GATE, BIRCH_FENCE_GATE_1_8);
-        offerLegacyCutterRecipe(exporter, SPRUCE_FENCE_GATE, SPRUCE_FENCE_GATE_1_8);
-        offerLegacyCutterRecipe(exporter, JUNGLE_FENCE_GATE, JUNGLE_FENCE_GATE_1_8);
-        offerLegacyCutterRecipe(exporter, ACACIA_FENCE_GATE, ACACIA_FENCE_GATE_1_8);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_FENCE_GATE, DARK_OAK_FENCE_GATE_1_8);
-        offerLegacyCutterRecipe(exporter, END_ROD, END_ROD_1_9);
-        offerLegacyCutterRecipe(exporter, END_STONE_BRICKS, ENDSTONE_BRICKS_1_9);
-        offerLegacyCutterRecipe(exporter, PURPUR_BLOCK, PURPUR_BLOCK_1_9);
-        offerLegacyCutterRecipe(exporter, PURPUR_PILLAR, PURPUR_PILLAR_1_9);
-        offerLegacyCutterRecipe(exporter, PURPUR_SLAB, PURPUR_SLAB_1_9);
+        offerLegacyCutterRecipe(GRANITE, GRANITE_1_8);
+        offerLegacyCutterRecipe(POLISHED_GRANITE, POLISHED_GRANITE_1_8);
+        offerLegacyCutterRecipe(DIORITE, DIORITE_1_8);
+        offerLegacyCutterRecipe(POLISHED_DIORITE, POLISHED_DIORITE_1_8);
+        offerLegacyCutterRecipe(ANDESITE, ANDESITE_1_8);
+        offerLegacyCutterRecipe(POLISHED_ANDESITE, POLISHED_ANDESITE_1_8);
+        offerLegacyCutterRecipe(SLIME_BLOCK, SLIME_BLOCK_1_8);
+        offerLegacyCutterRecipe(PRISMARINE, PRISMARINE_1_8);
+        offerLegacyCutterRecipe(PRISMARINE_BRICKS, PRISMARINE_BRICKS_1_8);
+        offerLegacyCutterRecipe(DARK_PRISMARINE, DARK_PRISMARINE_1_8);
+        offerLegacyCutterRecipe(RED_SANDSTONE, RED_SANDSTONE_1_8);
+        offerLegacyCutterRecipe(CUT_RED_SANDSTONE, CUT_RED_SANDSTONE_1_8);
+        offerLegacyCutterRecipe(CHISELED_RED_SANDSTONE, CHISELED_RED_SANDSTONE_1_8);
+        offerLegacyCutterRecipe(SMOOTH_RED_SANDSTONE, SMOOTH_RED_SANDSTONE_1_8);
+        offerLegacyCutterRecipe(RED_SANDSTONE_SLAB, RED_SANDSTONE_SLAB_1_8);
+        offerLegacyCutterRecipe(RED_SANDSTONE_STAIRS, RED_SANDSTONE_STAIRS_1_8);
+        offerLegacyCutterRecipe(BIRCH_FENCE, BIRCH_FENCE_1_8);
+        offerLegacyCutterRecipe(SPRUCE_FENCE, SPRUCE_FENCE_1_8);
+        offerLegacyCutterRecipe(JUNGLE_FENCE, JUNGLE_FENCE_1_8);
+        offerLegacyCutterRecipe(ACACIA_FENCE, ACACIA_FENCE_1_8);
+        offerLegacyCutterRecipe(DARK_OAK_FENCE, DARK_OAK_FENCE_1_8);
+        offerLegacyCutterRecipe(BIRCH_FENCE_GATE, BIRCH_FENCE_GATE_1_8);
+        offerLegacyCutterRecipe(SPRUCE_FENCE_GATE, SPRUCE_FENCE_GATE_1_8);
+        offerLegacyCutterRecipe(JUNGLE_FENCE_GATE, JUNGLE_FENCE_GATE_1_8);
+        offerLegacyCutterRecipe(ACACIA_FENCE_GATE, ACACIA_FENCE_GATE_1_8);
+        offerLegacyCutterRecipe(DARK_OAK_FENCE_GATE, DARK_OAK_FENCE_GATE_1_8);
+        offerLegacyCutterRecipe(END_ROD, END_ROD_1_9);
+        offerLegacyCutterRecipe(END_STONE_BRICKS, ENDSTONE_BRICKS_1_9);
+        offerLegacyCutterRecipe(PURPUR_BLOCK, PURPUR_BLOCK_1_9);
+        offerLegacyCutterRecipe(PURPUR_PILLAR, PURPUR_PILLAR_1_9);
+        offerLegacyCutterRecipe(PURPUR_SLAB, PURPUR_SLAB_1_9);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, PURPUR_SLAB_1_9, PURPUR_BLOCK_1_9);
-        offerLegacyCutterRecipe(exporter, PURPUR_STAIRS, PURPUR_STAIRS_1_9);
-        offerStairsRecipe(exporter, PURPUR_STAIRS_1_9, PURPUR_BLOCK_1_9);
-        offerLegacyCutterRecipe(exporter, BONE_BLOCK, BONE_BLOCK_1_10);
-        offerLegacyCutterRecipe(exporter, MAGMA_BLOCK, MAGMA_BLOCK_1_10);
-        offerLegacyCutterRecipe(exporter, NETHER_WART_BLOCK, NETHER_WART_BLOCK_1_10);
-        offerLegacyCutterRecipe(exporter, NETHER_WART_BLOCK, NETHER_WART_BLOCK_1_14);
-        offerLegacyCutterRecipe(exporter, RED_NETHER_BRICKS, RED_NETHER_BRICKS_1_10);
-        offerLegacyCutterRecipe(exporter, BIRCH_BUTTON, BIRCH_BUTTON_1_13);
-        offerLegacyCutterRecipe(exporter, SPRUCE_BUTTON, SPRUCE_BUTTON_1_13);
-        offerLegacyCutterRecipe(exporter, JUNGLE_BUTTON, JUNGLE_BUTTON_1_13);
-        offerLegacyCutterRecipe(exporter, ACACIA_BUTTON, ACACIA_BUTTON_1_13);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_BUTTON, DARK_OAK_BUTTON_1_13);
-        offerLegacyCutterRecipe(exporter, BIRCH_PRESSURE_PLATE, BIRCH_PRESSURE_PLATE_1_13);
-        offerLegacyCutterRecipe(exporter, SPRUCE_PRESSURE_PLATE, SPRUCE_PRESSURE_PLATE_1_13);
-        offerLegacyCutterRecipe(exporter, JUNGLE_PRESSURE_PLATE, JUNGLE_PRESSURE_PLATE_1_13);
-        offerLegacyCutterRecipe(exporter, ACACIA_PRESSURE_PLATE, ACACIA_PRESSURE_PLATE_1_13);
-        offerLegacyCutterRecipe(exporter, DARK_OAK_PRESSURE_PLATE, DARK_OAK_PRESSURE_PLATE_1_13);
-        offerLegacyCutterRecipe(exporter, PRISMARINE_SLAB, PRISMARINE_SLAB_1_13);
+        offerLegacyCutterRecipe(PURPUR_STAIRS, PURPUR_STAIRS_1_9);
+        offerStairsRecipe(PURPUR_STAIRS_1_9, PURPUR_BLOCK_1_9);
+        offerLegacyCutterRecipe(BONE_BLOCK, BONE_BLOCK_1_10);
+        offerLegacyCutterRecipe(MAGMA_BLOCK, MAGMA_BLOCK_1_10);
+        offerLegacyCutterRecipe(NETHER_WART_BLOCK, NETHER_WART_BLOCK_1_10);
+        offerLegacyCutterRecipe(NETHER_WART_BLOCK, NETHER_WART_BLOCK_1_14);
+        offerLegacyCutterRecipe(RED_NETHER_BRICKS, RED_NETHER_BRICKS_1_10);
+        offerLegacyCutterRecipe(BIRCH_BUTTON, BIRCH_BUTTON_1_13);
+        offerLegacyCutterRecipe(SPRUCE_BUTTON, SPRUCE_BUTTON_1_13);
+        offerLegacyCutterRecipe(JUNGLE_BUTTON, JUNGLE_BUTTON_1_13);
+        offerLegacyCutterRecipe(ACACIA_BUTTON, ACACIA_BUTTON_1_13);
+        offerLegacyCutterRecipe(DARK_OAK_BUTTON, DARK_OAK_BUTTON_1_13);
+        offerLegacyCutterRecipe(BIRCH_PRESSURE_PLATE, BIRCH_PRESSURE_PLATE_1_13);
+        offerLegacyCutterRecipe(SPRUCE_PRESSURE_PLATE, SPRUCE_PRESSURE_PLATE_1_13);
+        offerLegacyCutterRecipe(JUNGLE_PRESSURE_PLATE, JUNGLE_PRESSURE_PLATE_1_13);
+        offerLegacyCutterRecipe(ACACIA_PRESSURE_PLATE, ACACIA_PRESSURE_PLATE_1_13);
+        offerLegacyCutterRecipe(DARK_OAK_PRESSURE_PLATE, DARK_OAK_PRESSURE_PLATE_1_13);
+        offerLegacyCutterRecipe(PRISMARINE_SLAB, PRISMARINE_SLAB_1_13);
         offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, PRISMARINE_SLAB_1_13, PRISMARINE_1_8);
-        offerLegacyCutterRecipe(exporter, PRISMARINE_STAIRS, PRISMARINE_STAIRS_1_13);
-        offerStairsRecipe(exporter, PRISMARINE_STAIRS_1_13, PRISMARINE_1_8);
+        offerLegacyCutterRecipe(PRISMARINE_STAIRS, PRISMARINE_STAIRS_1_13);
+        offerStairsRecipe(PRISMARINE_STAIRS_1_13, PRISMARINE_1_8);
 
-        offerLegacyCutterRecipe(exporter, BOW, QUIVER_IN20091231_2255, QUIVER_IN20100122_2251);
-        offerLegacyCutterRecipe(exporter, APPLE, APPLE_IN20091231_2255, APPLE_1_4);
-        offerLegacyCutterRecipe(exporter, COAL, COAL_IN20100128, COAL_IN20100219, COAL_1_3);
-        offerLegacyCutterRecipe(exporter, DIAMOND, DIAMOND_IN20100128, DIAMOND_1_3);
-        offerLegacyCutterRecipe(exporter, GOLD_INGOT, GOLD_INGOT_IN20100128, GOLD_INGOT_IN20100129);
-        offerLegacyCutterRecipe(exporter, IRON_INGOT, IRON_INGOT_IN20100128, IRON_INGOT_IN20100129);
-        offerLegacyCutterRecipe(exporter, BOWL, BOWL_IN20100130);
-        offerLegacyCutterRecipe(exporter, MUSHROOM_STEW, MUSHROOM_STEW_IN20100130);
-        offerLegacyCutterRecipe(exporter, GUNPOWDER, SULPHUR);
-        offerLegacyCutterRecipe(exporter, STRING, STRING_IN20100130);
-        offerLegacyCutterRecipe(exporter, FEATHER, FEATHER_IN20100130, FEATHER_IN20100206);
-        offerLegacyCutterRecipe(exporter, BREAD, BREAD_IN20100206, BREAD_1_4);
-        offerLegacyCutterRecipe(exporter, WHEAT, WHEAT_IN20100206);
-        offerLegacyCutterRecipe(exporter, FLINT, FLINT_IN20100219, FLINT_1_3);
-        offerLegacyCutterRecipe(exporter, PORKCHOP, PORKCHOP_IN20100219, PORKCHOP_1_4);
-        offerLegacyCutterRecipe(exporter, COOKED_PORKCHOP, COOKED_PORKCHOP_IN20100219, COOKED_PORKCHOP_B1_8, COOKED_PORKCHOP_1_4);
-        offerLegacyCutterRecipe(exporter, GOLDEN_APPLE, GOLDEN_APPLE_INF20100227);
-        offerLegacyCutterRecipe(exporter, LEATHER, LEATHER_A1_0_8);
-        offerLegacyCutterRecipe(exporter, PAPER, PAPER_A1_0_11);
-        offerLegacyCutterRecipe(exporter, BOOK, BOOK_A1_0_11);
-        offerLegacyCutterRecipe(exporter, CLAY_BALL, CLAY_BALL_A1_0_11);
-        offerLegacyCutterRecipe(exporter, BRICK, BRICK_A1_0_11);
-        offerLegacyCutterRecipe(exporter, SLIME_BALL, SLIMEBALL_A1_0_11);
-        offerLegacyCutterRecipe(exporter, GLOWSTONE_DUST, GLOWSTONE_DUST_A1_2_0);
-        offerLegacyCutterRecipe(exporter, COD, FISH_A1_2_0);
-        offerLegacyCutterRecipe(exporter, COOKED_COD, COOKED_FISH_A1_2_0);
-        offerLegacyCutterRecipe(exporter, BONE, BONE_B1_2);
-        offerLegacyCutterRecipe(exporter, BONE_MEAL, BONE_MEAL_B1_2, BONE_MEAL_1_3);
-        offerLegacyCutterRecipe(exporter, COOKIE, COOKIE_B1_4);
-        offerLegacyCutterRecipe(exporter, CHICKEN, CHICKEN_B1_8, CHICKEN_1_4);
-        offerLegacyCutterRecipe(exporter, COOKED_CHICKEN, COOKED_CHICKEN_B1_8, COOKED_CHICKEN_1_4);
-        offerLegacyCutterRecipe(exporter, BEEF, BEEF_B1_8, BEEF_1_3, BEEF_1_4);
-        offerLegacyCutterRecipe(exporter, COOKED_BEEF, COOKED_BEEF_B1_8, COOKED_BEEF_1_3, COOKED_BEEF_1_4);
-        offerLegacyCutterRecipe(exporter, ROTTEN_FLESH, ROTTEN_FLESH_B1_8, ROTTEN_FLESH_1_3);
-        offerLegacyCutterRecipe(exporter, GHAST_TEAR, GHAST_TEAR_B1_9PRE);
-        offerLegacyCutterRecipe(exporter, GOLD_NUGGET, GOLD_NUGGET_B1_9PRE, GOLD_NUGGET_1_3);
-        offerLegacyCutterRecipe(exporter, BLAZE_POWDER, BLAZE_POWDER_B1_9PRE2);
-        offerLegacyCutterRecipe(exporter, FERMENTED_SPIDER_EYE, FERMENTED_SPIDER_EYE_B1_9PRE2);
-        offerLegacyCutterRecipe(exporter, MAGMA_CREAM, MAGMA_CREAM_B1_9PRE2, MAGMA_CREAM_1_3);
-        offerLegacyCutterRecipe(exporter, SPIDER_EYE, SPIDER_EYE_B1_9PRE2);
-        offerLegacyCutterRecipe(exporter, GLISTERING_MELON_SLICE, GLISTERING_MELON_B1_9PRE4);
-        offerLegacyCutterRecipe(exporter, EMERALD, EMERALD_1_3);
-        offerLegacyCutterRecipe(exporter, ENCHANTED_GOLDEN_APPLE, ENCHANTED_GOLDEN_APPLE_1_3);
-        offerLegacyCutterRecipe(exporter, GOLDEN_CARROT, GOLDEN_CARROT_1_4);
-        offerLegacyCutterRecipe(exporter, BAKED_POTATO, BAKED_POTATO_1_4);
-        offerLegacyCutterRecipe(exporter, POISONOUS_POTATO, POISONOUS_POTATO_1_4);
-        offerLegacyCutterRecipe(exporter, NETHER_STAR, NETHER_STAR_1_4);
-        offerLegacyCutterRecipe(exporter, PUMPKIN_PIE, PUMPKIN_PIE_1_4);
-        offerLegacyCutterRecipe(exporter, QUARTZ, QUARTZ_1_5);
-        offerLegacyCutterRecipe(exporter, TROPICAL_FISH, CLOWNFISH_1_7);
-        offerLegacyCutterRecipe(exporter, SALMON, SALMON_1_7);
-        offerLegacyCutterRecipe(exporter, COOKED_SALMON, COOKED_SALMON_1_7);
-        offerLegacyCutterRecipe(exporter, PUFFERFISH, PUFFERFISH_1_7);
-        offerLegacyCutterRecipe(exporter, PRISMARINE_CRYSTALS, PRISMARINE_CRYSTAL_1_8);
-        offerLegacyCutterRecipe(exporter, PRISMARINE_SHARD, PRISMARINE_SHARD_1_8);
-        offerLegacyCutterRecipe(exporter, MUTTON, MUTTON_1_8);
-        offerLegacyCutterRecipe(exporter, COOKED_MUTTON, COOKED_MUTTON_1_8);
-        offerLegacyCutterRecipe(exporter, RABBIT, RABBIT_1_8);
-        offerLegacyCutterRecipe(exporter, COOKED_RABBIT, COOKED_RABBIT_1_8);
-        offerLegacyCutterRecipe(exporter, RABBIT_FOOT, RABBIT_FOOT_1_8);
-        offerLegacyCutterRecipe(exporter, RABBIT_HIDE, RABBIT_HIDE_1_8);
-        offerLegacyCutterRecipe(exporter, RABBIT_STEW, RABBIT_STEW_1_8);
+        offerLegacyCutterRecipe(BOW, QUIVER_IN20091231_2255, QUIVER_IN20100122_2251);
+        offerLegacyCutterRecipe(APPLE, APPLE_IN20091231_2255, APPLE_1_4);
+        offerLegacyCutterRecipe(COAL, COAL_IN20100128, COAL_IN20100219, COAL_1_3);
+        offerLegacyCutterRecipe(DIAMOND, DIAMOND_IN20100128, DIAMOND_1_3);
+        offerLegacyCutterRecipe(GOLD_INGOT, GOLD_INGOT_IN20100128, GOLD_INGOT_IN20100129);
+        offerLegacyCutterRecipe(IRON_INGOT, IRON_INGOT_IN20100128, IRON_INGOT_IN20100129);
+        offerLegacyCutterRecipe(BOWL, BOWL_IN20100130);
+        offerLegacyCutterRecipe(MUSHROOM_STEW, MUSHROOM_STEW_IN20100130);
+        offerLegacyCutterRecipe(GUNPOWDER, SULPHUR);
+        offerLegacyCutterRecipe(STRING, STRING_IN20100130);
+        offerLegacyCutterRecipe(FEATHER, FEATHER_IN20100130, FEATHER_IN20100206);
+        offerLegacyCutterRecipe(BREAD, BREAD_IN20100206, BREAD_1_4);
+        offerLegacyCutterRecipe(WHEAT, WHEAT_IN20100206);
+        offerLegacyCutterRecipe(FLINT, FLINT_IN20100219, FLINT_1_3);
+        offerLegacyCutterRecipe(PORKCHOP, PORKCHOP_IN20100219, PORKCHOP_1_4);
+        offerLegacyCutterRecipe(COOKED_PORKCHOP, COOKED_PORKCHOP_IN20100219, COOKED_PORKCHOP_B1_8, COOKED_PORKCHOP_1_4);
+        offerLegacyCutterRecipe(GOLDEN_APPLE, GOLDEN_APPLE_INF20100227);
+        offerLegacyCutterRecipe(LEATHER, LEATHER_A1_0_8);
+        offerLegacyCutterRecipe(PAPER, PAPER_A1_0_11);
+        offerLegacyCutterRecipe(BOOK, BOOK_A1_0_11);
+        offerLegacyCutterRecipe(CLAY_BALL, CLAY_BALL_A1_0_11);
+        offerLegacyCutterRecipe(BRICK, BRICK_A1_0_11);
+        offerLegacyCutterRecipe(SLIME_BALL, SLIMEBALL_A1_0_11);
+        offerLegacyCutterRecipe(GLOWSTONE_DUST, GLOWSTONE_DUST_A1_2_0);
+        offerLegacyCutterRecipe(COD, FISH_A1_2_0);
+        offerLegacyCutterRecipe(COOKED_COD, COOKED_FISH_A1_2_0);
+        offerLegacyCutterRecipe(BONE, BONE_B1_2);
+        offerLegacyCutterRecipe(BONE_MEAL, BONE_MEAL_B1_2, BONE_MEAL_1_3);
+        offerLegacyCutterRecipe(COOKIE, COOKIE_B1_4);
+        offerLegacyCutterRecipe(CHICKEN, CHICKEN_B1_8, CHICKEN_1_4);
+        offerLegacyCutterRecipe(COOKED_CHICKEN, COOKED_CHICKEN_B1_8, COOKED_CHICKEN_1_4);
+        offerLegacyCutterRecipe(BEEF, BEEF_B1_8, BEEF_1_3, BEEF_1_4);
+        offerLegacyCutterRecipe(COOKED_BEEF, COOKED_BEEF_B1_8, COOKED_BEEF_1_3, COOKED_BEEF_1_4);
+        offerLegacyCutterRecipe(ROTTEN_FLESH, ROTTEN_FLESH_B1_8, ROTTEN_FLESH_1_3);
+        offerLegacyCutterRecipe(GHAST_TEAR, GHAST_TEAR_B1_9PRE);
+        offerLegacyCutterRecipe(GOLD_NUGGET, GOLD_NUGGET_B1_9PRE, GOLD_NUGGET_1_3);
+        offerLegacyCutterRecipe(BLAZE_POWDER, BLAZE_POWDER_B1_9PRE2);
+        offerLegacyCutterRecipe(FERMENTED_SPIDER_EYE, FERMENTED_SPIDER_EYE_B1_9PRE2);
+        offerLegacyCutterRecipe(MAGMA_CREAM, MAGMA_CREAM_B1_9PRE2, MAGMA_CREAM_1_3);
+        offerLegacyCutterRecipe(SPIDER_EYE, SPIDER_EYE_B1_9PRE2);
+        offerLegacyCutterRecipe(GLISTERING_MELON_SLICE, GLISTERING_MELON_B1_9PRE4);
+        offerLegacyCutterRecipe(EMERALD, EMERALD_1_3);
+        offerLegacyCutterRecipe(ENCHANTED_GOLDEN_APPLE, ENCHANTED_GOLDEN_APPLE_1_3);
+        offerLegacyCutterRecipe(GOLDEN_CARROT, GOLDEN_CARROT_1_4);
+        offerLegacyCutterRecipe(BAKED_POTATO, BAKED_POTATO_1_4);
+        offerLegacyCutterRecipe(POISONOUS_POTATO, POISONOUS_POTATO_1_4);
+        offerLegacyCutterRecipe(NETHER_STAR, NETHER_STAR_1_4);
+        offerLegacyCutterRecipe(PUMPKIN_PIE, PUMPKIN_PIE_1_4);
+        offerLegacyCutterRecipe(QUARTZ, QUARTZ_1_5);
+        offerLegacyCutterRecipe(TROPICAL_FISH, CLOWNFISH_1_7);
+        offerLegacyCutterRecipe(SALMON, SALMON_1_7);
+        offerLegacyCutterRecipe(COOKED_SALMON, COOKED_SALMON_1_7);
+        offerLegacyCutterRecipe(PUFFERFISH, PUFFERFISH_1_7);
+        offerLegacyCutterRecipe(PRISMARINE_CRYSTALS, PRISMARINE_CRYSTAL_1_8);
+        offerLegacyCutterRecipe(PRISMARINE_SHARD, PRISMARINE_SHARD_1_8);
+        offerLegacyCutterRecipe(MUTTON, MUTTON_1_8);
+        offerLegacyCutterRecipe(COOKED_MUTTON, COOKED_MUTTON_1_8);
+        offerLegacyCutterRecipe(RABBIT, RABBIT_1_8);
+        offerLegacyCutterRecipe(COOKED_RABBIT, COOKED_RABBIT_1_8);
+        offerLegacyCutterRecipe(RABBIT_FOOT, RABBIT_FOOT_1_8);
+        offerLegacyCutterRecipe(RABBIT_HIDE, RABBIT_HIDE_1_8);
+        offerLegacyCutterRecipe(RABBIT_STEW, RABBIT_STEW_1_8);
 
-
-        offerFutureCutterRecipe(exporter, PALE_OAK_LOG, 1);
-        offerFutureCutterRecipe(exporter, PALE_OAK_SAPLING, 1);
-        offerFutureCutterRecipe(exporter, PALE_MOSS, 1);
-        offerFutureCutterRecipe(exporter, PALE_HANGING_MOSS, 1);
-        offerFutureCutterRecipe(exporter, CLOSED_EYEBLOSSOM, 1);
-        offerFutureCutterRecipe(exporter, OPEN_EYEBLOSSOM, 1);
-        offerFutureCutterRecipe(exporter, RESIN_CLUMP, 1);
-        offerFutureCutterRecipe(exporter, RESIN_BRICK, 1);
-        offerFutureCutterRecipe(exporter, RESIN_BLOCK, 1);
-        offerFutureCutterRecipe(exporter, RESIN_BRICKS, 1);
-        offerFutureCutterRecipe(exporter, WILDFLOWERS, 1);
-        offerFutureCutterRecipe(exporter, LEAF_LITTERS, 1);
-        offerFutureCutterRecipe(exporter, SHORT_DRY_GRASS, 1);
-
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, PALE_OAK_PLANKS, 4)
-                .input(PALE_OAK_LOG)
-                .criterion(hasTag(PALE_OAK_LOGS), conditionsFromTag(PALE_OAK_LOGS))
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, GOLD_INGOT_IN20100128, 9)
+                .input(GOLD_BLOCK_C0_26ST)
+                .criterion(hasItem(GOLD_BLOCK_C0_26ST), conditionsFromItem(GOLD_BLOCK_C0_26ST))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, PALE_OAK_BOAT)
-                .input('A', PALE_OAK_PLANKS)
-                .pattern("A A")
-                .pattern("AAA")
-                .criterion(hasItem(PALE_OAK_PLANKS), conditionsFromItem(PALE_OAK_PLANKS))
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, PALE_OAK_CHEST_BOAT)
-                .input(PALE_OAK_BOAT)
-                .input(ConventionalItemTags.WOODEN_CHESTS)
-                .criterion(hasItem(PALE_OAK_PLANKS), conditionsFromItem(PALE_OAK_PLANKS))
-                .criterion(hasItem(CHEST), conditionsFromItem(CHEST)).offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, PALE_OAK_WOOD)
-                .input('A', PALE_OAK_LOG)
-                .pattern("AA")
-                .pattern("AA")
-                .criterion(hasTag(PALE_OAK_LOGS), conditionsFromTag(PALE_OAK_LOGS))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, STRIPPED_PALE_OAK_WOOD)
-                .input('A', STRIPPED_PALE_OAK_LOG)
-                .pattern("AA")
-                .pattern("AA")
-                .criterion(hasTag(PALE_OAK_LOGS), conditionsFromTag(PALE_OAK_LOGS))
-                .offerTo(exporter);
-        generateFamily(exporter, ModBlockFamilies.PALE_OAK, FeatureSet.empty());
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, RESIN_BLOCK)
-                .input('A', RESIN_CLUMP)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK_C0_26ST)
+                .input('A', GOLD_INGOT_IN20100128)
                 .pattern("AAA")
                 .pattern("AAA")
                 .pattern("AAA")
-                .criterion(hasItem(RESIN_CLUMP), conditionsFromItem(RESIN_CLUMP))
+                .criterion(hasItem(GOLD_INGOT_IN20100128), conditionsFromItem(GOLD_INGOT_IN20100128))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, RESIN_CLUMP, 9)
-                .input(RESIN_BLOCK)
-                .criterion(hasItem(RESIN_BLOCK), conditionsFromItem(RESIN_BLOCK))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, RESIN_BRICKS)
-                .input('A', RESIN_BRICK)
-                .pattern("AA")
-                .pattern("AA")
-                .criterion(hasItem(RESIN_BRICK), conditionsFromItem(RESIN_BRICK))
-                .offerTo(exporter);
-        offerSmelting(exporter, List.of(RESIN_CLUMP), RecipeCategory.MISC, RESIN_BRICK, 0.1F, 200, "resin_brick");
-        generateFamily(exporter, ModBlockFamilies.RESIN_BRICKS, FeatureSet.empty());
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, RESIN_BRICK_SLAB, RESIN_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, RESIN_BRICK_STAIRS, RESIN_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, RESIN_BRICK_WALL, RESIN_BRICKS);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, CHISELED_RESIN_BRICKS, RESIN_BRICKS);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, GOLD_BLOCK_C0_26ST)
+                .input('A', GOLD_INGOT_IN20100129)
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .criterion(hasItem(GOLD_INGOT_IN20100129), conditionsFromItem(GOLD_INGOT_IN20100129))
+                .offerTo(exporter, "gold_block_c0_26st_alternative");
+
+        offerFutureCutterRecipe(WILDFLOWERS, 1);
+        offerFutureCutterRecipe(LEAF_LITTERS, 1);
+        offerFutureCutterRecipe(SHORT_DRY_GRASS, 1);
 
 
-
-
-        offerWoodcutterRecipe(exporter, OAK_PLANKS,
+        offerWoodcutterRecipe(OAK_PLANKS,
                 OAK_SLAB,
                 OAK_STAIRS,
                 OAK_DOOR,
@@ -1457,7 +1555,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 OAK_HANGING_SIGN,
                 OAK_BOAT,
                 OAK_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, BIRCH_PLANKS,
+        offerWoodcutterRecipe(BIRCH_PLANKS,
                 BIRCH_SLAB,
                 BIRCH_STAIRS,
                 BIRCH_DOOR,
@@ -1470,7 +1568,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 BIRCH_HANGING_SIGN,
                 BIRCH_BOAT,
                 BIRCH_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, SPRUCE_PLANKS,
+        offerWoodcutterRecipe(SPRUCE_PLANKS,
                 SPRUCE_SLAB,
                 SPRUCE_STAIRS,
                 SPRUCE_DOOR,
@@ -1483,7 +1581,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 SPRUCE_HANGING_SIGN,
                 SPRUCE_BOAT,
                 SPRUCE_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, JUNGLE_PLANKS,
+        offerWoodcutterRecipe(JUNGLE_PLANKS,
                 JUNGLE_SLAB,
                 JUNGLE_STAIRS,
                 JUNGLE_DOOR,
@@ -1496,7 +1594,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 JUNGLE_HANGING_SIGN,
                 JUNGLE_BOAT,
                 JUNGLE_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, ACACIA_PLANKS,
+        offerWoodcutterRecipe(ACACIA_PLANKS,
                 ACACIA_SLAB,
                 ACACIA_STAIRS,
                 ACACIA_DOOR,
@@ -1509,7 +1607,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 ACACIA_HANGING_SIGN,
                 ACACIA_BOAT,
                 ACACIA_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, DARK_OAK_PLANKS,
+        offerWoodcutterRecipe(DARK_OAK_PLANKS,
                 DARK_OAK_SLAB,
                 DARK_OAK_STAIRS,
                 DARK_OAK_DOOR,
@@ -1522,7 +1620,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 DARK_OAK_HANGING_SIGN,
                 DARK_OAK_BOAT,
                 DARK_OAK_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, CRIMSON_PLANKS,
+        offerWoodcutterRecipe(CRIMSON_PLANKS,
                 CRIMSON_SLAB,
                 CRIMSON_STAIRS,
                 CRIMSON_DOOR,
@@ -1533,7 +1631,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 CRIMSON_BUTTON,
                 CRIMSON_SIGN,
                 CRIMSON_HANGING_SIGN);
-        offerWoodcutterRecipe(exporter, WARPED_PLANKS,
+        offerWoodcutterRecipe(WARPED_PLANKS,
                 WARPED_SLAB,
                 WARPED_STAIRS,
                 WARPED_DOOR,
@@ -1544,7 +1642,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 WARPED_BUTTON,
                 WARPED_SIGN,
                 WARPED_HANGING_SIGN);
-        offerWoodcutterRecipe(exporter, BAMBOO_PLANKS,
+        offerWoodcutterRecipe(BAMBOO_PLANKS,
                 BAMBOO_SLAB,
                 BAMBOO_STAIRS,
                 BAMBOO_DOOR,
@@ -1557,7 +1655,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 BAMBOO_HANGING_SIGN,
                 BAMBOO_RAFT,
                 BAMBOO_CHEST_RAFT);
-        offerWoodcutterRecipe(exporter, MANGROVE_PLANKS,
+        offerWoodcutterRecipe(MANGROVE_PLANKS,
                 MANGROVE_SLAB,
                 MANGROVE_STAIRS,
                 MANGROVE_DOOR,
@@ -1570,7 +1668,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 MANGROVE_HANGING_SIGN,
                 MANGROVE_BOAT,
                 MANGROVE_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, CHERRY_PLANKS,
+        offerWoodcutterRecipe(CHERRY_PLANKS,
                 CHERRY_SLAB,
                 CHERRY_STAIRS,
                 CHERRY_DOOR,
@@ -1583,7 +1681,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 CHERRY_HANGING_SIGN,
                 CHERRY_BOAT,
                 CHERRY_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, PALE_OAK_PLANKS,
+        offerWoodcutterRecipe(PALE_OAK_PLANKS,
                 PALE_OAK_SLAB,
                 PALE_OAK_STAIRS,
                 PALE_OAK_DOOR,
@@ -1596,7 +1694,20 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 PALE_OAK_HANGING_SIGN,
                 PALE_OAK_BOAT,
                 PALE_OAK_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, BANANA_PLANKS,
+        offerWoodcutterRecipe(PALM_PLANKS,
+                PALM_SLAB,
+                PALM_STAIRS,
+                PALM_DOOR,
+                PALM_TRAPDOOR,
+                PALM_FENCE,
+                PALM_FENCE_GATE,
+                PALM_PRESSURE_PLATE,
+                PALM_BUTTON,
+                PALM_SIGN,
+                PALM_HANGING_SIGN,
+                PALM_BOAT,
+                PALM_CHEST_BOAT);
+        offerWoodcutterRecipe(BANANA_PLANKS,
                 BANANA_SLAB,
                 BANANA_STAIRS,
                 BANANA_DOOR,
@@ -1609,7 +1720,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 BANANA_HANGING_SIGN,
                 BANANA_BOAT,
                 BANANA_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, CORN_PLANKS,
+        offerWoodcutterRecipe(CORN_PLANKS,
                 CORN_SLAB,
                 CORN_STAIRS,
                 CORN_DOOR,
@@ -1622,7 +1733,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 CORN_HANGING_SIGN,
                 CORN_BOAT,
                 CORN_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, POISONED_PLANKS,
+        offerWoodcutterRecipe(POISONED_PLANKS,
                 POISONED_SLAB,
                 POISONED_STAIRS,
                 POISONED_DOOR,
@@ -1635,7 +1746,7 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 null,
                 POISONED_BOAT,
                 POISONED_CHEST_BOAT);
-        offerWoodcutterRecipe(exporter, MAHOGANY_PLANKS,
+        offerWoodcutterRecipe(MAHOGANY_PLANKS,
                 MAHOGANY_SLAB,
                 MAHOGANY_STAIRS,
                 MAHOGANY_DOOR,
@@ -1648,11 +1759,123 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
                 MAHOGANY_HANGING_SIGN,
                 MAHOGANY_BOAT,
                 MAHOGANY_CHEST_BOAT);
-        offerWRecipe(exporter, ItemTags.PLANKS, CHEST, 1);
-        offerWRecipe(exporter, ItemTags.PLANKS, BARREL, 1);
-        offerWRecipe(exporter, ItemTags.PLANKS, CRAFTING_TABLE, 1);
-        offerWRecipe(exporter, ItemTags.PLANKS, LADDER, 2);
-        offerWRecipe(exporter, ItemTags.PLANKS, STICK, 4);
+        offerWoodcutterRecipe(WOODEN_PLANKS_RD20090515,
+                WOODEN_SLAB_RD20090515,
+                WOODEN_STAIRS_RD20090515,
+                WOODEN_DOOR_INF20100607,
+                TRAPDOOR_B1_6,
+                WOODEN_FENCE_RD20090515,
+                WOODEN_FENCE_GATE_RD20090515,
+                null,
+                WOODEN_BUTTON_RD20090515,
+                SIGN_INF20100607,
+                null);
+        offerWoodcutterRecipe(WOODEN_PLANKS_RD161348,
+                WOODEN_SLAB_RD161348,
+                WOODEN_STAIRS_RD161348,
+                WOODEN_DOOR_INF20100607,
+                TRAPDOOR_B1_6,
+                WOODEN_FENCE_RD161348,
+                WOODEN_FENCE_GATE_RD161348,
+                null,
+                WOODEN_BUTTON_RD161348,
+                SIGN_INF20100607,
+                null);
+        offerWoodcutterRecipe(WOODEN_PLANKS_C0_0_14A,
+                WOODEN_SLAB_C0_0_14A,
+                WOODEN_STAIRS_C0_0_14A,
+                WOODEN_DOOR_INF20100607,
+                TRAPDOOR_B1_6,
+                WOODEN_FENCE_C0_0_14A,
+                WOODEN_FENCE_GATE_C0_0_14A,
+                null,
+                WOODEN_BUTTON_C0_0_14A,
+                SIGN_INF20100607,
+                null);
+        offerWoodcutterRecipe(WOODEN_PLANKS_C0_0_15A,
+                WOODEN_SLAB_B1_3,
+                WOODEN_STAIRS_INF20100629,
+                WOODEN_DOOR_INF20100607,
+                TRAPDOOR_B1_6,
+                WOODEN_FENCE_A1_0_17,
+                WOODEN_FENCE_GATE_B1_8,
+                null,
+                WOODEN_BUTTON_C0_0_15A,
+                SIGN_INF20100607,
+                null);
+        offerWoodcutterRecipe(WOODEN_PLANKS_B1_9PRE5,
+                WOODEN_SLAB_B1_9PRE5,
+                WOODEN_STAIRS_B1_9PRE5,
+                WOODEN_DOOR_INF20100607,
+                TRAPDOOR_B1_6,
+                WOODEN_FENCE_B1_9PRE5,
+                WOODEN_FENCE_GATE_B1_9PRE5,
+                null,
+                WOODEN_BUTTON_1_4,
+                SIGN_INF20100607,
+                null);
+        offerWoodcutterRecipe(BIRCH_PLANKS_1_2_4,
+                BIRCH_SLAB_1_3,
+                BIRCH_STAIRS_1_3,
+                null,
+                null,
+                BIRCH_FENCE_1_8,
+                BIRCH_FENCE_GATE_1_8,
+                null,
+                BIRCH_BUTTON_1_13,
+                null,
+                null);
+        offerWoodcutterRecipe(SPRUCE_PLANKS_1_2_4,
+                SPRUCE_SLAB_1_3,
+                SPRUCE_STAIRS_1_3,
+                null,
+                null,
+                SPRUCE_FENCE_1_8,
+                SPRUCE_FENCE_GATE_1_8,
+                null,
+                SPRUCE_BUTTON_1_13,
+                null,
+                null);
+        offerWoodcutterRecipe(JUNGLE_PLANKS_1_2_4,
+                JUNGLE_SLAB_1_3,
+                JUNGLE_STAIRS_1_3,
+                null,
+                null,
+                JUNGLE_FENCE_1_8,
+                JUNGLE_FENCE_GATE_1_8,
+                null,
+                JUNGLE_BUTTON_1_13,
+                null,
+                null);
+        offerWoodcutterRecipe(ACACIA_PLANKS_1_7,
+                ACACIA_SLAB_1_7,
+                ACACIA_STAIRS_1_7,
+                null,
+                null,
+                ACACIA_FENCE_1_8,
+                ACACIA_FENCE_GATE_1_8,
+                null,
+                ACACIA_BUTTON_1_13,
+                null,
+                null);
+        offerWoodcutterRecipe(DARK_OAK_PLANKS_1_7,
+                DARK_OAK_SLAB_1_7,
+                DARK_OAK_STAIRS_1_7,
+                null,
+                null,
+                DARK_OAK_FENCE_1_8,
+                DARK_OAK_FENCE_GATE_1_8,
+                null,
+                DARK_OAK_BUTTON_1_13,
+                null,
+                null);
+        offerWRecipe(ItemTags.PLANKS, CHEST, 1);
+        offerWRecipe(ItemTags.PLANKS, BARREL, 1);
+        offerWRecipe(ItemTags.PLANKS, CRAFTING_TABLE, 1);
+        offerWRecipe(ItemTags.PLANKS, LADDER, 2);
+        offerWRecipe(ItemTags.PLANKS, STICK, 4);
+        
+        exporter = null;
     }
 
     private static @NotNull String hasTag(@NotNull TagKey<Item> tag) {
@@ -1677,86 +1900,120 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    private static void offerWoodcutterRecipe(RecipeExporter exporter,
-                                              ItemConvertible plank,
-                                              ItemConvertible slab,
-                                              ItemConvertible stairs,
-                                              ItemConvertible door,
-                                              ItemConvertible trapdoor,
-                                              ItemConvertible fence,
-                                              ItemConvertible fenceGate,
-                                              ItemConvertible pressurePlate,
-                                              ItemConvertible button,
-                                              ItemConvertible sign,
-                                              ItemConvertible hangingSign,
-                                              ItemConvertible boat,
-                                              ItemConvertible chestBoat) {
-        offerWRecipe(exporter, plank, slab, 2);
-        offerWRecipe(exporter, plank, stairs, 1);
-        offerWRecipe(exporter, plank, door, 1);
-        offerWRecipe(exporter, plank, trapdoor, 1);
-        offerWRecipe(exporter, plank, fence, 3);
-        offerWRecipe(exporter, plank, fenceGate, 1);
-        offerWRecipe(exporter, plank, pressurePlate, 2);
-        offerWRecipe(exporter, plank, button, 4);
-        if (sign != null)
-            offerWRecipe(exporter, plank, sign, 2);
-        if (hangingSign != null)
-            offerWRecipe(exporter, plank, hangingSign, 1);
-        offerWRecipe(exporter, plank, boat, 1);
-        offerWRecipe(exporter, plank, chestBoat, 1);
+    private void verticalSlabRecipe(Block verticalSlab, Block base, boolean stone) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, verticalSlab, 6)
+                .input('A', base)
+                .pattern("A")
+                .pattern("A")
+                .pattern("A")
+                .criterion(hasItem(base), conditionsFromItem(base))
+                .offerTo(exporter);
+        if (stone)
+            offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, verticalSlab, base, 2);
+        else
+            offerWRecipe(base, verticalSlab, 2);
     }
 
-    private static void offerWoodcutterRecipe(RecipeExporter exporter,
-                                              ItemConvertible plank,
-                                              ItemConvertible slab,
-                                              ItemConvertible stairs,
-                                              ItemConvertible door,
-                                              ItemConvertible trapdoor,
-                                              ItemConvertible fence,
-                                              ItemConvertible fenceGate,
-                                              ItemConvertible pressurePlate,
-                                              ItemConvertible button,
-                                              ItemConvertible sign,
-                                              ItemConvertible hangingSign) {
-        offerWRecipe(exporter, plank, slab, 2);
-        offerWRecipe(exporter, plank, stairs, 1);
-        offerWRecipe(exporter, plank, door, 1);
-        offerWRecipe(exporter, plank, trapdoor, 1);
-        offerWRecipe(exporter, plank, fence, 3);
-        offerWRecipe(exporter, plank, fenceGate, 1);
-        offerWRecipe(exporter, plank, pressurePlate, 2);
-        offerWRecipe(exporter, plank, button, 4);
-        if (sign != null)
-            offerWRecipe(exporter, plank, sign, 2);
-        if (hangingSign != null)
-            offerWRecipe(exporter, plank, hangingSign, 1);
+    private void verticalSlabRecipe(Block verticalSlab, Block base) {
+        verticalSlabRecipe(verticalSlab, base, true);
     }
 
-    private static void offerLegacyCutterRecipe(RecipeExporter exporter, ItemConvertible base, ItemConvertible... legacyVariants) {
+    private void offerWoodcutterRecipe(ItemConvertible plank,
+                                       ItemConvertible slab,
+                                       ItemConvertible stairs,
+                                       ItemConvertible door,
+                                       ItemConvertible trapdoor,
+                                       ItemConvertible fence,
+                                       ItemConvertible fenceGate,
+                                       ItemConvertible pressurePlate,
+                                       ItemConvertible button,
+                                       ItemConvertible sign,
+                                       ItemConvertible hangingSign,
+                                       ItemConvertible boat,
+                                       ItemConvertible chestBoat) {
+        if (slab != null)
+            offerWRecipe(plank, slab, 2);
+        if (stairs != null)
+            offerWRecipe(plank, stairs, 1);
+        if (door != null)
+            offerWRecipe(plank, door, 1);
+        if (trapdoor != null)
+            offerWRecipe(plank, trapdoor, 1);
+        if (fence != null)
+            offerWRecipe(plank, fence, 3);
+        if (fenceGate != null)
+            offerWRecipe(plank, fenceGate, 1);
+        if (pressurePlate != null)
+            offerWRecipe(plank, pressurePlate, 2);
+        if (button != null)
+            offerWRecipe(plank, button, 4);
+        if (sign != null)
+            offerWRecipe(plank, sign, 2);
+        if (hangingSign != null)
+            offerWRecipe(plank, hangingSign, 1);
+        if (boat != null)
+            offerWRecipe(plank, boat, 1);
+        if (chestBoat != null)
+            offerWRecipe(plank, chestBoat, 1);
+    }
+
+    private void offerWoodcutterRecipe(ItemConvertible plank,
+                                       ItemConvertible slab,
+                                       ItemConvertible stairs,
+                                       ItemConvertible door,
+                                       ItemConvertible trapdoor,
+                                       ItemConvertible fence,
+                                       ItemConvertible fenceGate,
+                                       ItemConvertible pressurePlate,
+                                       ItemConvertible button,
+                                       ItemConvertible sign,
+                                       ItemConvertible hangingSign) {
+        if (slab != null)
+            offerWRecipe(plank, slab, 2);
+        if (stairs != null)
+            offerWRecipe(plank, stairs, 1);
+        if (door != null)
+            offerWRecipe(plank, door, 1);
+        if (trapdoor != null)
+            offerWRecipe(plank, trapdoor, 1);
+        if (fence != null)
+            offerWRecipe(plank, fence, 3);
+        if (fenceGate != null)
+            offerWRecipe(plank, fenceGate, 1);
+        if (pressurePlate != null)
+            offerWRecipe(plank, pressurePlate, 2);
+        if (button != null)
+            offerWRecipe(plank, button, 4);
+        if (sign != null)
+            offerWRecipe(plank, sign, 2);
+        if (hangingSign != null)
+            offerWRecipe(plank, hangingSign, 1);
+    }
+
+    private void offerLegacyCutterRecipe(ItemConvertible base, ItemConvertible... legacyVariants) {
         Set<String> generated = new HashSet<>();
 
         for (int i = 0; i < legacyVariants.length; i++) {
             for (int j = i + 1; j < legacyVariants.length; j++) {
-                offerLRecipe(exporter, legacyVariants[i], legacyVariants[j], base, generated);
-                offerLRecipe(exporter, legacyVariants[j], legacyVariants[i], base, generated);
+                offerLRecipe(legacyVariants[i], legacyVariants[j], base, generated);
+                offerLRecipe(legacyVariants[j], legacyVariants[i], base, generated);
             }
         }
 
         for (ItemConvertible legacy : legacyVariants) {
-            offerLRecipe(exporter, base, legacy, base, generated);
-            offerLRecipe(exporter, legacy, base, base, generated);
+            offerLRecipe(base, legacy, base, generated);
+            offerLRecipe(legacy, base, base, generated);
         }
     }
 
-    private static void offerFutureCutterRecipe(RecipeExporter exporter, ItemConvertible output, int count) {
+    private void offerFutureCutterRecipe(ItemConvertible output, int count) {
         String id = Registries.ITEM.getId(FUTURE_INGOT).getPath() + "_to_" + Registries.ITEM.getId(output.asItem()).getPath();
         LegacyCutterRecipeJSONBuilder.create(Ingredient.ofItems(FUTURE_INGOT), output.asItem(), count)
                 .criterion(hasItem(FUTURE_INGOT), conditionsFromItem(FUTURE_INGOT))
                 .offerTo(exporter, Blocktopia.id("legacy_cutting/" + id));
     }
 
-    private static void offerLRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, ItemConvertible criterionItem, Set<String> generated) {
+    private void offerLRecipe(ItemConvertible input, ItemConvertible output, ItemConvertible criterionItem, Set<String> generated) {
         String id = Registries.ITEM.getId(input.asItem()).getPath() + "_to_" + Registries.ITEM.getId(output.asItem()).getPath();
         if (generated.add(id)) {
             LegacyCutterRecipeJSONBuilder.create(Ingredient.ofItems(input), output.asItem(), 1)
@@ -1765,28 +2022,33 @@ public class BlocktopiaRecipeProvider extends FabricRecipeProvider {
         }
     }
 
-    private static void offerWRecipe(RecipeExporter exporter, TagKey<Item> input, ItemConvertible output, int count) {
+    private void offerWRecipe(TagKey<Item> input, ItemConvertible output, int count) {
         WoodCuttingRecipeJSONBuilder.create(Ingredient.fromTag(input), output.asItem(), count)
                 .criterion(hasTag(input), conditionsFromTag(input))
                 .offerTo(exporter, Blocktopia.id("wood_cutting/" + input.id().getPath() + "_to_" + Registries.ITEM.getId(output.asItem()).getPath()));
     }
 
-    private static void offerWRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, int count) {
+    private void offerWRecipe(ItemConvertible input, ItemConvertible output, int count) {
         WoodCuttingRecipeJSONBuilder.create(Ingredient.ofItems(input), output.asItem(), count)
                 .criterion(hasItem(input), conditionsFromItem(input))
                 .offerTo(exporter, Blocktopia.id("wood_cutting/" + Registries.ITEM.getId(input.asItem()).getPath() + "_to_" + Registries.ITEM.getId(output.asItem()).getPath()));
     }
 
 
-    private void offerStairsRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+    private void offerStairsRecipe(ItemConvertible output, ItemConvertible input) {
         createStairsRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
 
-    private void offerFenceGateRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+    private void offerFenceGateRecipe(ItemConvertible output, ItemConvertible input) {
         createFenceGateRecipe(output, Ingredient.ofItems(input)).criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
     }
 
-    private void offerButtonRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
+    private void offerButtonRecipe(ItemConvertible output, ItemConvertible input) {
         offerSingleOutputShapelessRecipe(exporter, output, input, "wooden_button");
+    }
+
+    @Override
+    public String getName() {
+        return "Blocktopia-Recipe Provider";
     }
 }

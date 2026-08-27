@@ -19,7 +19,7 @@
       "state": {
         "Name": "blocktopia:jungle_leaves_1_2",
         "Properties": {
-          "distance": "128",
+          "distance": "256",
           "persistent": "false",
           "waterlogged": "false"
         }

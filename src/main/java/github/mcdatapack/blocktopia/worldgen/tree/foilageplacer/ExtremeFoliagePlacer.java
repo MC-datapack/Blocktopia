@@ -40,7 +40,7 @@ public class ExtremeFoliagePlacer extends FoliagePlacer {
 
     @Override
     public int getRandomHeight(Random random, int trunkHeight, TreeFeatureConfig config) {
-        return this.height;
+        return height;
     }
 
     @Override

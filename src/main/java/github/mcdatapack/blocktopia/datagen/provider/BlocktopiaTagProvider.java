@@ -1,11 +1,13 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
+import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.entity.ModEntityTypes;
 import github.mcdatapack.blocktopia.fluid.ModFluids;
 
 import static github.mcdatapack.blocktopia.block.FutureBlocks.*;
 import static github.mcdatapack.blocktopia.item.FutureItems.PALE_OAK_BOAT;
 import static github.mcdatapack.blocktopia.item.FutureItems.PALE_OAK_CHEST_BOAT;
+import static github.mcdatapack.blocktopia.item.LegacyItems.*;
 import static github.mcdatapack.blocktopia.item.ModItems.*;
 import static github.mcdatapack.blocktopia.block.ModBlocks.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
@@ -50,14 +52,17 @@ public class BlocktopiaTagProvider {
 
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                     .addTag(ModTags.Blocks.CHAIRS)
+                    .addTag(ModTags.Blocks.VERTICAL_WOODEN_SLABS)
                     .add(SMALL_CHEST, BOOKSHELF_C0_26ST, BOOKSHELF_B1_9PRE5, CRAFTING_TABLE_IN20100131, CRAFTING_TABLE_1_14, LADDER_INF20100607, LADDER_INF20100618, CARVED_PUMPKIN_A1_2_0,
                             JACK_O_LANTERN_A1_2_0, NOTE_BLOCK_B1_2, VINES_B1_8, MUSHROOM_STEM_B1_8, RED_MUSHROOM_BLOCK_B1_8, BROWN_MUSHROOM_BLOCK_B1_8, MELON_BLOCK_B1_8, COCOA_1_3);
             getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                     .add(PAPER_BLOCK)
                     .add(PALM_LEAVES, BANANA_LEAVES, CORN_LEAVES, POISONED_LEAVES, MAHOGANY_LEAVES, PALE_OAK_LEAVES, FLOWERING_CHERRY_LEAVES, LEAVES_C0_0_14A, LEAVES_C0_0_15A, LEAVES_C0_24ST, SPONGE_C0_0_19A,
                             SPONGE_1_8, WET_SPONGE_1_8, HAY_BALE_1_6, BIRCH_LEAVES_B1_2, SPRUCE_LEAVES_B1_2, JUNGLE_LEAVES_1_2, ACACIA_LEAVES_1_7, DARK_OAK_LEAVES_1_7,
-                            NETHER_WART_BLOCK_1_10, NETHER_WART_BLOCK_1_14);
+                            NETHER_WART_BLOCK_1_10, NETHER_WART_BLOCK_1_14)
+                    .add(TROPICAL_MOSS, TROPICAL_MOSS_CARPET, PALE_MOSS, PALE_MOSS_CARPET);
             getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                    .addTag(ModTags.Blocks.VERTICAL_PICKAXE_MINABLE_SLABS)
                     .add(COBBLESTONE_RD20090515, COBBLESTONE_C0_0_14A, COBBLESTONE_B1_7, COAL_ORE_C0_0_14A, COAL_ORE_1_14, IRON_ORE_C0_0_14A, IRON_ORE_1_14, IRON_ORE_1_14_1, GOLD_ORE_C0_0_14A,
                             GOLD_ORE_C0_26ST, GOLD_ORE_1_14, GOLD_BLOCK_C0_0_20A, GOLD_BLOCK_C0_26ST, GOLD_BLOCK_A1_2_0, GOLD_BLOCK_B1_9PRE5, STONE_SLAB_C0_26ST, IRON_BLOCK_C0_26ST,
                             IRON_BLOCK_A1_2_0, IRON_BLOCK_B1_9PRE5, MOSSY_COBBLESTONE_C0_26ST, MOSSY_COBBLESTONE_B1_8, BRICKS_C0_26ST, BRICKS_A1_0_11, OBSIDIAN_C0_28A, DIAMOND_ORE_IN20100128,
@@ -74,7 +79,14 @@ public class BlocktopiaTagProvider {
                             GRANITE_1_8, POLISHED_GRANITE_1_8, DIORITE_1_8, POLISHED_DIORITE_1_8, ANDESITE_1_8, POLISHED_ANDESITE_1_8, PRISMARINE_1_8, PRISMARINE_BRICKS_1_8, DARK_PRISMARINE_1_8,
                             RED_SANDSTONE_1_8, CUT_RED_SANDSTONE_1_8, CHISELED_RED_SANDSTONE_1_8, SMOOTH_RED_SANDSTONE_1_8, RED_SANDSTONE_SLAB_1_8, RED_SANDSTONE_STAIRS_1_8, ENDSTONE_BRICKS_1_9,
                             PURPUR_BLOCK_1_9, PURPUR_PILLAR_1_9, PURPUR_SLAB_1_9, PURPUR_STAIRS_1_9, BONE_BLOCK_1_10, MAGMA_BLOCK_1_10, RED_NETHER_BRICKS_1_10, PRISMARINE_SLAB_1_13, PRISMARINE_STAIRS_1_13,
-                            WOODCUTTER, RESIN_BRICKS, RESIN_BRICK_SLAB, RESIN_BRICK_STAIRS, RESIN_BRICK_WALL, CHISELED_RESIN_BRICKS, FLUID_TANK);
+                            WOODCUTTER, RESIN_BRICKS, RESIN_BRICK_SLAB, RESIN_BRICK_STAIRS, RESIN_BRICK_WALL, CHISELED_RESIN_BRICKS, FLUID_TANK, COPPER_LANTERN, WAXED_COPPER_LANTERN,
+                            EXPOSED_COPPER_LANTERN, WAXED_EXPOSED_COPPER_LANTERN, WEATHERED_COPPER_LANTERN, WAXED_WEATHERED_COPPER_LANTERN, OXIDIZED_COPPER_LANTERN, WAXED_OXIDIZED_COPPER_LANTERN,
+                            COPPER_BARS, WAXED_COPPER_BARS, EXPOSED_COPPER_BARS, WAXED_EXPOSED_COPPER_BARS, WEATHERED_COPPER_BARS, WAXED_WEATHERED_COPPER_BARS, OXIDIZED_COPPER_BARS,
+                            WAXED_OXIDIZED_COPPER_BARS,
+                            COPPER_CHAIN, WAXED_COPPER_CHAIN, EXPOSED_COPPER_CHAIN, WAXED_EXPOSED_COPPER_CHAIN, WEATHERED_COPPER_CHAIN, WAXED_WEATHERED_COPPER_CHAIN, OXIDIZED_COPPER_CHAIN,
+                            WAXED_OXIDIZED_COPPER_CHAIN,
+                            WAXED_LIGHTNING_ROD, EXPOSED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD, OXIDIZED_LIGHTNING_ROD,
+                            WAXED_OXIDIZED_LIGHTNING_ROD);
             getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                     .add(SANDY_DIRT, GUNPOWDER_BLOCK, FIREWORK_BLOCK, SAND_C0_0_14A, SAND_C0_0_15A, SAND_B1_9PRE6, GRAVEL_C0_0_14A, GRAVEL_C0_0_15A, GRAVEL_B1_9PRE5, GRAVEL_1_3, SNOW_A1_0_4,
                             SNOW_BLOCK_A1_0_5, CLAY_BLOCK_A1_0_11, SOUL_SAND_A1_2_0, RED_SAND_1_7);
@@ -96,7 +108,8 @@ public class BlocktopiaTagProvider {
                             EMERALD_BLOCK_1_3);
             getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                     .add(IRON_ORE_C0_0_14A, IRON_ORE_1_14, IRON_ORE_1_14_1, IRON_BLOCK_C0_26ST, IRON_BLOCK_A1_2_0, IRON_BLOCK_B1_9PRE5, LAPIS_ORE_B1_2, LAPIS_ORE_1_14,
-                            LAPIS_BLOCK_B1_2, LAPIS_BLOCK_1_6);
+                            LAPIS_BLOCK_B1_2, LAPIS_BLOCK_1_6, WAXED_LIGHTNING_ROD, EXPOSED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD,
+                            OXIDIZED_LIGHTNING_ROD, WAXED_OXIDIZED_LIGHTNING_ROD);
             getOrCreateTagBuilder(ModTags.Blocks.LEGACY_BLOCKS)
                     .add(COBBLESTONE_RD20090515, COBBLESTONE_C0_0_14A, COBBLESTONE_B1_7, WOODEN_PLANKS_RD20090515, WOODEN_PLANKS_RD161348, WOODEN_PLANKS_C0_0_14A, WOODEN_PLANKS_C0_0_15A,
                             WOODEN_PLANKS_B1_9PRE5, SAPLING_RD161348, SAPLING_C0_0_13A, SAPLING_C0_24ST, BEDROCK_C0_0_12A, SAND_C0_0_14A, SAND_C0_0_15A, SAND_B1_9PRE6, GRAVEL_C0_0_14A,
@@ -154,6 +167,8 @@ public class BlocktopiaTagProvider {
                             RED_NETHER_BRICKS_1_10, BIRCH_BUTTON_1_13, SPRUCE_BUTTON_1_13, JUNGLE_BUTTON_1_13, ACACIA_BUTTON_1_13, DARK_OAK_BUTTON_1_13,
                             BIRCH_PRESSURE_PLATE_1_13, SPRUCE_PRESSURE_PLATE_1_13, JUNGLE_PRESSURE_PLATE_1_13, ACACIA_PRESSURE_PLATE_1_13, DARK_OAK_PRESSURE_PLATE_1_13, PRISMARINE_SLAB_1_13,
                             PRISMARINE_STAIRS_1_13);
+            getOrCreateTagBuilder(BlockTags.WALL_POST_OVERRIDE)
+                    .add(COPPER_TORCH);
             getOrCreateTagBuilder(ModTags.Blocks.PALM_LOGS)
                     .add(PALM_LOG, STRIPPED_PALM_LOG, PALM_WOOD, STRIPPED_PALM_WOOD);
             getOrCreateTagBuilder(ModTags.Blocks.LEGACY_COBBLESTONE)
@@ -247,6 +262,8 @@ public class BlocktopiaTagProvider {
             getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
                     .add(GLOW_FLOWER, SHRUB_B1_6, ALLIUM_1_7, AZURE_BLUET_1_7, BLUE_ORCHID_1_7, LILAC_1_7, PEONY_1_7, ROSE_BUSH_1_7, SUNFLOWER_1_7, OXEYE_DAISY_1_7,
                             RED_TULIP_1_7, ORANGE_TULIP_1_7, WHITE_TULIP_1_7, PINK_TULIP_1_7);
+            getOrCreateTagBuilder(BlockTags.FLOWERS)
+                    .add(FLOWERING_CHERRY_LEAVES);
             getOrCreateTagBuilder(ModTags.Blocks.CLASSIC_SPONGE_REPLACEABLE)
                     .add(Blocks.KELP, KELP_PLANT, Blocks.SEAGRASS, TALL_SEAGRASS, POWDER_SNOW);
             getOrCreateTagBuilder(ModTags.Blocks.OAK_CHAIRS)
@@ -283,6 +300,26 @@ public class BlocktopiaTagProvider {
                     .add(MAHOGANY_CHAIR);
             getOrCreateTagBuilder(ModTags.Blocks.PALE_OAK_CHAIRS)
                     .add(PALE_OAK_CHAIR);
+            getOrCreateTagBuilder(ModTags.Blocks.WOODEN_CHAIRS_RD20090515)
+                    .add(WOODEN_CHAIR_RD20090515);
+            getOrCreateTagBuilder(ModTags.Blocks.WOODEN_CHAIRS_RD161348)
+                    .add(WOODEN_CHAIR_RD161348);
+            getOrCreateTagBuilder(ModTags.Blocks.WOODEN_CHAIRS_C0_0_14A)
+                    .add(WOODEN_CHAIR_C0_0_14A);
+            getOrCreateTagBuilder(ModTags.Blocks.WOODEN_CHAIRS_C0_0_15A)
+                    .add(WOODEN_CHAIR_C0_0_15A);
+            getOrCreateTagBuilder(ModTags.Blocks.WOODEN_CHAIRS_B1_9PRE5)
+                    .add(WOODEN_CHAIR_B1_9PRE5);
+            getOrCreateTagBuilder(ModTags.Blocks.BIRCH_CHAIRS_1_2_4)
+                    .add(BIRCH_CHAIR_1_2_4);
+            getOrCreateTagBuilder(ModTags.Blocks.SPRUCE_CHAIRS_1_2_4)
+                    .add(SPRUCE_CHAIR_1_2_4);
+            getOrCreateTagBuilder(ModTags.Blocks.JUNGLE_CHAIRS_1_2_4)
+                    .add(JUNGLE_CHAIR_1_2_4);
+            getOrCreateTagBuilder(ModTags.Blocks.ACACIA_CHAIRS_1_7)
+                    .add(ACACIA_CHAIR_1_7);
+            getOrCreateTagBuilder(ModTags.Blocks.DARK_OAK_CHAIRS_1_7)
+                    .add(DARK_OAK_CHAIR_1_7);
             getOrCreateTagBuilder(ModTags.Blocks.CHAIRS)
                     .addTag(ModTags.Blocks.OAK_CHAIRS)
                     .addTag(ModTags.Blocks.SPRUCE_CHAIRS)
@@ -300,13 +337,25 @@ public class BlocktopiaTagProvider {
                     .addTag(ModTags.Blocks.CORN_CHAIRS)
                     .addTag(ModTags.Blocks.POISONED_CHAIRS)
                     .addTag(ModTags.Blocks.MAHOGANY_CHAIRS)
-                    .addTag(ModTags.Blocks.PALE_OAK_CHAIRS);
+                    .addTag(ModTags.Blocks.PALE_OAK_CHAIRS)
+                    .addTag(ModTags.Blocks.WOODEN_CHAIRS_RD20090515)
+                    .addTag(ModTags.Blocks.WOODEN_CHAIRS_RD161348)
+                    .addTag(ModTags.Blocks.WOODEN_CHAIRS_C0_0_14A)
+                    .addTag(ModTags.Blocks.WOODEN_CHAIRS_C0_0_15A)
+                    .addTag(ModTags.Blocks.WOODEN_CHAIRS_B1_9PRE5)
+                    .addTag(ModTags.Blocks.BIRCH_CHAIRS_1_2_4)
+                    .addTag(ModTags.Blocks.SPRUCE_CHAIRS_1_2_4)
+                    .addTag(ModTags.Blocks.JUNGLE_CHAIRS_1_2_4)
+                    .addTag(ModTags.Blocks.ACACIA_CHAIRS_1_7)
+                    .addTag(ModTags.Blocks.DARK_OAK_CHAIRS_1_7);
             getOrCreateTagBuilder(BlockTags.MAINTAINS_FARMLAND)
                     .add(BANANA_CROP);
             getOrCreateTagBuilder(BlockTags.DIRT)
                     .add(SANDY_DIRT, TROPICAL_MOSS);
             getOrCreateTagBuilder(BlockTags.RAILS)
                     .add(RAIL_INF20100618, POWERED_RAIL_B1_5, DETECTOR_RAIL_B1_5, ACTIVATOR_RAIL_1_5);
+            getOrCreateTagBuilder(ModTags.Blocks.HANGING_MOSS)
+                    .add(BANANA_HANGING_MOSS, CORN_HANGING_MOSS, POISONED_HANGING_MOSS, MAHOGANY_HANGING_MOSS, FLOWERING_CHERRY_HANGING_MOSS, PALE_HANGING_MOSS);
 
             getOrCreateTagBuilder(ModTags.Blocks.COCOA_BEANS_PLACEABLE)
                     .addTag(ModTags.Blocks.BANANA_LOGS)
@@ -329,6 +378,106 @@ public class BlocktopiaTagProvider {
                     .add(RUBY_ORE, EMERALD_ORE_1_3, EMERALD_ORE_1_14);
             getOrCreateTagBuilder(ConventionalBlockTags.QUARTZ_ORES)
                     .add(QUARTZ_ORE_1_5);
+
+            getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)
+                    .add(IRON_BLOCK_C0_26ST, IRON_BLOCK_A1_2_0, IRON_BLOCK_B1_9PRE5, GOLD_BLOCK_C0_0_20A, GOLD_BLOCK_C0_26ST, GOLD_BLOCK_A1_2_0, GOLD_BLOCK_B1_9PRE5,
+                            DIAMOND_BLOCK_IN20100128, DIAMOND_BLOCK_A1_2_0, DIAMOND_BLOCK_B1_9PRE5, EMERALD_BLOCK_1_3);
+            getOrCreateTagBuilder(BlockTags.SNIFFER_DIGGABLE_BLOCK)
+                    .add(TROPICAL_MOSS);
+            getOrCreateTagBuilder(BlockTags.SNIFFER_EGG_HATCH_BOOST)
+                    .add(TROPICAL_MOSS);
+
+            getOrCreateTagBuilder(ModTags.Blocks.VERTICAL_WOODEN_SLABS)
+                    .add(ModBlocks.VERTICAL_OAK_SLAB,
+                            ModBlocks.VERTICAL_SPRUCE_SLAB,
+                            ModBlocks.VERTICAL_BIRCH_SLAB,
+                            ModBlocks.VERTICAL_JUNGLE_SLAB,
+                            ModBlocks.VERTICAL_ACACIA_SLAB,
+                            ModBlocks.VERTICAL_DARK_OAK_SLAB,
+                            ModBlocks.VERTICAL_MANGROVE_SLAB,
+                            ModBlocks.VERTICAL_CHERRY_SLAB,
+                            ModBlocks.VERTICAL_BAMBOO_SLAB,
+                            ModBlocks.VERTICAL_BAMBO_MOSAIC_SLAB,
+                            ModBlocks.VERTICAL_CRIMSON_SLAB,
+                            ModBlocks.VERTICAL_WARPED_SLAB,
+                            ModBlocks.VERTICAL_WOODEN_SLAB_RD20090515,
+                            ModBlocks.VERTICAL_WOODEN_SLAB_RD161348,
+                            ModBlocks.VERTICAL_WOODEN_SLAB_C0_0_14A,
+                            ModBlocks.VERTICAL_WOODEN_SLAB_B1_3,
+                            ModBlocks.VERTICAL_WOODEN_SLAB_B1_9PRE5,
+                            ModBlocks.VERTICAL_BIRCH_SLAB_1_3,
+                            ModBlocks.VERTICAL_SPRUCE_SLAB_1_3,
+                            ModBlocks.VERTICAL_JUNGLE_SLAB_1_3,
+                            ModBlocks.VERTICAL_PALM_SLAB,
+                            ModBlocks.VERTICAL_BANANA_SLAB,
+                            ModBlocks.VERTICAL_CORN_SLAB,
+                            ModBlocks.VERTICAL_POISONED_SLAB,
+                            ModBlocks.VERTICAL_MAHOGANY_SLAB);
+            getOrCreateTagBuilder(ModTags.Blocks.VERTICAL_PICKAXE_MINABLE_SLABS)
+                    .add(ModBlocks.VERTICAL_STONE_SLAB,
+                            ModBlocks.VERTICAL_COBBLESTONE_SLAB,
+                            ModBlocks.VERTICAL_MOSSY_COBBLESTONE_SLAB,
+                            ModBlocks.VERTICAL_SMOOTH_STONE_SLAB,
+                            ModBlocks.VERTICAL_STONE_BRICK_SLAB,
+                            ModBlocks.VERTICAL_MOSSY_STONE_BRICK_SLAB,
+                            ModBlocks.VERTICAL_GRANITE_SLAB,
+                            ModBlocks.VERTICAL_POLISHED_GRANITE_SLAB,
+                            ModBlocks.VERTICAL_DIORITE_SLAB,
+                            ModBlocks.VERTICAL_POLISHED_DIORITE_SLAB,
+                            ModBlocks.VERTICAL_ANDESITE_SLAB,
+                            ModBlocks.VERTICAL_POLISHED_ANDESITE_SLAB,
+                            ModBlocks.VERTICAL_COBBLED_DEEPSLATE_SLAB,
+                            ModBlocks.VERTICAL_POLISHED_DEEPSLATE_SLAB,
+                            ModBlocks.VERTICAL_DEEPSLATE_BRICK_SLAB,
+                            ModBlocks.VERTICAL_DEEPSLATE_TILE_SLAB,
+                            ModBlocks.VERTICAL_TUFF_SLAB,
+                            ModBlocks.VERTICAL_POLISHED_TUFF_SLAB,
+                            ModBlocks.VERTICAL_TUFF_BRICK_SLAB,
+                            ModBlocks.VERTICAL_BRICK_SLAB,
+                            ModBlocks.VERTICAL_MUD_BRICK_SLAB,
+                            ModBlocks.VERTICAL_SANDSTONE_SLAB,
+                            ModBlocks.VERTICAL_SMOOTH_SANDSTONE_SLAB,
+                            ModBlocks.VERTICAL_CUT_SANDSTONE_SLAB,
+                            ModBlocks.VERTICAL_RED_SANDSTONE_SLAB,
+                            ModBlocks.VERTICAL_SMOOTH_RED_SANDSTONE_SLAB,
+                            ModBlocks.VERTICAL_CUT_RED_SANDSTONE_SLAB,
+                            ModBlocks.VERTICAL_PRISMARINE_SLAB,
+                            ModBlocks.VERTICAL_BRISMARINE_BRICK_SLAB,
+                            ModBlocks.VERTICAL_DARK_PRISMARINE_SLAB,
+                            ModBlocks.VERTICAL_NETHER_BRICK_SLAB,
+                            ModBlocks.VERTICAL_RED_NETHER_BRICK_SLAB,
+                            ModBlocks.VERTICAL_BLACKSTONE_SLAB,
+                            ModBlocks.VERTICAL_POLISHED_BLACKSTONE_SLAB,
+                            ModBlocks.VERTICAL_POLISHED_BLACKSTONE_BRICK_SLAB,
+                            ModBlocks.VERTICAL_ENDSTONE_BRICK_SLAB,
+                            ModBlocks.VERTICAL_PURPUR_SLAB,
+                            ModBlocks.VERTICAL_QUARTZ_SLAB,
+                            ModBlocks.VERTICAL_SMOOTH_QUARTZ_SLAB,
+                            ModBlocks.VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.WAXED_VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB,
+                            ModBlocks.VERTICAL_COBBLESTONE_SLAB_RD20090515,
+                            ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_3,
+                            ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_7,
+                            ModBlocks.VERTICAL_SANDSTONE_SLAB_B1_3,
+                            ModBlocks.VERTICAL_SANDSTONE_SLAB_1_2_4,
+                            ModBlocks.VERTICAL_BRICK_SLAB_C0_26ST,
+                            ModBlocks.VERTICAL_BRICK_SLAB_B1_8,
+                            ModBlocks.VERTICAL_STONE_BRICK_SLAB_B1_8,
+                            ModBlocks.VERTICAL_NETHER_BRICK_SLAB_1_4_6,
+                            ModBlocks.VERTICAL_RED_SANDSTONE_SLAB_1_8,
+                            ModBlocks.VERTICAL_PURPUR_SLAB_1_9,
+                            ModBlocks.VERTICAL_PRISMARINE_SLAB_1_13,
+                            ModBlocks.VERTICAL_PALE_OAK_SLAB,
+                            ModBlocks.VERTICAL_RESIN_BRICK_SLAB);
+            getOrCreateTagBuilder(ModTags.Blocks.VERTICAL_SLABS)
+                    .addTag(ModTags.Blocks.VERTICAL_WOODEN_SLABS)
+                    .addTag(ModTags.Blocks.VERTICAL_PICKAXE_MINABLE_SLABS);
         }
     }
 
@@ -339,8 +488,6 @@ public class BlocktopiaTagProvider {
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-            getOrCreateTagBuilder(ConventionalItemTags.BUCKETS)
-                    .add(TROPICAL_WATER_BUCKET);
             getOrCreateTagBuilder(ItemTags.PIGLIN_LOVED)
                     .add(NETHERITE_INGOT, Items.NETHERITE_BLOCK);
             getOrCreateTagBuilder(ItemTags.EQUIPPABLE_ENCHANTABLE)
@@ -528,6 +675,26 @@ public class BlocktopiaTagProvider {
                     .add(asItem(MAHOGANY_CHAIR));
             getOrCreateTagBuilder(ModTags.Items.PALE_OAK_CHAIRS)
                     .add(asItem(PALE_OAK_CHAIR));
+            getOrCreateTagBuilder(ModTags.Items.WOODEN_CHAIRS_RD20090515)
+                    .add(asItem(WOODEN_CHAIR_RD20090515));
+            getOrCreateTagBuilder(ModTags.Items.WOODEN_CHAIRS_RD161348)
+                    .add(asItem(WOODEN_CHAIR_RD161348));
+            getOrCreateTagBuilder(ModTags.Items.WOODEN_CHAIRS_C0_0_14A)
+                    .add(asItem(WOODEN_CHAIR_C0_0_14A));
+            getOrCreateTagBuilder(ModTags.Items.WOODEN_CHAIRS_C0_0_15A)
+                    .add(asItem(WOODEN_CHAIR_C0_0_15A));
+            getOrCreateTagBuilder(ModTags.Items.WOODEN_CHAIRS_B1_9PRE5)
+                    .add(asItem(WOODEN_CHAIR_B1_9PRE5));
+            getOrCreateTagBuilder(ModTags.Items.BIRCH_CHAIRS_1_2_4)
+                    .add(asItem(BIRCH_CHAIR_1_2_4));
+            getOrCreateTagBuilder(ModTags.Items.SPRUCE_CHAIRS_1_2_4)
+                    .add(asItem(SPRUCE_CHAIR_1_2_4));
+            getOrCreateTagBuilder(ModTags.Items.JUNGLE_CHAIRS_1_2_4)
+                    .add(asItem(JUNGLE_CHAIR_1_2_4));
+            getOrCreateTagBuilder(ModTags.Items.ACACIA_CHAIRS_1_7)
+                    .add(asItem(ACACIA_CHAIR_1_7));
+            getOrCreateTagBuilder(ModTags.Items.DARK_OAK_CHAIRS_1_7)
+                    .add(asItem(DARK_OAK_CHAIR_1_7));
             getOrCreateTagBuilder(ModTags.Items.CHAIRS)
                     .addTag(ModTags.Items.OAK_CHAIRS)
                     .addTag(ModTags.Items.SPRUCE_CHAIRS)
@@ -545,7 +712,17 @@ public class BlocktopiaTagProvider {
                     .addTag(ModTags.Items.CORN_CHAIRS)
                     .addTag(ModTags.Items.POISONED_CHAIRS)
                     .addTag(ModTags.Items.MAHOGANY_CHAIRS)
-                    .addTag(ModTags.Items.PALE_OAK_CHAIRS);
+                    .addTag(ModTags.Items.PALE_OAK_CHAIRS)
+                    .addTag(ModTags.Items.WOODEN_CHAIRS_RD20090515)
+                    .addTag(ModTags.Items.WOODEN_CHAIRS_RD161348)
+                    .addTag(ModTags.Items.WOODEN_CHAIRS_C0_0_14A)
+                    .addTag(ModTags.Items.WOODEN_CHAIRS_C0_0_15A)
+                    .addTag(ModTags.Items.WOODEN_CHAIRS_B1_9PRE5)
+                    .addTag(ModTags.Items.BIRCH_CHAIRS_1_2_4)
+                    .addTag(ModTags.Items.SPRUCE_CHAIRS_1_2_4)
+                    .addTag(ModTags.Items.JUNGLE_CHAIRS_1_2_4)
+                    .addTag(ModTags.Items.ACACIA_CHAIRS_1_7)
+                    .addTag(ModTags.Items.DARK_OAK_CHAIRS_1_7);
 
 
             getOrCreateTagBuilder(ModTags.TrinketTags.RABBIT_SLOT)
@@ -557,6 +734,9 @@ public class BlocktopiaTagProvider {
 
             getOrCreateTagBuilder(ModTags.Items.BOW_LOOTING_ENCHANTABLE)
                     .forceAddTag(ItemTags.SWORD_ENCHANTABLE).forceAddTag(ItemTags.BOW_ENCHANTABLE);
+
+            getOrCreateTagBuilder(ItemTags.BEACON_PAYMENT_ITEMS)
+                    .add(IRON_INGOT_IN20100128, IRON_INGOT_IN20100129, GOLD_INGOT_IN20100128, GOLD_INGOT_IN20100129, DIAMOND_IN20100128, DIAMOND_1_3, EMERALD_1_3, RUBY);
         }
 
         Item[] asItem(ItemConvertible... blocks) {
@@ -591,15 +771,7 @@ public class BlocktopiaTagProvider {
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-            getOrCreateTagBuilder(ModTags.Biomes.HAS_BANANA_TREE_HOUSE)
-                    .add(ModBiomes.RAIN_FOREST_KEY);
-            getOrCreateTagBuilder(ModTags.Biomes.HAS_MAHOGANY_TREE_HOUSE)
-                    .add(ModBiomes.RAIN_FOREST_KEY);
-            getOrCreateTagBuilder(ModTags.Biomes.HAS_FLOWERING_TREE_CHERRY_HOUSE)
-                    .add(ModBiomes.RAIN_FOREST_KEY);
-            getOrCreateTagBuilder(ModTags.Biomes.HAS_CORN_TREE_HOUSE)
-                    .add(ModBiomes.RAIN_FOREST_KEY);
-            getOrCreateTagBuilder(ModTags.Biomes.HAS_POISONED_TREE_HOUSE)
+            getOrCreateTagBuilder(ModTags.Biomes.HAS_TREE_HOUSES)
                     .add(ModBiomes.RAIN_FOREST_KEY);
         }
     }
@@ -612,7 +784,7 @@ public class BlocktopiaTagProvider {
         @Override
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
             getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
-                    .add(ModVillagers.LEGACY_POI, ModVillagers.BEEKEEPER_POI);
+                    .add(ModVillagers.LEGACY_POI, ModVillagers.BEEKEEPER_POI, ModVillagers.FORGER_POI);
         }
     }
 

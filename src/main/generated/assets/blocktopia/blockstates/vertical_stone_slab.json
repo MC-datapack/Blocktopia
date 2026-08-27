@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/stone"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_stone_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/stone"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_stone_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/stone"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_stone_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/stone"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_stone_slab_west"
+    }
+  }
+}

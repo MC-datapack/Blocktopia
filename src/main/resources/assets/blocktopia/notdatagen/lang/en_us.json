@@ -47,6 +47,9 @@
   "item.minecraft.lingering_potion.effect.strong_xp_boost": "Lingering Potion of XP Boost",
   "item.minecraft.lingering_potion.effect.xp_boost": "Lingering Potion of XP Boost",
   "item.minecraft.lingering_potion.effect.long_xp_boost": "Lingering Potion of XP Boost",
+  "item.minecraft.tipped_arrow.effect.strong_xp_boost": "Arrow of XP Boost",
+  "item.minecraft.tipped_arrow.effect.xp_boost": "Arrow of XP Boost",
+  "item.minecraft.tipped_arrow.effect.long_xp_boost": "Arrow of XP Boost",
   "item.minecraft.potion.effect.strong_xp_remover": "Potion of XP Remover",
   "item.minecraft.potion.effect.xp_remover": "Potion of XP Remover",
   "item.minecraft.potion.effect.long_xp_remover": "Potion of XP Remover",
@@ -56,6 +59,9 @@
   "item.minecraft.lingering_potion.effect.strong_xp_remover": "Lingering Potion of XP Remover",
   "item.minecraft.lingering_potion.effect.xp_remover": "Lingering Potion of XP Remover",
   "item.minecraft.lingering_potion.effect.long_xp_remover": "Lingering Potion of XP Remover",
+  "item.minecraft.tipped_arrow.effect.strong_xp_remover": "Arrow of XP Remover",
+  "item.minecraft.tipped_arrow.effect.xp_remover": "Arrow of XP Remover",
+  "item.minecraft.tipped_arrow.effect.long_xp_remover": "Arrow of XP Remover",
 
   "block.customportalapi.customportalblock": "Portal",
 
@@ -94,7 +100,7 @@
   "trinkets.slot.head.fish": "Fish Slot",
 
   "item.minecraft.giant_spawn_egg": "Giant Spawn Egg",
-  "item.minecraft.illusioner_spawn_egg": "Illusuiner Spawn Egg",
+  "item.minecraft.illusioner_spawn_egg": "Illusioner Spawn Egg",
 
   "entity.blocktopia.monkey": "Monkey",
   "item.blocktopia.monkey_spawn_egg": "Monkey Spawn Egg",
@@ -103,7 +109,7 @@
   "block.blocktopia.small_chest": "Small Chest",
   "entity.minecraft.villager.legacy": "Legacy",
   "entity.minecraft.villager.beekeeper": "Beekeeper",
-  "entity.minecraft.villager.miner": "Miner",
+  "entity.minecraft.villager.forger": "Forger",
 
   "block.blocktopia.paper_block": "Paper Block",
   "block.blocktopia.gunpowder_block": "Gunpowder Block",

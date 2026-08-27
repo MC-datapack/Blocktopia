@@ -26,7 +26,7 @@ import net.minecraft.world.WorldAccess;
 
 public class ExtendedLeavesBlock extends Block implements Waterloggable {
     public static final MapCodec<ExtendedLeavesBlock> CODEC = createCodec(ExtendedLeavesBlock::new);
-    public static final int MAX_DISTANCE = 128;
+    public static final int MAX_DISTANCE = 256;
     public static final IntProperty DISTANCE = IntProperty.of("distance", 1, MAX_DISTANCE);
     public static final BooleanProperty PERSISTENT = Properties.PERSISTENT;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -63,7 +63,7 @@ public class ExtendedLeavesBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
+    protected int getOpacity(BlockState state, BlockView world, BlockPos pos) {
         return 1;
     }
 
@@ -100,8 +100,7 @@ public class ExtendedLeavesBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(
-            BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }

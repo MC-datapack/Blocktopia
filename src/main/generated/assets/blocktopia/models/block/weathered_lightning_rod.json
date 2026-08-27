@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/lightning_rod",
+  "textures": {
+    "particle": "blocktopia:block/weathered_lightning_rod",
+    "texture": "blocktopia:block/weathered_lightning_rod"
+  }
+}

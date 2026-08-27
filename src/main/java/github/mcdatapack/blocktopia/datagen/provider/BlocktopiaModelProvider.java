@@ -1,10 +1,13 @@
 package github.mcdatapack.blocktopia.datagen.provider;
 
 import github.mcdatapack.blocktopia.Blocktopia;
+import github.mcdatapack.blocktopia.block.FutureBlocks;
 import github.mcdatapack.blocktopia.block.ModBlockFamilies;
 import github.mcdatapack.blocktopia.block.custom.BananaCropBlock;
 import github.mcdatapack.blocktopia.block.custom.ChairBlock;
 import github.mcdatapack.blocktopia.block.custom.HangingMossBlock;
+import github.mcdatapack.blocktopia.block.custom.VerticalSlabBlock;
+import github.mcdatapack.blocktopia.fluid.ModFluids;
 import github.mcdatapack.blocktopia.item.ModItems;
 import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.LegacyBlocks;
@@ -13,13 +16,14 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 
-import github.mcdatapack.blocktopia.mixin.BlockStateModelGeneratorAccessor;
+import github.mcdatapack.blocktopia.api.BlockStateModelAccessor;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.impl.content.registry.util.ImmutableCollectionUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.client.render.block.BlockModels;
 import net.minecraft.data.client.*;
-import net.minecraft.data.client.BlockStateModelGenerator.TintType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -31,7 +35,6 @@ import static github.mcdatapack.blocktopia.block.FutureBlocks.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.*;
 import static github.mcdatapack.blocktopia.block.LegacyBlocks.PINK_WOOL_1_2_4;
 import static github.mcdatapack.blocktopia.item.FutureItems.*;
-import static net.minecraft.data.client.BlockStateModelGenerator.*;
 import static github.mcdatapack.blocktopia.item.LegacyItems.*;
 
 public class BlocktopiaModelProvider extends FabricModelProvider {
@@ -41,8 +44,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        Map<Block, TexturedModel> map = ImmutableCollectionUtils.getAsMutableMap(((BlockStateModelGeneratorAccessor)blockStateModelGenerator)::getTextureModels,
-                ((BlockStateModelGeneratorAccessor)blockStateModelGenerator)::setTextureModels);
+        Map<Block, TexturedModel> map = ImmutableCollectionUtils.getAsMutableMap(((BlockStateModelAccessor)blockStateModelGenerator)::blocktopia$getTextureModels,
+                ((BlockStateModelAccessor)blockStateModelGenerator)::blocktopia$setTextureModels);
         map.put(SANDSTONE_B1_2, TexturedModel.SIDE_TOP_BOTTOM_WALL.get(SANDSTONE_B1_2));
         map.put(SANDSTONE_1_2_4, TexturedModel.SIDE_TOP_BOTTOM_WALL.get(SANDSTONE_1_2_4));
         map.put(RED_SANDSTONE_1_8, TexturedModel.SIDE_TOP_BOTTOM_WALL.get(RED_SANDSTONE_1_8));
@@ -87,7 +90,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GUNPOWDER_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FIREWORK_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALM_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.PALM_SAPLING, ModBlocks.POTTED_PALM_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.PALM_SAPLING, ModBlocks.POTTED_PALM_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.PALM_LOG)
                 .log(ModBlocks.PALM_LOG).wood(ModBlocks.PALM_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_PALM_LOG)
@@ -98,7 +101,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BANANA_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BANANA_SAPLING, ModBlocks.POTTED_BANANA_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BANANA_SAPLING, ModBlocks.POTTED_BANANA_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.BANANA_LOG)
                 .log(ModBlocks.BANANA_LOG).wood(ModBlocks.BANANA_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_BANANA_LOG)
@@ -110,7 +113,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CORN_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.CORN_SAPLING, ModBlocks.POTTED_CORN_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.CORN_SAPLING, ModBlocks.POTTED_CORN_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.CORN_LOG)
                 .log(ModBlocks.CORN_LOG).wood(ModBlocks.CORN_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_CORN_LOG)
@@ -120,7 +123,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_CORN_LOG, ModBlocks.CORN_HANGING_SIGN, ModBlocks.CORN_WALL_HANGING_SIGN);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POISONED_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.POISONED_SAPLING, ModBlocks.POTTED_POISONED_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.POISONED_SAPLING, ModBlocks.POTTED_POISONED_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.POISONED_LOG)
                 .log(ModBlocks.POISONED_LOG).wood(ModBlocks.POISONED_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_POISONED_LOG)
@@ -131,7 +134,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MAHOGANY_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.MAHOGANY_SAPLING, ModBlocks.POTTED_MAHOGANY_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.MAHOGANY_SAPLING, ModBlocks.POTTED_MAHOGANY_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(ModBlocks.MAHOGANY_LOG)
                 .log(ModBlocks.MAHOGANY_LOG).wood(ModBlocks.MAHOGANY_WOOD);
         blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_MAHOGANY_LOG)
@@ -142,9 +145,9 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FLOWERING_CHERRY_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.FLOWERING_CHERRY_SAPLING, ModBlocks.POTTED_FLOWERING_CHERRY_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.FLOWERING_CHERRY_SAPLING, ModBlocks.POTTED_FLOWERING_CHERRY_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
 
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GLOW_FLOWER, ModBlocks.POTTED_GLOW_FLOWER, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GLOW_FLOWER, ModBlocks.POTTED_GLOW_FLOWER, BlockStateModelGenerator.TintType.NOT_TINTED);
 
 
 
@@ -154,9 +157,9 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.LEAVES_C0_0_14A);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.LEAVES_C0_0_15A);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.LEAVES_C0_24ST);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.SAPLING_C0_24ST, LegacyBlocks.POTTED_SAPLING_C0_24ST, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.SAPLING_RD161348, LegacyBlocks.POTTED_SAPLING_RD161348, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.SAPLING_C0_0_13A, LegacyBlocks.POTTED_SAPLING_C0_0_13A, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.SAPLING_C0_24ST, LegacyBlocks.POTTED_SAPLING_C0_24ST, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.BEDROCK_C0_0_12A);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.SAND_C0_0_14A);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.SAND_C0_0_15A);
@@ -197,11 +200,11 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GOLD_BLOCK_C0_0_20A);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GOLD_BLOCK_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.GOLD_BLOCK_B1_9PRE5);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.DANDELION_C0_0_20A, LegacyBlocks.POTTED_DANDELIONS_C0_0_20A, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.ROSE_C0_0_20A, LegacyBlocks.POTTED_ROSE_C0_0_20A, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.POPPY_1_7, LegacyBlocks.POTTED_POPPY_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A, LegacyBlocks.POTTED_BROWN_MUSHROOM_C0_0_20A, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.RED_MUSHROOM_C0_0_20A, LegacyBlocks.POTTED_RED_MUSHROOM_C0_0_20A, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.DANDELION_C0_0_20A, LegacyBlocks.POTTED_DANDELIONS_C0_0_20A, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.ROSE_C0_0_20A, LegacyBlocks.POTTED_ROSE_C0_0_20A, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.POPPY_1_7, LegacyBlocks.POTTED_POPPY_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.BROWN_MUSHROOM_C0_0_20A, LegacyBlocks.POTTED_BROWN_MUSHROOM_C0_0_20A, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(LegacyBlocks.RED_MUSHROOM_C0_0_20A, LegacyBlocks.POTTED_RED_MUSHROOM_C0_0_20A, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.IRON_BLOCK_A1_2_0);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.IRON_BLOCK_B1_9PRE5);
         blockStateModelGenerator.registerSimpleCubeAll(LegacyBlocks.MOSSY_COBBLESTONE_C0_26ST);
@@ -302,13 +305,13 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSingleton(SPRUCE_LEAVES_B1_2, TexturedModel.LEAVES);
         blockStateModelGenerator.registerSimpleCubeAll(CRYING_OBSIDIAN_B1_3);
         blockStateModelGenerator.registerSimpleCubeAll(SMOOTH_STONE_B1_3);
-        blockStateModelGenerator.registerTintableCross(SPRUCE_SAPLING_B1_5, TintType.TINTED);
-        blockStateModelGenerator.registerTintableCross(BIRCH_SAPLING_B1_5, TintType.TINTED);
-        blockStateModelGenerator.registerTintableCross(COBWEB_B1_5, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(SHRUB_B1_6, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(DEAD_BUSH_B1_6, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(SHORT_GRASS_B1_6, TintType.TINTED);
-        blockStateModelGenerator.registerTintableCross(FERN_B1_6, TintType.TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(SPRUCE_SAPLING_B1_5, POTTED_SPRUCE_SAPLING_B1_5, BlockStateModelGenerator.TintType.TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(BIRCH_SAPLING_B1_5, POTTED_BIRCH_SAPLING_B1_5, BlockStateModelGenerator.TintType.TINTED);
+        blockStateModelGenerator.registerTintableCross(COBWEB_B1_5, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(SHRUB_B1_6, POTTED_SHRUB_B1_6, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(DEAD_BUSH_B1_6, POTTED_DEAD_BUSH_B1_6, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(SHORT_GRASS_B1_6, BlockStateModelGenerator.TintType.TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(FERN_B1_6, POTTED_FERN_B1_6, BlockStateModelGenerator.TintType.TINTED);
         blockStateModelGenerator.registerParented(COBBLESTONE_RD20090515, INFESTED_COBBLESTONE_RD20090515);
         blockStateModelGenerator.registerParented(COBBLESTONE_C0_0_14A, INFESTED_COBBLESTONE_C0_0_14A);
         blockStateModelGenerator.registerParented(COBBLESTONE_B1_7, INFESTED_COBBLESTONE_B1_8);
@@ -330,11 +333,12 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(JUNGLE_LOG_1_7)
                 .log(JUNGLE_LOG_1_7);
         blockStateModelGenerator.registerSingleton(JUNGLE_LEAVES_1_2, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerTintableCross(JUNGLE_SAPLING_1_2, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(JUNGLE_SAPLING_1_2, POTTED_JUNGLE_SAPLING_1_2, BlockStateModelGenerator.TintType.NOT_TINTED);
         Identifier identifier = TexturedModel.CUBE_ALL.upload(REDSTONE_LAMP_1_2, blockStateModelGenerator.modelCollector);
         Identifier identifier2 = blockStateModelGenerator.createSubModel(REDSTONE_LAMP_1_2, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector
-                .accept(VariantsBlockStateSupplier.create(REDSTONE_LAMP_1_2).coordinate(createBooleanModelMap(Properties.LIT, identifier2, identifier)));
+                .accept(VariantsBlockStateSupplier.create(REDSTONE_LAMP_1_2)
+                        .coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.LIT, identifier2, identifier)));
         blockStateModelGenerator.registerSimpleCubeAll(CHISELED_STONE_BRICKS_1_2);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.BIRCH_1_2_4.getBaseBlock())
                         .family(ModBlockFamilies.BIRCH_1_2_4);
@@ -346,7 +350,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .put(TextureKey.TOP, Blocktopia.id("block/sandstone_1_2_4_top"))
                 .put(TextureKey.SIDE, Blocktopia.id("block/cut_sandstone_1_2_4"))
                 .put(TextureKey.BOTTOM, Blocktopia.id("block/sandstone_1_2_4_bottom"));
-        blockStateModelGenerator.registerSingleton(CUT_SANDSTONE_1_2_4, Textures, Models.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSingleton(CUT_SANDSTONE_1_2_4, TexturedModel.makeFactory(block -> Textures, Models.CUBE_BOTTOM_TOP));
         registerCocoaBeans(blockStateModelGenerator, COCOA_1_3);
         blockStateModelGenerator.registerSimpleCubeAll(RUBY_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(EMERALD_ORE_1_3);
@@ -358,28 +362,28 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.QUARTZ_1_5.getBaseBlock())
                 .family(ModBlockFamilies.QUARTZ_1_5);
         blockStateModelGenerator.registerAxisRotated(QUARTZ_PILLAR_1_5, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
-        blockStateModelGenerator.registerSingleton(SMOOTH_SANDSTONE_1_5, new TextureMap()
+        blockStateModelGenerator.registerSingleton(SMOOTH_SANDSTONE_1_5, TexturedModel.makeFactory(block -> new TextureMap()
                 .put(TextureKey.TOP, TextureMap.getSubId(SANDSTONE_1_2_4, "_top"))
                 .put(TextureKey.SIDE, TextureMap.getId(SMOOTH_SANDSTONE_1_5))
-                .put(TextureKey.BOTTOM, TextureMap.getSubId(SANDSTONE_1_2_4, "_bottom")), Models.CUBE_BOTTOM_TOP);
+                .put(TextureKey.BOTTOM, TextureMap.getSubId(SANDSTONE_1_2_4, "_bottom")), Models.CUBE_BOTTOM_TOP));
         blockStateModelGenerator.registerSimpleCubeAll(SMOOTH_QUARTZ_1_5);
         blockStateModelGenerator.registerAxisRotated(HAY_BALE_1_6, TexturedModel.END_FOR_TOP_CUBE_COLUMN, TexturedModel.END_FOR_TOP_CUBE_COLUMN_HORIZONTAL);
         blockStateModelGenerator.registerSimpleCubeAll(TERRACOTTA_1_6);
         blockStateModelGenerator.registerSimpleCubeAll(COAL_BLOCK_1_6);
-        blockStateModelGenerator.registerTintableCross(ALLIUM_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(AZURE_BLUET_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(BLUE_ORCHID_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerDoubleBlock(LILAC_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerDoubleBlock(PEONY_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerDoubleBlock(ROSE_BUSH_1_7, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ALLIUM_1_7, POTTED_ALLIUM_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(AZURE_BLUET_1_7, POTTED_AZURE_BLUET_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(BLUE_ORCHID_1_7, POTTED_BLUE_ORCHID_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(LILAC_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(PEONY_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(ROSE_BUSH_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
         registerSunflower(blockStateModelGenerator, SUNFLOWER_1_7);
-        blockStateModelGenerator.registerTintableCross(OXEYE_DAISY_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(RED_TULIP_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ORANGE_TULIP_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(WHITE_TULIP_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(PINK_TULIP_1_7, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerDoubleBlock(LARGE_FERN_1_7, TintType.TINTED);
-        blockStateModelGenerator.registerDoubleBlock(TALL_GRASS_1_7, TintType.TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(OXEYE_DAISY_1_7, POTTED_OXEYE_DAISY_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(RED_TULIP_1_7, POTTED_RED_TULIP_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ORANGE_TULIP_1_7, POTTED_ORANGE_TULIP_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(WHITE_TULIP_1_7, POTTED_WHITE_TULIP_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(PINK_TULIP_1_7, POTTED_PINK_TULIP_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(LARGE_FERN_1_7, BlockStateModelGenerator.TintType.TINTED);
+        blockStateModelGenerator.registerDoubleBlock(TALL_GRASS_1_7, BlockStateModelGenerator.TintType.TINTED);
         blockStateModelGenerator.registerParented(CRACKED_STONE_BRICKS_B1_8, INFESTED_CRACKED_STONE_BRICKS_1_7);
         blockStateModelGenerator.registerParented(MOSSY_STONE_BRICKS_B1_8, INFESTED_MOSSY_STONE_BRICKS_1_7);
         blockStateModelGenerator.registerParented(CHISELED_STONE_BRICKS_1_2, INFESTED_CHISELED_STONE_BRICKS_1_7);
@@ -403,11 +407,11 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(ACACIA_LOG_1_7)
                 .log(ACACIA_LOG_1_7).wood(ACACIA_WOOD_1_7);
         blockStateModelGenerator.registerSingleton(ACACIA_LEAVES_1_7, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerTintableCross(ACACIA_SAPLING_1_7, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ACACIA_SAPLING_1_7, POTTED_ACACIA_SAPLING_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(DARK_OAK_LOG_1_7)
                 .log(DARK_OAK_LOG_1_7).wood(DARK_OAK_WOOD_1_7);
         blockStateModelGenerator.registerSingleton(DARK_OAK_LEAVES_1_7, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerTintableCross(DARK_OAK_SAPLING_1_7, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(DARK_OAK_SAPLING_1_7, POTTED_DARK_OAK_SAPLING_1_7, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.ACACIA_1_7.getBaseBlock())
                 .family(ModBlockFamilies.ACACIA_1_7);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.DARK_OAK_1_7.getBaseBlock())
@@ -428,14 +432,14 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(DARK_PRISMARINE_1_8);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.RED_SANDSTONE_1_8.getBaseBlock())
                 .family(ModBlockFamilies.RED_SANDSTONE_1_8);
-        blockStateModelGenerator.registerSingleton(SMOOTH_RED_SANDSTONE_1_8, new TextureMap()
+        blockStateModelGenerator.registerSingleton(SMOOTH_RED_SANDSTONE_1_8, TexturedModel.makeFactory(block -> new TextureMap()
                 .put(TextureKey.TOP, TextureMap.getSubId(RED_SANDSTONE_1_8, "_top"))
                 .put(TextureKey.SIDE, TextureMap.getId(SMOOTH_RED_SANDSTONE_1_8))
-                .put(TextureKey.BOTTOM, TextureMap.getSubId(RED_SANDSTONE_1_8, "_bottom")), Models.CUBE_BOTTOM_TOP);
-        blockStateModelGenerator.registerSingleton(CUT_RED_SANDSTONE_1_8, new TextureMap()
+                .put(TextureKey.BOTTOM, TextureMap.getSubId(RED_SANDSTONE_1_8, "_bottom")), Models.CUBE_BOTTOM_TOP));
+        blockStateModelGenerator.registerSingleton(CUT_RED_SANDSTONE_1_8, TexturedModel.makeFactory(block -> new TextureMap()
                 .put(TextureKey.TOP, Blocktopia.id("block/red_sandstone_1_8_top"))
                 .put(TextureKey.SIDE, Blocktopia.id("block/cut_red_sandstone_1_8"))
-                .put(TextureKey.BOTTOM, Blocktopia.id("block/red_sandstone_1_8_bottom")), Models.CUBE_BOTTOM_TOP);
+                .put(TextureKey.BOTTOM, Blocktopia.id("block/red_sandstone_1_8_bottom")), Models.CUBE_BOTTOM_TOP));
         blockStateModelGenerator.registerRod(END_ROD_1_9);
         blockStateModelGenerator.registerSimpleCubeAll(ENDSTONE_BRICKS_1_9);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.PURPUR_1_9.getBaseBlock())
@@ -451,7 +455,7 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
 
 
         blockStateModelGenerator.registerSimpleCubeAll(PALE_OAK_LEAVES);
-        blockStateModelGenerator.registerFlowerPotPlant(PALE_OAK_SAPLING, POTTED_PALE_OAK_SAPLING, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(PALE_OAK_SAPLING, POTTED_PALE_OAK_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerLog(PALE_OAK_LOG)
                 .log(PALE_OAK_LOG).wood(PALE_OAK_WOOD);
         blockStateModelGenerator.registerLog(STRIPPED_PALE_OAK_LOG)
@@ -461,22 +465,47 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerHangingSign(STRIPPED_PALE_OAK_LOG, PALE_OAK_HANGING_SIGN, PALE_OAK_WALL_HANGING_SIGN);
         blockStateModelGenerator.registerWoolAndCarpet(PALE_MOSS, PALE_MOSS_CARPET);
         registerHangingMoss(blockStateModelGenerator, PALE_HANGING_MOSS);
-        blockStateModelGenerator.registerFlowerPotPlant(CLOSED_EYEBLOSSOM, POTTED_CLOSED_EYEBOSSOM, TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(OPEN_EYEBLOSSOM, POTTED_OPEN_EYEBOSSOM, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(CLOSED_EYEBLOSSOM, POTTED_CLOSED_EYEBOSSOM, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(OPEN_EYEBLOSSOM, POTTED_OPEN_EYEBOSSOM, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerSimpleCubeAll(RESIN_BLOCK);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlockFamilies.RESIN_BRICKS.getBaseBlock())
                 .family(ModBlockFamilies.RESIN_BRICKS);
         blockStateModelGenerator.registerFlowerbed(WILDFLOWERS);
         blockStateModelGenerator.registerFlowerbed(LEAF_LITTERS);
-        blockStateModelGenerator.registerTintableCross(SHORT_DRY_GRASS, TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(SHORT_DRY_GRASS, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+
+        blockStateModelGenerator.registerTorch(COPPER_TORCH, WALL_COPPER_TORCH);
+        registerLantern(blockStateModelGenerator, WAXED_COPPER_LANTERN, COPPER_LANTERN);
+        registerLantern(blockStateModelGenerator, WAXED_EXPOSED_COPPER_LANTERN, EXPOSED_COPPER_LANTERN);
+        registerLantern(blockStateModelGenerator, WAXED_WEATHERED_COPPER_LANTERN, WEATHERED_COPPER_LANTERN);
+        registerLantern(blockStateModelGenerator, WAXED_OXIDIZED_COPPER_LANTERN, OXIDIZED_COPPER_LANTERN);
+        registerCopperBars(blockStateModelGenerator, WAXED_COPPER_BARS, COPPER_BARS);
+        registerCopperBars(blockStateModelGenerator, WAXED_WEATHERED_COPPER_BARS, WEATHERED_COPPER_BARS);
+        registerCopperBars(blockStateModelGenerator, WAXED_EXPOSED_COPPER_BARS, EXPOSED_COPPER_BARS);
+        registerCopperBars(blockStateModelGenerator, WAXED_OXIDIZED_COPPER_BARS, OXIDIZED_COPPER_BARS);
+        registerChain(blockStateModelGenerator, WAXED_COPPER_CHAIN, COPPER_CHAIN);
+        registerChain(blockStateModelGenerator, WAXED_WEATHERED_COPPER_CHAIN, WEATHERED_COPPER_CHAIN);
+        registerChain(blockStateModelGenerator, WAXED_EXPOSED_COPPER_CHAIN, EXPOSED_COPPER_CHAIN);
+        registerChain(blockStateModelGenerator, WAXED_OXIDIZED_COPPER_CHAIN, OXIDIZED_COPPER_CHAIN);
+        registerLightningRod(blockStateModelGenerator, WAXED_LIGHTNING_ROD, Blocks.LIGHTNING_ROD);
+        registerLightningRod(blockStateModelGenerator, WAXED_WEATHERED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD);
+        registerLightningRod(blockStateModelGenerator, WAXED_EXPOSED_LIGHTNING_ROD, EXPOSED_LIGHTNING_ROD);
+        registerLightningRod(blockStateModelGenerator, WAXED_OXIDIZED_LIGHTNING_ROD, OXIDIZED_LIGHTNING_ROD);
+        blockStateModelGenerator.registerTintableCross(GOLDEN_DANDELION, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        registerHangingMoss(blockStateModelGenerator, ModBlocks.BANANA_HANGING_MOSS);
+        registerHangingMoss(blockStateModelGenerator, ModBlocks.CORN_HANGING_MOSS);
+        registerHangingMoss(blockStateModelGenerator, ModBlocks.POISONED_HANGING_MOSS);
+        registerHangingMoss(blockStateModelGenerator, ModBlocks.MAHOGANY_HANGING_MOSS);
+        registerHangingMoss(blockStateModelGenerator, ModBlocks.FLOWERING_CHERRY_HANGING_MOSS);
 
 
 
 
 
-
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DUPER);
+        blockStateModelGenerator.registerSingleton(ModBlocks.DUPER, TexturedModel.CUBE_ALL);
+        blockStateModelGenerator.registerParentedItemModel(ModBlocks.DUPER, Identifier.ofVanilla("builtin/entity"));
         blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.TROPICAL_MOSS, ModBlocks.TROPICAL_MOSS_CARPET);
 
         Identifier topTexture = Identifier.ofVanilla("block/sand");
@@ -488,9 +517,14 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .put(TextureKey.SIDE, sideTexture)
                 .put(TextureKey.BOTTOM, bottomTexture);
 
-        blockStateModelGenerator.registerSingleton(ModBlocks.SANDY_DIRT, textures, Models.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSingleton(ModBlocks.SANDY_DIRT, TexturedModel.makeFactory(block -> textures, Models.CUBE_BOTTOM_TOP));
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.XP_TRAP);
+
+        TextureMap textureMap = new TextureMap()
+                .put(TextureKey.DIRT, TextureMap.getId(ModBlocks.TROPICAL_MOSS))
+                .put(TextureKey.TOP, TextureMap.getId(ModBlocks.TROPICAL_FARM_LAND));
+        blockStateModelGenerator.registerSingleton(ModBlocks.TROPICAL_FARM_LAND, TexturedModel.makeFactory(block -> textureMap, Models.TEMPLATE_FARMLAND));
 
         registerChair(blockStateModelGenerator,ModBlocks.OAK_CHAIR);
         registerChair(blockStateModelGenerator,ModBlocks.SPRUCE_CHAIR);
@@ -509,6 +543,103 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         registerChair(blockStateModelGenerator,ModBlocks.POISONED_CHAIR);
         registerChair(blockStateModelGenerator,ModBlocks.MAHOGANY_CHAIR);
         registerChair(blockStateModelGenerator,ModBlocks.PALE_OAK_CHAIR);
+        registerChair(blockStateModelGenerator, ModBlocks.WOODEN_CHAIR_RD20090515);
+        registerChair(blockStateModelGenerator, ModBlocks.WOODEN_CHAIR_RD161348);
+        registerChair(blockStateModelGenerator, ModBlocks.WOODEN_CHAIR_C0_0_14A);
+        registerChair(blockStateModelGenerator, ModBlocks.WOODEN_CHAIR_C0_0_15A);
+        registerChair(blockStateModelGenerator, ModBlocks.WOODEN_CHAIR_B1_9PRE5);
+        registerChair(blockStateModelGenerator, ModBlocks.BIRCH_CHAIR_1_2_4);
+        registerChair(blockStateModelGenerator, ModBlocks.SPRUCE_CHAIR_1_2_4);
+        registerChair(blockStateModelGenerator, ModBlocks.JUNGLE_CHAIR_1_2_4);
+        registerChair(blockStateModelGenerator, ModBlocks.ACACIA_CHAIR_1_7);
+        registerChair(blockStateModelGenerator, ModBlocks.DARK_OAK_CHAIR_1_7);
+
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_OAK_SLAB, Blocks.OAK_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SPRUCE_SLAB, Blocks.SPRUCE_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BIRCH_SLAB, Blocks.BIRCH_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_JUNGLE_SLAB, Blocks.JUNGLE_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_ACACIA_SLAB, Blocks.ACACIA_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_DARK_OAK_SLAB, Blocks.DARK_OAK_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_MANGROVE_SLAB, Blocks.MANGROVE_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_CHERRY_SLAB, Blocks.CHERRY_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BAMBOO_SLAB, Blocks.BAMBOO_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BAMBO_MOSAIC_SLAB, Blocks.BAMBOO_MOSAIC);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_CRIMSON_SLAB, Blocks.CRIMSON_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_WARPED_SLAB, Blocks.WARPED_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_STONE_SLAB, Blocks.STONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_COBBLESTONE_SLAB, Blocks.COBBLESTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_MOSSY_COBBLESTONE_SLAB, Blocks.MOSSY_COBBLESTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SMOOTH_STONE_SLAB, Blocks.SMOOTH_STONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_STONE_BRICK_SLAB, Blocks.STONE_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_MOSSY_STONE_BRICK_SLAB, Blocks.MOSSY_STONE_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_GRANITE_SLAB, Blocks.GRANITE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POLISHED_GRANITE_SLAB, Blocks.POLISHED_GRANITE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_DIORITE_SLAB, Blocks.DIORITE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POLISHED_DIORITE_SLAB, Blocks.POLISHED_DIORITE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_ANDESITE_SLAB, Blocks.ANDESITE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POLISHED_ANDESITE_SLAB, Blocks.POLISHED_ANDESITE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_COBBLED_DEEPSLATE_SLAB, Blocks.COBBLED_DEEPSLATE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POLISHED_DEEPSLATE_SLAB, Blocks.POLISHED_DEEPSLATE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_DEEPSLATE_BRICK_SLAB, Blocks.DEEPSLATE_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_DEEPSLATE_TILE_SLAB, Blocks.DEEPSLATE_TILES);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_TUFF_SLAB, Blocks.TUFF);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POLISHED_TUFF_SLAB, Blocks.POLISHED_TUFF);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_TUFF_BRICK_SLAB, Blocks.TUFF_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BRICK_SLAB, Blocks.BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_MUD_BRICK_SLAB, Blocks.MUD_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SANDSTONE_SLAB, Blocks.SANDSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SMOOTH_SANDSTONE_SLAB, Blocks.SMOOTH_SANDSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_CUT_SANDSTONE_SLAB, Blocks.CUT_SANDSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_RED_SANDSTONE_SLAB, Blocks.RED_SANDSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SMOOTH_RED_SANDSTONE_SLAB, Blocks.SMOOTH_RED_SANDSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_CUT_RED_SANDSTONE_SLAB, Blocks.CUT_RED_SANDSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_PRISMARINE_SLAB, Blocks.PRISMARINE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BRISMARINE_BRICK_SLAB, Blocks.PRISMARINE_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_DARK_PRISMARINE_SLAB, Blocks.DARK_PRISMARINE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_NETHER_BRICK_SLAB, Blocks.NETHER_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_RED_NETHER_BRICK_SLAB, Blocks.RED_NETHER_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BLACKSTONE_SLAB, Blocks.BLACKSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POLISHED_BLACKSTONE_SLAB, Blocks.POLISHED_BLACKSTONE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POLISHED_BLACKSTONE_BRICK_SLAB, Blocks.POLISHED_BLACKSTONE_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_ENDSTONE_BRICK_SLAB, Blocks.END_STONE_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_PURPUR_SLAB, Blocks.PURPUR_BLOCK);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_QUARTZ_SLAB, Blocks.QUARTZ_BLOCK);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SMOOTH_QUARTZ_SLAB, Blocks.SMOOTH_QUARTZ);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_CUT_COPPER_SLAB, Blocks.CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB, Blocks.EXPOSED_CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB, Blocks.WEATHERED_CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB, Blocks.OXIDIZED_CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.WAXED_VERTICAL_CUT_COPPER_SLAB, Blocks.CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB, Blocks.EXPOSED_CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB, Blocks.WEATHERED_CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB, Blocks.OXIDIZED_CUT_COPPER);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_COBBLESTONE_SLAB_RD20090515, LegacyBlocks.COBBLESTONE_RD20090515);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_3, LegacyBlocks.COBBLESTONE_C0_0_14A);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_7, LegacyBlocks.COBBLESTONE_B1_7);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_WOODEN_SLAB_RD20090515, LegacyBlocks.WOODEN_PLANKS_RD20090515);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_WOODEN_SLAB_RD161348, LegacyBlocks.WOODEN_PLANKS_RD161348);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_WOODEN_SLAB_C0_0_14A, LegacyBlocks.WOODEN_PLANKS_C0_0_14A);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_WOODEN_SLAB_B1_3, LegacyBlocks.WOODEN_PLANKS_C0_0_15A);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_WOODEN_SLAB_B1_9PRE5, LegacyBlocks.WOODEN_PLANKS_B1_9PRE5);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SANDSTONE_SLAB_B1_3, LegacyBlocks.SANDSTONE_B1_2);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SANDSTONE_SLAB_1_2_4, LegacyBlocks.SANDSTONE_1_2_4);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BRICK_SLAB_C0_26ST, LegacyBlocks.BRICKS_C0_26ST);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BRICK_SLAB_B1_8, LegacyBlocks.BRICKS_A1_0_11);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_STONE_BRICK_SLAB_B1_8, LegacyBlocks.STONE_BRICKS_B1_8);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BIRCH_SLAB_1_3, LegacyBlocks.BIRCH_PLANKS_1_2_4);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_SPRUCE_SLAB_1_3, LegacyBlocks.SPRUCE_PLANKS_1_2_4);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_JUNGLE_SLAB_1_3, LegacyBlocks.JUNGLE_PLANKS_1_2_4);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_NETHER_BRICK_SLAB_1_4_6, LegacyBlocks.NETHER_BRICKS_B1_9PRE);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_RED_SANDSTONE_SLAB_1_8, LegacyBlocks.RED_SANDSTONE_1_8);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_PURPUR_SLAB_1_9, LegacyBlocks.PURPUR_BLOCK_1_9);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_PRISMARINE_SLAB_1_13, LegacyBlocks.PRISMARINE_1_8);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_PALE_OAK_SLAB, FutureBlocks.PALE_OAK_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_RESIN_BRICK_SLAB, FutureBlocks.RESIN_BRICKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_PALM_SLAB, ModBlocks.PALM_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_BANANA_SLAB, ModBlocks.BANANA_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_CORN_SLAB, ModBlocks.CORN_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_POISONED_SLAB, ModBlocks.POISONED_PLANKS);
+        registerVerticalSlab(blockStateModelGenerator, ModBlocks.VERTICAL_MAHOGANY_SLAB, ModBlocks.MAHOGANY_PLANKS);
     }
 
     @Override
@@ -546,8 +677,8 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.POISONED_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MAHOGANY_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MAHOGANY_CHEST_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GIANT_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
-        itemModelGenerator.register(ModItems.ILLUSIONER_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
+        itemModelGenerator.register(ModItems.GIANT_SPAWN_EGG, ITEM_RENDERER);
+        itemModelGenerator.register(ModItems.ILLUSIONER_SPAWN_EGG, ITEM_RENDERER);
         itemModelGenerator.register(ModItems.CHERRY, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLDEN_CHERRY, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENCHANTED_GOLDEN_CHERRY, ModItems.GOLDEN_CHERRY,Models.GENERATED);
@@ -558,12 +689,85 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RABBIT_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ModItems.FISH_TRINKET, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAT_TRINKET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MONKEY_SPAWN_EGG, TEMPLATE_SPAWN_EGG);
+        itemModelGenerator.register(ModItems.MONKEY_SPAWN_EGG, ITEM_RENDERER);
         itemModelGenerator.register(ModItems.BANANA, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TROPICAL_WATER_BUCKET, Models.GENERATED);
+        itemModelGenerator.register(ModFluids.TROPICAL_WATER_BUCKET, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPAWNER_MINECART, Models.GENERATED);
         itemModelGenerator.register(ModItems.FUTURE_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.THERMORGANIC_FUEL, Models.GENERATED);
+        itemModelGenerator.register(COPPER_NUGGET, Models.GENERATED);
+    }
+
+    private static final Model VERTICAL_SLAB_NORTH = block("vertical_slab_north", TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP);
+    private static final Model VERTICAL_SLAB_WEST = block("vertical_slab_west", TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP);
+    private static final Model VERTICAL_SLAB_SOUTH = block("vertical_slab_south", TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP);
+    private static final Model VERTICAL_SLAB_EAST = block("vertical_slab_east", TextureKey.SIDE, TextureKey.BOTTOM, TextureKey.TOP);
+
+    public final void registerVerticalSlab(BlockStateModelGenerator generator, Block verticalSlab, Block base) {
+        TexturedModel model = ((BlockStateModelAccessor)generator).blocktopia$getTextureModels().get(base);
+        Identifier north = TexturedModel.makeFactory(block -> model != null ? model.getTextures() :
+                new TextureMap()
+                        .put(TextureKey.SIDE, TextureMap.getId(base))
+                        .put(TextureKey.BOTTOM, TextureMap.getId(base))
+                        .put(TextureKey.TOP, TextureMap.getId(base)), VERTICAL_SLAB_NORTH)
+                        .upload(verticalSlab, "_north", generator.modelCollector);
+        Identifier west = TexturedModel.makeFactory(block -> model != null ? model.getTextures() :
+                        new TextureMap()
+                                .put(TextureKey.SIDE, TextureMap.getId(base))
+                                .put(TextureKey.BOTTOM, TextureMap.getId(base))
+                                .put(TextureKey.TOP, TextureMap.getId(base)), VERTICAL_SLAB_WEST)
+                .upload(verticalSlab, "_west", generator.modelCollector);
+        Identifier south = TexturedModel.makeFactory(block -> model != null ? model.getTextures() :
+                        new TextureMap()
+                                .put(TextureKey.SIDE, TextureMap.getId(base))
+                                .put(TextureKey.BOTTOM, TextureMap.getId(base))
+                                .put(TextureKey.TOP, TextureMap.getId(base)), VERTICAL_SLAB_SOUTH)
+                .upload(verticalSlab, "_south", generator.modelCollector);
+        Identifier east = TexturedModel.makeFactory(block -> model != null ? model.getTextures() :
+                        new TextureMap()
+                                .put(TextureKey.SIDE, TextureMap.getId(base))
+                                .put(TextureKey.BOTTOM, TextureMap.getId(base))
+                                .put(TextureKey.TOP, TextureMap.getId(base)), VERTICAL_SLAB_EAST)
+                .upload(verticalSlab, "_east", generator.modelCollector);
+        Identifier block = TextureMap.getId(base);
+
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(verticalSlab)
+                .coordinate(
+                        BlockStateVariantMap.create(VerticalSlabBlock.TYPE, VerticalSlabBlock.FACING)
+                                .register(VerticalSlabBlock.VerticalSlabType.DOUBLE, Direction.NORTH,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, block))
+                                .register(VerticalSlabBlock.VerticalSlabType.DOUBLE, Direction.SOUTH,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, block))
+                                .register(VerticalSlabBlock.VerticalSlabType.DOUBLE, Direction.WEST,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, block))
+                                .register(VerticalSlabBlock.VerticalSlabType.DOUBLE, Direction.EAST,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, block))
+
+                                .register(VerticalSlabBlock.VerticalSlabType.SINGLE, Direction.NORTH,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, north))
+                                .register(VerticalSlabBlock.VerticalSlabType.SINGLE, Direction.SOUTH,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, south))
+                                .register(VerticalSlabBlock.VerticalSlabType.SINGLE, Direction.WEST,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, west))
+                                .register(VerticalSlabBlock.VerticalSlabType.SINGLE, Direction.EAST,
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, east))
+                ));
+        generator.registerParentedItemModel(verticalSlab, ModelIds.getBlockSubModelId(verticalSlab, "_north"));
+    }
+
+    private static final Model CHAIN = vanillaBlock("chain", TextureKey.PARTICLE, TextureKey.ALL);
+
+    public final void registerChain(BlockStateModelGenerator generator, Block waxed, Block unwaxed) {
+        generator.registerAxisRotated(unwaxed,
+                TexturedModel.makeFactory(block -> new TextureMap()
+                        .put(TextureKey.PARTICLE, ModelIds.getBlockModelId(unwaxed))
+                        .put(TextureKey.ALL, ModelIds.getBlockModelId(unwaxed)), CHAIN));
+        generator.registerAxisRotated(waxed,
+                TexturedModel.makeFactory(block -> new TextureMap()
+                        .put(TextureKey.PARTICLE, ModelIds.getBlockModelId(unwaxed))
+                        .put(TextureKey.ALL, ModelIds.getBlockModelId(unwaxed)), CHAIN));
+        Models.GENERATED.upload(ModelIds.getItemModelId(waxed.asItem()), TextureMap.layer0(ModelIds.getItemModelId(unwaxed.asItem())), generator.modelCollector);
+        Models.GENERATED.upload(ModelIds.getItemModelId(unwaxed.asItem()), TextureMap.layer0(ModelIds.getItemModelId(unwaxed.asItem())), generator.modelCollector);
     }
 
     public final void registerHangingMoss(BlockStateModelGenerator generator, Block block) {
@@ -579,6 +783,43 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                                                 .register(Boolean.TRUE, BlockStateVariant.create().put(VariantSettings.MODEL, identifier1))
                                 )
                 );
+    }
+
+    private static final Model LIGHTNING_ROD = vanillaBlock("lightning_rod", TextureKey.TEXTURE, TextureKey.PARTICLE);
+    private static final Model LIGHTNING_ROD_ON = vanillaBlock("lightning_rod_on", TextureKey.TEXTURE, TextureKey.PARTICLE);
+    private void registerLightningRod(BlockStateModelGenerator generator, Block waxed, Block unwaxed) {
+        Identifier onModel = ModelIds.getBlockSubModelId(unwaxed, "_on");
+        Identifier offModel = ModelIds.getBlockModelId(unwaxed);
+        if (unwaxed != Blocks.LIGHTNING_ROD) {
+            onModel = LIGHTNING_ROD_ON.upload(ModelIds.getBlockSubModelId(unwaxed, "_on"), new TextureMap()
+                    .put(TextureKey.TEXTURE, ModelIds.getBlockModelId(unwaxed))
+                    .put(TextureKey.PARTICLE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+            offModel = LIGHTNING_ROD.upload(unwaxed, new TextureMap()
+                    .put(TextureKey.TEXTURE, ModelIds.getBlockModelId(unwaxed))
+                    .put(TextureKey.PARTICLE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+        }
+        VariantsBlockStateSupplier supplier = VariantsBlockStateSupplier.create(waxed, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(waxed)))
+                .coordinate(generator.createUpDefaultFacingVariantMap())
+                .coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.POWERED, onModel, offModel));
+        generator.blockStateCollector.accept(supplier);
+        if (unwaxed != Blocks.LIGHTNING_ROD) {
+            VariantsBlockStateSupplier supplier2 = VariantsBlockStateSupplier.create(unwaxed, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(unwaxed)))
+                    .coordinate(generator.createUpDefaultFacingVariantMap())
+                    .coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.POWERED, onModel, offModel));
+            generator.blockStateCollector.accept(supplier2);
+        }
+
+        generator.registerParentedItemModel(waxed, ModelIds.getItemModelId(unwaxed.asItem()));
+    }
+
+
+    public final void registerLantern(BlockStateModelGenerator generator, Block lantern, Block unwaxed) {
+        Identifier identifier = TexturedModel.TEMPLATE_LANTERN.upload(unwaxed, generator.modelCollector);
+        Identifier identifier2 = TexturedModel.TEMPLATE_HANGING_LANTERN.upload(unwaxed, generator.modelCollector);
+        generator.registerParentedItemModel(lantern, ModelIds.getItemModelId(unwaxed.asItem()));
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(lantern).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.HANGING, identifier2, identifier)));
+        generator.registerItemModel(unwaxed.asItem());
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(unwaxed).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.HANGING, identifier2, identifier)));
     }
 
     private void registerSunflower(BlockStateModelGenerator generator, Block sunflower) {
@@ -599,13 +840,113 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                                                 .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(cocoa, "_stage1")))
                                                 .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(cocoa, "_stage2")))
                                 )
-                                .coordinate(createSouthDefaultHorizontalRotationStates())
+                                .coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates())
                 );
+    }
+
+    private static final TextureKey BARS = TextureKey.of("bars");
+    private static final Model BAR_POST_ENDS = vanillaBlock("iron_bars_post_ends", BARS, TextureKey.EDGE);
+    private static final Model BAR_POST = vanillaBlock("iron_bars_post", BARS, TextureKey.EDGE);
+    private static final Model BAR_CAP = vanillaBlock("iron_bars_cap", BARS, TextureKey.EDGE);
+    private static final Model BAR_CAP_ALT = vanillaBlock("iron_bars_cap_alt", BARS, TextureKey.EDGE);
+    private static final Model BAR_SIDE = vanillaBlock("iron_bars_side", BARS, TextureKey.EDGE);
+    private static final Model BAR_SIDE_ALT = vanillaBlock("iron_bars_side_alt", BARS, TextureKey.EDGE);
+    private void registerCopperBars(BlockStateModelGenerator generator, Block waxed, Block unwaxed) {
+        Identifier identifier1 = BAR_POST_ENDS.upload(ModelIds.getBlockSubModelId(unwaxed, "_post_ends"), new TextureMap()
+                .put(BARS, ModelIds.getBlockModelId(unwaxed))
+                .put(TextureKey.EDGE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+        Identifier identifier2 = BAR_POST.upload(ModelIds.getBlockSubModelId(unwaxed, "_post"), new TextureMap()
+                .put(BARS, ModelIds.getBlockModelId(unwaxed))
+                .put(TextureKey.EDGE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+        Identifier identifier3 = BAR_CAP.upload(ModelIds.getBlockSubModelId(unwaxed, "_cap"), new TextureMap()
+                .put(BARS, ModelIds.getBlockModelId(unwaxed))
+                .put(TextureKey.EDGE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+        Identifier identifier4 = BAR_CAP_ALT.upload(ModelIds.getBlockSubModelId(unwaxed, "_cap_alt"), new TextureMap()
+                .put(BARS, ModelIds.getBlockModelId(unwaxed))
+                .put(TextureKey.EDGE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+        Identifier identifier5 = BAR_SIDE.upload(ModelIds.getBlockSubModelId(unwaxed, "_side"), new TextureMap()
+                .put(BARS, ModelIds.getBlockModelId(unwaxed))
+                .put(TextureKey.EDGE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+        Identifier identifier6 = BAR_SIDE_ALT.upload(ModelIds.getBlockSubModelId(unwaxed, "_side_alt"), new TextureMap()
+                .put(BARS, ModelIds.getBlockModelId(unwaxed))
+                .put(TextureKey.EDGE, ModelIds.getBlockModelId(unwaxed)), generator.modelCollector);
+        generator.blockStateCollector
+                .accept(
+                        MultipartBlockStateSupplier.create(waxed)
+                                .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier1))
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier2)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, true).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, true).set(Properties.SOUTH, false).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, true).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(When.create().set(Properties.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5))
+                                .with(
+                                        When.create().set(Properties.EAST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier5).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(When.create().set(Properties.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier6))
+                                .with(
+                                        When.create().set(Properties.WEST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier6).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                );
+        generator.blockStateCollector
+                .accept(
+                        MultipartBlockStateSupplier.create(unwaxed)
+                                .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier1))
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier2)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, true).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, true).set(Properties.SOUTH, false).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier3).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, true).set(Properties.WEST, false),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4)
+                                )
+                                .with(
+                                        When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier4).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(When.create().set(Properties.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5))
+                                .with(
+                                        When.create().set(Properties.EAST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier5).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                                .with(When.create().set(Properties.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier6))
+                                .with(
+                                        When.create().set(Properties.WEST, true),
+                                        BlockStateVariant.create().put(VariantSettings.MODEL, identifier6).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                                )
+                );
+        generator.registerParentedItemModel(waxed, ModelIds.getItemModelId(unwaxed.asItem()));
+        generator.registerItemModel(unwaxed);
     }
 
     private void registerLilyPad(BlockStateModelGenerator generator, Block liliPad) {
         generator.registerItemModel(liliPad);
-        generator.blockStateCollector.accept(createBlockStateWithRandomHorizontalRotations(liliPad, ModelIds.getBlockModelId(liliPad)));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(liliPad, ModelIds.getBlockModelId(liliPad)));
     }
 
     public final void registerMushroomBlock(BlockStateModelGenerator generator, Identifier insideTexture, Block mushroomBlock) {
@@ -707,11 +1048,13 @@ public class BlocktopiaModelProvider extends FabricModelProvider {
                 .put(TextureKey.TOP, TextureMap.getId(anvil))
                 .put(BODY, side)
                 .put(TextureKey.PARTICLE, side));
-        generator.blockStateCollector.accept(createSingletonBlockState(anvil, identifier).coordinate(createSouthDefaultHorizontalRotationStates()));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(anvil, identifier)
+                .coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates()));
     }
 
 
     public static final Model TEMPLATE_SPAWN_EGG = item("template_spawn_egg");
+    public static final Model ITEM_RENDERER = new Model(Optional.of(Identifier.ofVanilla("builtin/entity")), Optional.empty());
     private static Model item(String parent) {
         return new Model(Optional.of(Identifier.ofVanilla("item/" + parent)), Optional.empty());
     }

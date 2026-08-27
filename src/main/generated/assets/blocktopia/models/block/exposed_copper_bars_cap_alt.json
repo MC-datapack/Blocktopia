@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/iron_bars_cap_alt",
+  "textures": {
+    "bars": "blocktopia:block/exposed_copper_bars",
+    "edge": "blocktopia:block/exposed_copper_bars"
+  }
+}

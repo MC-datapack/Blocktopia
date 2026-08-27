@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "more_tools_and_armor:end_emerald",
+          "name": "more_tools_and_armor:end_diamond",
           "weight": 40,
           "functions": []
         },
@@ -39,8 +39,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 12,
-                "max": 32
+                "min": 2,
+                "max": 8
               }
             }
           ]
@@ -59,8 +59,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 0,
-                "max": 2
+                "min": 2,
+                "max": 4
               }
             }
           ]
@@ -69,16 +69,7 @@
           "type": "minecraft:item",
           "name": "blocktopia:creative_ingot",
           "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
-              }
-            }
-          ]
+          "functions": []
         }
       ],
       "rolls": 1

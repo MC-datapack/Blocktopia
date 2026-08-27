@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class WoodCuttingDisplay extends BasicDisplay {
+    public static final CategoryIdentifier<WoodCuttingDisplay> IDENTIFIER = CategoryIdentifier.of(Blocktopia.id("woodcutting"));
+
     public WoodCuttingDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs) {
         super(inputs, outputs);
     }
@@ -31,6 +33,6 @@ public class WoodCuttingDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return CategoryIdentifier.of(Blocktopia.id("woodcutting"));
+        return IDENTIFIER;
     }
 }

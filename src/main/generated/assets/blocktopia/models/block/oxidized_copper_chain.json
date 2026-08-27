@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/chain",
+  "textures": {
+    "all": "blocktopia:block/oxidized_copper_chain",
+    "particle": "blocktopia:block/oxidized_copper_chain"
+  }
+}

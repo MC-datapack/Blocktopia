@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/deepslate_tiles"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_deepslate_tile_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/deepslate_tiles"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_deepslate_tile_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/deepslate_tiles"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_deepslate_tile_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/deepslate_tiles"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_deepslate_tile_slab_west"
+    }
+  }
+}

@@ -7,7 +7,6 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.resource.ResourceType;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 public class FluidInteractionRegistry {

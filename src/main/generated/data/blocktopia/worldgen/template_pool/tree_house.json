@@ -1,0 +1,50 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "blocktopia:banana_tree_house",
+        "processors": "blocktopia:banana_processor",
+        "projection": "rigid"
+      },
+      "weight": 50
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "blocktopia:mahogany_tree_house",
+        "processors": "blocktopia:chair_anvil_processor",
+        "projection": "rigid"
+      },
+      "weight": 20
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "blocktopia:flowering_cherry_tree_house",
+        "processors": "blocktopia:chair_anvil_processor",
+        "projection": "rigid"
+      },
+      "weight": 15
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "blocktopia:corn_tree_house",
+        "processors": "blocktopia:random_chair",
+        "projection": "rigid"
+      },
+      "weight": 5
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "blocktopia:poisoned_tree_house",
+        "processors": "blocktopia:chair_anvil_processor",
+        "projection": "rigid"
+      },
+      "weight": 15
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

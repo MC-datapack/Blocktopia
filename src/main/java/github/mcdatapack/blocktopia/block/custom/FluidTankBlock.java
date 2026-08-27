@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia.block.custom;
 
+import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.entity.ModBlockEntityTypes;
 import github.mcdatapack.blocktopia.block.entity.custom.FluidTankBlockEntity;
 import github.mcdatapack.blocktopia.util.TickableBlockEntity;
@@ -26,6 +27,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public class FluidTankBlock extends Block implements BlockEntityProvider, Waterloggable {
@@ -53,6 +55,10 @@ public class FluidTankBlock extends Block implements BlockEntityProvider, Waterl
         return ActionResult.PASS;
     }
 
+    @Override
+    protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        return !world.getBlockState(pos.down()).isOf(ModBlocks.FLUID_TANK);
+    }
 
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
@@ -98,9 +104,8 @@ public class FluidTankBlock extends Block implements BlockEntityProvider, Waterl
         return VoxelShapes.cuboid(0.25, 0, 0.25, 0.75, 0.8125, 0.75);
     }
 
-
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }

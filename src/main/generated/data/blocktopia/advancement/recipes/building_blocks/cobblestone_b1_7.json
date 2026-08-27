@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cobblestone_b1_7": {
+    "has_cobblestone_slab_b1_7": {
       "conditions": {
         "items": [
           {
-            "items": "blocktopia:cobblestone_b1_7"
+            "items": "blocktopia:cobblestone_slab_b1_7"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cobblestone_b1_7"
+      "has_cobblestone_slab_b1_7"
     ]
   ],
   "rewards": {

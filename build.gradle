@@ -71,6 +71,7 @@ dependencies {
 	modImplementation ("dev.emi:trinkets:${project.trinkets_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
+
 	modImplementation ("com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
@@ -83,7 +84,7 @@ dependencies {
 	modImplementation ("maven.modrinth:more_tools_and_armor:${project.more_tools_and_armor_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
-	modCompileOnly ("maven.modrinth:simple-copper-pipes:2.0.6-mc1.21.1") {
+	modCompileOnly ("maven.modrinth:simple-copper-pipes:${project.simple_copper_pipes_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
@@ -99,10 +100,10 @@ dependencies {
 
 	modRuntimeOnly "maven.modrinth:continuity:${project.continuity_version}"
 
-	modCompileOnly ("me.shedaniel:RoughlyEnoughItems-api-fabric:16.0.799") {
+	modCompileOnly ("me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
-	modRuntimeOnly ("me.shedaniel:RoughlyEnoughItems-fabric:16.0.799") {
+	modRuntimeOnly ("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 

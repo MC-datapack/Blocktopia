@@ -2,7 +2,6 @@ package github.mcdatapack.blocktopia.entity;
 
 import github.mcdatapack.blocktopia.Blocktopia;
 import github.mcdatapack.blocktopia.entity.custom.ToucanEntity;
-import github.mcdatapack.blocktopia.entity.custom.abstracts.AbstractBirdEntity;
 import github.mcdatapack.blocktopia.entity.custom.ChairEntity;
 import github.mcdatapack.blocktopia.entity.custom.MonkeyEntity;
 import github.mcdatapack.blocktopia.entity.custom.SpongeTNTEntity;

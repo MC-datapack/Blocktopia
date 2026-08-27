@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "blocktopia:block/wall_copper_torch"
+    },
+    "facing=north": {
+      "model": "blocktopia:block/wall_copper_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "blocktopia:block/wall_copper_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "blocktopia:block/wall_copper_torch",
+      "y": 180
+    }
+  }
+}

@@ -46,7 +46,6 @@ public abstract class FluidBlockMixin {
             match.ifPresent(fluidInteraction -> {
                 Block result = Registries.BLOCK.get(fluidInteraction.resultBlock());
                 setState(world, pos, result, cir);
-                return;
             });
         }
 

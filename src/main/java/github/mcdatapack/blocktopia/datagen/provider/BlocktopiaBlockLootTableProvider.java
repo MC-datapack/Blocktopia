@@ -2,7 +2,9 @@ package github.mcdatapack.blocktopia.datagen.provider;
 
 import java.util.concurrent.CompletableFuture;
 
+import github.mcdatapack.blocktopia.block.ModBlocks;
 import github.mcdatapack.blocktopia.block.custom.BananaCropBlock;
+import github.mcdatapack.blocktopia.block.custom.VerticalSlabBlock;
 import github.mcdatapack.blocktopia.item.LegacyItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
@@ -11,14 +13,16 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.TallPlantBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryWrapper;
 
 import static github.mcdatapack.blocktopia.block.FutureBlocks.*;
-import static github.mcdatapack.blocktopia.item.FutureItems.*;
-import static github.mcdatapack.blocktopia.item.FutureItems.RESIN_BRICK;
 import static github.mcdatapack.blocktopia.item.LegacyItems.*;
 import static github.mcdatapack.blocktopia.item.ModItems.BANANA;
 import static github.mcdatapack.blocktopia.block.ModBlocks.*;
@@ -49,6 +53,7 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
 
         addDrop(TROPICAL_MOSS);
         addDrop(TROPICAL_MOSS_CARPET);
+        addDrop(TROPICAL_FARM_LAND, TROPICAL_MOSS);
 
         addDrop(PAPER_BLOCK);
         addDrop(GUNPOWDER_BLOCK);
@@ -59,6 +64,93 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(DUPER);
 
         addDrop(SPONGE_TNT);
+
+        addVerticalSlabDrops(ModBlocks.VERTICAL_OAK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SPRUCE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BIRCH_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_JUNGLE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_ACACIA_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_DARK_OAK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_MANGROVE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_CHERRY_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BAMBOO_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BAMBO_MOSAIC_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_CRIMSON_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_WARPED_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_STONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_COBBLESTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_MOSSY_COBBLESTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SMOOTH_STONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_STONE_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_MOSSY_STONE_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_GRANITE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POLISHED_GRANITE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_DIORITE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POLISHED_DIORITE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_ANDESITE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POLISHED_ANDESITE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_COBBLED_DEEPSLATE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POLISHED_DEEPSLATE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_DEEPSLATE_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_DEEPSLATE_TILE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_TUFF_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POLISHED_TUFF_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_TUFF_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_MUD_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SANDSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SMOOTH_SANDSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_CUT_SANDSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_RED_SANDSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SMOOTH_RED_SANDSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_CUT_RED_SANDSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_PRISMARINE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BRISMARINE_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_DARK_PRISMARINE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_NETHER_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_RED_NETHER_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BLACKSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POLISHED_BLACKSTONE_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POLISHED_BLACKSTONE_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_ENDSTONE_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_PURPUR_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_QUARTZ_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SMOOTH_QUARTZ_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.EXPOSED_VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.WEATHERED_VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.OXIDIZED_VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.WAXED_VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.WAXED_EXPOSED_VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.WAXED_WEATHERED_VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.WAXED_OXIDIZED_VERTICAL_CUT_COPPER_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_COBBLESTONE_SLAB_RD20090515);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_3);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_COBBLESTONE_SLAB_B1_7);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_WOODEN_SLAB_RD20090515);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_WOODEN_SLAB_RD161348);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_WOODEN_SLAB_C0_0_14A);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_WOODEN_SLAB_B1_3);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_WOODEN_SLAB_B1_9PRE5);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SANDSTONE_SLAB_B1_3);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SANDSTONE_SLAB_1_2_4);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BRICK_SLAB_C0_26ST);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BRICK_SLAB_B1_8);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_STONE_BRICK_SLAB_B1_8);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BIRCH_SLAB_1_3);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_SPRUCE_SLAB_1_3);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_JUNGLE_SLAB_1_3);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_NETHER_BRICK_SLAB_1_4_6);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_RED_SANDSTONE_SLAB_1_8);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_PURPUR_SLAB_1_9);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_PRISMARINE_SLAB_1_13);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_PALE_OAK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_RESIN_BRICK_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_PALM_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_BANANA_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_CORN_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_POISONED_SLAB);
+        addVerticalSlabDrops(ModBlocks.VERTICAL_MAHOGANY_SLAB);
 
         addDrop(FLOWERING_CHERRY_SAPLING);
         addPottedPlantDrops(POTTED_FLOWERING_CHERRY_SAPLING);
@@ -231,7 +323,7 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(COBBLESTONE_STAIRS_B1_7);
         addDrop(TORCH_IN20100124_2);
         addDrop(WALL_TORCH_IN20100124_2);
-        addDrop(REDSTONE_TORCH_A1_0_1, REDSTONE_TORCH_A1_0_1);
+        addDrop(REDSTONE_TORCH_A1_0_1);
         addDrop(REDSTONE_WALL_TORCH_A1_0_1, REDSTONE_TORCH_A1_0_1);
         addDropWithSilkTouch(ICE_A1_0_4);
         addDrop(CLAY_BLOCK_A1_0_11);
@@ -302,12 +394,17 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addSlabDrops(SANDSTONE_SLAB_1_2_4);
         addDrop(SMOOTH_STONE_B1_3);
         addDrop(BIRCH_SAPLING_B1_5);
+        addPottedPlantDrops(POTTED_BIRCH_SAPLING_B1_5);
         addDrop(SPRUCE_SAPLING_B1_5);
+        addPottedPlantDrops(POTTED_SPRUCE_SAPLING_B1_5);
         addDrop(POWERED_RAIL_B1_5);
         addDrop(DETECTOR_RAIL_B1_5);
         addDrop(COBWEB_B1_5, block -> drops(block, LegacyItems.STRING_IN20100130));
         addDrop(DEAD_BUSH_B1_6, block -> dropsWithShears(block, applyExplosionDecay(block, ItemEntry.builder(Items.STICK))));
+        addPottedPlantDrops(POTTED_DEAD_BUSH_B1_6);
         addDrop(SHRUB_B1_6, block -> dropsWithShears(block, applyExplosionDecay(block, ItemEntry.builder(Items.STICK))));
+        addPottedPlantDrops(POTTED_SHRUB_B1_6);
+        addPottedPlantDrops(POTTED_FERN_B1_6);
         addDrop(TRAPDOOR_B1_6);
         addDrop(STONE_BRICKS_B1_8);
         addDrop(CRACKED_STONE_BRICKS_B1_8);
@@ -337,6 +434,7 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(JUNGLE_LOG_1_2);
         addDrop(JUNGLE_LOG_1_7);
         addDrop(JUNGLE_SAPLING_1_2);
+        addPottedPlantDrops(POTTED_JUNGLE_SAPLING_1_2);
         addDrop(REDSTONE_LAMP_1_2);
         addDrop(CHISELED_STONE_BRICKS_1_2);
         addDrop(BIRCH_PLANKS_1_2_4);
@@ -426,17 +524,25 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(TERRACOTTA_1_6);
         addDrop(COAL_BLOCK_1_6);
         addDrop(ALLIUM_1_7);
+        addPottedPlantDrops(POTTED_ALLIUM_1_7);
         addDrop(AZURE_BLUET_1_7);
+        addPottedPlantDrops(POTTED_AZURE_BLUET_1_7);
         addDrop(BLUE_ORCHID_1_7);
+        addPottedPlantDrops(POTTED_BLUE_ORCHID_1_7);
         addDrop(LILAC_1_7, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(PEONY_1_7, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(ROSE_BUSH_1_7, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(SUNFLOWER_1_7, block -> this.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(OXEYE_DAISY_1_7);
+        addPottedPlantDrops(POTTED_OXEYE_DAISY_1_7);
         addDrop(RED_TULIP_1_7);
+        addPottedPlantDrops(POTTED_RED_TULIP_1_7);
         addDrop(ORANGE_TULIP_1_7);
+        addPottedPlantDrops(POTTED_ORANGE_TULIP_1_7);
         addDrop(WHITE_TULIP_1_7);
+        addPottedPlantDrops(POTTED_WHITE_TULIP_1_7);
         addDrop(PINK_TULIP_1_7);
+        addPottedPlantDrops(POTTED_PINK_TULIP_1_7);
         addDropWithSilkTouch(PACKED_ICE_1_7);
         addDrop(RED_SAND_1_7);
         addDropWithSilkTouch(WHITE_STAINED_GLASS_1_7);
@@ -474,9 +580,11 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(ACACIA_LOG_1_7);
         addDrop(ACACIA_WOOD_1_7);
         addDrop(ACACIA_SAPLING_1_7);
+        addPottedPlantDrops(POTTED_ACACIA_SAPLING_1_7);
         addDrop(DARK_OAK_LOG_1_7);
         addDrop(DARK_OAK_WOOD_1_7);
         addDrop(DARK_OAK_SAPLING_1_7);
+        addPottedPlantDrops(POTTED_DARK_OAK_SAPLING_1_7);
         addDrop(ACACIA_PLANKS_1_7);
         addDrop(ACACIA_STAIRS_1_7);
         addSlabDrops(ACACIA_SLAB_1_7);
@@ -570,7 +678,7 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(PALE_OAK_HANGING_SIGN);
         addDrop(PALE_MOSS);
         addDrop(PALE_MOSS_CARPET);
-        addDrop(PALE_HANGING_MOSS);
+        addDrop(PALE_HANGING_MOSS, BlocktopiaBlockLootTableProvider::dropsWithShears);
         addDrop(CLOSED_EYEBLOSSOM);
         addDrop(OPEN_EYEBLOSSOM);
         addDrop(RESIN_BLOCK);
@@ -583,32 +691,63 @@ public class BlocktopiaBlockLootTableProvider extends FabricBlockLootTableProvid
         addDrop(LEAF_LITTERS, this::flowerbedDrops);
         addDrop(SHORT_DRY_GRASS);
 
-
-
-
+        addDrop(BANANA_HANGING_MOSS, BlocktopiaBlockLootTableProvider::dropsWithShears);
+        addDrop(CORN_HANGING_MOSS, BlocktopiaBlockLootTableProvider::dropsWithShears);
+        addDrop(POISONED_HANGING_MOSS, BlocktopiaBlockLootTableProvider::dropsWithShears);
+        addDrop(MAHOGANY_HANGING_MOSS, BlocktopiaBlockLootTableProvider::dropsWithShears);
+        addDrop(FLOWERING_CHERRY_HANGING_MOSS, BlocktopiaBlockLootTableProvider::dropsWithShears);
 
 
 
         addDrop(XP_TRAP);
         addDrop(SANDY_DIRT, block -> drops(block, Blocks.DIRT));
 
-        addDrop(OAK_CHAIR);
-        addDrop(SPRUCE_CHAIR);
-        addDrop(BIRCH_CHAIR);
-        addDrop(JUNGLE_CHAIR);
-        addDrop(ACACIA_CHAIR);
-        addDrop(DARK_OAK_CHAIR);
-        addDrop(CRIMSON_CHAIR);
-        addDrop(WARPED_CHAIR);
-        addDrop(MANGROVE_CHAIR);
-        addDrop(BAMBOO_CHAIR);
-        addDrop(CHERRY_CHAIR);
-        addDrop(PALM_CHAIR);
-        addDrop(BANANA_CHAIR);
-        addDrop(CORN_CHAIR);
-        addDrop(POISONED_CHAIR);
-        addDrop(MAHOGANY_CHAIR);
-        addDrop(PALE_OAK_CHAIR);
+       addDrop(OAK_CHAIR);
+       addDrop(SPRUCE_CHAIR);
+       addDrop(BIRCH_CHAIR);
+       addDrop(JUNGLE_CHAIR);
+       addDrop(ACACIA_CHAIR);
+       addDrop(DARK_OAK_CHAIR);
+       addDrop(CRIMSON_CHAIR);
+       addDrop(WARPED_CHAIR);
+       addDrop(MANGROVE_CHAIR);
+       addDrop(BAMBOO_CHAIR);
+       addDrop(CHERRY_CHAIR);
+       addDrop(PALM_CHAIR);
+       addDrop(BANANA_CHAIR);
+       addDrop(CORN_CHAIR);
+       addDrop(POISONED_CHAIR);
+       addDrop(MAHOGANY_CHAIR);
+       addDrop(PALE_OAK_CHAIR);
+        addDrop(WOODEN_CHAIR_RD20090515);
+        addDrop(WOODEN_CHAIR_RD161348);
+        addDrop(WOODEN_CHAIR_C0_0_14A);
+        addDrop(WOODEN_CHAIR_C0_0_15A);
+        addDrop(WOODEN_CHAIR_B1_9PRE5);
+        addDrop(BIRCH_CHAIR_1_2_4);
+        addDrop(SPRUCE_CHAIR_1_2_4);
+        addDrop(JUNGLE_CHAIR_1_2_4);
+        addDrop(ACACIA_CHAIR_1_7);
+        addDrop(DARK_OAK_CHAIR_1_7);
+    }
+
+    private void addVerticalSlabDrops(VerticalSlabBlock block) {
+        addDrop(block, drop -> LootTable.builder()
+                .pool(
+                        LootPool.builder()
+                                .rolls(ConstantLootNumberProvider.create(1.0F))
+                                .with(
+                                        this.applyExplosionDecay(
+                                                drop,
+                                                ItemEntry.builder(drop)
+                                                        .apply(
+                                                                SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))
+                                                                        .conditionally(BlockStatePropertyLootCondition.builder(drop)
+                                                                                .properties(StatePredicate.Builder.create().exactMatch(VerticalSlabBlock.TYPE, VerticalSlabBlock.VerticalSlabType.DOUBLE)))
+                                                        )
+                                        )
+                                )
+                ));
     }
 
     private void addDrop(Block[] blocks) {

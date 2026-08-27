@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:dark_oak_planks_1_7"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:dark_oak_stairs_1_7"
+  }
+}

@@ -1,6 +1,5 @@
 package github.mcdatapack.blocktopia.block;
 
-import github.mcdatapack.blocktopia.item.ModFoodComponents;
 import net.minecraft.data.family.BlockFamily;
 
 public interface ModBlockFamilies {

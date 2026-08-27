@@ -91,21 +91,34 @@ public enum MinecraftVersions implements MinecraftVersion {
     _1_14_1("1.14.1"),
     _1_15_2("1.15.2"),
     _1_16_5("1.16.5"),
+    _1_21_1("1.21.1"),
     _1_21_2("1.21.2"),
     _1_21_4("1.21.4"),
-    _1_21_5("1.21.5");
+    _1_21_5("1.21.5"),
+    _1_21_9("1.21.9"),
+    _26_1("26.1"),
+    _26_1_2("26.1.2");
 
 
 
 
     private final String name;
 
-    MinecraftVersions(final String name) {
+    MinecraftVersions(String name) {
         this.name = name;
     }
 
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int getIndex() {
+        return ordinal();
+    }
+
+    public static MinecraftVersion getNewest() {
+        return _26_1_2;
     }
 }

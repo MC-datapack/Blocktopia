@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/spruce_chairs_1_2_4"
+    },
+    {
+      "item": "minecraft:yellow_wool"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:yellow_spruce_chair_1_2_4"
+  }
+}

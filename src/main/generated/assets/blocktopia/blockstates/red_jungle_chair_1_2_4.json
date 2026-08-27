@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "blocktopia:block/red_jungle_chair_1_2_4",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "blocktopia:block/red_jungle_chair_1_2_4",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "blocktopia:block/red_jungle_chair_1_2_4",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "blocktopia:block/red_jungle_chair_1_2_4",
+      "y": 270
+    }
+  }
+}

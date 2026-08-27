@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "tip=false": {
+      "model": "blocktopia:block/mahogany_hanging_moss"
+    },
+    "tip=true": {
+      "model": "blocktopia:block/mahogany_hanging_moss_tip"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:spruce_planks_1_2_4"
+  },
+  "result": {
+    "count": 2,
+    "id": "blocktopia:spruce_slab_1_3"
+  }
+}

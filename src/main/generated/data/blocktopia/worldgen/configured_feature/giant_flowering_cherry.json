@@ -23,7 +23,7 @@
       "state": {
         "Name": "blocktopia:flowering_cherry_leaves",
         "Properties": {
-          "distance": "128",
+          "distance": "256",
           "persistent": "false",
           "waterlogged": "false"
         }

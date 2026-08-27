@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/dark_prismarine"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_dark_prismarine_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/dark_prismarine"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_dark_prismarine_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/dark_prismarine"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_dark_prismarine_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/dark_prismarine"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_dark_prismarine_slab_west"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/exposed_cut_copper"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/exposed_vertical_cut_copper_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/exposed_cut_copper"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/exposed_vertical_cut_copper_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/exposed_cut_copper"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/exposed_vertical_cut_copper_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/exposed_cut_copper"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/exposed_vertical_cut_copper_slab_west"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/cobblestone_rd20090515"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_cobblestone_slab_rd20090515_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/cobblestone_rd20090515"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_cobblestone_slab_rd20090515_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/cobblestone_rd20090515"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_cobblestone_slab_rd20090515_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/cobblestone_rd20090515"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_cobblestone_slab_rd20090515_west"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/birch_planks_1_2_4"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_birch_slab_1_3_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/birch_planks_1_2_4"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_birch_slab_1_3_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/birch_planks_1_2_4"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_birch_slab_1_3_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/birch_planks_1_2_4"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_birch_slab_1_3_west"
+    }
+  }
+}

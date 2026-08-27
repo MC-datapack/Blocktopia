@@ -14,7 +14,6 @@ import net.minecraft.util.profiler.Profiler;
 
 import java.util.*;
 
-
 public class FluidInteractionLoader extends JsonDataLoader implements IdentifiableResourceReloadListener {
     public static final Identifier ID = Identifier.of("blocktopia", "fluid_interactions");
     private final Map<Identifier, FluidInteraction> interactions = new HashMap<>();
@@ -26,7 +25,7 @@ public class FluidInteractionLoader extends JsonDataLoader implements Identifiab
     @Override
     protected void apply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler) {
         interactions.clear();
-        for (var entry : map.entrySet()) {
+        for (Map.Entry<Identifier, JsonElement> entry : map.entrySet()) {
             FluidInteraction interaction = FluidInteraction.CODEC.parse(JsonOps.INSTANCE, entry.getValue()).getOrThrow();
             interactions.put(entry.getKey(), interaction);
         }

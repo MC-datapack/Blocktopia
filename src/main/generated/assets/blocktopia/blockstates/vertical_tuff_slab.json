@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/tuff"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_tuff_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/tuff"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_tuff_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/tuff"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_tuff_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/tuff"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_tuff_slab_west"
+    }
+  }
+}

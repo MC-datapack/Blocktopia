@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/andesite"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_andesite_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/andesite"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_andesite_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/andesite"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_andesite_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/andesite"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_andesite_slab_west"
+    }
+  }
+}

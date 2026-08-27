@@ -8,6 +8,7 @@ import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.CuttingRecipe;
 import net.minecraft.recipe.Ingredient;
@@ -28,24 +29,26 @@ public class WoodCuttingRecipeJSONBuilder implements CraftingRecipeJsonBuilder {
     private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap<>();
     private final CuttingRecipe.RecipeFactory<WoodCuttingRecipe> recipeFactory;
 
-    public WoodCuttingRecipeJSONBuilder(CuttingRecipe.RecipeFactory<WoodCuttingRecipe> factory, Ingredient input, Item output, int count) {
+    public WoodCuttingRecipeJSONBuilder(CuttingRecipe.RecipeFactory<WoodCuttingRecipe> factory, Ingredient input, ItemConvertible output, int count) {
         this.recipeFactory = factory;
+        this.output = output.asItem();
         this.input = input;
-        this.output = output;
         this.count = count;
     }
 
-    public static WoodCuttingRecipeJSONBuilder create(Ingredient input, Item output, int count) {
+    public static WoodCuttingRecipeJSONBuilder create(Ingredient input, ItemConvertible output) {
+        return new WoodCuttingRecipeJSONBuilder(WoodCuttingRecipe::new, input, output, 1);
+    }
+
+    public static WoodCuttingRecipeJSONBuilder create(Ingredient input, ItemConvertible output, int count) {
         return new WoodCuttingRecipeJSONBuilder(WoodCuttingRecipe::new, input, output, count);
     }
 
-    @Override
     public WoodCuttingRecipeJSONBuilder criterion(String name, AdvancementCriterion<?> criterion) {
         criteria.put(name, criterion);
         return this;
     }
 
-    @Override
     public WoodCuttingRecipeJSONBuilder group(@Nullable String group) {
         this.group = group;
         return this;

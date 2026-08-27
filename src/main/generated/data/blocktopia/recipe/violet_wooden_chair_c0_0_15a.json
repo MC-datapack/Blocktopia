@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "blocktopia:chairs/wooden_chairs_c0_0_15a"
+    },
+    {
+      "item": "blocktopia:violet_cloth"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blocktopia:violet_wooden_chair_c0_0_15a"
+  }
+}

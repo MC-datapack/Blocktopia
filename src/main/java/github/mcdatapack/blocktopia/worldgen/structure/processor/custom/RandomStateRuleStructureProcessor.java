@@ -3,6 +3,7 @@ package github.mcdatapack.blocktopia.worldgen.structure.processor.custom;
 import com.mojang.serialization.MapCodec;
 import github.mcdatapack.blocktopia.worldgen.structure.processor.ModStructureProcessorTypes;
 import net.minecraft.block.BlockState;
+import net.minecraft.state.property.Property;
 import net.minecraft.structure.StructurePlacementData;
 import net.minecraft.structure.StructureTemplate;
 import net.minecraft.structure.processor.StructureProcessor;
@@ -10,6 +11,7 @@ import net.minecraft.structure.processor.StructureProcessorType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,11 +41,23 @@ public class RandomStateRuleStructureProcessor extends StructureProcessor {
     ) {
         Random random = Random.create(MathHelper.hashCode(currentBlockInfo.pos()));
         BlockState blockState = world.getBlockState(currentBlockInfo.pos());
+        BlockState originalState = originalBlockInfo.state();
 
         for (RandomStateStructureProcessorRule structureProcessorRule : this.rules) {
             if (structureProcessorRule.test(currentBlockInfo.state(), blockState, originalBlockInfo.pos(), currentBlockInfo.pos(), pivot, random)) {
+                BlockState newState = structureProcessorRule.getOutputState(random);
+
+                for (Property<?> property : originalState.getProperties()) {
+                    if (newState.contains(property)) {
+                        newState = newState.with(
+                                (Property) property,
+                                originalState.get(property)
+                        );
+                    }
+                }
+
                 return new StructureTemplate.StructureBlockInfo(
-                        currentBlockInfo.pos(), structureProcessorRule.getOutputState(random), structureProcessorRule.getOutputNbt(random, currentBlockInfo.nbt())
+                        currentBlockInfo.pos(), newState, structureProcessorRule.getOutputNbt(random, currentBlockInfo.nbt())
                 );
             }
         }

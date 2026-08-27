@@ -15,8 +15,8 @@ public class LegacyCutterModel extends Model {
 	private final ModelPart main;
 
 	public LegacyCutterModel(ModelPart root) {
-        super(RenderLayer::getEntitySolid);
-        this.main = root.getChild("main");
+		super(RenderLayer::getEntitySolid);
+		this.main = root.getChild("main");
 	}
 
 	public static TexturedModelData getTexturedModelData() {

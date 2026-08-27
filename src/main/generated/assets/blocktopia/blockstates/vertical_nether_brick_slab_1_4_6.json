@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/nether_bricks_b1_9pre"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_nether_brick_slab_1_4_6_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/nether_bricks_b1_9pre"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_nether_brick_slab_1_4_6_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/nether_bricks_b1_9pre"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_nether_brick_slab_1_4_6_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/nether_bricks_b1_9pre"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_nether_brick_slab_1_4_6_west"
+    }
+  }
+}

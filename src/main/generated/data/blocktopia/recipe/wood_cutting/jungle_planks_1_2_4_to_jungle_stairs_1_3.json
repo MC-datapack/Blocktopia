@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:jungle_planks_1_2_4"
+  },
+  "result": {
+    "count": 1,
+    "id": "blocktopia:jungle_stairs_1_3"
+  }
+}

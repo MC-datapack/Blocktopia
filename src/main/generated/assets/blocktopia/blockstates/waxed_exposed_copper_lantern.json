@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "blocktopia:block/exposed_copper_lantern"
+    },
+    "hanging=true": {
+      "model": "blocktopia:block/exposed_copper_lantern_hanging"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/corn_planks"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_corn_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/corn_planks"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_corn_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/corn_planks"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_corn_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/corn_planks"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_corn_slab_west"
+    }
+  }
+}

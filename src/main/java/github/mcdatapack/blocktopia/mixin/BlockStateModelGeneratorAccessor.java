@@ -1,5 +1,6 @@
 package github.mcdatapack.blocktopia.mixin;
 
+import github.mcdatapack.blocktopia.api.BlockStateModelAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.TexturedModel;
@@ -10,11 +11,13 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.Map;
 
 @Mixin(BlockStateModelGenerator.class)
-public interface BlockStateModelGeneratorAccessor {
+public interface BlockStateModelGeneratorAccessor extends BlockStateModelAccessor {
     @Accessor("texturedModels")
-    Map<Block, TexturedModel> getTextureModels();
+    @Override
+    Map<Block, TexturedModel> blocktopia$getTextureModels();
 
     @Accessor("texturedModels")
     @Mutable
-    void setTextureModels(Map<Block, TexturedModel> blockTexturedModelMap);
+    @Override
+    void blocktopia$setTextureModels(Map<Block, TexturedModel> blockTexturedModelMap);
 }

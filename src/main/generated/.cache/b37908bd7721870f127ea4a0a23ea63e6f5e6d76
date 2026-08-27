@@ -1,4 +1,6 @@
-// 1.21.1	2026-01-25T20:29:07.6592956	Blocktopia/Tags for minecraft:item
+// 1.21.1	2026-08-27T14:25:14.1433265	Blocktopia/Tags for minecraft:item
+6f83e29a5e39256773f9ee4ced17de5957c0239e data\blocktopia\tags\item\chairs\acacia_chairs_1_7.json
+4eacb4bc9b74efd2aad5b744f638595e96bf8204 data\blocktopia\tags\item\chairs\wooden_chairs_c0_0_14a.json
 c037a82f3f225397912943691cd626b849a4357f data\blocktopia\tags\item\chairs\jungle.json
 beb229f2e17bdddc617ff4c1e9a4aaa9957433ca data\minecraft\tags\item\wooden_doors.json
 043d749080e35d52bb7605de4458730e2a7a6589 data\blocktopia\tags\item\chairs\banana.json
@@ -11,14 +13,17 @@ d765ce436bf99d3e4077663ec34c222a22266275 data\minecraft\tags\item\enchantable\va
 2d984a2974a3874e4ff790a72c097b7dc9516c1e data\blocktopia\tags\item\chairs\crimson.json
 edb7e26d89a46ec3bedf21892d5d4a5395b3893a data\blocktopia\tags\item\chairs\warped.json
 dbe0dbfc6c602f6d5a3479f4ccd1a3dfdb1a1bc3 data\blocktopia\tags\item\chairs\birch.json
+39e54216ee8fe2a3e2b5efb4d7cd14d5dc355fce data\blocktopia\tags\item\chairs\spruce_chairs_1_2_4.json
+3592c3a6c296674198680ece1d21db102f4f05bb data\blocktopia\tags\item\chairs\dark_oak_chairs_1_7.json
 e0edc246d6e636a88a47cec44b86e034ba2beaa9 data\minecraft\tags\item\walls.json
 3dca155d944288f55476f0484ea59ad29db9c998 data\blocktopia\tags\item\chairs\oak.json
 77f825bbcd2a3228d008e2fd758cc78b2fb0fb51 data\minecraft\tags\item\wooden_fences.json
+05fa85da8d94b8e8e60b645c02a7f65f13b2c40e data\blocktopia\tags\item\chairs\birch_chairs_1_2_4.json
 4e6d2940e488bfa28c3ea7b5d95fccac2371dfcb data\minecraft\tags\item\wooden_stairs.json
 227dec52bb82541c2be7660e577a0f12dd47a3e3 data\blocktopia\tags\item\monkey_breeding_items.json
 c1fa86185e1e46618a4cbebc01e81d92ead6c5d5 data\blocktopia\tags\item\chairs\mahogany.json
 90909547f512bef2e0aef40acf806d672a4aaa72 data\blocktopia\tags\item\chairs\pale_oak.json
-7ca3eaac19c1058c311e66c63fdf49c695a49d4a data\blocktopia\tags\item\chairs.json
+d511d14702cc327dc7d6cc0bed1d41c1ff5fbc1c data\blocktopia\tags\item\chairs.json
 bbc813e13d9a74e61529cea1d55abcc60b6fdd12 data\minecraft\tags\item\planks.json
 c6a8e3faa2a94a8c997e8f5446633fc07d2e6bab data\trinkets\tags\item\feet\cat.json
 4c45e0374f38a20cc66c4c346a9664760b25fbf3 data\trinkets\tags\item\feet\rabbit.json
@@ -27,7 +32,7 @@ d637646b8a728232737ad3a1c5b38924feb6db5a data\blocktopia\tags\item\legacy_cobble
 d0f4e35b4d955957fc87482da1f3948f166456fe data\blocktopia\tags\item\chairs\corn.json
 5326794492b68dcd745ec7cba9b3b7ae0d9240f2 data\blocktopia\tags\item\mahogany_logs.json
 d6be075b5fa0a7a811e47afeca3efd13d78d5194 data\minecraft\tags\item\leaves.json
-ecaf220bb8a13c0d2fb939f8fa2ec7e0ab083d30 data\c\tags\item\buckets.json
+aef55ed1a8e4910aa7a007c6e9600eac2481c9bb data\blocktopia\tags\item\chairs\wooden_chairs_rd161348.json
 05fe74e4d5f9e5d3d28f8ac5645ce4f6bcc4dcac data\blocktopia\tags\item\chairs\cherry.json
 03cda8030b5f3ac63bdc97a595cfa799b75bec08 data\blocktopia\tags\item\palm_logs.json
 211e6b88ecebd7ff4425f21ddc3559d15e3abf1f data\minecraft\tags\item\wooden_trapdoors.json
@@ -46,10 +51,15 @@ f84acd2cb3fc1c70c88583315e0e484d741545bb data\trinkets\tags\item\head\fish.json
 24ec475e9644b9d5dba2bb105362ca82eb719fa7 data\blocktopia\tags\item\chairs\mangrove.json
 3041e4ab105db9ae25b59b1bb5f15fbb9d5d0cc4 data\minecraft\tags\item\wooden_buttons.json
 1477fb7c0bac378a8fe5211e187782228d08cbfd data\minecraft\tags\item\fences.json
+9702ae03d64c2acbf9331ac0a08fc27bd5bf67ee data\blocktopia\tags\item\chairs\wooden_chairs_b1_9pre5.json
 d765ce436bf99d3e4077663ec34c222a22266275 data\minecraft\tags\item\enchantable\equippable.json
 7f479bbefabc1626a9c48255e7cd961e7a891ec0 data\blocktopia\tags\item\legacy_blocks.json
 ba4700de8f6ea748f3c3c33f16877812e849dd05 data\minecraft\tags\item\logs_that_burn.json
 859a141577e60459f2f5164872d1f096264906d1 data\minecraft\tags\item\wooden_pressure_plates.json
 4180cc97d659a5e70f1689339afca13d5d04c1d0 data\minecraft\tags\item\wool_carpets.json
 f6e2debac8bdea64f82a5fc7187e66b04a10b36c data\blocktopia\tags\item\corn_logs.json
+06973ef6d63426863dd4bc8e1e7ca74711f06ee9 data\minecraft\tags\item\beacon_payment_items.json
 63a387ffd685a8fd975da65b6255e38c1c4d1484 data\blocktopia\tags\item\chairs\bamboo.json
+9da8dcb4cb78a0c7b73a90fb666e54868b8549a2 data\blocktopia\tags\item\chairs\wooden_chairs_rd20090515.json
+bb6a1e3fa221df3437c8deb03454b984f4119441 data\blocktopia\tags\item\chairs\wooden_chairs_c0_0_15a.json
+d3138b6490268f9f52de79c941710f72f192ad28 data\blocktopia\tags\item\chairs\jungle_chairs_1_2_4.json

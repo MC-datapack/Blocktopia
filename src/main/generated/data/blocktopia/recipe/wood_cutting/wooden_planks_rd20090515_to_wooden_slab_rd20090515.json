@@ -1,0 +1,10 @@
+{
+  "type": "blocktopia:wood_cutting",
+  "ingredient": {
+    "item": "blocktopia:wooden_planks_rd20090515"
+  },
+  "result": {
+    "count": 2,
+    "id": "blocktopia:wooden_slab_rd20090515"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/mossy_cobblestone"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_mossy_cobblestone_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/mossy_cobblestone"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_mossy_cobblestone_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/mossy_cobblestone"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_mossy_cobblestone_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/mossy_cobblestone"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_mossy_cobblestone_slab_west"
+    }
+  }
+}

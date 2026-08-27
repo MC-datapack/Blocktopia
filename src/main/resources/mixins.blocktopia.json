@@ -9,10 +9,11 @@
   "mixins": [
 	"BlockStateModelGeneratorAccessor",
 	"ChunkRegionMixin",
+	"FishingBobberEntityMixin",
 	"NetherPortalMixin",
 	"TrunkPlacerMixin",
-	"block.BlocksMixin",
 	"block.CocoaBlockMixin",
+	"block.CropBlockMixin",
 	"block.FlowerBlockMixin",
 	"block.PistonBlockEntityMixin",
 	"block.PistonHandlerMixin",
@@ -26,11 +27,11 @@
 	"entity.villager.VillagerEntityMixin",
 	"fluid.FluidBlockMixin"
   ],
-  "injectors": {
-	"defaultRequire": 0
-  },
   "client": [
 	"entity.villager.VillagerClothingFeatureRendererMixin",
 	"entity.villager.VillagerScreenMixin"
-  ]
+  ],
+  "injectors": {
+	"defaultRequire": 0
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "blocktopia:stone_bricks_b1_8"
+  },
+  "result": {
+    "count": 2,
+    "id": "blocktopia:vertical_stone_brick_slab_b1_8"
+  }
+}

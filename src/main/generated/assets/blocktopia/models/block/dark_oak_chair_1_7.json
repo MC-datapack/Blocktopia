@@ -1,0 +1,7 @@
+{
+  "parent": "blocktopia:block/chair",
+  "textures": {
+    "seat_texture": "blocktopia:block/dark_oak_planks_1_7",
+    "texture": "blocktopia:block/dark_oak_planks_1_7"
+  }
+}

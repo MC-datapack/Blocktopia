@@ -6,7 +6,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -121,15 +120,13 @@ public abstract class ExtendedSaplingGenerator extends SaplingGenerator {
             System.out.println("Using Extended Sapling Generator");
             RegistryKey<ConfiguredFeature<?, ?>> registryKey = this.getMega3x3Variant(random);
             if (registryKey != null) {
-                RegistryEntry<ConfiguredFeature<?, ?>> registryEntry = world.getRegistryManager()
+                ConfiguredFeature<?, ?> feature = world.getRegistryManager()
                         .get(RegistryKeys.CONFIGURED_FEATURE)
-                        .getEntry(registryKey)
-                        .orElse(null);
-                if (registryEntry != null) {
+                        .get(registryKey);
+                if (feature != null) {
                     for (int i = 1; i >= -1; i--) {
                         for (int j = 1; j >= -1; j--) {
                             if (canGenerate3x3Tree(state, world, pos, i, j)) {
-                                ConfiguredFeature<?, ?> configuredFeature = registryEntry.value();
                                 BlockState blockState = Blocks.AIR.getDefaultState();
                                 world.setBlockState(pos.add(i, 0, j), blockState, Block.NO_REDRAW);
                                 world.setBlockState(pos.add(i + 1, 0, j), blockState, Block.NO_REDRAW);
@@ -140,7 +137,7 @@ public abstract class ExtendedSaplingGenerator extends SaplingGenerator {
                                 world.setBlockState(pos.add(i, 0, j + 2), blockState, Block.NO_REDRAW);
                                 world.setBlockState(pos.add(i + 1, 0, j + 2), blockState, Block.NO_REDRAW);
                                 world.setBlockState(pos.add(i + 2, 0, j + 2), blockState, Block.NO_REDRAW);
-                                if (configuredFeature.generate(world, chunkGenerator, random, pos.add(i, 0, j))) {
+                                if (feature.generate(world, chunkGenerator, random, pos.add(i, 0, j))) {
                                     return true;
                                 }
 
@@ -162,21 +159,19 @@ public abstract class ExtendedSaplingGenerator extends SaplingGenerator {
 
             RegistryKey<ConfiguredFeature<?, ?>> registryKey1 = this.getMegaTreeFeature(random);
             if (registryKey1 != null) {
-                RegistryEntry<ConfiguredFeature<?, ?>> registryEntry = world.getRegistryManager()
+                ConfiguredFeature<?, ?> feature = world.getRegistryManager()
                         .get(RegistryKeys.CONFIGURED_FEATURE)
-                        .getEntry(registryKey1)
-                        .orElse(null);
-                if (registryEntry != null) {
+                        .get(registryKey1);
+                if (feature != null) {
                     for (int i = 0; i >= -1; i--) {
                         for (int j = 0; j >= -1; j--) {
                             if (canGenerateLargeTree(state, world, pos, i, j)) {
-                                ConfiguredFeature<?, ?> configuredFeature = registryEntry.value();
                                 BlockState blockState = Blocks.AIR.getDefaultState();
                                 world.setBlockState(pos.add(i, 0, j), blockState, Block.NO_REDRAW);
                                 world.setBlockState(pos.add(i + 1, 0, j), blockState, Block.NO_REDRAW);
                                 world.setBlockState(pos.add(i, 0, j + 1), blockState, Block.NO_REDRAW);
                                 world.setBlockState(pos.add(i + 1, 0, j + 1), blockState, Block.NO_REDRAW);
-                                if (configuredFeature.generate(world, chunkGenerator, random, pos.add(i, 0, j))) {
+                                if (feature.generate(world, chunkGenerator, random, pos.add(i, 0, j))) {
                                     return true;
                                 }
 
@@ -195,17 +190,15 @@ public abstract class ExtendedSaplingGenerator extends SaplingGenerator {
             if (registryKey2 == null) {
                 return false;
             } else {
-                RegistryEntry<ConfiguredFeature<?, ?>> registryEntry2 = world.getRegistryManager()
+                ConfiguredFeature<?, ?> feature = world.getRegistryManager()
                         .get(RegistryKeys.CONFIGURED_FEATURE)
-                        .getEntry(registryKey2)
-                        .orElse(null);
-                if (registryEntry2 == null) {
+                        .get(registryKey2);
+                if (feature == null) {
                     return false;
                 } else {
-                    ConfiguredFeature<?, ?> configuredFeature2 = registryEntry2.value();
                     BlockState blockState2 = world.getFluidState(pos).getBlockState();
                     world.setBlockState(pos, blockState2, Block.NO_REDRAW);
-                    if (configuredFeature2.generate(world, chunkGenerator, random, pos)) {
+                    if (feature.generate(world, chunkGenerator, random, pos)) {
                         if (world.getBlockState(pos) == blockState2) {
                             world.updateListeners(pos, state, blockState2, Block.NOTIFY_LISTENERS);
                         }
@@ -233,26 +226,4 @@ public abstract class ExtendedSaplingGenerator extends SaplingGenerator {
                     && world.getBlockState(pos.add(x + 2, 0, z + 2)).isOf(block);
         }
     }
-
-    //public static class ExtendedSaplingGenerator$4x4 extends ExtendedSaplingGenerator$3x3 {
-    //    private final Optional<RegistryKey<ConfiguredFeature<?, ?>>> mega4x4Variant, rareMega4x4Variant;
-//
-    //    public ExtendedSaplingGenerator$4x4(String id,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> megaVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> regularVariant,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> beesVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> mega3x3Variant,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> mega4x4Variant) {
-    //        this(id, 0.0F, megaVariant, megaVariant, regularVariant, regularVariant, beesVariant, beesVariant, mega3x3Variant, mega3x3Variant, mega4x4Variant, mega4x4Variant);
-    //    }
-//
-    //    public ExtendedSaplingGenerator$4x4(String id, float rareChance,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> megaVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareMegaVariant,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> regularVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareRegularVariant,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> beesVariant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareBeesVariant,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> mega3x3Variant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareMega3x3Variant,
-    //                                        Optional<RegistryKey<ConfiguredFeature<?, ?>>> mega4x4Variant, Optional<RegistryKey<ConfiguredFeature<?, ?>>> rareMega4x4Variant) {
-    //        super(id, rareChance, megaVariant, rareMegaVariant, regularVariant, rareRegularVariant, beesVariant, rareBeesVariant, mega3x3Variant, rareMega3x3Variant);
-    //        this.mega4x4Variant = mega4x4Variant;
-    //        this.rareMega4x4Variant = rareMega4x4Variant;
-    //    }
-    //}
 }

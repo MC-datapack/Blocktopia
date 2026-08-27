@@ -8,6 +8,7 @@ import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -18,7 +19,6 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
 public abstract class TropicalWaterFluid extends FlowableFluid {
-
     @Override
     protected boolean isInfinite(World world) {
         return true;
@@ -67,11 +67,11 @@ public abstract class TropicalWaterFluid extends FlowableFluid {
 
     @Override
     public Item getBucketItem() {
-        return ModItems.TROPICAL_WATER_BUCKET;
+        return ModFluids.TROPICAL_WATER_BUCKET;
     }
 
     @Override
-    protected BlockState toBlockState(FluidState state) {
+    public BlockState toBlockState(FluidState state) {
         return ModFluids.TROPICAL_WATER_BLOCK.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 

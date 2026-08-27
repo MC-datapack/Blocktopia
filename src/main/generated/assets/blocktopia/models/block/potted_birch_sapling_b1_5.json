@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_flower_pot_cross",
+  "textures": {
+    "plant": "blocktopia:block/birch_sapling_b1_5"
+  }
+}

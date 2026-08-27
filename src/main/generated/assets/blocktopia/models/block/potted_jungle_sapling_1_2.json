@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "blocktopia:block/jungle_sapling_1_2"
+  }
+}

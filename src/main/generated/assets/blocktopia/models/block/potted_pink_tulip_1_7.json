@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "blocktopia:block/pink_tulip_1_7"
+  }
+}

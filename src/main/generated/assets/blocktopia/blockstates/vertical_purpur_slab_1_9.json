@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/purpur_block_1_9"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_purpur_slab_1_9_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/purpur_block_1_9"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_purpur_slab_1_9_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/purpur_block_1_9"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_purpur_slab_1_9_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/purpur_block_1_9"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_purpur_slab_1_9_west"
+    }
+  }
+}

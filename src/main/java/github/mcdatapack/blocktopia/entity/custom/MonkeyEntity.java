@@ -41,7 +41,7 @@ public class MonkeyEntity extends AnimalEntity {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
-    public MonkeyEntity(EntityType<? extends MonkeyEntity> entityType, World world) {
+    public MonkeyEntity(EntityType<MonkeyEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -72,7 +72,7 @@ public class MonkeyEntity extends AnimalEntity {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new AnimalMateGoal(this, 1.2554));
-        this.goalSelector.add(2, new TemptGoal(this, 0.45, Ingredient.fromTag(ModTags.Items.MONKEY_BREEDING_ITEMS), false));
+        this.goalSelector.add(2, new TemptGoal(this, 0.45, stack -> stack.isIn(ModTags.Items.MONKEY_BREEDING_ITEMS), false));
         this.goalSelector.add(3, new FollowParentGoal(this, 0.45));
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 0.31));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 15));
@@ -176,7 +176,7 @@ public class MonkeyEntity extends AnimalEntity {
         return this.dataTracker.get(MONKEY_VARIANT);
     }
 
-    private void setVariant(Variants variant) {
+    public void setVariant(Variants variant) {
         this.dataTracker.set(MONKEY_VARIANT, variant.getId() & 255);
     }
 

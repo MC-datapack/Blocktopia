@@ -1,17 +1,13 @@
 package github.mcdatapack.blocktopia.entity.renderer;
 
 import github.mcdatapack.blocktopia.Blocktopia;
-import github.mcdatapack.blocktopia.entity.custom.MonkeyEntity;
 import github.mcdatapack.blocktopia.entity.custom.ToucanEntity;
-import github.mcdatapack.blocktopia.entity.model.MonkeyModel;
 import github.mcdatapack.blocktopia.entity.model.ToucanModel;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-
-import java.util.Map;
 
 public class ToucanRenderer extends MobEntityRenderer<ToucanEntity, ToucanModel> {
     private static final Identifier TEXTURE = Blocktopia.id("textures/entity/toucan.png");

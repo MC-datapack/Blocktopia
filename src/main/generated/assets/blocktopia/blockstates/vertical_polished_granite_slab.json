@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/polished_granite"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_polished_granite_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/polished_granite"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_polished_granite_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/polished_granite"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_polished_granite_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/polished_granite"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_polished_granite_slab_west"
+    }
+  }
+}

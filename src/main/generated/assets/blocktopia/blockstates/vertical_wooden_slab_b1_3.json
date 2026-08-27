@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "blocktopia:block/wooden_planks_c0_0_15a"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_wooden_slab_b1_3_east"
+    },
+    "facing=north,type=double": {
+      "model": "blocktopia:block/wooden_planks_c0_0_15a"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_wooden_slab_b1_3_north"
+    },
+    "facing=south,type=double": {
+      "model": "blocktopia:block/wooden_planks_c0_0_15a"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_wooden_slab_b1_3_south"
+    },
+    "facing=west,type=double": {
+      "model": "blocktopia:block/wooden_planks_c0_0_15a"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_wooden_slab_b1_3_west"
+    }
+  }
+}

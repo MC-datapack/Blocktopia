@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,type=double": {
+      "model": "minecraft:block/bamboo_mosaic"
+    },
+    "facing=east,type=single": {
+      "model": "blocktopia:block/vertical_bamboo_mosaic_slab_east"
+    },
+    "facing=north,type=double": {
+      "model": "minecraft:block/bamboo_mosaic"
+    },
+    "facing=north,type=single": {
+      "model": "blocktopia:block/vertical_bamboo_mosaic_slab_north"
+    },
+    "facing=south,type=double": {
+      "model": "minecraft:block/bamboo_mosaic"
+    },
+    "facing=south,type=single": {
+      "model": "blocktopia:block/vertical_bamboo_mosaic_slab_south"
+    },
+    "facing=west,type=double": {
+      "model": "minecraft:block/bamboo_mosaic"
+    },
+    "facing=west,type=single": {
+      "model": "blocktopia:block/vertical_bamboo_mosaic_slab_west"
+    }
+  }
+}

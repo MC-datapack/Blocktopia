@@ -4,7 +4,10 @@
     "to_place": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "blocktopia:glow_flower"
+        "Name": "blocktopia:glow_flower",
+        "Properties": {
+          "waterlogged": "false"
+        }
       }
     }
   }

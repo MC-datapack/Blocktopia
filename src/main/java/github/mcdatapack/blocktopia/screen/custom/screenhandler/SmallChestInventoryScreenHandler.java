@@ -16,12 +16,10 @@ public class SmallChestInventoryScreenHandler extends ScreenHandler {
     private final SmallChestBlockEntity blockEntity;
     private final ScreenHandlerContext context;
 
-    //Client Constructor
     public SmallChestInventoryScreenHandler(int syncId, PlayerInventory playerInventory, BlockPosPayload payload) {
         this(syncId, playerInventory, (SmallChestBlockEntity)playerInventory.player.getWorld().getBlockEntity(payload.pos()));
     }
 
-    //Main Constructor
     public SmallChestInventoryScreenHandler(int syncId, PlayerInventory playerInventory, SmallChestBlockEntity blockEntity) {
         super(ModScreenHandlerTypes.SMALL_CHEST_INVENTORY_SCREEN_HANDLER, syncId);
 
@@ -54,10 +52,8 @@ public class SmallChestInventoryScreenHandler extends ScreenHandler {
     }
 
     private void addBlockInventory(SimpleInventory playerInv) {
-        for(int row = 0; row < 1; ++row) {
-            for(int column = 0; column < 9; ++column) {
-                addSlot(new Slot(playerInv, column + row * 9, 8 + column * 18, 15 + row * 18));
-            }
+        for (int column = 0; column < 9; ++column) {
+            addSlot(new Slot(playerInv, column, 8 + column * 18, 15));
         }
     }
 
@@ -75,10 +71,10 @@ public class SmallChestInventoryScreenHandler extends ScreenHandler {
             ItemStack inSlot = slot.getStack();
             newStack = inSlot.copy();
             if (slotIndex < 36) {
-                if (!insertItem(inSlot, 36, this.slots.size(), true)) {
+                if (!insertItem(inSlot, 36, this.slots.size(), false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!insertItem(inSlot, 0, 36, false)) {
+            } else if (!insertItem(inSlot, 0, 36, true)) {
                 return ItemStack.EMPTY;
             }
 

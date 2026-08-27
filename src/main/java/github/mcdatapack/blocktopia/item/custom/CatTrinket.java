@@ -31,7 +31,7 @@ public class CatTrinket extends TrinketItem {
                 2.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
         EntityAttributeModifier saveFallDistanceModifier = new EntityAttributeModifier(id.withSuffixedPath("blocktopia/save_fall_distance"),
                 50.0, EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
-        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, speedModifier);
+        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_EFFICIENCY, speedModifier);
         modifiers.put(EntityAttributes.GENERIC_SAFE_FALL_DISTANCE, saveFallDistanceModifier);
         return modifiers;
     }
